@@ -4,13 +4,15 @@
   <md-card-content>
     <form class="mb-1">
       <md-checkbox [(ngModel)]="isChecked"
-        name="cb"
-        color="checkboxColor()"
-        (change)="isIndeterminate = false"
-        [indeterminate]="isIndeterminate"
-        [disabled]="isDisabled"
-        [align]="alignment">
+                   name="cb"
+                   value="basic_checkbox"
+                   [color]="checkboxColor()"
+                   (change)="isIndeterminate = false"
+                   [indeterminate]="isIndeterminate"
+                   [disabled]="isDisabled"
+                   [align]="alignment">
         Do you want to <em>foobar</em> the <em>bazquux</em>?
+
       </md-checkbox> - <strong>{{printResult()}}</strong>
     </form>
 
