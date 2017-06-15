@@ -4,7 +4,7 @@ Material design template built with Angular.
 
 See [WIKI](https://github.com/ddeloy/itn-md-library/wiki) for latest notes
 
-Deployed version of new template:[http://ddeloy.com/dist-dd-md-1/](http://ddeloy.com/dist-dd-md-1/)
+Deployed version of new template: [http://ddeloy.com/dist-dd-md-1/](http://ddeloy.com/dist-dd-md-1/)
 
 #### Key Features Include:
 * Angular - latest
