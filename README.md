@@ -2,7 +2,7 @@
 
 Material design template built with Angular.
 
-####Key Features Include:
+#### Key Features Include:
 * Angular - latest
 * Material Design - latest
 * Polyfills - works all browsers
