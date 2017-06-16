@@ -3,42 +3,85 @@
   <md-card-subtitle>md-button is an HTML button or a tag enhanced with styling and animation to match the Material Design button spec</md-card-subtitle>
   <md-card-content>
     <div class="pb-1">
-      <p>Flat buttons</p>
-      <button md-icon-button><md-icon>favorite</md-icon></button>
-      <button md-button class="mr-1">Default</button>
-      <button md-button color="primary" class="mr-1">Primary</button>
-      <button md-button color="accent" class="mr-1">Accent</button>
-      <button md-button color="warn" class="mr-1">Warn</button>
-      <button md-button disabled class="mr-1">off</button>
+      <p>Default buttons</p>
+      <button md-raised-button md-icon-button color="primary" class="mr-1"><md-icon>star</md-icon></button>
+      <button md-raised-button md-icon-button color="accent" class="mr-1"><md-icon>search</md-icon></button>
+      <button md-raised-button color="primary" class="mr-1">Primary</button>
+      <button md-raised-button color="accent" class="mr-1">Secondary</button>
+      <button md-raised-button color="warn" class="mr-1">Warn</button>
+      <button md-raised-button disabled color="primary" class="mr-1">disabled</button>
+      <button md-raised-button disabled color="accent" class="mr-1">disabled</button>
     </div>
 
     <div class="pb-1">
-      <p>Raised buttons</p>
-      <button md-raised-button md-icon-button class="mr-1"><md-icon>favorite</md-icon></button>
-      <button md-raised-button class="mr-1">Default</button>
-      <button md-raised-button color="primary" class="mr-1">Primary</button>
-      <button md-raised-button color="accent" class="mr-1">Accent</button>
-      <button md-raised-button color="warn" class="mr-1">Warn</button>
-      <button md-raised-button disabled class="mr-1">off</button>
+      <p>Round buttons</p>
+      <button md-raised-button md-round-button color="primary" class="mr-1">Primary</button>
+      <button md-raised-button md-round-button color="accent" class="mr-1">Secondary</button>
+      <button md-raised-button md-round-button color="warn" class="mr-1">Warn</button>
+      <button md-raised-button md-round-button disabled color="primary" class="mr-1">disabled</button>
+      <button md-raised-button md-round-button disabled color="accent" class="mr-1">disabled</button>
+    </div>
+
+    <div class="pb-1">
+      <p>Flat buttons</p>
+      <button md-icon-button color="primary"><md-icon>info_outline</md-icon></button>
+      <button md-icon-button color="accent"><md-icon>error</md-icon></button>
+      <button md-button color="primary" class="mr-1">Primary</button>
+      <button md-button color="accent" class="mr-1">Secondary</button>
+      <button md-button color="warn" class="mr-1">Warn</button>
+      <button md-button disabled color="primary" class="mr-1">off</button>
+      <button md-button disabled color="accent" class="mr-1">off</button>
     </div>
 
     <div class="pb-1">
       <p>Small buttons</p>
-      <p>See _buttons.scss mixin - applied $primary,300 to all small buttons</p>
-      <button md-raised-button md-icon-button md-button-sm class="mr-1"><md-icon>favorite</md-icon></button>
-      <button md-raised-button md-button-sm class="mr-1">Default</button>
+      <button md-raised-button md-icon-button md-button-sm color="primary" class="mr-1">
+        <md-icon>play_arrow</md-icon>
+      </button>
+      <button md-raised-button md-icon-button md-button-sm color="accent" class="mr-1">
+        <md-icon>replay</md-icon>
+      </button>
       <button md-raised-button md-button-sm color="primary" class="mr-1">Primary</button>
       <button md-raised-button md-button-sm color="accent" class="mr-1">Accent</button>
       <button md-raised-button md-button-sm color="warn" class="mr-1">Warn</button>
-      <button md-raised-button md-button-sm disabled class="mr-1">off</button>
+      <button md-raised-button md-button-sm color="primary" disabled class="mr-1">off</button>
+      <button md-raised-button md-button-sm color="accent" disabled class="mr-1">off</button>
+    </div>
+
+    <div class="pb-1">
+      <p>Round Small buttons</p>
+      <button md-raised-button md-round-button md-button-sm color="primary" class="mr-1">Primary</button>
+      <button md-raised-button md-round-button md-button-sm color="accent" class="mr-1">Accent</button>
+      <button md-raised-button md-round-button md-button-sm color="warn" class="mr-1">Warn</button>
+      <button md-raised-button md-round-button md-button-sm color="primary" disabled class="mr-1">off</button>
+      <button md-raised-button md-round-button md-button-sm color="accent" disabled class="mr-1">off</button>
+    </div>    
+
+    <div class="pb-1">
+      <p>Flat Small buttons</p>
+      <button md-icon-button md-button-sm color="primary" class="mr-1">
+        <md-icon>add</md-icon>
+      </button>
+      <button md-icon-button md-button-sm color="accent" class="mr-1">
+        <md-icon>block</md-icon>
+      </button>
+      <button md-button md-button-sm color="primary" class="mr-1">Primary</button>
+      <button md-button md-button-sm color="accent" class="mr-1">Accent</button>
+      <button md-button md-button-sm color="warn" class="mr-1">Warn</button>
+      <button md-button md-button-sm color="primary" disabled class="mr-1">off</button>
+      <button md-button md-button-sm color="accent" disabled class="mr-1">off</button>
     </div>
 
     <div class="pb-1">
       <p>Fab buttons</p>
-      <button md-fab class="mr-1"><md-icon>add</md-icon></button>
-      <button md-fab disabled="" class="mr-1"><md-icon>add</md-icon></button>
-      <button md-mini-fab class="mr-1"><md-icon>add</md-icon></button>
-      <button md-mini-fab disabled class="mr-1"><md-icon>add</md-icon></button>
+      <button md-fab color="primary" class="mr-1"><md-icon>add</md-icon></button>
+      <button md-fab color="accent" class="mr-1"><md-icon>add</md-icon></button>
+      <button md-fab color="primary" disabled="" class="mr-1"><md-icon>add</md-icon></button>
+      <button md-fab color="accent" disabled="" class="mr-1"><md-icon>add</md-icon></button>
+      <button md-mini-fab color="primary" class="mr-1"><md-icon>add</md-icon></button>
+      <button md-mini-fab color="accent" class="mr-1"><md-icon>add</md-icon></button>
+      <button md-mini-fab color="primary" disabled class="mr-1"><md-icon>add</md-icon></button>
+      <button md-mini-fab color="accent" disabled class="mr-1"><md-icon>add</md-icon></button>
     </div>
 
     <div class="pb-0">

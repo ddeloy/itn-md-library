@@ -2,26 +2,163 @@
 $md-fab-size: 56px !default;
 $md-fab-padding: 16px !default;
 
-[md-raised-button], [md-fab], [md-mini-fab], [md-button], [md-icon-button] {
-  border-radius: $border-radius-base;
-  font-weight: $font-weight-base;
-  &[md-button-sm] {
-    font-size: 13px;
-    line-height: 30px;
-    padding: 0 8px;
-    background-color: map-get($primary,300);// use from _custom.palette for md-button-sm
+$btn-height: 2.25rem;
+$btn-font-size: $font-size-base;
+$btn-pad-tb: 0.75rem;
+$btn-pad-lr: 1rem;
+$btn-sm-height: 1.5rem;
+$btn-sm-font-size: 0.75rem;
+$btn-sm-pad-tb: 0.5rem;
+$btn-sm-pad-lr: 0.75rem;
+$btn-icon-height: 2.25rem;
+$btn-sm-icon-height: 1.5rem;
+$btn-icon-icohght: 1.5rem;
+$btn-sm-icon-icohght: 0.75rem;
+
+$btn-text-transform: uppercase;
+
+.mat-button-focus-overlay {
+    display: none;
+}
+.mat-button-ripple {
+    display: none;
+}
+
+//
+// Default Buttons
+//
+[md-raised-button].mat-raised-button {     
+  border: 0;      
+  font-size: $btn-font-size;
+  text-transform: $btn-text-transform;
+  user-select: none;
+  @include box-shadow(none);
+  &:not(.mat-icon-button) {
+    height: $btn-height;
+    line-height: $btn-font-size - 0.1rem;
+    min-width: initial;
+    padding: $btn-pad-tb $btn-pad-lr;
+    border-radius: $border-radius-base; 
+  }
+  &.mat-icon-button {
+    width: $btn-icon-height;
+    height: $btn-icon-height;
+    font-size: $btn-icon-icohght;
+    line-height: $btn-icon-icohght - 0.1rem;
+    .mat-icon {
+      font-size: inherit;
+    }
+  }
+  &.mat-primary:hover {
+    @include box-shadow(0 1px 3px mat-color(map-get($primary, contrast), 600, 0.25));
+  }
+  &.mat-primary:active {
+    @include box-shadow(none);
+  }
+  &.mat-accent:hover {
+    @include box-shadow(0 1px 3px mat-color(map-get($accent, contrast), 300, 0.31));
+  }
+  &.mat-accent:active {
+    @include box-shadow(none);
+  }
+  &[disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  &.mat-primary[disabled] {
+    background-color: map-get($primary,500);
+    opacity: 0.5;
+    color: mat-color(map-get($primary, contrast), 500, 0.6);
+  }
+  &.mat-accent[disabled] {
+    background-color: map-get($accent,500);
+    opacity: 0.5;
+    color: mat-color(map-get($accent, contrast), 500, 0.5);
   }
 }
 
-[md-icon-button] {
-  &[md-button-sm] {
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    md-icon {
-      font-size: 20px;
-      line-height: 20px;
-    }
+//
+// Flat Buttons
+//
+[md-button].mat-button {     
+  border: 0;      
+  font-size: $btn-font-size;
+  text-transform: $btn-text-transform;
+  user-select: none;
+  @include box-shadow(none);
+  &:not(.mat-icon-button) {
+    height: $btn-height;
+    line-height: $btn-font-size - 0.1rem;
+    min-width: initial;
+    padding: $btn-pad-tb $btn-pad-lr;
+    border-radius: $border-radius-base; 
+  }
+  &[disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  &.mat-primary[disabled] {
+    color: mat-color($primary, 500, 0.5);
+  }
+  &.mat-accent[disabled] {
+    color: mat-color($accent, 500, 0.5);
+  }
+}
+[md-icon-button].mat-icon-button:not(.mat-raised-button) {
+  width: $btn-icon-height;
+  height: $btn-icon-height;
+  font-size: $btn-icon-icohght;
+  line-height: $btn-icon-icohght - 0.1rem;
+  .mat-icon {
+    font-size: inherit;
+  }
+}
+
+//
+// Round Button
+//
+[md-round-button].mat-raised-button:not(.mat-icon-button) {
+  border-radius: $border-radius-round;
+}
+
+//
+// small Buttons
+//
+[md-button-sm].mat-raised-button,
+[md-button-sm].mat-button {     
+  font-size: $btn-sm-font-size;
+  @include box-shadow(none);
+  &:not(.mat-icon-button) {
+    height: $btn-sm-height;
+    line-height: $btn-sm-font-size - 0.1rem;
+    padding: $btn-sm-pad-tb $btn-sm-pad-lr;
+  }
+}
+[md-button-sm].mat-raised-button.mat-icon-button,
+[md-button-sm].mat-icon-button:not(.mat-raised-button) {
+  width: $btn-sm-icon-height;
+  height: $btn-sm-icon-height;
+  line-height: $btn-sm-icon-height;
+  font-size: $btn-sm-icon-icohght;
+  .mat-icon {
+    font-size: inherit;
+    line-height: $btn-sm-icon-height - 0.1rem;
+  }
+}
+
+//
+// Fab Buttons
+//
+[md-fab][disabled],
+[md-mini-fab][disabled] {
+  opacity: 0.5;
+  &.mat-primary {
+    background-color: map-get($primary,500);
+    color: mat-color(map-get($primary, contrast), 500, 0.6);
+  }
+  &.mat-accent {
+    background-color: map-get($accent,500);
+    color: mat-color(map-get($accent, contrast), 500, 0.6);
   }
 }
 
