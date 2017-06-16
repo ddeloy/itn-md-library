@@ -18,17 +18,17 @@ $btn-sm-icon-icohght: 0.75rem;
 $btn-text-transform: uppercase;
 
 .mat-button-focus-overlay {
-    display: none;
+  // add back hover for flat buttons  display: none;
 }
 .mat-button-ripple {
-    display: none;
+  // add back animation on click display: none;
 }
 
 //
 // Default Buttons
 //
-[md-raised-button].mat-raised-button {     
-  border: 0;      
+[md-raised-button].mat-raised-button {
+  border: 0;
   font-size: $btn-font-size;
   text-transform: $btn-text-transform;
   user-select: none;
@@ -38,7 +38,7 @@ $btn-text-transform: uppercase;
     line-height: $btn-font-size - 0.1rem;
     min-width: initial;
     padding: $btn-pad-tb $btn-pad-lr;
-    border-radius: $border-radius-base; 
+    border-radius: $border-radius-base;
   }
   &.mat-icon-button {
     width: $btn-icon-height;
@@ -61,6 +61,13 @@ $btn-text-transform: uppercase;
   &.mat-accent:active {
     @include box-shadow(none);
   }
+  /* Add hover behavior for warn */
+  &.mat-warn:hover {
+    @include box-shadow(0 1px 3px mat-color(map-get($warn, contrast), 300, 0.31));
+  }
+  &.mat-warn:active {
+    @include box-shadow(none);
+  }
   &[disabled] {
     pointer-events: none;
     cursor: not-allowed;
@@ -80,8 +87,8 @@ $btn-text-transform: uppercase;
 //
 // Flat Buttons
 //
-[md-button].mat-button {     
-  border: 0;      
+[md-button].mat-button {
+  border: 0;
   font-size: $btn-font-size;
   text-transform: $btn-text-transform;
   user-select: none;
@@ -91,7 +98,7 @@ $btn-text-transform: uppercase;
     line-height: $btn-font-size - 0.1rem;
     min-width: initial;
     padding: $btn-pad-tb $btn-pad-lr;
-    border-radius: $border-radius-base; 
+    border-radius: $border-radius-base;
   }
   &[disabled] {
     pointer-events: none;
@@ -102,6 +109,13 @@ $btn-text-transform: uppercase;
   }
   &.mat-accent[disabled] {
     color: mat-color($accent, 500, 0.5);
+  }
+  /* Add warn for disabled */
+  &.mat-warn[disabled] {
+    color: mat-color($warn, 500, 0.5);
+  }
+  &.mat-warn[disabled] {
+    color: mat-color($warn, 500, 0.5);
   }
 }
 [md-icon-button].mat-icon-button:not(.mat-raised-button) {
@@ -125,7 +139,7 @@ $btn-text-transform: uppercase;
 // small Buttons
 //
 [md-button-sm].mat-raised-button,
-[md-button-sm].mat-button {     
+[md-button-sm].mat-button {
   font-size: $btn-sm-font-size;
   @include box-shadow(none);
   &:not(.mat-icon-button) {
@@ -159,6 +173,10 @@ $btn-text-transform: uppercase;
   &.mat-accent {
     background-color: map-get($accent,500);
     color: mat-color(map-get($accent, contrast), 500, 0.6);
+  }
+  &.mat-warn {
+    background-color: map-get($warn,500);
+    color: mat-color(map-get($warn, contrast), 500, 0.6);
   }
 }
 
