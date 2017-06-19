@@ -1,0 +1,165 @@
+$placeholder-color:rgba(2, 26, 37, 0.6);
+
+$default-border-color: map-get($accent,A800);
+$focus-border-color: mat-contrast($accent,A800);
+
+$input-font-size-desk: 0.875rem;
+$input-font-size-tab: 0.75rem;
+$input-font-size-mob: 0.875rem;
+
+$input-height-mob: 1.5rem;
+$input-height-tab: 1.5rem;
+$input-height-desk: 2.25rem;
+$input-pad-lr-tab: 0.5rem;
+$input-pad-lr-desk: 0.75rem;
+
+$error-font-size: 0.875rem;
+
+label {
+    .mat-input-container {
+        width: inherit;
+    }
+}
+.mat-input-container {
+    .mat-input-wrapper {
+        margin-top: 0;
+        .mat-input-element {
+            box-sizing: border-box;
+            height: $input-height-mob;
+            font-size: $input-font-size-mob;
+            padding-bottom: 8px;
+            border: 0;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-color: $default-border-color;
+            vertical-align: baseline;
+            &[readonly] {
+                border-style: dashed;
+            }
+        }
+        .mat-input-placeholder-wrapper {
+            height: $input-height-mob;
+            .mat-input-placeholder {
+                height: inherit;
+                font-size: $input-font-size-mob;
+                color: $placeholder-color;
+            }
+        }
+        .error {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            color: map-get($warn,500);
+            font-size: $error-font-size;
+            margin-top: 6px;
+        }
+    }
+    // focus border color for default
+    &:not([dividercolor]) {
+        .mat-input-wrapper {        
+            .mat-input-element {
+                &:focus {
+                    border-color: $focus-border-color;
+                }
+            }
+        }
+    }
+    // focus border color for primary
+    // and also if dividercolor value is not legitamate
+    &[dividercolor] {
+        .mat-input-wrapper {        
+            .mat-input-element {
+                &:focus {
+                    border-color: map-get($primary,500);
+                }
+            }
+        }
+    }
+    // focus border color for accent
+    &[dividercolor="accent"] {
+        .mat-input-wrapper {        
+            .mat-input-element {
+                &:focus {
+                    border-color: map-get($accent,500);
+                }
+            }
+        }
+    }
+    // focus border color for warn
+    &[dividercolor="warn"] {
+        .mat-input-wrapper {        
+            .mat-input-element {
+                &:focus {
+                    border-color: map-get($warn,500);
+                }
+            }
+        }
+    }
+    // normal and focus border color for input with error
+    &.ng-invalid {
+        //first hide the hint messages
+        .mat-input-hint-wrapper {
+            display: none;
+        }
+        .mat-input-wrapper {        
+            .mat-input-element, .mat-input-element:focus {
+                border-color: map-get($warn,500);
+            }
+        }
+    } 
+    .mat-input-underline {
+        display: none;
+    }
+}
+
+
+
+@media only screen and (min-width: breakpoint-min(sm)) {
+    .mat-input-container {
+        .mat-input-wrapper {        
+            .mat-input-element {
+                height: $input-height-tab;
+                padding-left: $input-pad-lr-tab;
+                padding-right: $input-pad-lr-tab;
+                padding-bottom: initial;
+                font-size: $input-font-size-tab;
+                border-width: 1px;
+                border-style: solid;
+            }
+            .mat-input-placeholder-wrapper {
+                height: $input-height-tab;
+                .mat-input-placeholder {
+                    height: inherit;
+                    line-height: $input-height-tab;
+                    margin-top: 2px;
+                    padding-left: $input-pad-lr-tab + 0.1rem;
+                    padding-right: $input-pad-lr-tab + 0.1rem;
+                    font-size: $input-font-size-tab;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: breakpoint-min(md)) {
+    .mat-input-container {
+        .mat-input-wrapper {        
+            .mat-input-element {
+                height: $input-height-desk;
+                padding-left: $input-pad-lr-desk;
+                padding-right: $input-pad-lr-desk;
+                font-size: $input-font-size-desk;
+            }
+            .mat-input-placeholder-wrapper {
+                height: $input-height-desk;
+                .mat-input-placeholder {
+                    line-height: $input-height-desk;
+                    margin-top: initial;
+                    padding-left: $input-pad-lr-desk + 0.1rem;
+                    padding-right: $input-pad-lr-desk + 0.1rem;
+                    font-size: $input-font-size-desk;
+                }
+            }
+        }
+    }
+}

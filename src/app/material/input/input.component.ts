@@ -14,6 +14,10 @@ export class InputComponent {
   floatingLabel: boolean;
   name: string;
 
+  model = {'id': 18,
+            'name': 'Dr IQ'
+          };
+          
   items: any[] = [{
     value: 10
   }, {

@@ -17,13 +17,6 @@ $btn-sm-icon-icohght: 0.75rem;
 
 $btn-text-transform: uppercase;
 
-.mat-button-focus-overlay {
-  // add back hover for flat buttons  display: none;
-}
-.mat-button-ripple {
-  // add back animation on click display: none;
-}
-
 //
 // Default Buttons
 //
@@ -111,9 +104,6 @@ $btn-text-transform: uppercase;
     color: mat-color($accent, 500, 0.5);
   }
   /* Add warn for disabled */
-  &.mat-warn[disabled] {
-    color: mat-color($warn, 500, 0.5);
-  }
   &.mat-warn[disabled] {
     color: mat-color($warn, 500, 0.5);
   }

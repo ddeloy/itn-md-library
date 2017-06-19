@@ -3,15 +3,58 @@
   <md-card-subtitle>Inputs are the basic input component of Material 2</md-card-subtitle>
   <md-card-content>
     <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <md-input-container class="ml-xs mr-xs" style="width: 100%;">
-        <input mdInput placeholder="Password" type="password">
-      </md-input-container>
-      <md-input-container class="ml-xs mr-xs" style="width: 100%;">
-        <input mdInput placeholder="Email" type="email">
-      </md-input-container>
+      <label class="ml-xs mr-xs" style="width: 100%;">
+        <span>Name</span>
+        <md-input-container floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="John Smith" type="text">
+        </md-input-container>
+      </label>
+      <label class="ml-xs mr-xs" style="width: 100%;">
+        <span>Email</span>
+        <md-input-container floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="abc@xyz.com" type="email">
+        </md-input-container>
+      </label>
     </div>
 
     <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+      <label class="ml-xs mr-xs" style="width: 100%;">
+        <span>Default Color</span>
+        <md-input-container floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="enter a value" type="text">
+        </md-input-container>
+      </label>
+      <label class="ml-xs mr-xs" style="width: 100%;">
+        <span>Read-only</span>
+        <md-input-container floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="enter a value" type="text" value="This is readonly" readonly>
+        </md-input-container>
+      </label>
+    </div>
+
+    <span><em>dividerColor used to set border-color on focus</em></span>
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">      
+      <label class="ml-xs mr-xs" style="width: 100%;">
+        <span>Primary Color</span>
+        <md-input-container dividerColor="primary" floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="enter a value" type="text">
+        </md-input-container>
+      </label>
+      <label class="ml-xs mr-xs" style="width: 100%;">
+        <span>Accent/Secondary Color</span>
+        <md-input-container dividerColor="accent" floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="enter a value" type="text">
+        </md-input-container>
+      </label>
+      <label class="ml-xs mr-xs" style="width: 100%;">
+        <span>Warn Color</span>
+        <md-input-container dividerColor="warn" floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="enter a value" type="text">
+        </md-input-container>
+      </label>
+    </div>
+
+<!--<div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
       <md-input-container align="end" class="ml-xs mr-xs" style="width: 100%;">
         <input mdInput placeholder="amount">
         <span mdPrefix>$&nbsp;</span>
@@ -26,17 +69,7 @@
       </md-input-container>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <md-input-container dividerColor="primary" class="ml-xs mr-xs" style="width: 100%;">
-        <input mdInput placeholder="Default Color" value="example">
-      </md-input-container>
-      <md-input-container dividerColor="accent" class="ml-xs mr-xs" style="width: 100%;">
-        <input mdInput placeholder="Accent Color" value="example">
-      </md-input-container>
-      <md-input-container dividerColor="warn" class="ml-xs mr-xs" style="width: 100%;">
-        <input mdInput placeholder="Warn Color" value="example">
-      </md-input-container>
-    </div>
+    
 
     <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
       <md-input-container dividerColor="primary" class="ml-xs mr-xs" style="width: 100%;">
@@ -67,18 +100,27 @@
       <md-input-container class="ml-xs mr-xs" style="width: 100%;">
         <input mdInput required placeholder="Required field">
       </md-input-container>
-    </div>
+    </div>-->
 
     <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <md-input-container hintLabel="Hint label" class="ml-xs mr-xs" style="width: 100%;">
-        <input mdInput placeholder="Show Hint Label">
-      </md-input-container>
-
-      <md-input-container hintLabel="Hint label" class="ml-xs mr-xs" style="width: 100%;">
-        <input mdInput placeholder="Show Hint Label With Character Count">
-      </md-input-container>
+      <label class="ml-xs mr-xs" style="width: 100%;">
+        <span>With Hint Label</span>
+        <md-input-container hintLabel="Should be easy to remember but difficult to guess" floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="Password" type="password">
+        </md-input-container>
+      </label>
+      <label class="ml-xs mr-xs" style="width: 100%;">
+        <span>With Error Message</span>
+        <md-input-container hintLabel="Should be easy to remember"  dividerColor="primary" floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="John Smith" type="text" [(ngModel)]="model.name"            
+            #name="ngModel" md-no-asterisk required>
+          <div [hidden]="name.valid || name.pristine" class="error">
+            Name is required
+          </div>
+        </md-input-container>
+      </label>
     </div>
-
+<!--
     <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
       <div class="ml-xs mr-xs" style="width: 100%;">Hello&nbsp; <md-input-container dividerColor="accent"><input mdInput [(ngModel)]="name" type="text" placeholder="First name"></md-input-container>, how are you?</div>
 
@@ -91,7 +133,7 @@
           I also <md-icon class="demo-icons">home</md-icon> <i>italic</i> hint labels
         </md-hint>
       </md-input-container>
-    </div>
+    </div>-->
   </md-card-content>
 </md-card>
 
