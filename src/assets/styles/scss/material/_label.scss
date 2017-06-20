@@ -4,7 +4,7 @@ $lbl-font-size-mob: 0.625rem;
 
 $lbl-after-font-size: 0.875rem;
 
-$label-color:rgba(2, 26, 37, 0.8);
+$label-color:map-get($accent,700);
 
 label {
   & > span {

@@ -4,30 +4,25 @@
   <md-card-content>
     <p>The default color toolbar:</p>
     <md-toolbar>
-      <button md-button href="#" md-icon-button>
+      <button md-button class="button-collapse" md-icon-button (click)="onMenuClick()">
         <md-icon>menu</md-icon>
       </button>
-      <span>Default Toolbar</span>
+      <a href="#" class="brand-logo">Logo</a>
+      <ul class="collapse-on-sm" [ngClass]="{'shown': showMenu}">
+        <li><a href="#">Sass</a></li>
+        <li><a href="#">Components</a></li>
+        <li class="active"><a href="#">JavaScript</a></li>
+      </ul>
       <span fxFlex></span>
-      <button md-button href="#" md-icon-button>
-        <md-icon>search</md-icon>
+      <button md-button href="#" md-icon-button color="primary">
+        <md-icon>apps</md-icon>
       </button>
-      <button md-button href="#" md-icon-button>
-        <md-icon>more_vert</md-icon>
+      <button md-button href="#" class="btn-user" md-icon-button>
+        <span>KJ</span>
       </button>
-    </md-toolbar>
-    <p>The primary color toolbar:</p>
-    <md-toolbar color="primary">
-      <button md-button href="#" md-icon-button>
-        <md-icon>menu</md-icon>
-      </button>
-      <span>Primary Toolbar</span>
-      <span fxFlex></span>
-      <button md-button href="#" md-icon-button>
-        <md-icon>search</md-icon>
-      </button>
-      <button md-button href="#" md-icon-button>
-        <md-icon>more_vert</md-icon>
+      <button md-button href="#" class="btn-notification" md-icon-button color="primary">
+        <md-icon>notifications_none</md-icon>
+        <span class="badge">2</span>
       </button>
     </md-toolbar>
     <p>The accent color toolbar:</p>

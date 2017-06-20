@@ -1,0 +1,153 @@
+$default-nav-color: rgba(243, 243, 243, 0.41);
+$default-nav-border-color: #e8e8e8;
+$default-item-color: map-get($primary, 500);
+$default-sec-color: map-get($accent, 500);
+$default-hover-color: map-get($accent, 50);
+$default-active-color: #053e45;
+$default-item-hover-color: map-get($primary, 900);
+$default-menu-border-color: #dedede;
+$default-cat-heading-color: map-get($accent, 400);
+$default-not-count-color: #ff6767;
+
+$default-item-font-size: 0.875rem;
+$default-menu-item-font-size: 1rem;
+
+$default-nav-height: 64px;
+
+md-toolbar.mat-toolbar {    
+    .mat-toolbar-row {
+        & > ul.collapse-on-sm {
+            height: 1px;
+            overflow: hidden;
+            margin: 0;
+            padding-left: 0;
+            list-style-type: none;
+            &.shown {
+                height: auto;
+                overflow: initial;
+                & > li {
+                    float: none;
+                }
+            }
+            & > li {
+                transition: background-color .3s;
+                float: left;
+                padding: 0;
+                list-style-type: none;
+                & > a {
+                    -webkit-font-smoothing: antialiased;
+                    transition: background-color .3s;
+                    font-size: $default-item-font-size;
+                    font-weight: $font-weight-bold;
+                    color: $default-item-color;
+                    display: block;
+                    padding: 0 14px;
+                    cursor: pointer;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    border-bottom: 2px solid transparent;
+                }
+            }
+        }
+    }
+    //for default nav bar
+    &:not([color]) {
+        background-color: $default-nav-color;
+        border-bottom: 1px solid $default-nav-border-color;
+        color: $default-sec-color;
+        .mat-toolbar-row {
+            & > a {
+                color: inherit;
+            }
+            & > ul {                
+                & > li {
+                    &.active {
+                        & > a {
+                            background-color: mat-color($accent, 400, 0.15);
+                        }
+                    }
+                    & > a {
+                        &:hover {
+                            background-color: $default-hover-color;
+                            border-bottom-color: map-get($primary, 500);
+                        }
+                    }                    
+                }
+            }
+            & > [md-button].mat-button {
+                &:not(:last-child) {
+                    margin-right: 12px;
+                }
+                &.btn-user {
+                    background-color: mat-color($accent, 400, 0.67);
+                    & span {
+                        color: #ffffff;
+                        font-size: $default-item-font-size;
+                        vertical-align: baseline;
+                    } 
+                }
+                &.btn-notification {
+                    background-color: #eff1f2;
+                    border-radius: 28px 0 0 28px;
+                    width: 50px;
+                    position: relative;
+                    span.badge {
+                        min-width: 15px;
+                        padding: 2px;
+                        font-size: 10px;
+                        font-weight: 700;
+                        line-height: 15px;
+                        color: #fff;
+                        text-align: center;
+                        white-space: nowrap;
+                        vertical-align: middle;
+                        background-color: $default-not-count-color;
+                        border-radius: 50%;
+                        min-height: 15px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: translateX(-20%);
+                        z-index: 2; //to avoid ripple effect overlapping
+                    }
+                    .mat-button-ripple-round {
+                        border-radius: inherit;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+@media only screen and (min-width: breakpoint-min(sm)) {
+    md-toolbar.mat-toolbar {
+        min-height: $default-nav-height;
+        padding-right: 0;
+        .mat-toolbar-row {
+            min-height: $default-nav-height;
+            & > a {
+                height: $default-nav-height;
+                line-height: ($default-nav-height - 1px);
+                margin-right: 22px;
+            }
+            & > ul.collapse-on-sm {
+                height: auto;
+                overflow: initial;
+                & > li {
+                    height: $default-nav-height;
+                    line-height: ($default-nav-height - 1px);
+                }
+            }
+        }
+        .button-collapse {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: breakpoint-min(md)) {
+    md-toolbar.mat-toolbar {
+        padding-left: 35px;
+    }
+}

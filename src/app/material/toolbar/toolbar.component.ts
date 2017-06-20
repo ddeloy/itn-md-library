@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+  private showMenu: boolean = false;
 
+  onMenuClick() {
+    this.showMenu = !this.showMenu;
+  }
   constructor() { }
 
   ngOnInit() {

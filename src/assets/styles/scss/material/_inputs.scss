@@ -1,7 +1,8 @@
-$placeholder-color:rgba(2, 26, 37, 0.6);
+$placeholder-color:map-get($accent,300);
 
-$default-border-color: map-get($accent,A800);
-$focus-border-color: mat-contrast($accent,A800);
+$default-border-color: map-get($accent,200);
+$focus-border-color: map-get($accent,400);
+$readonly-border-color: map-get($accent,100);
 
 $input-font-size-desk: 0.875rem;
 $input-font-size-tab: 0.75rem;
@@ -35,6 +36,7 @@ label {
             vertical-align: baseline;
             &[readonly] {
                 border-style: dashed;
+                border-color: $readonly-border-color;
             }
         }
         .mat-input-placeholder-wrapper {
