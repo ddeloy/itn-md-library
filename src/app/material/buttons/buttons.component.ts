@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./buttons.component.scss']
 })
 export class ButtonsComponent {
-  private open1: boolean = false;
-  private open2: boolean = false;
-  private openf1: boolean = false;
-  private openf2: boolean = false;
+  open1 = false;
+  open2 = false;
+  openf1 = false;
+  openf2 = false;
   constructor() { }
 }

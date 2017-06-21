@@ -6,7 +6,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  private showMenu: boolean = false;
+  showMenu = false;
 
   items = [{
     text: 'Refresh'
