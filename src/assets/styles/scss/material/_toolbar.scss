@@ -34,18 +34,24 @@ md-toolbar.mat-toolbar {
                 float: left;
                 padding: 0;
                 list-style-type: none;
-                & > a {
+                & > a, & > [md-button].mat-button {
                     -webkit-font-smoothing: antialiased;
                     transition: background-color .3s;
                     font-size: $default-item-font-size;
                     font-weight: $font-weight-bold;
                     color: $default-item-color;
-                    display: block;
                     padding: 0 14px;
                     cursor: pointer;
                     text-decoration: none;
                     text-transform: uppercase;
                     border-bottom: 2px solid transparent;
+                    border-radius: 0;
+                }
+                & > a {
+                    display: block;
+                }
+                & > [md-button].mat-button {
+                    height: inherit;
                 }
             }
         }
@@ -62,11 +68,11 @@ md-toolbar.mat-toolbar {
             & > ul {                
                 & > li {
                     &.active {
-                        & > a {
+                        & > a, & > [md-button].mat-button {
                             background-color: mat-color($accent, 400, 0.15);
                         }
                     }
-                    & > a {
+                    & > a, & > [md-button].mat-button {
                         &:hover {
                             background-color: $default-hover-color;
                             border-bottom-color: map-get($primary, 500);
@@ -136,7 +142,7 @@ md-toolbar.mat-toolbar {
                 overflow: initial;
                 & > li {
                     height: $default-nav-height;
-                    line-height: ($default-nav-height - 1px);
+                    line-height: ($default-nav-height - 3px);
                 }
             }
         }

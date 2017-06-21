@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   private showMenu: boolean = false;
+
+  items = [{
+    text: 'Refresh'
+  }, {
+    text: 'Settings'
+  }, {
+    text: 'Help',
+    disabled: true
+  }, {
+    text: 'Sign Out'
+  }];
 
   onMenuClick() {
     this.showMenu = !this.showMenu;
