@@ -9,9 +9,47 @@
       </button>
       <a href="#" class="brand-logo">Logo</a>
       <ul class="collapse-on-sm" [ngClass]="{'shown': showMenu}">
-        <li><a href="#">Sass</a></li>
-        <li><a href="#">Components</a></li>
-        <li class="active"><a href="#">JavaScript</a></li>
+        <li class="active">
+          <button md-button [md-menu-trigger-for]="menu" aria-label="Open basic menu">
+            File
+          </button>
+          <md-menu #menu="mdMenu">
+            <div md-menu-content>
+            <button md-menu-item>
+              Refresh
+            </button>
+            <button md-menu-item [md-menu-trigger-for]="menuSettings" aria-label="Open second menu"
+              #menuSettingsTrigger="mdMenuTrigger" (mouseover)="menuSettingsTrigger.openMenu()">
+              Settings
+              <md-menu #menuSettings="mdMenu" [overlapTrigger]="false">
+              <button md-menu-item>
+                Sound
+              </button>
+              <button md-menu-item>
+                Video
+              </button>
+            </md-menu>
+            </button>
+            
+            <button md-menu-item disabled>
+              Help
+            </button>
+            <button md-menu-item>
+              Sign Out
+            </button>
+            </div>
+          </md-menu>
+        </li>
+        <li>
+          <button md-button>
+            Edit
+          </button>
+        </li>
+        <li>
+          <button md-button>
+            Help
+          </button>
+        </li>
       </ul>
       <span fxFlex></span>
       <button md-button href="#" md-icon-button color="primary">

@@ -3,6 +3,76 @@
   <md-card-subtitle>md-button is an HTML button or a tag enhanced with styling and animation to match the Material Design button spec</md-card-subtitle>
   <md-card-content>
     <div class="pb-1">
+      <p>Dropdown buttons</p>
+      <!-- Single button -->
+      <div class="btn-group mr-1" [ngClass]="{'open': open1}">
+        <button md-raised-button color="primary"
+          data-toggle="dropdown" class="dropdown-toggle" (click)="open1=!open1">
+          Action
+          <md-icon>keyboard_arrow_down</md-icon>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Action One</a></li>
+            <li><a href="#">Action Two</a></li>
+            <li><a href="#">Action Three</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+
+      <!-- Split button -->
+      <div class="btn-group mr-1" [ngClass]="{'open': open2}">
+        <button md-raised-button color="primary">Send</button>       
+        <button md-raised-button color="primary"
+          data-toggle="dropdown" class="dropdown-toggle" (click)="open2=!open2">
+          <md-icon>keyboard_arrow_down</md-icon>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Action One</a></li>
+            <li><a href="#">Action Two</a></li>
+            <li><a href="#">Action Three</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pb-1">
+      <p>Dropdown buttons - Flat Buttons</p>
+      <!-- Single button -->
+      <div class="btn-group mr-1" [ngClass]="{'open': openf1}">
+        <button md-button color="primary"
+          data-toggle="dropdown" class="dropdown-toggle" (click)="openf1=!openf1">
+          Action
+          <md-icon>keyboard_arrow_down</md-icon>
+        </button>        
+        <ul class="dropdown-menu">
+            <li><a href="#">Action One</a></li>
+            <li><a href="#">Action Two</a></li>
+            <li><a href="#">Action Three</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+
+      <!-- Split button -->
+      <div class="btn-group mr-1" [ngClass]="{'open': openf2}">
+        <button md-button color="primary">Send</button>       
+        <button md-button color="primary"
+          data-toggle="dropdown" class="dropdown-toggle" (click)="openf2=!openf2">
+          <md-icon>keyboard_arrow_down</md-icon>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Action One</a></li>
+            <li><a href="#">Action Two</a></li>
+            <li><a href="#">Action Three</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pb-1">
       <p>Default buttons</p>
       <button md-raised-button md-icon-button color="primary" class="mr-1"><md-icon>star</md-icon></button>
       <button md-raised-button md-icon-button color="accent" class="mr-1"><md-icon>search</md-icon></button>

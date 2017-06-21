@@ -185,3 +185,93 @@ $md-fab-pos-offset: ($md-fab-size - $md-fab-padding) / 2;
 @include md-fab-position(bottom-left, auto, auto, -25px, $md-fab-pos-offset);
 @include md-fab-position(top-right, $md-fab-pos-offset, $md-fab-pos-offset, auto, auto);
 @include md-fab-position(top-left, $md-fab-pos-offset, auto, auto, $md-fab-pos-offset);
+
+//
+// for dropdown buttons
+//
+.btn-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  & > [md-raised-button].mat-raised-button,
+  & > [md-button].mat-button {
+    position: relative;
+    float: left;
+    &:first-child {
+      margin-left: 0;
+      &.dropdown-toggle {
+        padding-right: 0.5rem;
+      }
+      &:not(:last-child):not(.dropdown-toggle) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 1px solid map-get($primary, 300);
+      }
+    }
+    &+.dropdown-toggle {
+      padding-right: 0.1rem;
+      padding-left: 0.1rem;
+    }
+    &:last-child:not(:first-child), &.dropdown-toggle:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    &+[md-raised-button].mat-raised-button {
+      margin-left: 0;
+    }    
+    .mat-icon {
+      height: inherit;
+      line-height: inherit;
+      vertical-align: bottom;
+      margin-right: 0;
+      margin-left: 0;
+      font-size: 20px;
+    }
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid mat-color($accent, 500, 0.2);
+    border-radius: 0;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,.5);
+    box-shadow: 0 0 4px rgba(0,0,0,.5);
+    & > li {
+      & > a {
+        display: block;
+        padding: 5px 11px;
+        clear: both;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.42857143;
+        color: #021a25;
+        white-space: nowrap;
+        text-decoration: none;
+        &:hover, &:focus {          
+          background-color: map-get($accent, 30);
+        }
+      }
+    }
+    .divider {
+      height: 1px;
+      margin: 9px 0;
+      overflow: hidden;
+      background-color: #e5e5e5;
+    }
+  }
+  &.open>.dropdown-menu {
+    display: block;
+  }
+}
