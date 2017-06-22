@@ -16,6 +16,88 @@ $default-nav-height: 64px;
 
 md-toolbar.mat-toolbar {    
     .mat-toolbar-row {
+        ul {
+            li {
+                position: relative;
+                &.cat-name {
+                    & > span {
+                        display: block;
+                        padding: 20px 16px 15px;
+                        clear: both;
+                        font-weight: 400;
+                        font-size: 1rem;
+                        line-height: 1.42857143;
+                        color: map-get($accent, 400);
+                        white-space: nowrap;
+                        text-decoration: none;
+                        user-select: none;
+                    }
+                    &.more-cats {
+                        display: inline-block;
+                    }                    
+                }
+                .main-menu, .sub-menu {
+                    position: absolute;
+                    display: none;
+                    float: left;
+                    border: 1px solid #dedede;
+                    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.5);
+                    box-shadow: 0 2px 4px rgba(0,0,0,.5);
+                }                
+                .main-menu, .sub-menu, .cat-menu {                                        
+                    z-index: 1000;                    
+                    min-width: 160px;
+                    padding: 5px 0;
+                    margin: 2px 0 0;
+                    font-size: 14px;
+                    text-align: left;
+                    list-style: none;
+                    background-color: #fff;
+                    -webkit-background-clip: padding-box;
+                    background-clip: padding-box;                    
+                    border-radius: 0;                    
+                    & > li {
+                        & > a {
+                            display: block;
+                            padding: 5px 16px;
+                            clear: both;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            line-height: 1.42857143;
+                            color: map-get($primary, 500);
+                            white-space: nowrap;
+                            text-decoration: none;
+                            user-select: none;
+                            &:hover, &:focus {          
+                                color: map-get($primary, 900);
+                            }
+                            & > span.material-icons {
+                                float: right;
+                                line-height: 1.3rem;
+                            }
+                        }
+                    }
+                    .divider {
+                    height: 1px;
+                    margin: 9px 0;
+                    overflow: hidden;
+                    background-color: #e5e5e5;
+                    }
+                }
+                .main-menu {
+                    top: 100%;
+                    left: 0;
+                }
+                .sub-menu {
+                    top: 0;
+                    left: 100%;
+                }
+                &.open>.main-menu,
+                &.open>.sub-menu {
+                    display: block;
+                }
+            } 
+        }
         & > ul.collapse-on-sm {
             height: 1px;
             overflow: hidden;
@@ -74,6 +156,12 @@ md-toolbar.mat-toolbar {
                     }
                     & > a, & > [md-button].mat-button {
                         &:hover {
+                            background-color: $default-hover-color;
+                            border-bottom-color: map-get($primary, 500);
+                        }
+                    }
+                    &.open {
+                        & > a, & > [md-button].mat-button {
                             background-color: $default-hover-color;
                             border-bottom-color: map-get($primary, 500);
                         }
@@ -142,7 +230,7 @@ md-toolbar.mat-toolbar {
                 overflow: initial;
                 & > li {
                     height: $default-nav-height;
-                    line-height: ($default-nav-height - 3px);
+                    line-height: ($default-nav-height - 1px);
                 }
             }
         }

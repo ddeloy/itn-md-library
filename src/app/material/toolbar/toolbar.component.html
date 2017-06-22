@@ -9,46 +9,61 @@
       </button>
       <a href="#" class="brand-logo">Logo</a>
       <ul class="collapse-on-sm" [ngClass]="{'shown': showMenu}">
-        <li class="active">
-          <button md-button [md-menu-trigger-for]="menu" aria-label="Open basic menu">
-            File
-          </button>
-          <md-menu #menu="mdMenu">
-            <div md-menu-content>
-            <button md-menu-item>
-              Refresh
-            </button>
-            <button md-menu-item [md-menu-trigger-for]="menuSettings" aria-label="Open second menu"
-              #menuSettingsTrigger="mdMenuTrigger" (mouseover)="menuSettingsTrigger.openMenu()">
-              Settings
-              <md-menu #menuSettings="mdMenu" [overlapTrigger]="false">
-              <button md-menu-item>
-                Sound
-              </button>
-              <button md-menu-item>
-                Video
-              </button>
-            </md-menu>
-            </button>
-            
-            <button md-menu-item disabled>
-              Help
-            </button>
-            <button md-menu-item>
-              Sign Out
-            </button>
-            </div>
-          </md-menu>
+        <li class="active"><a href="#">File</a></li>       
+        <li [ngClass]="{'open': open1}">
+          <a (click)="open1=!open1">Help</a>
+          <ul class="main-menu">
+            <li><a href="#">Action One</a></li>
+            <li><a href="#">Action Two</a></li>
+            <li><a href="#">Action Three</a></li>
+            <li class="divider"></li>
+            <li [ngClass]="{'open': open2}">
+              <a (click)="open2=!open2">
+                Another Menu
+                <span class="material-icons">keyboard_arrow_right</span>
+              </a>
+              <ul class="sub-menu">
+                <li><a href="#">Action One</a></li>
+                <li><a href="#">Action Two</a></li>
+                <li [ngClass]="{'open': open3}">
+                  <a (click)="open3=!open3">
+                    Another Menu
+                    <span class="material-icons">keyboard_arrow_right</span>
+                  </a>
+                  <ul class="sub-menu">
+                    <li><a href="#">Action One</a></li>
+                    <li><a href="#">Action Two</a></li>
+                    <li><a href="#">Action Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </li>
-        <li>
-          <button md-button>
-            Edit
-          </button>
+        <li [ngClass]="{'open': open11}">
+          <a (click)="open11=!open11">View</a>
+          <ul class="main-menu">
+            <li *ngFor="let item of viewItems" [ngClass]="{'cat-name': item.items}">
+              <a *ngIf="!item.items" href="#">{{item.text}}</a>
+              <span *ngIf="item.items">{{item.text}}</span>
+              <ul *ngIf="item.items" class="cat-menu">
+                <li *ngFor="let subItem of item.items"><a href="#">{{subItem.text}}</a></li>
+              </ul>
+            </li>
+          </ul>
         </li>
-        <li>
-          <button md-button>
-            Help
-          </button>
+        <li [ngClass]="{'open': open21}">
+          <a (click)="open21=!open21">Edit</a>
+          <ul class="main-menu">
+            <li *ngFor="let item of editItems"
+              [ngClass]="{'cat-name': item.items, 'more-cats': (editItems.length > 2 && item.items)}">
+              <a *ngIf="!item.items" href="#">{{item.text}}</a>
+              <span *ngIf="item.items">{{item.text}}</span>
+              <ul *ngIf="item.items" class="cat-menu">
+                <li *ngFor="let subItem of item.items"><a href="#">{{subItem.text}}</a></li>
+              </ul>
+            </li>
+          </ul>
         </li>
       </ul>
       <span fxFlex></span>
