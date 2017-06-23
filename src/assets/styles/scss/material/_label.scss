@@ -2,11 +2,18 @@ $lbl-font-size-desk: 0.75rem;
 $lbl-font-size-tab: 0.625rem;
 $lbl-font-size-mob: 0.625rem;
 
+$lbl-margbot-tab: 5px;
+$lbl-margbot-desk: 6px;
+
 $lbl-after-font-size: 0.875rem;
 
 $label-color:map-get($accent,700);
 
 label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
   & > span {
     color: $label-color;
     font-size: $lbl-font-size-mob;
@@ -19,7 +26,8 @@ label {
     & > span {
       font-size: $lbl-font-size-tab;
       height: 12px;
-      line-height: 1;
+      line-height: 13px;
+      margin-bottom: $lbl-margbot-tab;
     }
   }
 }
@@ -29,6 +37,7 @@ label {
       font-size: $lbl-font-size-desk;
       height: 15px;
       line-height: 16px;
+      margin-bottom: $lbl-margbot-desk;
     }
   }
 }

@@ -16,7 +16,7 @@ export class SelectComponent {
   currentDrink: string;
   currentPokemon: string[];
   latestChangeEvent: MdSelectChange;
-  floatPlaceholder = 'auto';
+  floatPlaceholder = 'never';
   foodControl = new FormControl('pizza-1');
   drinksTheme = 'primary';
   pokemonTheme = 'primary';

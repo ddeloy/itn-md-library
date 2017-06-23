@@ -1,36 +1,145 @@
-// body {
-//   .mat-select-panel {
-//     background-color: mat-color($background, card);
-//   }
-//   .mat-select-trigger, .mat-option {
-//     font-size: $font-size-base;
-//   }
-//   .mat-select-trigger {
-//     height: 22px;
-//     //margin: 13px 0;
-
-//     margin: 1em 0;
-//     padding-bottom: 6px;
-//   }
-//   .mat-select-placeholder {
-//     line-height: normal;
-//     padding: 0;
-//   }
-//   .mat-select-value {
-//     bottom: 6px;
-//   }
-//   .mat-select-value-text {
-//     //line-height: normal;
-//   }
-//   .mat-select-placeholder.mat-floating-placeholder {
-//     top: -15px!important;
-//     left: 0!important;
-//   }
-//   .mat-select-underline {
-//     bottom: 1px;
-//   }
-//   .app-dark .mat-select-panel {
-//     background-color: mat-color($dark-background, card);
-//   }
-// }
-
+label {    
+    .mat-select {
+        width: inherit;
+    }
+}
+.mat-select {
+    box-sizing: border-box;
+    height: $input-height-mob;
+    line-height: $input-height-mob - 0.1rem;
+    font-size: $input-font-size-mob;
+    padding-bottom: 8px;
+    border: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: $default-border-color;
+    vertical-align: baseline;
+    &[readonly], &[disabled]:not([disabled="false"]) {
+        border-style: dashed;
+        border-color: $readonly-border-color;
+    }
+    &[disabled]:not([disabled="false"]) {
+        pointer-events: none;
+    }
+    .mat-select-trigger {
+        display: inline-block;
+        height: inherit;
+        line-height: inherit;
+        min-width: initial;
+        width: inherit;
+        font-size: inherit;
+        .mat-select-placeholder {
+            height: inherit;
+            font-size: $input-font-size-mob;
+            color: $placeholder-color;
+            padding: 0;
+        }
+        .mat-select-value {
+            left: initial;
+        }
+        .mat-select-arrow {
+            margin: 0 0 0 4px;
+            border: 0;
+            width: initial;
+            height: initial;
+            float: right;
+            &:after {    
+                color: $focus-border-color;            
+                font-size: 20px;
+                font-family: 'Material Icons';
+                text-rendering: optimizeLegibility;
+                -webkit-font-feature-settings: 'liga';
+                -moz-font-feature-settings: 'liga';
+                font-feature-settings: 'liga';
+                letter-spacing: normal;
+                text-transform: none;
+                display: inline-block;
+                white-space: nowrap;
+                word-wrap: normal;
+                direction: ltr;
+                -webkit-font-feature-settings: 'liga';
+                -webkit-font-smoothing: antialiased;
+                content: 'keyboard_arrow_down';
+            }
+        }
+    }
+    // focus border color for default
+    &:not([dividerColor]) {
+        &:focus {
+            border-color: $focus-border-color;
+        }
+    }
+    // focus border color for primary
+    // and also if dividercolor value is not legitamate
+    &[dividercolor] {
+        &:focus {
+            border-color: map-get($primary,500);
+        }
+    }
+    // focus border color for accent
+    &[dividercolor="accent"] {
+        &:focus {
+            border-color: map-get($accent,500);
+        }
+    }
+    // focus border color for warn
+    &[dividercolor="warn"] {
+        &:focus {
+            border-color: map-get($warn,500);
+        }
+    }
+    .mat-select-underline {
+        display: none;
+    }
+    & + .mat-hint {
+        position: absolute;
+        font-size: 75%;
+        top: 100%;
+        width: 100%;
+        line-height: 1.2em;
+        overflow: hidden;
+        padding-top: 6px;
+        &.error {
+            color: map-get($warn,500);
+            font-size: $error-font-size;
+        }
+    }
+    // normal and focus border color for select with error
+    &.ng-invalid.ng-dirty, &.ng-invalid.ng-dirty:focus {
+        border-color: map-get($warn,500);
+    }
+}
+@media only screen and (min-width: breakpoint-min(sm)) {
+    .mat-select {
+        height: $input-height-tab; 
+        line-height: $input-height-tab - 0.1rem;       
+        padding-bottom: initial;
+        font-size: $input-font-size-tab;
+        border-width: 1px;
+        border-style: solid;
+        .mat-select-trigger {
+            padding-left: $input-pad-lr-tab;
+            padding-right: $input-pad-lr-tab;
+            .mat-select-placeholder {
+                height: inherit;
+                line-height: $input-height-tab - 0.1rem;
+                font-size: $input-font-size-tab;
+            }
+        }
+    }
+}
+@media only screen and (min-width: breakpoint-min(md)) {
+    .mat-select {
+        height: $input-height-desk;
+        line-height: $input-height-desk - 0.1rem;        
+        font-size: $input-font-size-desk;
+        .mat-select-trigger {
+            padding-left: $input-pad-lr-desk;
+            padding-right: $input-pad-lr-desk;
+            .mat-select-placeholder {
+                line-height: $input-height-desk - 0.1rem;
+                font-size: $input-font-size-desk;
+            }
+        }
+    }
+}

@@ -104,6 +104,25 @@ $container-max-widths: (
   xl: 1140px
 ) !default;
 
+//
+// Text Input and Select related
+//
+$placeholder-color:map-get($accent,300);
 
+$default-border-color: map-get($accent,200);
+$focus-border-color: map-get($accent,400);
+$readonly-border-color: map-get($accent,100);
+
+$input-font-size-desk: 0.875rem;
+$input-font-size-tab: 0.75rem;
+$input-font-size-mob: 0.875rem;
+
+$input-height-mob: 1.5rem;
+$input-height-tab: 1.5rem;
+$input-height-desk: 2.25rem;
+$input-pad-lr-tab: 0.5rem;
+$input-pad-lr-desk: 0.75rem;
+
+$error-font-size: 0.875rem;
 
 
