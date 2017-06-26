@@ -9,13 +9,28 @@
       <md-checkbox [(ngModel)]="yearView">Start in year view</md-checkbox>
     </p>
     <p>
-      <md-input-container>
-        <input mdInput [mdDatepicker]="minDatePicker" [(ngModel)]="minDate" placeholder="Min date">
+      <md-input-container floatPlaceholder="never">
+        <span mdPrefix>+1 &nbsp;</span>
+        <input type="tel" mdInput placeholder="Telephone">
+        <md-icon mdSuffix>mode_edit</md-icon>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container dividerColor="primary" floatPlaceholder="never">
+        <input type="text" mdInput placeholder="Search">
+        <span mdSuffix>Advance</span>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container floatPlaceholder="never">
+        <input mdInput [mdDatepicker]="minDatePicker" [(ngModel)]="minDate"
+          placeholder="Min date">
         <button mdSuffix [mdDatepickerToggle]="minDatePicker"></button>
       </md-input-container>
       <md-datepicker #minDatePicker [touchUi]="touch"></md-datepicker>
-      <md-input-container>
-        <input mdInput [mdDatepicker]="maxDatePicker" [(ngModel)]="maxDate" placeholder="Max date">
+      <md-input-container floatPlaceholder="never">
+        <input mdInput [mdDatepicker]="maxDatePicker" [(ngModel)]="maxDate"
+          placeholder="Max date">
         <button mdSuffix [mdDatepickerToggle]="maxDatePicker"></button>
       </md-input-container>
       <md-datepicker #maxDatePicker [touchUi]="touch"></md-datepicker>

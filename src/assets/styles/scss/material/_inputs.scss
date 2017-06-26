@@ -29,6 +29,18 @@ label {
                 border-color: $readonly-border-color;
             }
         }
+        .mat-input-prefix, .mat-input-suffix {
+            box-sizing: border-box;
+            height: $input-height-mob;
+            font-size: $input-font-size-mob;
+            padding-bottom: 8px;
+            border: 0;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-color: $default-border-color;
+            vertical-align: middle;
+            line-height: 1;
+        }
         .mat-input-placeholder-wrapper {
             height: $input-height-mob;
             .mat-input-placeholder {
@@ -47,8 +59,11 @@ label {
         }
     }
     // focus border color for default
-    &:not([dividercolor]) {
-        .mat-input-wrapper {        
+    &.mat-focused:not([dividercolor]) {
+        .mat-input-wrapper {
+            .mat-input-prefix, .mat-input-suffix {
+                border-color: $focus-border-color;
+            }        
             .mat-input-element {
                 &:focus {
                     border-color: $focus-border-color;
@@ -58,8 +73,11 @@ label {
     }
     // focus border color for primary
     // and also if dividercolor value is not legitamate
-    &[dividercolor] {
-        .mat-input-wrapper {        
+    &.mat-focused[dividercolor] {
+        .mat-input-wrapper {
+            .mat-input-prefix, .mat-input-suffix {
+                border-color: map-get($primary,500);
+            }         
             .mat-input-element {
                 &:focus {
                     border-color: map-get($primary,500);
@@ -68,8 +86,11 @@ label {
         }
     }
     // focus border color for accent
-    &[dividercolor="accent"] {
-        .mat-input-wrapper {        
+    &.mat-focused[dividercolor="accent"] {
+        .mat-input-wrapper {
+            .mat-input-prefix, .mat-input-suffix {
+                border-color: map-get($accent,500);
+            }        
             .mat-input-element {
                 &:focus {
                     border-color: map-get($accent,500);
@@ -78,8 +99,11 @@ label {
         }
     }
     // focus border color for warn
-    &[dividercolor="warn"] {
-        .mat-input-wrapper {        
+    &.mat-focused[dividercolor="warn"] {
+        .mat-input-wrapper {
+            .mat-input-prefix, .mat-input-suffix {
+                border-color: map-get($warn,500);
+            }        
             .mat-input-element {
                 &:focus {
                     border-color: map-get($warn,500);
@@ -93,7 +117,10 @@ label {
         .mat-input-hint-wrapper {
             display: none;
         }
-        .mat-input-wrapper {        
+        .mat-input-wrapper {
+            .mat-input-prefix, .mat-input-suffix {
+                border-color: map-get($warn,500);
+            }        
             .mat-input-element, .mat-input-element:focus {
                 border-color: map-get($warn,500);
             }
@@ -109,14 +136,37 @@ label {
 @media only screen and (min-width: breakpoint-min(sm)) {
     .mat-input-container {
         .mat-input-wrapper {        
-            .mat-input-element {
+            .mat-input-prefix, .mat-input-element,
+            .mat-input-suffix {
                 height: $input-height-tab;
-                padding-left: $input-pad-lr-tab;
-                padding-right: $input-pad-lr-tab;
                 padding-bottom: initial;
                 font-size: $input-font-size-tab;
                 border-width: 1px;
                 border-style: solid;
+            }
+            .mat-input-prefix {
+                padding-left: $input-pad-lr-tab;
+                padding-right: 0;
+            }
+            .mat-input-suffix {
+                padding-left: 0;
+                padding-right: $input-pad-lr-tab;
+            }
+            .mat-input-element {
+                padding-left: $input-pad-lr-tab;
+                padding-right: $input-pad-lr-tab;
+            }
+            .mat-input-prefix {
+                border-right: 0;
+            }
+            .mat-input-suffix {
+                border-left: 0;
+            }
+            .mat-input-prefix + .mat-input-infix > .mat-input-element {
+                border-left: 0;
+            }
+            .mat-input-table .mat-input-infix:not(:last-child) > .mat-input-element {
+                border-right: 0;
             }
             .mat-input-placeholder-wrapper {
                 height: $input-height-tab;
@@ -136,11 +186,22 @@ label {
 @media only screen and (min-width: breakpoint-min(md)) {
     .mat-input-container {
         .mat-input-wrapper {        
-            .mat-input-element {
+            .mat-input-prefix, .mat-input-element,
+            .mat-input-suffix {
                 height: $input-height-desk;
+                font-size: $input-font-size-desk;
+            }
+            .mat-input-prefix {
+                padding-left: $input-pad-lr-desk;
+                padding-right: 0;
+            }
+            .mat-input-suffix {
+                padding-left: 0;
+                padding-right: $input-pad-lr-desk;
+            }
+            .mat-input-element {
                 padding-left: $input-pad-lr-desk;
                 padding-right: $input-pad-lr-desk;
-                font-size: $input-font-size-desk;
             }
             .mat-input-placeholder-wrapper {
                 height: $input-height-desk;

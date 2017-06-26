@@ -78,6 +78,38 @@
         </md-hint>
         </label>
     </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" class="mb-2">
+      <div class="input-group ml-xs mr-xs">
+        <md-input-container floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="John Smith" type="text">
+        </md-input-container>
+        <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
+                [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
+          <md-option>None</md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+            {{ drink.viewValue }}
+          </md-option>
+        </md-select>
+        <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
+          <input mdInput placeholder="PIN" type="text">
+        </md-input-container>
+      </div>
+      <div class="input-group ml-xs mr-xs ">
+        <md-input-container floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="John Smith" type="text">
+        </md-input-container>
+        <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
+                [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
+          <md-option>None</md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+            {{ drink.viewValue }}
+          </md-option>
+        </md-select>
+        <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
+          <input mdInput placeholder="PIN" type="text">
+        </md-input-container>
+      </div>
+    </div>
 
     
     

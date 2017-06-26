@@ -1,0 +1,44 @@
+.input-group {
+    box-sizing: border-box;
+    max-height: 100%;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex-wrap: nowrap;
+    & > * {
+        white-space: nowrap;
+        vertical-align: middle;
+        flex: 1 1;
+        &:not(:last-child) {
+            margin-right: 4px;
+        }
+    }
+}
+@media only screen and (max-width: breakpoint-max(sm)) {
+    .input-group {
+        & > * {
+            line-height: 1 !important;
+        }
+    }
+}
+@media only screen and (min-width: breakpoint-min(sm)) {
+    .input-group {
+        & > * {
+            &:not(:last-child) {
+                margin-right: -1px;
+            }
+        }
+    }
+}
+@media only screen and (min-width: breakpoint-min(md)) {
+    .input-group {
+        & > * {
+            flex: 1 1 auto;
+        }
+    }
+}
