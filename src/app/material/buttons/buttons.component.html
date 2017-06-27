@@ -37,6 +37,21 @@
       </div>
     </div>
 
+    <!-- Hard coded dropdown for button -->
+    <div class="btn-group mr-1">
+      <p>Dropdown button - Hard coded material menu - not custom</p>
+      <button [mdMenuTriggerFor]="appMenu" md-raised-button color="accent">
+        Action - Hard Coded
+        <md-icon>keyboard_arrow_down</md-icon>
+      </button>
+      <md-menu #appMenu>
+        <li md-menu-item>First menu item</li>
+        <li md-menu-item>Second menu item</li>
+        <li md-menu-item>Third menu item</li>
+        <li md-menu-item>Fourth menu item</li>
+      </md-menu>
+    </div>
+
     <div class="pb-1">
       <p>Dropdown buttons - Flat Buttons</p>
       <!-- Single button -->
