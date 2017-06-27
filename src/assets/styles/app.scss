@@ -9,5 +9,57 @@
 @import "scss/material";
 @import "scss/utilities/utilities";
 
+/* This is all custom code added by ddeloy for the nested menus */
+/* Menu styles need to be moved into a partial and imported here */
+
+.sub-menu-custom {
+  margin-top: -48px;
+}
+
+.sub-menu-custom.mat-menu-panel.mat-menu-before.mat-menu-below {
+  transform-origin: left top !important;
+}
+
+.custom-menu.mat-menu-panel {
+  min-width: 180px;
+}
+top-menu [md-button] {
+  z-index: 1001;
+  line-height: 64px;
+  color: #fff;
+}
+
+[md-menu-item].mat-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+[md-menu-item].mat-menu-item span:first-child {
+  margin-right: 15px;
+}
+[md-menu-item].mat-menu-item .mat-icon {
+  margin-right: 0;
+}
+
+.mat-divider {
+  border-top: 1px solid rgba(0,0,0,.12);
+  margin: 0;
+}
+
+/* The code below is needed so that the nested menus all close onmosuedown */
+.cdk-overlay-backdrop {
+  display: block;
+}
+
+.cdk-overlay-backdrop ~ .cdk-overlay-backdrop {
+  display: none;
+}
+
+/* End Menu styles */
+
+
+
+
+
 
 

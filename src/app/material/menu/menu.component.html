@@ -1,7 +1,12 @@
 <md-card>
   <md-card-title>Menus (dropdowns)</md-card-title>
   <md-card-subtitle>md-menu is a list of options that displays when triggered.</md-card-subtitle>
-
+  <md-card-content>
+    <p>Custom nested menu </p>
+  </md-card-content>
+  <md-toolbar>
+    <top-menu [items]="menuItems"></top-menu>
+    <span class="fill-remaining-space"></span> </md-toolbar>
   <md-card-content>
     <p>You clicked on: {{ selected }}</p>
   </md-card-content>
@@ -11,11 +16,8 @@
     </button>
   </md-toolbar>
   <md-menu #menu="mdMenu">
-    <button md-menu-item *ngFor="let item of items" (click)="select(item.text)" [disabled]="item.disabled">
-      {{ item.text }}
-    </button>
+    <button md-menu-item *ngFor="let item of mitems" (click)="select(item.text)" [disabled]="item.disabled"> {{ item.text }} </button>
   </md-menu>
-
   <md-card-content>
     <p> Clicking these will navigate:</p>
   </md-card-content>
@@ -24,12 +26,7 @@
       <md-icon>more_vert</md-icon>
     </button>
   </md-toolbar>
-  <md-menu #anchorMenu="mdMenu">
-    <a md-menu-item *ngFor="let item of items" href="http://www.google.com" [disabled]="item.disabled">
-      {{ item.text }}
-    </a>
-  </md-menu>
-
+  <md-menu #anchorMenu="mdMenu"> <a md-menu-item *ngFor="let item of mitems" href="http://www.google.com" [disabled]="item.disabled"> {{ item.text }} </a> </md-menu>
   <md-card-content>
     <p>Position x: before</p>
   </md-card-content>
@@ -38,14 +35,11 @@
       <md-icon>more_vert</md-icon>
     </button>
   </md-toolbar>
-
   <md-menu x-position="before" #posXMenu="mdMenu" class="before">
     <button md-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
       <md-icon>{{ item.icon }}</md-icon>
-      {{ item.text }}
-    </button>
+      {{ item.text }} </button>
   </md-menu>
-
   <md-card-content>
     <p>Position y: above</p>
   </md-card-content>
@@ -54,10 +48,7 @@
       <md-icon>more_vert</md-icon>
     </button>
   </md-toolbar>
-
   <md-menu y-position="above" #posYMenu="mdMenu">
-    <button md-menu-item *ngFor="let item of items" [disabled]="item.disabled">
-      {{ item.text }}
-    </button>
+    <button md-menu-item *ngFor="let item of mitems" [disabled]="item.disabled"> {{ item.text }} </button>
   </md-menu>
 </md-card>

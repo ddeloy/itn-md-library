@@ -37,6 +37,7 @@ import { ChipsComponent } from './chips/chips.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 
 import { JazzDialogComponent } from './dialog/dialog.component';
+import {TopMenuComponent} from './menu/top-menu/top-menu.component';
 
 @NgModule({
   imports: [
@@ -75,7 +76,8 @@ import { JazzDialogComponent } from './dialog/dialog.component';
     AutocompleteComponent,
     ChipsComponent,
     DatepickerComponent,
-    JazzDialogComponent
+    JazzDialogComponent,
+    TopMenuComponent
   ],
   entryComponents: [ JazzDialogComponent ],
 })
