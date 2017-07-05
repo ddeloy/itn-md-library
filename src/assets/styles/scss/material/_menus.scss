@@ -1,6 +1,163 @@
+$default-item-color: map-get($primary, 500);
+$default-sec-color: map-get($accent, 500);
+$default-hover-color: mat-color($accent, 50, 0.5);
+$default-item-hover-color: map-get($primary, 900);
+$default-cat-heading-color: map-get($accent, 400);
+
+$default-item-font-size: 0.875rem;
+$default-menu-item-font-size: 1rem;
+
+$default-nav-height: 64px;
+
 .mat-menu {
   border-radius: $border-radius-base;
 }
 [md-menu-item] {
   font-size: $font-size-base!important;
 }
+
+top-menu {
+  height: inherit;
+  & > [md-button].mat-button:not(.mat-icon-button),
+  & > [md-raised-button].mat-raised-button:not(.mat-icon-button) {
+      height: inherit;
+      border-radius: 0;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color .3s;
+      font-size: $default-item-font-size;
+      font-weight: $font-weight-bold;
+      color: $default-item-color;
+      background-color: transparent;
+      padding: 0 14px;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+      &.active {
+        background-color: $default-hover-color;
+      }
+      &:hover, &.open {
+          box-shadow: none;
+          background-color: $default-hover-color;
+          border-bottom-color: map-get($primary, 500);
+          &.mat-primary {
+            border-bottom-color: map-get($primary, 500);
+          }
+          &.mat-accent {
+            border-bottom-color: map-get($accent, 500);
+          }
+          &.mat-warn {
+            border-bottom-color: map-get($warn, 500);
+          }
+      }
+  }
+}
+
+.custom-menu, .sub-menu-custom {
+  &.mat-menu-panel {
+    border: 1px solid map-get($accent, 50);
+    box-shadow: 0px 2px 4px mat-color(map-get($primary, contrast), 50, 0.2);
+    min-width: initial;
+    max-height: 50vh;
+  }
+  .mat-menu-content {
+    [md-menu-item].mat-menu-item {
+      height: initial;
+      padding: 5px 16px;
+      clear: both;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: initial;
+      background-color: transparent;
+      color: map-get($primary, 500);
+      white-space: nowrap;
+      text-decoration: none;
+      user-select: none;
+      min-width: 180px;
+      & > .mat-icon {
+        color: map-get($primary, 500);
+      }
+      & > .menu-extra-text {
+        color: map-get($primary, 200);
+      }
+      &:hover, &:focus {          
+          color: map-get($primary, 900);
+          & > .mat-icon {
+            color: map-get($primary, 900);
+          }
+          & > .menu-extra-text {
+            color: map-get($primary, 200);
+          }
+      }
+      &[disabled] {
+        color: map-get($primary, 200);
+      }      
+    }
+    .mat-divider {
+      border-top: 1px solid mat-color(map-get($primary, contrast), 50, 0.12);
+      margin: 9px 0;
+    }
+    .menu-category {
+      display: block;
+      padding: 20px 16px 15px;
+      clear: both;
+      font-weight: 400;
+      font-size: 1rem;
+      color: map-get($accent, 400);
+      white-space: nowrap;
+      text-decoration: none;
+      user-select: none;
+    }
+  }
+}
+
+.menu-horz {
+  .custom-menu, .sub-menu-custom {
+    max-width: initial;
+    .mat-menu-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.sub-menu-custom {
+  margin-top: -48px;
+}
+
+.sub-menu-custom.mat-menu-panel.mat-menu-before.mat-menu-below {
+  transform-origin: left top !important;
+}
+
+top-menu [md-button] {
+  z-index: 1001;
+  line-height: 64px;
+  color: #fff;
+}
+
+[md-menu-item].mat-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+[md-menu-item].mat-menu-item span:first-child {
+  margin-right: 15px;
+}
+[md-menu-item].mat-menu-item .mat-icon {
+  margin-right: 0;
+}
+
+
+
+/* The code below is needed so that the nested menus all close onmosuedown */
+.cdk-overlay-backdrop {
+  display: block;
+}
+
+.cdk-overlay-backdrop ~ .cdk-overlay-backdrop {
+  display: none;
+}
+
+/* End Menu styles */

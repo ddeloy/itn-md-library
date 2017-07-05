@@ -5,8 +5,9 @@
     <p>Custom nested menu </p>
   </md-card-content>
   <md-toolbar>
-    <top-menu [items]="menuItems"></top-menu>
-    <span class="fill-remaining-space"></span> </md-toolbar>
+    <top-menu [color]="color" [items]="menuItems"></top-menu>
+    <span class="fill-remaining-space"></span>
+  </md-toolbar>
   <md-card-content>
     <p>You clicked on: {{ selected }}</p>
   </md-card-content>

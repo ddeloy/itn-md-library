@@ -7,13 +7,15 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
   selected = '';
+  color = '';
   // Custom menu structure - pass in routerLinks here - or external links
   menuItems = [
     {
       text: 'Orders',
       items: [
         {
-          text: 'Share'
+          text: 'Share',
+          extraText: 'Ctrl+O'
         },
         {
           text: 'New',
@@ -99,23 +101,81 @@ export class MenuComponent {
       ]
     },
     {
+      text: 'File',
+      items: [
+        {
+          isCategory: true,
+          text: 'File',
+          items: [{
+            text: 'New'
+          }, {
+            text: 'Save'
+          }, {
+            text: 'Save As',
+            icon: 'arrow_right',
+            items: [
+              {
+                text: 'Print layout'
+              },
+              {
+                text: 'Mode'
+              },
+              {
+                divider: true
+              },
+              {
+                text: 'Full screen'
+              },
+            ]
+          }]
+        },
+        {
+          isCategory: true,
+          text: 'Other Action',
+          items: [{
+            text: 'Delete'
+          }, {
+            text: 'Exit'
+          }]
+        }        
+      ]
+    },
+    {
       text: 'Edit',
       items: [
         {
-          text: 'New Order',
-          // extraText: 'Ctrl+Z'
+          isCategory: true,
+          text: 'Action',
+          items: [{
+            text: 'Undo'
+          }, {
+            text: 'Redo'
+          }, {
+            text: 'Revert to Original'
+          }]
         },
         {
-          text: 'Redo Order',
-          //   extraText: 'Ctrl+Y'
+          isCategory: true,
+          text: 'Content',
+          items: [{
+            text: 'Copy'
+          }, {
+            text: 'Paste'
+          }, {
+            text: 'Select All'
+          }]
         },
         {
-          divider: true
-        },
-        {
-          text: 'Copy Order',
-          //   extraText: 'Ctrl+X'
-        }
+          isCategory: true,
+          text: 'Other Actions',
+          items: [{
+            text: 'Delete'
+          }, {
+            text: 'Delete All'
+          }, {
+            text: 'Highlight All'
+          }]
+        }        
       ]
     },
     {
