@@ -47,6 +47,7 @@
     "zone.js": "0.8.10"
   },
   "devDependencies": {
+    "wijmo": "http://prerelease.componentone.com/wijmo5/npm-images/C1Wijmo-Enterprise-Eval-AMD-5.20171.300.tgz",
     "@angular/cli": "1.0.3",
     "@angular/compiler-cli": "4.1.2",
     "@types/jasmine": "2.5.38",

@@ -17,11 +17,20 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { PagesRoutes } from './pages.routing';
-import { BlankComponent } from './blank/blank.component';
-import { InvoiceComponent } from './invoice/invoice.component';
+import { WijmoTableComponent } from './wijmo/wijmo.table.component';
+import { DocumentationComponent } from './invoice/invoice.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { EditComponent } from './edit/edit.component';
 import { PricingComponent } from './pricing/pricing.component';
+
+import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
+import {WjInputModule} from 'wijmo/wijmo.angular2.input';
+import {WjCoreModule} from 'wijmo/wijmo.angular2.core';
+import * as wjcCore from 'wijmo/wijmo';
+import {DataSvc} from 'app/pages/services/DataSvc';
+import {FormattedModelAccessor} from './directives/FormattedModelAccessor';
+import {NumberInputAccessor} from './directives/NumberInputAccessor';
+import {GlobalizePipe} from './pipes/appPipes';
 
 @NgModule({
   imports: [
@@ -38,15 +47,22 @@ import { PricingComponent } from './pricing/pricing.component';
     MdSelectModule,
     FlexLayoutModule,
     FormsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    WjInputModule,
+    WjGridModule,
+    WjCoreModule,
   ],
   declarations: [
-    BlankComponent,
-    InvoiceComponent,
+    WijmoTableComponent,
+    DocumentationComponent,
     TimelineComponent,
     EditComponent,
-    PricingComponent
-  ]
+    PricingComponent,
+    GlobalizePipe,
+    FormattedModelAccessor,
+    NumberInputAccessor
+  ],
+  providers: [DataSvc],
 })
 
 export class PagesModule {}

@@ -1,0 +1,153 @@
+<md-card>
+  <md-card-content>
+    <div class="mdl-cell mdl-cell--12-col">
+      <h2>Wijmo Angular Component Collection - Tables without Bootstrap styling</h2>
+      <a href="http://wijmo.com/angular2/http://wijmo.com/angular2/" target="_blank">Wijmo Component Collection</a> <br/>
+      <a href="http://ddeloy.net/flexgrid-ex-2/" target="_blank">See my POC with Bootstrap stying</a> 
+      
+      <!-- basic example -->
+      <h3>Basic Example</h3>
+      <div class="sGrid">
+        <table class="table table-condensed table-bordered">
+          <thead>
+            <tr class="active">
+              <th class="text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cvGettingStarted.items">
+              <td class="text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <!-- current record management -->
+    <h3>Current Record Management</h3>
+    <div class="row-fluid well btn-group">
+      <button class="btn btn-default" (click)="cvCRM.moveCurrentToNext()">Next</button>
+      <button class="btn btn-default" (click)="cvCRM.moveCurrentToPrevious()">Previous</button>
+      <button class="btn btn-default" (click)="stopCurrent()">Stop at 4th Row</button>
+      <button class="btn btn-default" (click)="reset()">Clear</button>
+    </div>
+    <div class="sGrid">
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr class="active">
+            <th class="text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cvCRM.items"
+              [ngClass]="{success: item == cvCRM.currentItem}"
+              (click)="cvCRM.moveCurrentTo(item)">
+            <td class="text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- sorting -->
+    <h3>Sorting</h3>
+    <p>Click column to sort</p>
+    <div class="sGrid">
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr class="active">
+            <th class="text-center" *ngFor="let fieldName of fieldNames"
+                (click)="toggleSort(fieldName)" style="cursor:pointer"> {{fieldName}}<span style="color: red">{{getSort(fieldName)}}</span> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cvSorting.items">
+            <td class="text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- filtering -->
+    <h3>Filtering</h3>
+    <div class="row-fluid well">
+      <input type="text" class="form-control app-pad" placeholder="Filter by country" [(ngModel)]="filter" />
+    </div>
+    <div class="sGrid">
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr class="active">
+            <th class="text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cvFiltering.items">
+            <td class="text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- grouping -->
+    <h3>Grouping</h3>
+    <div class="row-fluid well">
+      <select class="form-control" [(ngModel)]="selectedGroupOpt">
+        <option [ngValue]="''" >Please choose the field by which to group.</option>
+        <option *ngFor="let name of fieldNames" [ngValue]="name">{{name}}</option>
+      </select>
+    </div>
+    <div class="sGrid">
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr class="active">
+            <th class="text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of groupItems">
+            <td class="active"  [ngStyle]="{display:isGroupItem(item)? '':'none'}"   colspan="6"><span [ngStyle]="{display:'inline-block', width: (item.level*25) + 'px'}"></span> <b>{{item.name | globalize}}</b> ({{item.items?.length}} items) </td>
+            <td class="text-center" colspan="2"  [ngStyle]="{display:isGroupItem(item)? '':'none'}" > {{avgAmount(item)}} </td>
+            <td class="text-center" *ngFor="let name of fieldNames"  [ngStyle]="{display:isGroupItem(item)? 'none':''}"> {{item[name] | globalize}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- paging -->
+    <h3>Paging</h3>
+    <div class="row-fluid well row">
+      <div class="col-md-5">
+        <input number-input type="text" class="form-control" placeholder="0 or empty is for no paging." [(ngModel)]="cvPaging.pageSize" />
+      </div>
+      <div class="btn-group col-md-7"  >
+        <button type="button" class="btn btn-default"
+                  [disabled]="cvPaging.pageIndex <= 0"
+                  (click)="cvPaging.moveToFirstPage()"> <span class="glyphicon glyphicon-fast-backward">|<<</span> </button>
+        <button type="button" class="btn btn-default"
+                  [disabled]="cvPaging.pageIndex <= 0"
+                  (click)="cvPaging.moveToPreviousPage()"> <span class="glyphicon glyphicon-step-backward">|<</span> </button>
+        <button type="button" class="btn btn-default" disabled style="width:100px"> {{cvPaging.pageIndex + 1 | number}}
+        / {{cvPaging.pageCount | number}} </button>
+        <button type="button" class="btn btn-default"
+                  [disabled]="cvPaging.pageIndex >= cvPaging.pageCount - 1"
+                  (click)="cvPaging.moveToNextPage()"> <span class="glyphicon glyphicon-step-forward">>|</span> </button>
+        <button type="button" class="btn btn-default"
+                  [disabled]="cvPaging.pageIndex >= cvPaging.pageCount - 1"
+                  (click)="cvPaging.moveToLastPage()"> <span class="glyphicon glyphicon-fast-forward">>>|</span> </button>
+      </div>
+    </div>
+    <div class="sGrid">
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr class="active">
+            <th class="text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cvPaging.items">
+            <td class="text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </md-card-content>
+</md-card>

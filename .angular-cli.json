@@ -27,7 +27,9 @@
         "../node_modules/@swimlane/ngx-datatable/release/themes/material.css",
         "assets/fonts/pe/css/pe-icon-set-weather.css",
         "assets/fonts/data-table/icons.css",
-        "assets/styles/app.scss"
+        "assets/styles/app.scss",
+        "assets/styles/wijmo/wijmo.css",
+        "assets/styles/wijmo/wijmo.theme.cleanlight.css"
       ],
       "scripts": [
         "../node_modules/hammerjs/hammer.min.js",

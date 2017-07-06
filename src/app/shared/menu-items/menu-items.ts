@@ -56,32 +56,13 @@ const MENUITEMS = [
     ]
   },
   {
-    state: 'tables',
-    name: 'TABLES',
-    type: 'sub',
-    icon: 'format_line_spacing',
-   /* badge: [
-      {type: 'blue-grey', value: '8'
-      }
-    ], */
-    children: [
-      {state: 'fullscreen', name: 'FULLSCREEN'},
-      {state: 'editing', name: 'EDITING'},
-      {state: 'filter', name: 'FILTER'},
-      {state: 'paging', name: 'PAGING'},
-      {state: 'sorting', name: 'SORTING'},
-      {state: 'pinning', name: 'PINNING'},
-      {state: 'selection', name: 'SELECTION'},
-    ]
-  },
-
-  {
     state: 'pages',
     name: 'PAGES',
     type: 'sub',
     icon: 'pages',
     children: [
-       {state: 'blank', name: 'BLANK'},
+       {state: 'wijmo', name: 'Wijmo Tables'},
+      {state: 'docs', name: 'Documentation'},
       ]
   },
 ];
