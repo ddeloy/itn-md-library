@@ -123,6 +123,36 @@ top-menu {
   }
 }
 
+//
+// for dropdown button menus
+//
+.mat-menu-panel:not(.custom-menu) {
+  border: 1px solid mat-color($accent, 500, 0.2);
+  border-radius: 0;
+  -webkit-box-shadow: 0 0 4px mat-color(map-get($primary, contrast), 50, 0.5);
+  box-shadow: 0 0 4px mat-color(map-get($primary, contrast), 50, 0.5);
+  .mat-menu-content {
+    li[md-menu-item].mat-menu-item {
+      padding: 7px 11px;
+      font-weight: 400;
+      font-size: 0.875rem !important;
+      text-decoration: none;
+      min-width: 160px;
+      line-height: initial;
+      height: initial;
+      &:hover, &:focus {          
+        background-color: map-get($accent, 30);
+      }
+    }
+    .divider {
+      height: 1px;
+      margin: 9px 0;
+      overflow: hidden;
+      background-color: #e5e5e5;
+    }
+  }
+}
+
 .sub-menu-custom {
   margin-top: -48px;
 }

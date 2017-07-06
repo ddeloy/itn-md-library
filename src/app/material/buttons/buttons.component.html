@@ -8,7 +8,7 @@
       <div class="btn-group mr-1" [ngClass]="{'open': open1}">
         <button md-raised-button color="primary"
           data-toggle="dropdown" class="dropdown-toggle" (click)="open1=!open1">
-          Action
+          Action - Hard Coded
           <md-icon>keyboard_arrow_down</md-icon>
         </button>
         <ul class="dropdown-menu">
@@ -19,7 +19,6 @@
             <li><a href="#">Separated link</a></li>
         </ul>
       </div>
-
       <!-- Split button -->
       <div class="btn-group mr-1" [ngClass]="{'open': open2}">
         <button md-raised-button color="primary">Send</button>
@@ -35,55 +34,70 @@
             <li><a href="#">Separated link</a></li>
         </ul>
       </div>
+
+      <!-- Hard coded dropdown for button -->
+      <p>Dropdown button - Hard coded material menu - not custom</p>
+      <!-- Single button -->
+      <div class="btn-group mr-1">        
+        <button [mdMenuTriggerFor]="appMenu" md-raised-button color="primary">
+          Action - Hard Coded
+          <md-icon>keyboard_arrow_down</md-icon>
+        </button>
+        <md-menu #appMenu [overlapTrigger]="false">
+          <li md-menu-item>First menu item</li>
+          <li md-menu-item>Second menu item</li>
+          <li md-menu-item>Third menu item</li>
+          <li class="divider"></li>
+          <li md-menu-item>Fourth menu item</li>
+        </md-menu>
+      </div>
+      <!-- Split button -->
+      <div class="btn-group mr-1">
+        <button md-raised-button color="primary">Send</button>        
+        <button [mdMenuTriggerFor]="appMenu1" md-raised-button color="primary">
+          <md-icon>keyboard_arrow_down</md-icon>
+        </button>
+        <md-menu #appMenu1 [overlapTrigger]="false">
+          <li md-menu-item>First menu item</li>
+          <li md-menu-item>Second menu item</li>
+          <li md-menu-item>Third menu item</li>
+          <li class="divider"></li>
+          <li md-menu-item>Fourth menu item</li>
+        </md-menu>
+      </div>      
     </div>
 
-    <!-- Hard coded dropdown for button -->
-    <div class="btn-group mr-1">
-      <p>Dropdown button - Hard coded material menu - not custom</p>
-      <button [mdMenuTriggerFor]="appMenu" md-raised-button color="accent">
-        Action - Hard Coded
-        <md-icon>keyboard_arrow_down</md-icon>
-      </button>
-      <md-menu #appMenu>
-        <li md-menu-item>First menu item</li>
-        <li md-menu-item>Second menu item</li>
-        <li md-menu-item>Third menu item</li>
-        <li md-menu-item>Fourth menu item</li>
-      </md-menu>
-    </div>
+    
 
     <div class="pb-1">
       <p>Dropdown buttons - Flat Buttons</p>
       <!-- Single button -->
-      <div class="btn-group mr-1" [ngClass]="{'open': openf1}">
-        <button md-button color="primary"
-          data-toggle="dropdown" class="dropdown-toggle" (click)="openf1=!openf1">
+      <div class="btn-group mr-1">        
+        <button [mdMenuTriggerFor]="appMenu2" md-button color="primary">
           Action
           <md-icon>keyboard_arrow_down</md-icon>
         </button>
-        <ul class="dropdown-menu">
-            <li><a href="#">Action One</a></li>
-            <li><a href="#">Action Two</a></li>
-            <li><a href="#">Action Three</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-        </ul>
+        <md-menu #appMenu2 [overlapTrigger]="false">
+          <li md-menu-item>Action One</li>
+          <li md-menu-item>Action Two</li>
+          <li md-menu-item>Action Three</li>
+          <li class="divider"></li>
+          <li md-menu-item>Separated link</li>
+        </md-menu>
       </div>
-
       <!-- Split button -->
-      <div class="btn-group mr-1" [ngClass]="{'open': openf2}">
-        <button md-button color="primary">Send</button>
-        <button md-button color="primary"
-          data-toggle="dropdown" class="dropdown-toggle" (click)="openf2=!openf2">
+      <div class="btn-group mr-1">
+        <button md-button color="accent">Send</button>        
+        <button [mdMenuTriggerFor]="appMenu3" md-button color="accent">
           <md-icon>keyboard_arrow_down</md-icon>
         </button>
-        <ul class="dropdown-menu">
-            <li><a href="#">Action One</a></li>
-            <li><a href="#">Action Two</a></li>
-            <li><a href="#">Action Three</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-        </ul>
+        <md-menu #appMenu3 [overlapTrigger]="false">
+          <li md-menu-item>Action One</li>
+          <li md-menu-item>Action Two</li>
+          <li md-menu-item>Action Three</li>
+          <li class="divider"></li>
+          <li md-menu-item>Separated link</li>
+        </md-menu>
       </div>
     </div>
 
