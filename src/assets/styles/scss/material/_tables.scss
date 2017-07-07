@@ -1,0 +1,106 @@
+/* Default colors */
+$header-bg-color: map-get($accent, 30);
+$header-text-color: rgba(44, 49, 68, 0.7); //#2c3144 with 0.7 opacity
+$header-border-color: #d2d4db;
+$row-border-color: #dfe3f5;
+$table-text-color: #424864;
+$table-menu-icon-color: map-get($primary, 500);
+$table-summary-text-color: rgba(66, 72, 100, 0.8);
+$table-summary-edit-text-color: rgba(30, 112, 149, 0.8);
+
+/* Default sizes */
+$header-font-size: 0.8125rem;
+$table-font-size-desk: 0.875rem;
+$table-font-size-tab: 0.75rem;
+$table-menu-icon-size: 1.125rem;
+$table-summary-edit-text-size: 0.75rem;
+
+.sGrid {
+    table {
+        border-collapse: collapse;
+        background-color: transparent;
+    }
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        caption {
+            opacity: 0.8;
+            color: $table-summary-text-color;
+            font-size: $table-font-size-tab;
+            text-align: left;
+            padding-bottom: 2px;
+            [md-button].mat-button {
+                color: $table-summary-edit-text-color;
+                font-size: $table-summary-edit-text-size;
+                height: 1rem;
+                line-height: 1px;
+                padding: 0.75rem;
+            }
+        }
+        thead {
+            th {
+                background-color: $header-bg-color;
+                color: $header-text-color;
+                font-size: $header-font-size;
+                font-weight: 400;
+                text-align: left;
+                padding: 0.75rem;
+                border-bottom: 1px solid $header-border-color;
+            }
+        }
+        tbody {
+            td {
+                color: $table-text-color;
+                font-size: $table-font-size-tab;
+                font-weight: 400;
+                text-align: left;
+                padding: 0.6rem 0.75rem;
+                border-bottom: 1px solid $row-border-color;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: breakpoint-max(sm)) {
+    /* Force table to not be like tables anymore */
+    .sGrid {
+        .table {
+            display: block;
+            caption {
+                display: block;
+            }
+            thead {
+                display: none;
+            }
+            tbody {
+                display: block;
+                border-bottom: 1px solid $row-border-color;
+                tr {
+                    display: block;
+                    border-bottom: 1px solid $row-border-color;
+                    td {
+                        display: block;
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: breakpoint-min(md)) {
+    .sGrid {
+        .table {
+            caption {
+                font-size: $table-font-size-desk;
+            }
+            tbody {
+                td {
+                    font-size: $table-font-size-desk;
+                    padding: 1.2rem 0.75rem;
+                }
+            }
+        }
+    }
+}

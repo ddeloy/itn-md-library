@@ -8,15 +8,19 @@
       <!-- basic example -->
       <h3>Basic Example</h3>
       <div class="sGrid">
-        <table class="table table-condensed table-bordered">
+        <table class="table">
+          <caption>
+            15 Leafy Green Orders
+            <button md-button>Edit</button>
+          </caption>
           <thead>
             <tr class="active">
-              <th class="text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+              <th *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of cvGettingStarted.items">
-              <td class="text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+              <td *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
             </tr>
           </tbody>
         </table>
