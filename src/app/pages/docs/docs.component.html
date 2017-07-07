@@ -1,3 +1,4 @@
+<!-- for buttons -->
 <md-card class="page-card">
   <md-card-title><code>MdButtonModule</code>
     <a class="badge" href="https://material.angular.io/components/component/button" target="_blank">Official Documentation</a>
@@ -14,43 +15,290 @@
         <em>action</em>
         is performed. An <code>&lt;a&gt;</code> element should be used whenever the user will <em>navigate</em> to
         another view.</p>
-      <p>There are five button variants, each applied as an attribute:</p>
-      <table>
+      <p>There are five basic button variants, each applied as an attribute:</p>
+      <table class="table">
         <thead>
         <tr>
           <th>Attribute</th>
           <th>Description</th>
+          <th>Example</th>
         </tr>
         </thead>
         <tbody>
         <tr>
           <td><code>md-button</code></td>
-          <td>Rectangular button w/ no elevation.</td>
+          <td>
+            Rectangular button w/ no elevation.
+            <i class="block-text">Also known as Flat Buttons</i>
+          </td>
+          <td>
+            <button md-button color="primary">Primary</button>
+          </td>
         </tr>
         <tr>
           <td><code>md-raised-button</code></td>
-          <td>Rectangular button w/ elevation</td>
+          <td>
+            Rectangular button w/ elevation
+            <i class="block-text">Also known as Default Buttons</i>
+          </td>
+          <td>
+            <button md-raised-button color="primary">Primary</button>
+          </td>
         </tr>
         <tr>
           <td><code>md-icon-button</code></td>
-          <td>Circular button with a transparent background, meant to contain an icon</td>
+          <td>
+            Circular button with a transparent background, meant to contain an icon
+            <i class="block-text">Also known as Icon Buttons</i>
+          </td>
+          <td>
+            <button md-raised-button md-icon-button color="primary"><md-icon>star</md-icon></button>
+          </td>
         </tr>
         <tr>
           <td><code>md-fab</code></td>
           <td>Circular button w/ elevation, defaults to theme&#39;s accent color</td>
+          <td>
+            <button md-fab color="primary"><md-icon>add</md-icon></button>
+          </td>
         </tr>
         <tr>
           <td><code>md-mini-fab</code></td>
           <td>Same as <code>md-fab</code> but smaller</td>
+          <td>
+            <button md-mini-fab color="primary"><md-icon>add</md-icon></button>
+          </td>
         </tr>
         </tbody>
       </table>
+
+      <p>Additional variants available:</p>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Description</th>
+          <th>Example</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><code>md-round-button</code></td>
+          <td>
+            Rectangular button with rounded corners.
+            <i class="block-text">Also known as Round Buttons</i>
+          </td>
+          <td>
+            <button md-raised-button md-round-button color="primary" class="mr-1">Primary</button>
+          </td>
+        </tr>
+        <tr>
+          <td><code>md-button-sm</code></td>
+          <td>
+            For smaller version of the buttons
+            <i class="block-text">Also known as Small Buttons</i>
+          </td>
+          <td>
+            <button md-raised-button md-button-sm color="primary" class="mr-1">Primary</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3 id="dropdown-buttons">Dropdown and Split Buttons</h3>
+      <p>Dropdown buttons toggle a contextual, dropdown menu displaying a list of actions/links.
+        Button is created using one of the above variants, and corresponding dropdown menu is created 
+        using <code>md-menu</code> element. Button and menu are tied up using <code>[mdMenuTriggerFor]</code>
+        property binding which provided the value equal to id of the <code>md-menu</code> element.
+        Button and menu are wrapped inside <code>div</code> with class <code>btn-group</code>.</p>
+      <p>A variant of dropdown buttons, known as Split buttons, allows for a single or more button(s)
+        performing the most primary/common action(s) along with a small icon button which acts as
+        trigger for toggling the dropdown menu to show secondary actions.
+      </p>
+
+      <h3 id="usage">Usage</h3>
+      <p>Required button is created using <code>button</code> tag along with above mentioned
+      attributes. These attributes can be used in combination to create desired variant. 
+      For example, <code>md-raised-button md-round-button</code> are used together to create
+       a round raised/default button.</p>
+
       <h3 id="theming">Theming</h3>
       <p>Buttons can be colored in terms of the current theme using the <code>color</code> property to set the
         background color to <code>primary</code>, <code>accent</code>, or <code>warn</code>. By default, only FABs
         are colored; the default
         background color for <code>md-button</code> and <code>md-raised-button</code> matches the theme&#39;s
         background color. </p>
+      
+      <h3 id="examples">Examples</h3>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default/Raised Button (with Primary color)
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Click me!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button color="primary">Click me!</button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default/Raised Round Button (with Accent/Secondary color)
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-round-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>Click me!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-round-button color="accent">Click me!</button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default/Raised Button - Disabled
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button disabled color="primary">Disabled</button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Small Flat Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"warn"</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-button md-button-sm color="warn">Small</button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Icon Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-icon-button color="primary"><md-icon>search</md-icon></button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Dropdown Button - Single Button
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"appMenu"</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+    Actions
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>keyboard_arrow_down<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">appMenu</span> [<span class="hljs-attr">overlapTrigger</span>]=<span class="hljs-string">"false"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- [overlapTrigger]="false" makes dropdown menu to not cover the button --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>First menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Second menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Third menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"divider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Fourth menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div class="btn-group">        
+            <button [mdMenuTriggerFor]="appMenu" md-raised-button color="primary">
+              Actions
+              <md-icon>keyboard_arrow_down</md-icon>
+            </button>
+            <md-menu #appMenu [overlapTrigger]="false">
+              <li md-menu-item>First menu item</li>
+              <li md-menu-item>Second menu item</li>
+              <li md-menu-item>Third menu item</li>
+              <li class="divider"></li>
+              <li md-menu-item>Fourth menu item</li>
+            </md-menu>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Dropdown Button - Split Button
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>Send<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"appMenu1"</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>keyboard_arrow_down<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">appMenu1</span> [<span class="hljs-attr">overlapTrigger</span>]=<span class="hljs-string">"false"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- [overlapTrigger]="false" makes dropdown menu to not cover the button --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>First menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Second menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Third menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"divider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Fourth menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div class="btn-group">
+            <button md-raised-button color="accent">Send</button>        
+            <button [mdMenuTriggerFor]="appMenu1" md-raised-button color="accent">
+              <md-icon>keyboard_arrow_down</md-icon>
+            </button>
+            <md-menu #appMenu1 [overlapTrigger]="false">
+              <li md-menu-item>First menu item</li>
+              <li md-menu-item>Second menu item</li>
+              <li md-menu-item>Third menu item</li>
+              <li class="divider"></li>
+              <li md-menu-item>Fourth menu item</li>
+            </md-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
+
+<!-- for inputs -->
+<md-card class="page-card">
+  <md-card-title><code>MdInputModule</code>
+    <a class="badge" href="https://material.angular.io/components/input/overview" target="_blank">Official Documentation</a>
+  </md-card-title>
+  <md-card-content>
+    <div class="docs-guide-content">
+      <p><code>&lt;md-input-container&gt;</code> is a wrapper for native <code>input</code> and <code>textarea</code> elements.
+      This container applies Material Design styles and behavior while still allowing direct access to the underlying
+      native element.</p>
+      <p>The native <code>input</code> or <code>textarea</code> element wrapped by the <code>md-input-container</code> must be marked 
+      with the <code>mdInput</code> directive.</p>    
+
+      <h3 id="label-and-placeholder">Label and Placeholder</h3>
+      <p>By default, in Material design, <code>input</code> and <code>textarea</code> elements
+      have floating placeholder, which when text is present in those elements, floats above the
+      input zone.</p>
+      <p>However, these elements have been modified to have a static label and non-floating placeholder
+        which disappears as soon as the user starts typing in the input zone. To achieve this,
+        <code>&lt;md-input-container&gt;</code> is wrapped inside <code>&lt;label&gt;</code>.
+        Floating placeholder has been disabled by setting <code>floatPlaceholder</code> attribute of
+        <code>md-input-container</code> to <code>never</code>.
+      </p>
+
+      <h3 id="underline-color">Underline Color and Border</h3>
+      <p>By default, in Material design, <code>input</code> and <code>textarea</code> elements
+      have a line under them that changes color whenever these elements gain focus.</p>
+      <p>However, these elements have been modified to have border bottom on mobile screens and border on
+        all four sides on tabs and bigger screens. These borders change color on input focus, and this color
+        can be set using <code>dividerColor</code> attribute on <code>md-input-container</code>.
+        Supported values for this attribute are <code>primary</code>, <code>accent</code> and <code>warn</code>.
+        If none of these value are present or if this attribute is missing, then a default color will be used.</p>
     </div>
   </md-card-content>
 </md-card>

@@ -10,7 +10,8 @@ import {
   MdTabsModule,
   MdListModule,
   MdSlideToggleModule,
-  MdSelectModule } from '@angular/material';
+  MdSelectModule,
+  MdMenuModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -45,6 +46,7 @@ import {GlobalizePipe} from './pipes/appPipes';
     MdListModule,
     MdSlideToggleModule,
     MdSelectModule,
+    MdMenuModule,
     FlexLayoutModule,
     FormsModule,
     NgxDatatableModule,

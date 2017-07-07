@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConnectedPositionStrategy, MdMenuTrigger } from '@angular/material';
 
 @Component({
   selector: 'app-docs',
