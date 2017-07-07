@@ -18,7 +18,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { PagesRoutes } from './pages.routing';
 import { WijmoTableComponent } from './wijmo/wijmo.table.component';
-import { DocumentationComponent } from './invoice/invoice.component';
+import { DocumentationComponent } from './docs/docs.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { EditComponent } from './edit/edit.component';
 import { PricingComponent } from './pricing/pricing.component';

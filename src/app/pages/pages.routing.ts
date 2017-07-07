@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { WijmoTableComponent } from './wijmo/wijmo.table.component';
-import { DocumentationComponent } from './invoice/invoice.component';
+import { DocumentationComponent } from './docs/docs.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { EditComponent } from './edit/edit.component';
 import { PricingComponent } from './pricing/pricing.component';

@@ -1,329 +1,129 @@
-/* $Widget
- ------------------------------------------*/
-.ngx-datatable.material {
-  padding: 0;
-  margin: ($gutter/3);
-  @include mat-elevation(2);
-  @include mat-elevation-transition;
+
+
+/* Wijmo Table */
+table {
+  border-spacing: 0;
+  border-collapse: collapse
+}
+td, th {
+  padding: 0
+}
+table {
+  background-color: transparent
+}
+.table-wijmo {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px
+}
+.table-wijmo>tbody>tr>td, .table-wijmo>tbody>tr>th, .table-wijmo>tfoot>tr>td, .table-wijmo>tfoot>tr>th, .table-wijmo>thead>tr>td, .table-wijmo>thead>tr>th {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd
+}
+.table-wijmo>thead>tr>th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd
+}
+.table-wijmo>caption+thead>tr:first-child>td, .table-wijmo>caption+thead>tr:first-child>th, .table-wijmo>colgroup+thead>tr:first-child>td, .table-wijmo>colgroup+thead>tr:first-child>th, .table-wijmo>thead:first-child>tr:first-child>td, .table-wijmo>thead:first-child>tr:first-child>th {
+  border-top: 0
+}
+.table-wijmo>tbody+tbody {
+  border-top: 2px solid #ddd
+}
+.table-wijmo .table-wijmo {
+  background-color: #fff
+}
+.table-wijmo-condensed>tbody>tr>td, .table-wijmo-condensed>tbody>tr>th, .table-wijmo-condensed>tfoot>tr>td, .table-wijmo-condensed>tfoot>tr>th, .table-wijmo-condensed>thead>tr>td, .table-wijmo-condensed>thead>tr>th {
+  padding: 5px
+}
+.table-wijmo-bordered {
+  border: 1px solid #ddd
+}
+.table-wijmo-bordered>tbody>tr>td, .table-wijmo-bordered>tbody>tr>th, .table-wijmo-bordered>tfoot>tr>td, .table-wijmo-bordered>tfoot>tr>th, .table-wijmo-bordered>thead>tr>td, .table-wijmo-bordered>thead>tr>th {
+  border: 1px solid #ddd
+}
+.table-wijmo-bordered>thead>tr>td, .table-wijmo-bordered>thead>tr>th {
+  border-bottom-width: 2px
+}
+.table-wijmo-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #f9f9f9
+}
+.table-wijmo-hover>tbody>tr:hover {
+  background-color: #f5f5f5
+}
+table col[class*=col-] {
+  position: static;
+  display: table-column;
+  float: none
+}
+table td[class*=col-], table th[class*=col-] {
+  position: static;
+  display: table-cell;
+  float: none
+}
+.table-wijmo>tbody>tr.active>td, .table-wijmo>tbody>tr.active>th, .table-wijmo>tbody>tr>td.active, .table-wijmo>tbody>tr>th.active, .table-wijmo>tfoot>tr.active>td, .table-wijmo>tfoot>tr.active>th, .table-wijmo>tfoot>tr>td.active, .table-wijmo>tfoot>tr>th.active, .table-wijmo>thead>tr.active>td, .table-wijmo>thead>tr.active>th, .table-wijmo>thead>tr>td.active, .table-wijmo>thead>tr>th.active {
+  background-color: #eef1f1;
+}
+.table-wijmo-hover>tbody>tr.active:hover>td, .table-wijmo-hover>tbody>tr.active:hover>th, .table-wijmo-hover>tbody>tr:hover>.active, .table-wijmo-hover>tbody>tr>td.active:hover, .table-wijmo-hover>tbody>tr>th.active:hover {
+  background-color: #e8e8e8
+}
+.table-wijmo>tbody>tr.success>td, .table-wijmo>tbody>tr.success>th, .table-wijmo>tbody>tr>td.success, .table-wijmo>tbody>tr>th.success, .table-wijmo>tfoot>tr.success>td, .table-wijmo>tfoot>tr.success>th, .table-wijmo>tfoot>tr>td.success, .table-wijmo>tfoot>tr>th.success, .table-wijmo>thead>tr.success>td, .table-wijmo>thead>tr.success>th, .table-wijmo>thead>tr>td.success, .table-wijmo>thead>tr>th.success {
+  background-color: #dff0d8
+}
+.table-wijmo-hover>tbody>tr.success:hover>td, .table-wijmo-hover>tbody>tr.success:hover>th, .table-wijmo-hover>tbody>tr:hover>.success, .table-wijmo-hover>tbody>tr>td.success:hover, .table-wijmo-hover>tbody>tr>th.success:hover {
+  background-color: #d0e9c6
+}
+.table-wijmo>tbody>tr.info>td, .table-wijmo>tbody>tr.info>th, .table-wijmo>tbody>tr>td.info, .table-wijmo>tbody>tr>th.info, .table-wijmo>tfoot>tr.info>td, .table-wijmo>tfoot>tr.info>th, .table-wijmo>tfoot>tr>td.info, .table-wijmo>tfoot>tr>th.info, .table-wijmo>thead>tr.info>td, .table-wijmo>thead>tr.info>th, .table-wijmo>thead>tr>td.info, .table-wijmo>thead>tr>th.info {
+  background-color: #d9edf7
+}
+.table-wijmo-hover>tbody>tr.info:hover>td, .table-wijmo-hover>tbody>tr.info:hover>th, .table-wijmo-hover>tbody>tr:hover>.info, .table-wijmo-hover>tbody>tr>td.info:hover, .table-wijmo-hover>tbody>tr>th.info:hover {
+  background-color: #c4e3f3
+}
+.table-wijmo>tbody>tr.warning>td, .table-wijmo>tbody>tr.warning>th, .table-wijmo>tbody>tr>td.warning, .table-wijmo>tbody>tr>th.warning, .table-wijmo>tfoot>tr.warning>td, .table-wijmo>tfoot>tr.warning>th, .table-wijmo>tfoot>tr>td.warning, .table-wijmo>tfoot>tr>th.warning, .table-wijmo>thead>tr.warning>td, .table-wijmo>thead>tr.warning>th, .table-wijmo>thead>tr>td.warning, .table-wijmo>thead>tr>th.warning {
+  background-color: #fcf8e3
+}
+.table-wijmo-hover>tbody>tr.warning:hover>td, .table-wijmo-hover>tbody>tr.warning:hover>th, .table-wijmo-hover>tbody>tr:hover>.warning, .table-wijmo-hover>tbody>tr>td.warning:hover, .table-wijmo-hover>tbody>tr>th.warning:hover {
+  background-color: #faf2cc
+}
+.table-wijmo>tbody>tr.danger>td, .table-wijmo>tbody>tr.danger>th, .table-wijmo>tbody>tr>td.danger, .table-wijmo>tbody>tr>th.danger, .table-wijmo>tfoot>tr.danger>td, .table-wijmo>tfoot>tr.danger>th, .table-wijmo>tfoot>tr>td.danger, .table-wijmo>tfoot>tr>th.danger, .table-wijmo>thead>tr.danger>td, .table-wijmo>thead>tr.danger>th, .table-wijmo>thead>tr>td.danger, .table-wijmo>thead>tr>th.danger {
+  background-color: #f2dede
+}
+.table-wijmo-hover>tbody>tr.danger:hover>td, .table-wijmo-hover>tbody>tr.danger:hover>th, .table-wijmo-hover>tbody>tr:hover>.danger, .table-wijmo-hover>tbody>tr>td.danger:hover, .table-wijmo-hover>tbody>tr>th.danger:hover {
+  background-color: #ebcccc
+}
+.table-wijmo-responsive {
+  min-height: .01%;
+  overflow-x: auto
+}
+.table-wijmo-hover .table-wijmo-success:hover>td, .table-wijmo-hover .table-wijmo-success:hover>th {
+  background-color: #d0e9c6
+}
+tr.collapse.in {
+  display: table-row
+}
+tbody.collapse.in {
+  display: table-row-group
+}
+.table-wijmo-responsive {
   display: block;
-  position: relative;
-  border-radius: $border-radius-base;
-  &.fullscreen {
-    position: absolute !important;
-    height: auto !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  &.striped {
-    .datatable-row-odd {
-      background: mat-color($background, 'hover');
-    }
-  }
-  &.scroll-vertical {
-    height: 70vh;
-  }
-
-  &.single-selection,
-  &.multi-selection {
-    .datatable-body-row {
-      &.active,
-      &.active .datatable-row-group {
-        @include _mat-toolbar-color($primary);
-      }
-
-      &.active:hover,
-      &.active:hover .datatable-row-group {
-        background-color: darken(mat-color($primary), 2%);
-        color: #FFF;
-
-      }
-
-      &.active:focus,
-      &.active:focus .datatable-row-group {
-        background-color: darken(mat-color($primary), 4%);
-        color: #FFF;
-      }
-    }
-  }
-
-  &:not(.cell-selection) {
-    .datatable-body-row {
-      &:hover,
-      &:hover .datatable-row-group {
-        background: mat-color($background, 'hover');
-      }
-
-      &:focus,
-      &:focus .datatable-row-group {
-        background-color: darken(mat-color($background, 'hover'), 2%);;
-      }
-    }
-  }
-
-  &.cell-selection {
-    .datatable-body-cell {
-      &:hover,
-      &:hover .datatable-row-group {
-        background: mat-color($background, 'hover');
-      }
-
-      &:focus,
-      &:focus .datatable-row-group {
-        background-color: darken(mat-color($background, 'hover'), 2%);;
-      }
-
-      &.active,
-      &.active .datatable-row-group {
-        @include _mat-toolbar-color($primary);
-      }
-
-      &.active:hover,
-      &.active:hover .datatable-row-group {
-        background-color: darken(mat-color($primary), 2%);
-        color: #FFF;
-      }
-
-      &.active:focus,
-      &.active:focus .datatable-row-group {
-        background-color: darken(mat-color($primary), 4%);
-        color: #FFF;
-      }
-    }
-  }
-
-  /**
-   * Shared Styles
-   */
-  .empty-row{
-     padding: .85rem 1.2rem;
-  }
-
-  .loading-row{
-     padding: .85rem 1.2rem;
-  }
-
-  /**
-   * Header Styles
-   */
-  .datatable-header {
-    border-bottom: 1px solid mat-color($foreground, divider);
-
-    .datatable-header-cell {
-      padding: .85rem 1.2rem;
-      color: rgba(mat-color($foreground, base), 0.87);
-      vertical-align: middle;
-
-      &.longpress {
-        color:#00E676;
-      }
-
-      &.dragging {
-        .resize-handle {
-          border-right: none;
-        }
-      }
-    }
-
-    .resize-handle {
-      border-right:solid 1px mat-color($foreground, divider);
-    }
-  }
-
-  /**
-   * Body Styles
-   */
-  .datatable-body {
-    .datatable-row-detail {
-      background: #f5f5f5;
-      padding: 10px;
-    }
-
-    .datatable-body-row {
-      .datatable-body-cell {
-        padding: .85rem 1.2rem;
-        box-sizing: border-box;
-        max-height: 100%;
-        display: flex;
-        flex-direction: row;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        justify-content: flex-start;
-        align-items: center;
-        align-content: center;
-        -webkit-box-pack: start;
-        -webkit-box-align: center;
-        .datatable-body-cell-label {
-          width: 100%;
-        }
-      }
-    }
-
-    .progress-linear {
-      .container {
-        background-color: rgb(170,209,249);
-
-        .bar {
-          background-color: rgb(16,108,200);
-        }
-      }
-    }
-  }
-
-  /**
-   * Footer Styles
-   */
-  .datatable-footer {
-    border-top: 1px solid mat-color($foreground, divider);
-
-    .datatable-pager {
-      li {
-        vertical-align: middle;
-
-        &.disabled a{
-          color: rgba(0, 0, 0, 0.26) !important;
-          background-color: transparent !important;
-        }
-
-        &.active a{
-          background: mat-color($primary);
-          color: white;
-          font-weight: $font-weight-base;
-        }
-      }
-    }
-  }
+  width: 100%;
+  overflow-x: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar
+}
+.table-wijmo-responsive.table-wijmo-bordered {
+  border: 0
+}
+.wijmo-text-center {
+  text-align: center
 }
 
-.app-dark .ngx-datatable.material {
-  background: mat-color($dark-background, card);
-  color: mat-color($dark-foreground, base);
-  &.striped {
-    .datatable-row-odd {
-      background: mat-color($dark-background, 'hover');
-    }
-  }
 
-  &.single-selection,
-  &.multi-selection {
-    .datatable-body-row {
-      &.active,
-      &.active .datatable-row-group {
-        @include _mat-toolbar-color($dark-primary);
-      }
 
-      &.active:hover,
-      &.active:hover .datatable-row-group {
-        background-color: darken(mat-color($dark-primary), 2%);
-      }
 
-      &.active:focus,
-      &.active:focus .datatable-row-group {
-        background-color: darken(mat-color($dark-primary), 4%);
-      }
-    }
-  }
 
-  &:not(.cell-selection) {
-    .datatable-body-row {
-      &:hover,
-      &:hover .datatable-row-group {
-        background: mat-color($dark-background, 'hover');
-      }
 
-      &:focus,
-      &:focus .datatable-row-group {
-        background-color: darken(mat-color($dark-background, 'hover'), 2%);;
-      }
-    }
-  }
 
-  &.cell-selection {
-    .datatable-body-cell {
-      &:hover,
-      &:hover .datatable-row-group {
-        background: mat-color($dark-background, 'hover');
-      }
 
-      &:focus,
-      &:focus .datatable-row-group {
-        background-color: darken(mat-color($dark-background, 'hover'), 2%);;
-      }
 
-      &.active,
-      &.active .datatable-row-group {
-        @include _mat-toolbar-color($dark-primary);
-      }
-
-      &.active:hover,
-      &.active:hover .datatable-row-group {
-        background-color: darken(mat-color($dark-primary), 2%);
-      }
-
-      &.active:focus,
-      &.active:focus .datatable-row-group {
-        background-color: darken(mat-color($dark-primary), 4%);
-      }
-    }
-  }
-
-  .datatable-header .datatable-row-left, .datatable-body .datatable-row-left,
-  .datatable-header .datatable-row-right, .datatable-body .datatable-row-right {
-    background-color: rgba(73, 73, 73, 1);
-  }
-
-  /**
-   * Header Styles
-   */
-  .datatable-header {
-    border-bottom: 1px solid mat-color($dark-foreground, divider);
-
-    .datatable-header-cell {
-      color: mat-color($dark-foreground, base);
-    }
-
-    .resize-handle {
-      border-right:solid 1px mat-color($dark-foreground, divider);
-    }
-  }
-
-  /**
-   * Footer Styles
-   */
-  .datatable-footer {
-    border-top: 1px solid mat-color($dark-foreground, divider);
-
-    .datatable-pager {
-      li {
-        &.disabled a{
-          color: rgba(255, 255, 255, 0.26) !important;
-        }
-        a {
-          color: mat-color($dark-foreground, base);
-        }
-        &.active a{
-          background: mat-color($dark-primary);
-        }
-      }
-    }
-  }
-}
-
-[dir=rtl] {
-  .ngx-datatable.material .datatable-header .datatable-header-cell {
-    text-align: right;
-  }
-  .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell {
-    text-align: right;
-  }
-  .ngx-datatable.material .empty-row{
-     text-align: right;
-  }
-  .ngx-datatable.material .loading-row{
-     text-align: right;
-  }
-  .ngx-datatable .datatable-footer .datatable-pager {
-    text-align: left;
-  }
-}
