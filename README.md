@@ -4,7 +4,15 @@ Material design template built with Angular.
 
 See [WIKI](https://github.com/ddeloy/itn-md-library/wiki) for latest notes
 
-Deployed version of new template: [http://ddeloy.com/dist-dd-md-1/](http://ddeloy.com/dist-dd-md-1/)
+# Installation pre-requisites
+
+For running this project you need npm installed on your machine. These are some tutorials to install node in different operating systems:
+
+*Its important to install the latest version of Node*
+
+- [Install Node and NPM on Windows](https://www.youtube.com/watch?v=8ODS6RM6x7g)
+- [Install Node and NPM on Linux](https://www.youtube.com/watch?v=yUdHk-Dk_BY)
+- [Install Node and NPM on Mac](https://www.youtube.com/watch?v=Imj8PgG3bZU)
 
 #### Key Features Include:
 * Angular - latest
@@ -16,8 +24,6 @@ Deployed version of new template: [http://ddeloy.com/dist-dd-md-1/](http://ddelo
 * Custom theme ready
 * Flex Layout
 * Fully responsive (Mobile, Tablet, Desktop)
-
-
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) 
 

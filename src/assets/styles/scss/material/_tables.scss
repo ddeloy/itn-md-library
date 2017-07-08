@@ -1,3 +1,6 @@
+/* Raman - see styles/scss/components/_tables.scss for basic styles I created and applied to Wijmo tables that mimic twiiter bootstrap.
+The above mentioned styles can serve as a base to write the custom SAAS to meet Zeplin specs. */
+
 /* Default colors */
 $header-bg-color: map-get($accent, 30);
 $header-text-color: rgba(44, 49, 68, 0.7); //#2c3144 with 0.7 opacity
@@ -63,7 +66,7 @@ table {
 
 
 @media only screen and (max-width: breakpoint-max(xs)) {
-    /* Force table to not be like tables anymore */    
+    /* Force table to not be like tables anymore */
     .table {
         display: block;
         caption {
@@ -87,7 +90,7 @@ table {
     }
 }
 
-@media only screen and (min-width: breakpoint-min(md)) {    
+@media only screen and (min-width: breakpoint-min(md)) {
     .table {
         caption {
             font-size: $table-font-size-desk;
@@ -100,3 +103,6 @@ table {
         }
     }
 }
+
+
+
