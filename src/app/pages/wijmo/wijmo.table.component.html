@@ -9,19 +9,44 @@
       <!-- basic example -->
       <h4>Basic Example: Behaves according to specification when mobile breakpoint is hit.</h4>
       <div class="sGrid">
-        <table class="table">
+        <table class="table-wijmo">
           <caption>
             15 Leafy Green Orders
             <button md-button>Edit</button>
+            <div class="btn-group pull-right">        
+              <button [mdMenuTriggerFor]="tableMenu1" md-icon-button color="primary">
+                <md-icon>settings</md-icon>
+              </button>
+              <md-menu #tableMenu1 [overlapTrigger]="false">
+                <li md-menu-item>First menu item</li>
+                <li md-menu-item>Second menu item</li>
+                <li md-menu-item>Third menu item</li>
+                <li class="divider"></li>
+                <li md-menu-item>Fourth menu item</li>
+              </md-menu>
+            </div>
           </caption>
           <thead>
             <tr class="active">
               <th *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+              <th class="th-nav-arrow"></th>
+              <th class="th-action">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of cvGettingStarted.items">
-              <td *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+              <td *ngFor="let name of fieldNames"[ngClass]="{
+                'primary-info': name === gettingStartedPrimary,
+                'secondary-info': name === gettingStartedSecondary,
+                'extra-info': name === gettingStartedExtra}">
+                {{item[name] | globalize}}
+              </td>
+              <td class="td-nav-arrow">
+                <md-icon>keyboard_arrow_right</md-icon>
+              </td>
+              <td class="td-action">
+                <md-icon>more_horiz</md-icon>                
+              </td>
             </tr>
           </tbody>
         </table>
@@ -112,16 +137,19 @@
     <div class="sGrid">
       <table class="table-wijmo table-wijmo-hover table-wijmo-responsive">
         <thead>
-        <tr class="active">
-          <th class="wijmo-text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
-        </tr>
+          <tr class="active">
+            <th class="wijmo-text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of groupItems">
-          <td class="active"  [ngStyle]="{display:isGroupItem(item)? '':'none'}"   colspan="6"><span [ngStyle]="{display:'inline-block', width: (item.level*25) + 'px'}"></span> <b>{{item.name | globalize}}</b> ({{item.items?.length}} items) </td>
-          <td class="wijmo-text-center" colspan="2"  [ngStyle]="{display:isGroupItem(item)? '':'none'}" > {{avgAmount(item)}} </td>
-          <td class="wijmo-text-center" *ngFor="let name of fieldNames"  [ngStyle]="{display:isGroupItem(item)? 'none':''}"> {{item[name] | globalize}} </td>
-        </tr>
+          <tr *ngFor="let item of groupItems">
+            <td class="active"  [ngStyle]="{display:isGroupItem(item)? '':'none'}"   colspan="6">
+              <span [ngStyle]="{display:'inline-block', width: (item.level*25) + 'px'}"></span> 
+              <b>{{item.name | globalize}}</b> ({{item.items?.length}} items) 
+            </td>
+            <td class="wijmo-text-center" colspan="2"  [ngStyle]="{display:isGroupItem(item)? '':'none'}" > {{avgAmount(item)}} </td>
+            <td class="wijmo-text-center" *ngFor="let name of fieldNames"  [ngStyle]="{display:isGroupItem(item)? 'none':''}"> {{item[name] | globalize}} </td>
+          </tr>
         </tbody>
       </table>
     </div>

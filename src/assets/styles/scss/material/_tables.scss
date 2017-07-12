@@ -6,33 +6,41 @@ $header-bg-color: map-get($accent, 30);
 $header-text-color: rgba(44, 49, 68, 0.7); //#2c3144 with 0.7 opacity
 $header-border-color: #d2d4db;
 $row-border-color: #dfe3f5;
+$row-border-color-mob: #d1d1d1;
 $table-text-color: #424864;
 $table-menu-icon-color: map-get($primary, 500);
 $table-summary-text-color: rgba(66, 72, 100, 0.8);
 $table-summary-edit-text-color: rgba(30, 112, 149, 0.8);
+$action-text-color: #607bec;
+$action-font-weight: 700;
+$action-font-size:  0.875rem;
 
 /* Default sizes */
 $header-font-size: 0.8125rem;
 $table-font-size-desk: 0.875rem;
 $table-font-size-tab: 0.75rem;
-$table-menu-icon-size: 1.125rem;
+$table-menu-icon-font-size: 1.125rem;
+$table-menu-icon-width-height: 1.6875rem;
 $table-summary-edit-text-size: 0.75rem;
 
+/* for card view in mobiles */
+$primary-td-font-size: 1.25rem;
+$secondary-td-font-size: 0.875rem;
+$primary-td-font-color: rgba(2, 26, 37, 0.8);
+$extra-td-font-color: mat-color(map-get($primary, contrast), 50, 0.37);
+$action-icon-font-size: 1.125rem;
 
-table {
-    border-collapse: collapse;
-    background-color: transparent;
-}
-.table {
+.table-wijmo {
     width: 100%;
     max-width: 100%;
     margin-bottom: 1rem;
-    caption {
+    & > caption {
         opacity: 0.8;
         color: $table-summary-text-color;
         font-size: $table-font-size-tab;
         text-align: left;
         padding-bottom: 2px;
+        box-sizing: border-box;
         [md-button].mat-button {
             color: $table-summary-edit-text-color;
             font-size: $table-summary-edit-text-size;
@@ -40,50 +48,158 @@ table {
             line-height: 1px;
             padding: 0.75rem;
         }
-    }
-    thead {
-        th {
-            background-color: $header-bg-color;
-            color: $header-text-color;
-            font-size: $header-font-size;
-            font-weight: 400;
-            text-align: left;
-            padding: 0.75rem;
-            border-bottom: 1px solid $header-border-color;
+        & > .btn-group {
+            display: none;
         }
     }
-    tbody {
-        td {
-            color: $table-text-color;
-            font-size: $table-font-size-tab;
-            font-weight: 400;
-            text-align: left;
-            padding: 0.6rem 0.75rem;
-            border-bottom: 1px solid $row-border-color;
+    & > thead {
+        & > tr {
+            & > th {
+                background-color: $header-bg-color;
+                color: $header-text-color;
+                font-size: $header-font-size;
+                font-weight: 400;
+                text-align: left;
+                padding: 0.75rem;
+                border-bottom: 1px solid $header-border-color;
+                &.th-nav-arrow {
+                    display: none;
+                }
+            }
+        }
+    }
+    & > tbody {
+        & > tr {
+            & > td {
+                color: $table-text-color;
+                font-size: $table-font-size-tab;
+                font-weight: 400;
+                text-align: left;
+                padding: 0.6rem 0.75rem;
+                border-bottom: 1px solid $row-border-color;
+                &.td-nav-arrow {
+                    display: none;
+                    & > .mat-icon {
+                        color: #b7bfc4;
+                    }
+                }
+                &.td-action {                    
+                    & > *:not(.mat-icon) {
+                        color: $action-text-color;
+                        font-weight: $action-font-weight;
+                        font-size: $action-font-size;
+                    }
+                    & > [md-button].mat-button {
+                        padding: 0 0.75rem;
+                        height: 24px;
+                    }
+                    & > .mat-icon {
+                        color: #021a25;
+                        font-size: $action-icon-font-size;
+                        text-align: center;
+                        cursor: pointer;
+                        &:hover {
+                            color: map-get($primary, 500);
+                        }
+                    }
+                }
+                &.active {
+                    padding: 0.35rem 0.75rem;
+                    background-color: transparent;
+                    color: #424864;
+                    & + td {
+                        padding: 0.35rem 0.75rem;
+                    }
+                }
+            }
         }
     }
 }
 
-
+;
 @media only screen and (max-width: breakpoint-max(xs)) {
     /* Force table to not be like tables anymore */
-    .table {
+    .table-wijmo {
         display: block;
-        caption {
+        & > caption {
             display: block;
         }
-        thead {
+        & > thead {
             display: none;
         }
-        tbody {
+        & > tbody {
             display: block;
-            border-bottom: 1px solid $row-border-color;
-            tr {
-                display: block;
-                border-bottom: 1px solid $row-border-color;
-                td {
-                    display: block;
-                    border-bottom: 0;
+            & > tr {
+                display: flex;
+                flex-direction: column;
+                border-bottom: 1px solid $row-border-color-mob;
+                position: relative;
+                &:first-of-type {
+                    border-top: 1px solid $row-border-color-mob;                    
+                }
+                & > td {
+                    border: 0;
+                    display: none;
+                    padding: 9px 11px;
+                    &.primary-info, &.secondary-info, &.extra-info,
+                    &.td-action, &.td-nav-arrow {
+                        display: block;
+                    }
+                    &.primary-info {
+                        font-size: $primary-td-font-size;
+                        color: $primary-td-font-color;
+                        order: 0;
+                        padding-bottom: 0;
+                    }
+                    &.secondary-info {
+                        font-size: $secondary-td-font-size;
+                        color: $primary-td-font-color;
+                        order: 1;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                    }
+                    &.extra-info {
+                        font-size: $secondary-td-font-size;
+                        color: $extra-td-font-color;
+                        order: 2;
+                        padding-top: 0;                        
+                    }
+                    &.td-action, &.td-nav-arrow {
+                        position: absolute;
+                        top: 0;
+                        right: 5px;
+                        padding-left: 0;
+                        padding-right: 0;
+                    }
+                    &.td-action {                        
+                        line-height: 24px;
+                        & > .mat-icon {
+                            line-height: inherit;
+                        }
+                    }                    
+                }                
+            }
+        }
+        .td-nav-arrow + .td-action {
+            margin-right: 22px;
+        }
+    }
+}
+
+@media only screen and (min-width: breakpoint-min(sm)) {
+    .table-wijmo {
+        & > caption {
+            line-height: $table-menu-icon-width-height;
+            height: $table-menu-icon-width-height;            
+            margin-bottom: 6px;
+            & > .btn-group {
+                display: initial;               
+                & > [md-icon-button].mat-icon-button {
+                    font-size: $table-menu-icon-font-size;
+                    height: $table-menu-icon-width-height;
+                    width: $table-menu-icon-width-height;
+                    vertical-align: super;
+                    line-height: initial;
                 }
             }
         }
@@ -91,14 +207,21 @@ table {
 }
 
 @media only screen and (min-width: breakpoint-min(md)) {
-    .table {
-        caption {
-            font-size: $table-font-size-desk;
+    .table-wijmo {
+        & > caption {
+            font-size: $table-font-size-desk;                        
         }
-        tbody {
-            td {
-                font-size: $table-font-size-desk;
-                padding: 1.2rem 0.75rem;
+        & > tbody {
+            & > tr {
+                & > td {
+                    font-size: $table-font-size-desk;
+                    padding: 1.2rem 0.75rem;
+                    &.td-action {
+                        & > .mat-icon {
+                            color: #424864;
+                        }
+                    }
+                }
             }
         }
     }

@@ -23,6 +23,10 @@ export class WijmoTableComponent {
   cvTrackingChanges: wjcCore.CollectionView;
   cvTrackingChangesExtra: wjcCore.CollectionView;
 
+  gettingStartedPrimary = 'product';
+  gettingStartedSecondary = 'amount';
+  gettingStartedExtra = 'country';
+
   groupItems: any;
   fieldNames: string[];
   currentItem: any;
