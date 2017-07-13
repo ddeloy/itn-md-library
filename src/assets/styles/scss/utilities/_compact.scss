@@ -1,0 +1,108 @@
+//
+// utility class to compactify elements regardless of the resolution or screen size
+// just add 'compact' class to the concerned element
+//
+
+.compact {
+    &.mat-input-container {
+        .mat-input-wrapper {        
+            .mat-input-prefix, .mat-input-element,
+            .mat-input-suffix {
+                height: $input-height-tab;
+                font-size: $input-font-size-tab;
+                padding-bottom: initial;
+            }
+            .mat-input-prefix {
+                padding-left: $input-pad-lr-tab;
+                padding-right: 0;
+            }
+            .mat-input-suffix {
+                padding-left: 0;
+                padding-right: $input-pad-lr-tab;
+            }
+            .mat-input-element {
+                padding-left: $input-pad-lr-tab;
+                padding-right: $input-pad-lr-tab;
+            }
+            .mat-input-placeholder-wrapper {
+                height: $input-height-tab;
+                .mat-input-placeholder {
+                    height: inherit;
+                    line-height: $input-height-tab;
+                    margin-top: 2px;
+                    padding-left: $input-pad-lr-tab + 0.1rem;
+                    padding-right: $input-pad-lr-tab + 0.1rem;
+                    font-size: $input-font-size-tab;
+                }
+            }
+        }
+        &.mat-focused .mat-input-placeholder.mat-float, .mat-input-placeholder.mat-float:not(.mat-empty) {
+            transform: translate3d(-0.4rem, -1.8em, 0) scale(0.75);
+        }
+    }
+    &.mat-select {
+        height: $input-height-tab; 
+        line-height: $input-height-tab - 0.1rem;       
+        padding-bottom: initial;
+        font-size: $input-font-size-tab;
+        .mat-select-trigger {
+            padding-left: $input-pad-lr-tab;
+            padding-right: $input-pad-lr-tab;
+            .mat-select-placeholder {
+                height: inherit;
+                line-height: $input-height-tab - 0.1rem;
+                font-size: $input-font-size-tab;
+            }
+            .mat-select-value {
+                max-width: calc(100% - 16px - 1rem);
+            }
+        }
+    }
+    &.mat-raised-button, &.mat-button {
+        font-size: 0.75rem;
+        &:not(.mat-icon-button) {
+            height: 1.5rem;
+            line-height: 0.65rem;
+            padding: 0.5rem 0.75rem;
+        }
+        &.mat-icon-button {
+            width: 1.5rem;
+            height: 1.5rem;
+            font-size: 0.75rem;
+            line-height: 1.5rem - 0.1rem;
+            .mat-icon {
+                font-size: inherit;
+            }
+        }
+    }
+    &.table-wijmo {
+        & > caption {
+            font-size: 0.75rem;
+        }
+        & > tbody {
+            & > tr {
+                & > td {
+                    font-size: 0.75rem;
+                    padding: 0.6rem 0.75rem;
+                    &.td-nav-arrow {
+                        display: none;
+                        & > .mat-icon {
+                            color: #b7bfc4;
+                        }
+                    }
+                    &.td-action {
+                        & > .mat-icon {
+                            color: #021a25;
+                        }
+                    }
+                    &.active {
+                        padding: 0.35rem 0.75rem;
+                        & + td {
+                            padding: 0.35rem 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

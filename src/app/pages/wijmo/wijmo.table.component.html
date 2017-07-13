@@ -17,12 +17,67 @@
               <button [mdMenuTriggerFor]="tableMenu1" md-icon-button color="primary">
                 <md-icon>settings</md-icon>
               </button>
-              <md-menu #tableMenu1 [overlapTrigger]="false">
-                <li md-menu-item>First menu item</li>
-                <li md-menu-item>Second menu item</li>
-                <li md-menu-item>Third menu item</li>
-                <li class="divider"></li>
-                <li md-menu-item>Fourth menu item</li>
+              <md-menu #tableMenu1 [overlapTrigger]="false" class="table-menu">
+                <h4 class="table-menu-title" (click)="$event.stopPropagation()">Freeze Columns and Rows</h4>
+                <div (click)="$event.stopPropagation()"
+                    fxLayout
+                    fxLayout.xs="column"
+                    fxLayoutAlign="flex-start"
+                    fxLayoutGap="5px"
+                    fxLayoutGap.xs="0">
+                  <div fxFlex="60%">Freeze at Column</div>
+                  <div fxFlex="10%">
+                    <button md-button md-button-sm color="accent">
+                      <md-icon>add</md-icon>
+                    </button>
+                  </div>
+                  <div fxFlex="15%">
+                    <md-input-container floatPlaceholder="never">
+                      <input type="text" mdInput value="0">
+                    </md-input-container>
+                  </div>
+                  <div fxFlex="10%">
+                    <button md-button md-button-sm color="accent">
+                      <md-icon>remove</md-icon>
+                    </button>
+                  </div>
+                </div>
+                <div (click)="$event.stopPropagation()"
+                    fxLayout
+                    fxLayout.xs="column"
+                    fxLayoutAlign="flex-start"
+                    fxLayoutGap="5px"
+                    fxLayoutGap.xs="0">
+                  <div fxFlex="60%">Freeze at Row</div>
+                  <div fxFlex="10%">
+                    <button md-button md-button-sm color="accent">
+                      <md-icon>add</md-icon>
+                    </button>
+                  </div>
+                  <div fxFlex="15%">
+                    <md-input-container floatPlaceholder="never">
+                      <input type="text" mdInput value="0">
+                    </md-input-container>
+                  </div>
+                  <div fxFlex="10%">
+                    <button md-button md-button-sm color="accent">
+                      <md-icon>remove</md-icon>
+                    </button>
+                  </div>
+                </div>
+                <div (click)="$event.stopPropagation()"
+                    fxLayout
+                    fxLayout.xs="column"
+                    fxLayoutAlign="flex-end"
+                    fxLayoutGap="10px"
+                    fxLayoutGap.xs="0">
+                  <div>
+                    <button md-button color="accent">Cancel</button>
+                  </div>
+                  <div>
+                    <button md-raised-button color="primary">Done</button>
+                  </div>
+                </div>
               </md-menu>
             </div>
           </caption>
