@@ -55,6 +55,22 @@ const MENUITEMS = [
       {state: 'dialog', name: 'DIALOG'}
     ]
   },
+  /*
+  {
+    state: 'session',
+    name: 'Layouts',
+    type: 'sub',
+    icon: 'face',
+    children: [
+      {state: '404', name: '404'},
+      {state: 'error', name: 'ERROR'},
+      {state: 'signin', name: 'SIGNIN'},
+      {state: 'signup', name: 'SIGNUP'},
+      {state: 'forgot', name: 'FORGOT'},
+      {state: 'lockscreen', name: 'LOCKSCREEN'},
+    ]
+  },
+  */
   {
     state: 'pages',
     name: 'PAGES',

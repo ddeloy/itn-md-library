@@ -13,7 +13,7 @@
           <caption>
             15 Leafy Green Orders
             <button md-button>Edit</button>
-            <div class="btn-group pull-right">        
+            <div class="btn-group pull-right">
               <button [mdMenuTriggerFor]="tableMenu1" md-icon-button color="primary">
                 <md-icon>settings</md-icon>
               </button>
@@ -45,7 +45,7 @@
                 <md-icon>keyboard_arrow_right</md-icon>
               </td>
               <td class="td-action">
-                <md-icon>more_horiz</md-icon>                
+                <md-icon>more_horiz</md-icon>
               </td>
             </tr>
           </tbody>
@@ -144,8 +144,8 @@
         <tbody>
           <tr *ngFor="let item of groupItems">
             <td class="active"  [ngStyle]="{display:isGroupItem(item)? '':'none'}"   colspan="6">
-              <span [ngStyle]="{display:'inline-block', width: (item.level*25) + 'px'}"></span> 
-              <b>{{item.name | globalize}}</b> ({{item.items?.length}} items) 
+              <span [ngStyle]="{display:'inline-block', width: (item.level*25) + 'px'}"></span>
+              <b>{{item.name | globalize}}</b> ({{item.items?.length}} items)
             </td>
             <td class="wijmo-text-center" colspan="2"  [ngStyle]="{display:isGroupItem(item)? '':'none'}" > {{avgAmount(item)}} </td>
             <td class="wijmo-text-center" *ngFor="let name of fieldNames"  [ngStyle]="{display:isGroupItem(item)? 'none':''}"> {{item[name] | globalize}} </td>
