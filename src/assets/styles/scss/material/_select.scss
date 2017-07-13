@@ -110,6 +110,7 @@ label {
         border-color: map-get($warn,500);
     }
 }
+
 @media only screen and (min-width: breakpoint-min(sm)) {
     .mat-select {
         height: $input-height-tab; 

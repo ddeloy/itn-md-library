@@ -1,4 +1,9 @@
-.mat-dialog-container {
+md-dialog-container.mat-dialog-container {
   background: mat-color($background, card);
   border-radius: $border-radius-base;
+  box-shadow: 0 0 3px 0 mat-color(map-get($primary, contrast), 50, 0.37);
+}
+
+.cdk-overlay-dark-backdrop {
+  background: mat-color(map-get($primary, contrast), 50, 0.9);
 }

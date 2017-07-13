@@ -116,7 +116,46 @@ $action-icon-font-size: 1.125rem;
     }
 }
 
-;
+.table-menu.mat-menu-panel:not(.custom-menu) {
+    color: #424864;
+    background-color: #ffffff;
+    border: 1px solid #d2d4db;
+    box-shadow: 1px 2px 4px 0 mat-color(map-get($primary, contrast), 50, 0.5);
+    .mat-menu-content {
+        .table-menu-title {
+            font-size: 1rem;
+            border-bottom: 1px solid #d2d4db;
+            padding: 8px 17px 13px;
+            margin: 0;
+            margin-bottom: 9px;
+        }
+        div[fxlayout] {
+            padding: 11px 17px;
+            [md-button-sm].mat-button:not(.mat-icon-button) {
+                padding: 0;
+                .mat-icon {
+                    font-size: 1.125rem;
+                    line-height: 1.5rem;
+                }
+            }
+            .mat-input-container {
+                .mat-input-wrapper {
+                    margin: 0;
+                    padding-bottom: 0;
+                    .mat-input-element {
+                        width: 2.0625rem;
+                        height: 1.5rem;
+                        border: 1px solid #d2d4db;
+                        padding-left: 0.5rem;
+                        padding-right: 0.5rem;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: breakpoint-max(xs)) {
     /* Force table to not be like tables anymore */
     .table-wijmo {
