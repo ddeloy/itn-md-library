@@ -19,12 +19,13 @@
         </md-menu>
       </div>
       <!-- Split button -->
-      <div class="btn-group mr-1">
+      <div class="btn-group">
         <button md-raised-button color="primary">Send</button>
-        <button [mdMenuTriggerFor]="appMenu1" md-raised-button color="primary">
+        <button [mdMenuTriggerFor]="appMenu1" md-raised-button color="primary"
+        #trigger="mdMenuTrigger" (onMenuOpen)="onMenuOpen(trigger)">
           <md-icon>keyboard_arrow_down</md-icon>
         </button>
-        <md-menu #appMenu1 [overlapTrigger]="false">
+        <md-menu #appMenu1="mdMenu" [overlapTrigger]="false">
           <li md-menu-item>First menu item</li>
           <li md-menu-item>Second menu item</li>
           <li md-menu-item>Third menu item</li>
@@ -77,6 +78,7 @@
       <button md-raised-button color="warn" class="mr-1">Warn</button>
       <button md-raised-button disabled color="primary" class="mr-1">disabled</button>
       <button md-raised-button disabled color="accent" class="mr-1">disabled</button>
+      <button md-raised-button disabled color="warn" class="mr-1">disabled</button>
     </div>
 
     <div class="pb-1">

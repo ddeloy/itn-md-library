@@ -1,9 +1,73 @@
+$btn-accent:  mat-palette($md-itnsecondary, 30);
+$btn-theme: mat-light-theme($primary, $btn-accent);
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+// for button
+@mixin itn-btn-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  [md-raised-button].mat-raised-button {
+    &.mat-primary {
+      background-color: mat-color($primary);
+      &[disabled] {
+        opacity: 0.5;
+        background-color: mat-color($primary);
+        color: mat-contrast($primary, 500);
+      }
+    }
+    &.mat-accent {
+      background-color: mat-color($accent);
+      color: mat-contrast($accent, 30);
+      &[disabled] {
+        background-color: mat-color($accent);
+        color: mat-color(map-get($accent, contrast), 30, 0.5);
+      }
+    }
+    &.mat-warn {
+      background-color: mat-color($warn);
+      &[disabled] {
+        opacity: 0.5;
+        background-color: mat-color($warn);
+        color: mat-contrast($warn, 500);
+      }
+    }
+  }
+  //
+  // Flat Buttons
+  //
+  [md-button].mat-button {
+    &.mat-primary {
+      color: mat-color($primary);
+      &[disabled] {
+        color: mat-color($primary, 500, 0.5);
+      }
+    }
+    &.mat-accent {
+      color: mat-contrast($accent, 30);
+      &[disabled] {
+        color: mat-color(map-get($accent, contrast), 30, 0.5);
+      }
+    }
+    &.mat-warn {
+      color: mat-color($warn);
+      &[disabled] {
+        color: mat-color($warn, 500, 0.5);
+      }
+    }
+  }
+}
+
+// Include the theme styles for only specified components.
+// for button
+@include itn-btn-theme($btn-theme);
 
 $md-fab-size: 56px !default;
 $md-fab-padding: 16px !default;
 
 $btn-height: 2.25rem;
-$btn-font-size: $font-size-base;
+$btn-font-size: 0.8rem;
 $btn-pad-tb: 0.75rem;
 $btn-pad-lr: 1rem;
 $btn-sm-height: 1.5rem;
@@ -65,16 +129,6 @@ $btn-text-transform: uppercase;
     pointer-events: none;
     cursor: not-allowed;
   }
-  &.mat-primary[disabled] {
-    background-color: map-get($primary,500);
-    opacity: 0.5;
-    color: mat-color(map-get($primary, contrast), 500, 0.6);
-  }
-  &.mat-accent[disabled] {
-    background-color: map-get($accent,500);
-    opacity: 0.5;
-    color: mat-color(map-get($accent, contrast), 500, 0.5);
-  }
 }
 
 //
@@ -96,16 +150,6 @@ $btn-text-transform: uppercase;
   &[disabled] {
     pointer-events: none;
     cursor: not-allowed;
-  }
-  &.mat-primary[disabled] {
-    color: mat-color($primary, 500, 0.5);
-  }
-  &.mat-accent[disabled] {
-    color: mat-color($accent, 500, 0.5);
-  }
-  /* Add warn for disabled */
-  &.mat-warn[disabled] {
-    color: mat-color($warn, 500, 0.5);
   }
 }
 [md-icon-button].mat-icon-button:not(.mat-raised-button) {
