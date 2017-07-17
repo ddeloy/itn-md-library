@@ -37,10 +37,10 @@
         </md-sidenav-container>
       </md-card-content>
     </md-card>
-    <md-card>
+    <md-card class="backdrop-hidden">
       <md-card-content>
         <md-card-title>Sidenav Over - Resize</md-card-title>
-        <md-sidenav-container class="demo-sidenav-container" style="height:200px;padding:0;">
+        <md-sidenav-container class="demo-sidenav-container backdrop-hidden" style="height:225px;padding:0;">
           <md-toolbar color="primary"> <button md-raised-button color="accent" (click)="start2.toggle()">Toggle SideNav</button></md-toolbar>
           <md-sidenav ngClass="{{sideWidth}}" #start2 opened mode="over" align="end">
             <md-toolbar><button md-button color="primary" (click)="start2.toggle()">Close Sidenav</button></md-toolbar>
@@ -57,6 +57,7 @@
           <div class="demo-sidenav-content">
 
             <md-nav-list>
+              <p>Set overlay to hidden: add class="backdrop-hidden" to &lt;md-sidenav-container> </p>
               <button md-button color="primary">Some new link</button>
               <br/>
               <button md-button color="primary">Another link</button>
