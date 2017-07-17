@@ -1,0 +1,106 @@
+<md-card>
+  <md-card-title>Sidenav</md-card-title>
+  <md-card-subtitle>&lt;tmd-sidenav> is a panel that can be placed next to or above some primary content. A sidenav is typically used for navigation, but can contain any content.</md-card-subtitle>
+  <md-card-content>
+    <md-card>
+      <md-card-content>
+        <md-card-title>Sidenav Basic Use Cases</md-card-title>
+        <md-sidenav-container class="demo-sidenav-container">
+          <md-sidenav class="demo-sidenav-content" #start (open)="myinput.focus()" mode="side"> Start Side Drawer <br>
+            <button md-button color="primary" md-button (click)="start.close()">
+            Close
+            </button>
+            <br>
+            <button md-button color="primary" (click)="end.open()">Open End Side</button>
+            <br>
+            <button md-button color="primary"
+            (click)="start.mode = (start.mode == 'push' ? 'over' : (start.mode == 'over' ? 'side' : 'push'))">Toggle Mode</button>
+            <div>Mode: {{start.mode}}</div>
+            <br>
+            <input #myinput>
+          </md-sidenav>
+          <md-sidenav class="demo-sidenav-content" #end align="end"> End Side Drawer <br>
+            <button md-button color="primary" (click)="end.close()">Close</button>
+          </md-sidenav>
+          <div class="demo-sidenav-content">
+            <p><strong>Content</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero magna, fermentum ut arcu ac, tempor auctor diam. Morbi facilisis ultrices sem posuere varius. Aliquam erat volutpat.</p>
+            <div>
+              <header>Sidenav</header>
+              <button md-button color="primary" (click)="start.toggle()">Toggle Start Side Drawer</button>
+              <button md-button color="primary" (click)="end.toggle()">Toggle End Side Drawer</button>
+            </div>
+            <button md-raised-button color="accent">HELLO</button>
+            <button md-raised-button class="mat-primary">HELLO</button>
+            <button md-fab class="mat-accent">HI</button>
+          </div>
+        </md-sidenav-container>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-card-content>
+        <md-card-title>Sidenav Already Open</md-card-title>
+        <md-sidenav-container class="demo-sidenav-container" style="height:200px;">
+          <md-sidenav ngClass="{{sideWidth}}" #start2 opened mode="side" align="end">
+            <p class="p-10">Resize width using menu below.</p>
+            <button md-button color="primary" (click)="start2.toggle()">Close Drawer</button>
+            <br/>
+            <div class="sidenav-select">
+            <md-select placeholder="Select side width" [(ngModel)]="sideWidth">
+              <md-option value="sm">Small</md-option>
+              <md-option value="med">Medium</md-option>
+              <md-option value="lg">Large</md-option>
+              <md-option value="xl">Full</md-option>
+            </md-select>
+            </div>
+          </md-sidenav>
+          <div class="demo-sidenav-content">
+            <button md-raised-button color="primary" (click)="start2.toggle()">Toggle End Side Drawer</button>
+            <br/>
+            <br/>
+            <md-nav-list>
+              <button md-button color="primary">Some new link</button>
+              <br/>
+              <button md-button color="primary">Another link</button>
+            </md-nav-list>
+          </div>
+        </md-sidenav-container>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-card-content>
+        <md-card-title>Dynamic Alignment Sidenav</md-card-title>
+        <md-sidenav-container class="demo-sidenav-container">
+          <md-sidenav class="sm" #dynamicAlignSidenav1 mode="side" [align]="invert ? 'end' : 'start'">
+            <p>Start</p>
+          </md-sidenav>
+          <md-sidenav class="sm" #dynamicAlignSidenav2 mode="side" [align]="invert ? 'start' : 'end'">
+            <p>End</p>
+          </md-sidenav>
+          <div class="demo-sidenav-content">
+            <button md-button color="primary" (click)="dynamicAlignSidenav1.toggle(); dynamicAlignSidenav2.toggle()"> Toggle sidenavs </button>
+            <button md-button color="primary" (click)="invert = !invert">Change sides</button>
+          </div>
+        </md-sidenav-container>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-card-content>
+        <md-card-title>Sidenav with Focus Attributes</md-card-title>
+        <md-sidenav-container class="demo-sidenav-container">
+          <md-sidenav class="sm" #focusSidenav>
+            <md-nav-list> <a md-list-item routerLink>Link item-2</a> <a md-list-item routerLink cdk-focus-region-start>Focus region start</a> <a md-list-item routerLink>Link</a> <a md-list-item routerLink cdk-focus-initial>Initially focused</a> <a md-list-item routerLink cdk-focus-region-end>Focus region end</a> <a md-list-item routerLink>Link</a>&nbsp; </md-nav-list>
+          </md-sidenav>
+          <div class="demo-sidenav-content">
+            <p><strong>Content</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero magna, fermentum ut arcu ac, tempor auctor diam. Morbi facilisis ultrices sem posu
+            <div>
+              <header>Sidenav</header>
+              <button md-button color="primary" (click)="focusSidenav.toggle()">Toggle Drawer</button>
+            </div>
+          </div>
+        </md-sidenav-container>
+      </md-card-content>
+      . </md-card>
+  </md-card-content>
+</md-card>

@@ -20,6 +20,7 @@ import { SelectComponent } from './select/select.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ChipsComponent } from './chips/chips.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
+import { SidenavComponent } from "./sidenav/sidenav.component";
 
 export const MaterialRoutes: Routes = [
   {
@@ -69,6 +70,9 @@ export const MaterialRoutes: Routes = [
     }, {
       path: 'slider',
       component: SliderComponent
+    }, {
+      path: 'sidenav',
+      component: SidenavComponent
     }, {
       path: 'snackbar',
       component: SnackbarComponent

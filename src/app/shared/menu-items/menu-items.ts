@@ -51,11 +51,12 @@ const MENUITEMS = [
       {state: 'tooltip', name: 'TOOLTIP'},
       {state: 'menu', name: 'MENU'},
       {state: 'slider', name: 'SLIDER'},
+      {state: 'sidenav', name: 'Sidenav'},
       {state: 'snackbar', name: 'SNACKBAR'},
       {state: 'dialog', name: 'DIALOG'}
     ]
   },
-  /*
+/*
   {
     state: 'session',
     name: 'Layouts',
@@ -70,7 +71,8 @@ const MENUITEMS = [
       {state: 'lockscreen', name: 'LOCKSCREEN'},
     ]
   },
-  */
+ */
+
   {
     state: 'pages',
     name: 'PAGES',
