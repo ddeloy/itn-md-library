@@ -14,6 +14,7 @@ export class SelectComponent {
   pokemonDisabled = false;
   showSelect = false;
   currentDrink: string;
+  favoriteColor: string;
   currentPokemon: string[];
   latestChangeEvent: MdSelectChange;
   floatPlaceholder = 'never';
@@ -26,6 +27,13 @@ export class SelectComponent {
     {value: 'steak-0', viewValue: 'Steak'},
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
+
+  colors = [
+    {value: null, viewValue: 'None'},
+    {value: 'red-0', viewValue: 'Red'},
+    {value: 'green-1', viewValue: 'Green'},
+    {value: 'blue-2', viewValue: 'Blue'}
   ];
 
   drinks = [

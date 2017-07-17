@@ -66,14 +66,13 @@
       </label>
       <label class="ml-xs mr-xs" style="width: 100%;">
         <span>With Error Message</span>
-        <md-select placeholder="Drink" [(ngModel)]="currentDrink"
-          floatPlaceholder="never" #drinkControl="ngModel" required>
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
+        <md-select placeholder="Color" [(ngModel)]="favoriteColor"
+          floatPlaceholder="never" #colorControl="ngModel" required>
+          <md-option *ngFor="let color of colors" [value]="color.value" [disabled]="color.disabled">
+            {{ color.viewValue }}
           </md-option>
         </md-select>     
-        <md-hint align="start" [hidden]="drinkControl.valid || drinkControl.pristine" class="error">
+        <md-hint align="start" [hidden]="colorControl.valid || colorControl.pristine" class="error">
           This is required
         </md-hint>
         </label>

@@ -129,7 +129,7 @@
         background color for <code>md-button</code> and <code>md-raised-button</code> matches the theme&#39;s
         background color. </p>
       
-      <h3 id="examples">Examples</h3>
+      <h3 id="button-examples">Examples</h3>
       <div class="example-viewer">
         <div class="example-viewer-title">
           Default/Raised Button (with Primary color)
@@ -284,7 +284,7 @@
       <p>By default, in Material design, <code>input</code> and <code>textarea</code> elements
       have floating placeholder, which when text is present in those elements, floats above the
       input zone.</p>
-      <p>However, these elements have been modified to have a static label and non-floating placeholder
+      <p>However, these elements have been modified to have a static label, and a non-floating placeholder
         which disappears as soon as the user starts typing in the input zone. To achieve this,
         <code>&lt;md-input-container&gt;</code> is wrapped inside <code>&lt;label&gt;</code>.
         Floating placeholder has been disabled by setting <code>floatPlaceholder</code> attribute of
@@ -299,6 +299,374 @@
         can be set using <code>dividerColor</code> attribute on <code>md-input-container</code>.
         Supported values for this attribute are <code>primary</code>, <code>accent</code> and <code>warn</code>.
         If none of these value are present or if this attribute is missing, then a default color will be used.</p>
+      
+      <h3 id="prefix-and-suffix">Prefix and Suffix</h3>
+      <p>HTML can be included before, and after the <code>input</code> or <code>textarea</code> element tag,
+        as prefix or suffix. It will be included inside the border of these elements, and clicking it will focus the input.</p>
+        <p>Adding the <code>mdPrefix</code> attribute to an element inside the <code>md-input-container</code> will 
+        designate it as the prefix. Similarly, adding <code>mdSuffix</code> will designate it as the suffix.</p>
+
+      <h3 id="hint-and-error">Hint Label and Error Message</h3>
+      <p>Hint label is an indicative text that appears below the <code>input</code> and <code>textarea</code> elements.
+      These provide additional information about the input to the user, as to what is expected or what the user should
+      keep in mind while entering the value. Hint labels can be set using <code>hintLabel</code> attribute on 
+      <code>md-input-container</code>.</p>
+      <p>Error messages appear beneath the <code>input</code> and <code>textarea</code> elements.
+      These are hidden by default and will appear on invalid inputs after the user has interacted with the element.
+      For example, if the <code>input</code> element is marked required but the user deletes the entered value.
+      Error messages can be set by using <code>div</code> elements having <code>error</code> class inside the 
+      <code>md-input-container</code>, with <code>hidden</code> property bound to desired property of the element.
+      For example, <code>[hidden]="name.valid || name.pristine"</code>.
+      Hint labels and error messages can both be set on an element. However, hint labels will be hidden
+      whenever an error message is displayed.</p>
+
+      <h3 id="input-examples">Examples</h3>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default and Read-only Inputs
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"John Smith"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Read-only input --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Read-only<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter a value"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"This is readonly"</span> <span class="hljs-attr">readonly</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+            <label class="ml-xs mr-xs">
+              <span>Name</span>
+              <md-input-container floatPlaceholder="never">
+                <input mdInput placeholder="John Smith" type="text">
+              </md-input-container>
+            </label>
+            <label class="ml-xs mr-xs">
+              <span>Read-only</span>
+              <md-input-container floatPlaceholder="never">
+                <input mdInput placeholder="enter a value" type="text" value="This is readonly" readonly>
+              </md-input-container>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Inputs with <i>dividerColor</i> set
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Primary Color<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">dividerColor</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- set dividerColor to primary or accent or warn --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter a value"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+            <label class="ml-xs mr-xs" style="width: 100%;">
+              <span>Primary Color</span>
+              <md-input-container dividerColor="primary" floatPlaceholder="never">
+                <input mdInput placeholder="enter a value" type="text">
+              </md-input-container>
+            </label>
+            <label class="ml-xs mr-xs" style="width: 100%;">
+              <span>Accent/Secondary Color</span>
+              <md-input-container dividerColor="accent" floatPlaceholder="never">
+                <input mdInput placeholder="enter a value" type="text">
+              </md-input-container>
+            </label>
+            <label class="ml-xs mr-xs" style="width: 100%;">
+              <span>Warn Color</span>
+              <md-input-container dividerColor="warn" floatPlaceholder="never">
+                <input mdInput placeholder="enter a value" type="text">
+              </md-input-container>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Input with Prefix and Suffix
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Prefix and Suffix<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">mdPrefix</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Telephone"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"tel"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">mdSuffix</span>&gt;</span>mode_edit<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Prefix and Suffix</span>
+            <md-input-container floatPlaceholder="never">
+              <span mdPrefix>+1</span>
+              <input mdInput placeholder="Telephone" type="tel">
+              <md-icon mdSuffix>mode_edit</md-icon>
+            </md-input-container>
+          </label>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Input with Hint Label
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Hint Label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">hintLabel</span>=<span class="hljs-string">"Should be easy to remember but difficult to guess"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Password"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Hint Label</span>
+            <md-input-container hintLabel="Should be easy to remember but difficult to guess" floatPlaceholder="never">
+              <input mdInput placeholder="Password" type="password">
+            </md-input-container>
+          </label>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Input with Error Message
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Error Message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">hintLabel</span>=<span class="hljs-string">"Should be easy to remember"</span> <span class="hljs-attr">dividerColor</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"John Smith"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"model.name"</span>
+      #<span class="hljs-attr">name</span>=<span class="hljs-string">"ngModel"</span> <span class="hljs-attr">required</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- do NOT forget to set ngModel on this element --&gt;</span>
+    <span class="hljs-comment">&lt;!-- corresponding model object is set in TS file --&gt;</span>
+    <span class="hljs-comment">&lt;!-- model = {{ '{' }}'id': 18, 'name': 'Dr IQ'{{ '}' }}; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">hidden</span>]=<span class="hljs-string">"name.valid || name.pristine"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"error"</span>&gt;</span>Name is required<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Error Message</span>
+            <md-input-container hintLabel="Should be easy to remember" dividerColor="primary" floatPlaceholder="never">
+              <input mdInput placeholder="John Smith" type="text" [(ngModel)]="model.name"
+                  #name="ngModel" required>
+              <div [hidden]="name.valid || name.pristine" class="error"> Name is required </div>
+            </md-input-container>
+          </label>
+        </div>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
+
+<!-- for selects (single selection) -->
+<md-card class="page-card">
+  <md-card-title><code>MdSelectModule</code>
+    <a class="badge" href="https://material.angular.io/components/select/overview" target="_blank">Official Documentation</a>
+  </md-card-title>
+  <md-card-content>
+    <div class="docs-guide-content">
+      <p><code>&lt;md-select&gt;</code> is a form control for selecting a value from a set of options, similar to
+      the native <code>&lt;select&gt;</code> element.</p>
+      <p>UI design and behaviour wise, it is exactly similar to <code>input</code> and <code>textarea</code> elements.</p>    
+
+      <h3 id="select-usage">Usage</h3>
+      <p>Select box is created by using <code>md-select</code> element. For each option you'd like in your select,
+      add an <code>md-option</code> tag. Note that you can disable items by adding the <code>disabled</code> boolean
+      attribute or binding to it.</p>
+
+      <h3 id="select-label-and-placeholder">Label and Placeholder</h3>
+      <p>Similar to <code>input</code> and <code>textarea</code> elements, <code>md-select</code> elements have
+      been modified to have a static label, and a non-floating placeholder which disappears as soon as the user
+      selects a value. To achieve this, <code>&lt;md-select&gt;</code> is wrapped inside
+      <code>&lt;label&gt;</code>. Floating placeholder has been disabled by setting <code>floatPlaceholder</code>
+      attribute of <code>md-select</code> to <code>never</code>.</p>
+
+      <h3 id="select-underline-color">Underline Color and Border</h3>
+      <p>Similar to <code>input</code> and <code>textarea</code> elements, <code>md-select</code> elements have
+      been modified to have border bottom on mobile screens and border on all four sides on tabs and bigger screens.
+      These borders change color on focus, and this color can be set using <code>dividerColor</code> attribute
+      on <code>md-select</code>. Supported values for this attribute are <code>primary</code>,
+      <code>accent</code> and <code>warn</code>. If none of these value are present or if this attribute is missing,
+      then a default color will be used.</p>
+
+      <h3 id="hint-and-error">Hint Label and Error Message</h3>
+      <p>Hint label is an indicative text that appears below the select box.
+      These provide additional information about the selected value to the user, as to what is expected or what the
+      user should keep in mind while selecting a value.</p>
+      <p>Hint labels for <code>md-select</code> elements are set by using an <code>md-hint</code> element inside
+      the <code>md-select</code>, which takes an <code>align</code> attribute containing the side as <code>start</code>
+      or <code>end</code>.</p>
+      <p>Error messages appear below the select box. These are hidden by default and will appear on an invalid input
+        after the user has interacted with the element. For example, if the <code>md-select</code> element is marked
+        required but the user doesn't select a value or selects a None value.</p>
+      <p>Error messages can be set by using <code>md-hint</code> elements having <code>error</code> class inside the 
+      <code>md-select</code>, with <code>hidden</code> property bound to desired property of the element.
+      For example, <code>[hidden]="name.valid || name.pristine"</code>.</p>
+
+      <h3 id="input-examples">Examples</h3>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default and Disabled Select Boxes
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"currentDrink"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">drinkControl</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- corresponding drinks object is set in TS file --&gt;</span>
+    <span class="hljs-comment">&lt;!-- drinks = [ --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: null, viewValue: 'None'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'coke-0', viewValue: 'Coke'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'water-1', viewValue: 'Water'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'pepper-2', viewValue: 'Dr. Pepper', disabled: true{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'coffee-3', viewValue: 'Coffee'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'tea-4', viewValue: 'Tea'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!-- ]; --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Disabled Select --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> <span class="hljs-attr">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+            <label class="ml-xs mr-xs">
+              <span>Default</span>
+              <md-select placeholder="Drink" [(ngModel)]="currentDrink"
+                floatPlaceholder="never" #drinkControl="ngModel">
+                <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                  {{ drink.viewValue }}
+                </md-option>
+              </md-select>
+            </label>
+            <label class="ml-xs mr-xs">
+              <span>Disabled</span>
+              <md-select placeholder="Drink" floatPlaceholder="never" disabled>
+                <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                  {{ drink.viewValue }}
+                </md-option>
+              </md-select>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Select with <i>dividerColor</i> set
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> <span class="hljs-attr">dividerColor</span>=<span class="hljs-string">"primary"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"currentDrink1"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">drinkControl1</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- set dividerColor to primary or accent or warn --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>Primary</span>
+            <md-select placeholder="Drink" dividerColor="primary" [(ngModel)]="currentDrink1"
+                    floatPlaceholder="never" #drinkControl1="ngModel">
+              <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                {{ drink.viewValue }}
+              </md-option>
+            </md-select>
+          </label>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Select with Hint Label
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Hint Label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-hint</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"start"</span>&gt;</span>Select something<span class="hljs-tag">&lt;/<span class="hljs-name">md-hint</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Hint Label</span>
+            <md-select placeholder="Drink" floatPlaceholder="never">
+              <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                {{ drink.viewValue }}
+              </md-option>
+            </md-select>
+            <md-hint align="start">Select something</md-hint>
+          </label>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Select with Error Message
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Error Message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Color"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"favoriteColor"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">colorControl</span>=<span class="hljs-string">"ngModel"</span> <span class="hljs-attr">required</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let color of colors"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"color.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"color.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} color.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-hint</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"start"</span> [<span class="hljs-attr">hidden</span>]=<span class="hljs-string">"colorControl.valid || colorControl.pristine"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"error"</span>&gt;</span>
+    This is required
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-hint</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Error Message</span>
+            <md-select placeholder="Color" [(ngModel)]="favoriteColor"
+              floatPlaceholder="never" #colorControl="ngModel" required>
+              <md-option *ngFor="let color of colors" [value]="color.value" [disabled]="color.disabled">
+                {{ color.viewValue }}
+              </md-option>
+            </md-select>     
+            <md-hint align="start" [hidden]="colorControl.valid || colorControl.pristine" class="error">
+              This is required
+            </md-hint>
+          </label>
+        </div>
+      </div>
     </div>
   </md-card-content>
 </md-card>
