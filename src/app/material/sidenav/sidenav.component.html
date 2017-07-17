@@ -39,12 +39,12 @@
     </md-card>
     <md-card>
       <md-card-content>
-        <md-card-title>Sidenav Already Open</md-card-title>
-        <md-sidenav-container class="demo-sidenav-container" style="height:200px;">
-          <md-sidenav ngClass="{{sideWidth}}" #start2 opened mode="side" align="end">
-            <p class="p-10">Resize width using menu below.</p>
-            <button md-button color="primary" (click)="start2.toggle()">Close Drawer</button>
-            <br/>
+        <md-card-title>Sidenav Over - Resize</md-card-title>
+        <md-sidenav-container class="demo-sidenav-container" style="height:200px;padding:0;">
+          <md-toolbar color="primary"> <button md-raised-button color="accent" (click)="start2.toggle()">Toggle SideNav</button></md-toolbar>
+          <md-sidenav ngClass="{{sideWidth}}" #start2 opened mode="over" align="end">
+            <md-toolbar><button md-button color="primary" (click)="start2.toggle()">Close Sidenav</button></md-toolbar>
+
             <div class="sidenav-select">
             <md-select placeholder="Select side width" [(ngModel)]="sideWidth">
               <md-option value="sm">Small</md-option>
@@ -55,9 +55,7 @@
             </div>
           </md-sidenav>
           <div class="demo-sidenav-content">
-            <button md-raised-button color="primary" (click)="start2.toggle()">Toggle End Side Drawer</button>
-            <br/>
-            <br/>
+
             <md-nav-list>
               <button md-button color="primary">Some new link</button>
               <br/>
@@ -70,7 +68,7 @@
     <md-card>
       <md-card-content>
         <md-card-title>Dynamic Alignment Sidenav</md-card-title>
-        <md-sidenav-container class="demo-sidenav-container">
+        <md-sidenav-container style="height:100px;padding:0;" class="demo-sidenav-container">
           <md-sidenav class="sm" #dynamicAlignSidenav1 mode="side" [align]="invert ? 'end' : 'start'">
             <p>Start</p>
           </md-sidenav>
@@ -87,7 +85,7 @@
     <md-card>
       <md-card-content>
         <md-card-title>Sidenav with Focus Attributes</md-card-title>
-        <md-sidenav-container class="demo-sidenav-container">
+        <md-sidenav-container  class="demo-sidenav-container">
           <md-sidenav class="sm" #focusSidenav>
             <md-nav-list> <a md-list-item routerLink>Link item-2</a> <a md-list-item routerLink cdk-focus-region-start>Focus region start</a> <a md-list-item routerLink>Link</a> <a md-list-item routerLink cdk-focus-initial>Initially focused</a> <a md-list-item routerLink cdk-focus-region-end>Focus region end</a> <a md-list-item routerLink>Link</a>&nbsp; </md-nav-list>
           </md-sidenav>
