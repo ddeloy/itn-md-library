@@ -53,11 +53,3 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-
-// No padding for sidenav inside card - need to make clearer
-.demo-sidenav-container > .mat-sidenav-content {
-  padding: 0rem !important;
-}
-md-sidenav-container.backdrop-hidden > .mat-sidenav-backdrop.mat-sidenav-shown {
-  visibility: hidden !important;
-}

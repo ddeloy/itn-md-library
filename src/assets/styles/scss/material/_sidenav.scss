@@ -1,0 +1,45 @@
+
+/* This CSS for demo purposes only - plan to refactor... ddeloy */
+
+.sidenav-container {
+  border: 1px solid #CCCCCC;
+
+  .mat-sidenav-focus-trap > .cdk-focus-trap-content {
+    padding: 10px;
+  }
+}
+
+.sidenav-content {
+  padding: 15px;
+}
+
+md-sidenav.sm {
+  width:25% !important;
+}
+
+md-sidenav.med {
+   width:50% !important;
+}
+
+md-sidenav.lg {
+  width:75% !important;
+}
+md-sidenav.xl {
+   width:100% !important;
+}
+.sidenav-select {
+  margin-left:15px;
+  margin-top:30px;
+
+}
+.p-10 {
+  padding:10px;
+}
+
+// No padding for sidenav inside card - need to make clearer
+.sidenav-container > .mat-sidenav-content {
+  padding: 0rem !important;
+}
+md-sidenav-container.backdrop-hidden > .mat-sidenav-backdrop.mat-sidenav-shown {
+  visibility: hidden !important;
+}
