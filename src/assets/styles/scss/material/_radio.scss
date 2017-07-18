@@ -1,0 +1,51 @@
+.mat-radio-button {
+    .mat-radio-label {
+        .mat-radio-container {
+            transform: translateY(12%);
+        }
+    }
+    &[color="primary"]{
+        .mat-radio-label {
+            .mat-radio-container {
+                .mat-radio-outer-circle {
+                    border-color: map-get($primary,300);
+                }
+                .mat-radio-inner-circle {
+                    background-color: map-get($primary,500);
+                }
+            }
+        }
+    }
+    &[color="warn"]{
+        .mat-radio-label {
+            .mat-radio-container {
+                .mat-radio-outer-circle {
+                    border-color: map-get($warn,300);
+                }
+                .mat-radio-inner-circle {
+                    background-color: map-get($warn,500);
+                }
+            }
+        }
+    }
+    &.mat-radio-checked {
+        &[color="primary"]{
+            .mat-radio-label {
+                .mat-radio-container {
+                    .mat-radio-outer-circle {
+                        border-color: map-get($primary,500);
+                    }
+                }
+            }
+        }
+        &[color="warn"]{
+            .mat-radio-label {
+                .mat-radio-container {
+                    .mat-radio-outer-circle {
+                        border-color: map-get($warn,500);
+                    }
+                }
+            }
+        }
+    }
+}

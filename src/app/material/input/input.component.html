@@ -8,25 +8,26 @@
           <input mdInput placeholder="John Smith" type="text">
         </md-input-container>
       </label>
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>Email</span>
+      <label class="ml-xs mr-xs" style="width: 100%;"> <span>Disabled</span>
         <md-input-container floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="abc@xyz.com" type="email">
+          <input mdInput placeholder="abc@xyz.com" type="email" value="johnsmith@gmail.com" disabled>
         </md-input-container>
       </label>
     </div>
+    <p>Compact Version - 'compact' class added to <code>md-input-container</code></p>
     <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
       <label class="ml-xs mr-xs" style="width: 100%;"> <span>Default Color</span>
-        <md-input-container floatPlaceholder="never" class="md-block">
+        <md-input-container floatPlaceholder="never" class="compact md-block">
           <input mdInput placeholder="enter a value" type="text">
         </md-input-container>
       </label>
       <label class="ml-xs mr-xs" style="width: 100%;"> <span>Read-only</span>
-        <md-input-container floatPlaceholder="never" class="md-block">
+        <md-input-container floatPlaceholder="never" class="compact md-block">
           <input mdInput placeholder="enter a value" type="text" value="This is readonly" readonly>
         </md-input-container>
       </label>
     </div>
-    <span><em>dividerColor used to set border-color on focus</em></span>
+    <p><code>dividerColor</code> used to set border-color on focus</p>
     <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
       <label class="ml-xs mr-xs" style="width: 100%;"> <span>Primary Color</span>
         <md-input-container dividerColor="primary" floatPlaceholder="never" class="md-block">

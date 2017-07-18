@@ -9,7 +9,7 @@ $lbl-after-font-size: 0.875rem;
 
 $label-color:map-get($accent,700);
 
-label {
+label:not([class^='mat-']):not([class*=' mat-']) {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -26,7 +26,7 @@ label {
   }
 }
 @media only screen and (min-width: breakpoint-min(sm)) {
-  label {
+  label:not([class^='mat-']):not([class*=' mat-']) {
     & > span {
       font-size: $lbl-font-size-tab;
       height: 12px;
@@ -36,7 +36,7 @@ label {
   }
 }
 @media only screen and (min-width: breakpoint-min(md)) {
-  label {
+  label:not([class^='mat-']):not([class*=' mat-']) {
     & > span {
       font-size: $lbl-font-size-desk;
       height: 15px;

@@ -91,9 +91,9 @@
           <tbody>
             <tr *ngFor="let item of cvGettingStarted.items">
               <td *ngFor="let name of fieldNames"[ngClass]="{
-                'primary-info': name === gettingStartedPrimary,
-                'secondary-info': name === gettingStartedSecondary,
-                'extra-info': name === gettingStartedExtra}">
+                'primary-info': name === dataPrimary,
+                'secondary-info': name === dataSecondary,
+                'extra-info': name === dataExtra}">
                 {{item[name] | globalize}}
               </td>
               <td class="td-nav-arrow">
@@ -110,14 +110,14 @@
     <br/>
      <!-- current record management needs proper styling applied -->
     <h4>Current Record Management</h4>
-    <div>
+    <div style="margin-bottom: 10px;">
       <button md-raised-button md-button-sm color="accent" (click)="cvCRM.moveCurrentToNext()">Next</button>
       <button md-raised-button md-button-sm color="accent" (click)="cvCRM.moveCurrentToPrevious()">Previous</button>
       <button md-raised-button md-button-sm color="accent" (click)="stopCurrent()">Stop at 4th Row</button>
       <button md-raised-button md-button-sm color="accent" (click)="reset()">Clear</button>
     </div>
     <div class="sGrid">
-      <table class="table-wijmo table-wijmo-hover table-wijmo-responsive">
+      <table class="table-wijmo table-wijmo-hover">
         <thead>
         <tr class="active">
           <th class="wijmo-text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
@@ -126,8 +126,13 @@
         <tbody>
         <tr *ngFor="let item of cvCRM.items"
             [ngClass]="{success: item == cvCRM.currentItem}"
-            (click)="cvCRM.moveCurrentTo(item)">
-          <td class="wijmo-text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+            (click)="cvCRM.moveCurrentTo(item)">          
+          <td *ngFor="let name of fieldNames" [ngClass]="{
+              'primary-info': name === dataPrimary,
+              'secondary-info': name === dataSecondary,
+              'extra-info': name === dataExtra}">
+            {{item[name] | globalize}}
+          </td>
         </tr>
         </tbody>
       </table>
@@ -137,16 +142,21 @@
     <h4>Sorting</h4>
     <p>Click column to sort</p>
     <div class="sGrid">
-      <table class="table-wijmo table-wijmo-hover table-wijmo-responsive">
+      <table class="table-wijmo table-wijmo-sort">
         <thead>
         <tr class="active">
-          <th class="wijmo-text-center" *ngFor="let fieldName of fieldNames"
-              (click)="toggleSort(fieldName)" style="cursor:pointer"> {{fieldName}}<span style="color: red">{{getSort(fieldName)}}</span> </th>
+          <th *ngFor="let fieldName of fieldNames"
+              (click)="toggleSort(fieldName)">{{fieldName}}<span style="color: #47b555">{{getSort(fieldName)}}</span> </th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let item of cvSorting.items">
-          <td class="wijmo-text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+          <td *ngFor="let name of fieldNames" [ngClass]="{
+                'primary-info': name === dataPrimary,
+                'secondary-info': name === dataSecondary,
+                'extra-info': name === dataExtra}">
+            {{item[name] | globalize}}
+          </td>
         </tr>
         </tbody>
       </table>
@@ -154,22 +164,24 @@
 
     <!-- filtering -->
     <h4>Filtering</h4>
-
     <md-input-container floatPlaceholder="never" class="md-block">
       <input mdInput placeholder="Filter by country" type="text" [(ngModel)]="filter">
     </md-input-container>
-    <!--    <input type="text" placeholder="Filter by country" [(ngModel)]="filter" /> -->
-
     <div class="sGrid">
-      <table class="table-wijmo table-wijmo-hover table-wijmo-responsive">
+      <table class="table-wijmo table-wijmo-hover">
         <thead>
         <tr class="active">
-          <th class="wijmo-text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+          <th *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let item of cvFiltering.items">
-          <td class="wijmo-text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+          <td *ngFor="let name of fieldNames" [ngClass]="{
+                'primary-info': name === dataPrimary,
+                'secondary-info': name === dataSecondary,
+                'extra-info': name === dataExtra}">
+            {{item[name] | globalize}}
+          </td>
         </tr>
         </tbody>
       </table>
@@ -177,23 +189,20 @@
 
     <!-- grouping -->
     <h4>Grouping</h4>
-    <br/>
-
-    <div>
-      <md-select placeholder="Group Fields:" [(ngModel)]="selectedGroupOpt">
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+    <label class="ml-xs mr-xs">
+      <span>Group by field:</span>
+      <md-select placeholder="Select a field" [(ngModel)]="selectedGroupOpt" floatPlaceholder="never">
         <md-option [value]="''" >None</md-option>
         <md-option *ngFor="let name of fieldNames"  [value]="name">{{ name }}</md-option>
       </md-select>
-      <!--   <select [(ngModel)]="selectedGroupOpt">
-             <option [ngValue]="''" >Please choose the field by which to group.</option>
-             <option *ngFor="let name of fieldNames" [ngValue]="name">{{name}}</option>
-           </select> -->
+    </label>
     </div>
     <div class="sGrid">
-      <table class="table-wijmo table-wijmo-hover table-wijmo-responsive">
+      <table class="table-wijmo">
         <thead>
           <tr class="active">
-            <th class="wijmo-text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+            <th *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
           </tr>
         </thead>
         <tbody>
@@ -203,7 +212,13 @@
               <b>{{item.name | globalize}}</b> ({{item.items?.length}} items)
             </td>
             <td class="wijmo-text-center" colspan="2"  [ngStyle]="{display:isGroupItem(item)? '':'none'}" > {{avgAmount(item)}} </td>
-            <td class="wijmo-text-center" *ngFor="let name of fieldNames"  [ngStyle]="{display:isGroupItem(item)? 'none':''}"> {{item[name] | globalize}} </td>
+            <td *ngFor="let name of fieldNames" [ngClass]="{
+                'primary-info': name === dataPrimary,
+                'secondary-info': name === dataSecondary,
+                'extra-info': name === dataExtra}"
+              [ngStyle]="{display:isGroupItem(item)? 'none':''}">
+              {{item[name] | globalize}}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -214,10 +229,6 @@
     <md-input-container hintLabel="0 or empty is for no paging" floatPlaceholder="never" class="md-block">
       <input mdInput placeholder="0 or empty is for no paging." number-input type="text" [(ngModel)]="cvPaging.pageSize" >
     </md-input-container>
-
-    <!--  <div>
-        <input number-input type="text" placeholder="0 or empty is for no paging." [(ngModel)]="cvPaging.pageSize" />
-      </div> -->
     <div>
       <button md-icon-button color="accent" [disabled]="cvPaging.pageIndex <= 0"
               (click)="cvPaging.moveToFirstPage()"> <md-icon>fast_rewind</md-icon></button>
@@ -249,15 +260,20 @@
     </div>
 
     <div class="sGrid">
-      <table class="table-wijmo table-wijmo-hover table-wijmo-responsive">
+      <table class="table-wijmo">
         <thead>
         <tr class="active">
-          <th class="wijmo-text-center" *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+          <th *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let item of cvPaging.items">
-          <td class="wijmo-text-center" *ngFor="let name of fieldNames">{{item[name] | globalize}}</td>
+          <td *ngFor="let name of fieldNames" [ngClass]="{
+                'primary-info': name === dataPrimary,
+                'secondary-info': name === dataSecondary,
+                'extra-info': name === dataExtra}">
+            {{item[name] | globalize}}
+          </td>
         </tr>
         </tbody>
       </table>

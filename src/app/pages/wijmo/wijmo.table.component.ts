@@ -23,9 +23,9 @@ export class WijmoTableComponent {
   cvTrackingChanges: wjcCore.CollectionView;
   cvTrackingChangesExtra: wjcCore.CollectionView;
 
-  gettingStartedPrimary = 'product';
-  gettingStartedSecondary = 'amount';
-  gettingStartedExtra = 'country';
+  dataPrimary = 'product';
+  dataSecondary = 'amount';
+  dataExtra = 'country';
 
   groupItems: any;
   fieldNames: string[];

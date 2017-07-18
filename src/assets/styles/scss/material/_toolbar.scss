@@ -214,6 +214,23 @@ md-toolbar.mat-toolbar {
     }
 }
 
+@media only screen and (max-width: breakpoint-max(xs)) {
+    md-toolbar.mat-toolbar {
+        position: relative;
+        top-menu {
+            position: absolute;
+            bottom: -100%;
+            background-color: #fff;
+            left: 0px;
+            display: none;
+            &.shown {
+                display: block;
+                z-index: 1;
+            }
+        }
+    }
+}
+
 @media only screen and (min-width: breakpoint-min(sm)) {
     md-toolbar.mat-toolbar {
         min-height: $default-nav-height;

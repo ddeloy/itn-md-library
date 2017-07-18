@@ -1,0 +1,20 @@
+.mat-checkbox {
+    &.mat-primary{
+        .mat-checkbox-layout {
+            .mat-checkbox-inner-container {
+                .mat-checkbox-frame {
+                    border-color: map-get($primary,300);
+                }
+            }
+        }
+    }
+    &.mat-warn{
+        .mat-checkbox-layout {
+            .mat-checkbox-inner-container {
+                .mat-checkbox-frame {
+                    border-color: map-get($warn,300);
+                }
+            }
+        }
+    }
+}

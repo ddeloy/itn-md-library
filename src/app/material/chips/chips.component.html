@@ -7,9 +7,24 @@
       <div class="pb-1">
         <p class="mt-0">Simple</p>
         <md-chip-list>
-          <md-chip>Chip 1</md-chip>
-          <md-chip>Chip 2</md-chip>
-          <md-chip>Chip 3</md-chip>
+          <md-chip>
+            <span class="close">
+              <md-icon>close</md-icon>
+            </span>
+            Chip 1
+          </md-chip>
+          <md-chip>
+            <span class="close">
+              <md-icon>close</md-icon>
+            </span>
+            Chip 2
+          </md-chip>
+          <md-chip>
+            <span class="close">
+              <md-icon>close</md-icon>
+            </span>
+            Chip 3
+          </md-chip>
         </md-chip-list>
       </div>
 
@@ -24,7 +39,8 @@
 
       <p>Advanced</p>
       <md-chip-list selectable="false">
-        <md-chip color="accent" selected="true">Selected/Colored</md-chip>
+        <md-chip color="primary" selected="true">Selected - Primary</md-chip>
+        <md-chip color="accent" selected="true">Selected - Accent</md-chip>
         <md-chip color="warn" selected="true" *ngIf="visible"
                  (destroy)="alert('chip destroyed')" (click)="toggleVisible()">
           With Events
@@ -58,6 +74,9 @@
       <md-chip-list class="mat-chip-list-stacked">
         <md-chip *ngFor="let aColor of availableColors"
                  (focus)="color = aColor.color" color="{{aColor.color}}" selected="true">
+          <span class="close">
+            <md-icon>close</md-icon>
+          </span>
           {{aColor.name}}
         </md-chip>
       </md-chip-list>

@@ -2,57 +2,41 @@
   <md-card-title>Checkbox</md-card-title>
   <md-card-subtitle>md-checkbox is a Material Design selection control that allows users to make a binary choice for a predetermined conditioned</md-card-subtitle>
   <md-card-content>
-    <form class="mb-1">
-      <md-checkbox [(ngModel)]="isChecked"
-                   name="cb"
-                   value="basic_checkbox"
-                   [color]="checkboxColor()"
-                   (change)="isIndeterminate = false"
-                   [indeterminate]="isIndeterminate"
-                   [disabled]="isDisabled"
-                   [align]="alignment">
-        Do you want to <em>foobar</em> the <em>bazquux</em>?
-
-      </md-checkbox> - <strong>{{printResult()}}</strong>
-    </form>
-
-    <div  fxLayout="row"  fxLayoutAlign="start center" class="mb-1">
-      <div>
-        <input id="indeterminate-toggle"
-          type="checkbox"
-         [(ngModel)]="isIndeterminate"
-         [disabled]="isDisabled">
-        <label for="indeterminate-toggle" class="mr-xs">Toggle Indeterminate</label>
-      </div>
-      <div>
-        <input id="disabled-toggle" type="checkbox" [(ngModel)]="isDisabled">
-        <label for="disabled-toggle" class="mr-xs">Toggle Disabled</label>
-      </div>
-      <div>
-        <input id="color-toggle" type="checkbox" [(ngModel)]="useAlternativeColor">
-        <label for="color-toggle">Toggle Color</label>
-      </div>
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+      <md-checkbox class="ml-xs mr-xs">
+        Default Checkbox
+      </md-checkbox>
+      <md-checkbox class="ml-xs mr-xs" indeterminate="true">
+        Indeterminate Checkbox
+      </md-checkbox>
+      <md-checkbox class="ml-xs mr-xs" disabled>
+        Disabled Checkbox
+      </md-checkbox>
     </div>
 
-    <div  fxLayout="row"  fxLayoutAlign="start center" class="mb-1">
-      <p class="mr-xs">Alignment:</p>
-      <div class="mr-xs">
-        <input #start type="radio"
-          value="start"
-          id="align-start"
-          name="alignment"
-          (click)="alignment = start.value"
-          checked>
-        <label for="align-start">Start</label>
-      </div>
-      <div>
-        <input #end type="radio"
-          value="end"
-          id="align-end"
-          name="alignment"
-          (click)="alignment = end.value">
-        <label for="align-end">End</label>
-      </div>
+    <p><code>color</code> attribute on <code>md-checkbox</code> set to <code>primary</code>, <code>accent</code> and <code>warn</code>
+    <br><em>Note:</em> Default and Accent are same. If no color set, accent would be used</p>
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+      <md-checkbox class="ml-xs mr-xs" color="primary">
+        Primary Checkbox
+      </md-checkbox>
+      <md-checkbox class="ml-xs mr-xs"  color="accent">
+        Accent Checkbox
+      </md-checkbox>
+      <md-checkbox class="ml-xs mr-xs"  color="warn">
+        Warn Checkbox
+      </md-checkbox>
+    </div>
+
+    <p>Alignment - checkbox can be positioned before or after its label by setting
+      <code>align</code> attribute to <code>start</code> or <code>end</code>, respectively.</p>
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+      <md-checkbox class="ml-xs mr-xs" color="primary" align="start">
+        Before Label
+      </md-checkbox>
+      <md-checkbox class="ml-xs mr-xs"  color="primary" align="end">
+        After Label
+      </md-checkbox>
     </div>
 
     <p>Nested Checklist</p>

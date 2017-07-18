@@ -113,35 +113,17 @@ label {
 
 @media only screen and (min-width: breakpoint-min(sm)) {
     .mat-select {
-        height: $input-height-tab; 
-        line-height: $input-height-tab - 0.1rem;       
+        height: $input-height-desk;
+        line-height: $input-height-desk - 0.1rem;       
         padding-bottom: initial;
-        font-size: $input-font-size-tab;
+        font-size: $input-font-size-desk;
         border-width: 1px;
         border-style: solid;
-        .mat-select-trigger {
-            padding-left: $input-pad-lr-tab;
-            padding-right: $input-pad-lr-tab;
-            .mat-select-placeholder {
-                height: inherit;
-                line-height: $input-height-tab - 0.1rem;
-                font-size: $input-font-size-tab;
-            }
-            .mat-select-value {
-                max-width: calc(100% - 16px - 1rem);
-            }
-        }
-    }
-}
-@media only screen and (min-width: breakpoint-min(md)) {
-    .mat-select {
-        height: $input-height-desk;
-        line-height: $input-height-desk - 0.1rem;        
-        font-size: $input-font-size-desk;
         .mat-select-trigger {
             padding-left: $input-pad-lr-desk;
             padding-right: $input-pad-lr-desk;
             .mat-select-placeholder {
+                height: inherit;
                 line-height: $input-height-desk - 0.1rem;
                 font-size: $input-font-size-desk;
             }

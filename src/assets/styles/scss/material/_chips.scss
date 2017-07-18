@@ -1,0 +1,35 @@
+md-chip.mat-chip {
+    & > span.close {
+        float: right;
+        margin-left: 6px;
+        .mat-icon {
+            color: mat-constrast($primary, 50);
+            font-size: 1.25rem;
+            height: 16px;
+            width: 16px;
+            line-height: 16px;
+            vertical-align: bottom;
+            cursor: pointer;
+        }
+    }    
+    &:not(.mat-basic-chip) {
+        background-color: map-get($accent, 30);
+        font-size: 1rem;
+        color: #003237;
+        padding: 10px 12px;
+        & > span.close {
+            .mat-icon {
+                color: map-get($accent, 100);
+            }
+        }
+        &.mat-chip-selected {
+            & > span.close {
+                .mat-icon {
+                    color: mat-contrast($primary, 500);
+                }
+            }
+        }
+    }
+    
+
+}

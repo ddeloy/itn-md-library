@@ -2,16 +2,34 @@
   <md-card-title>Radios</md-card-title>
   <md-card-subtitle>Radio buttons allow the user to select one option from a set</md-card-subtitle>
   <md-card-content fxLayout="row" fxLayoutWrap="wrap">
-    <div fxFlex.gt-sm="33" fxFlex="100">
-      <p>Basic Example</p>
+    <div fxFlex="100">
+      <p>Basic Example
+      <br>Using <em>default</em> theming</p>
       <div fxLayout="column">
         <md-radio-button name="group1">Option 1</md-radio-button>
         <md-radio-button name="group1">Option 2</md-radio-button>
-        <md-radio-button name="group1" disabled="true">Option 3 (disabled)</md-radio-button>
+        <md-radio-button name="group1">Option 3</md-radio-button>
+        <md-radio-button name="group1" disabled="true">Option 4 (disabled)</md-radio-button>
       </div>
     </div>
-    <div fxFlex.gt-sm="33" fxFlex="100">
-      <p>Dynamic Example</p>
+    <div fxFlex="100">
+      <p>Theming Example
+      <br><code>color</code> attribute on <code>md-radio-button</code> set to <code>primary</code>,
+      <code>accent</code> and <code>warn</code>
+      <br><em>Note:</em> Default and Accent are same. If no color set, accent would be used</p>
+      <div fxLayout="column">
+        <md-radio-button color="primary" name="group2">Primary</md-radio-button>
+        <md-radio-button color="accent" name="group2">Accent/Secondary</md-radio-button>
+        <md-radio-button color="warn" name="group2">Warn</md-radio-button>
+        <md-radio-button name="group2">Default</md-radio-button>
+      </div>
+    </div>
+    <div fxFlex="100">
+      <p>Dynamic Example
+      <br>Alignment - radio buttons can be positioned before or after their labels by setting
+      <code>align</code> attribute to <code>start</code> or <code>end</code>, respectively.
+      <br><em>Note:</em> In this example, <code>align</code> has been set on <code>md-radio-group</code>.
+      However, it can be set on individual <code>md-radio-button</code> elements as well.</p>
       <div>
         <md-radio-group name="my_options" [disabled]="isDisabled" [align]="isAlignEnd ? 'end' : 'start'" fxLayout="column">
           <md-radio-button value="option_1">Option 1</md-radio-button>
@@ -20,8 +38,8 @@
         </md-radio-group>
         <p>
           <span>isDisabled: {{isDisabled}}</span>
-          <button (click)="isDisabled=!isDisabled" class="demo-button">
-            Disable buttons
+          <button md-raised-button md-button-sm color="primary" class="ml-1" (click)="isDisabled=!isDisabled">
+            {{isDisabled ? 'Enable' : 'Disable'}}
           </button>
         </p>
         <p>
@@ -29,7 +47,7 @@
         </p>
       </div>
     </div>
-    <div fxFlex.gt-sm="33" fxFlex="100">
+    <div fxFlex="100">
       <p>Dynamic Example with two-way data-binding</p>
       <div>
         <md-radio-group name="more_options" [(ngModel)]="favoriteSeason"  fxLayout="column">

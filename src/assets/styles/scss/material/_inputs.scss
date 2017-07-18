@@ -145,23 +145,23 @@ label {
         .mat-input-wrapper {        
             .mat-input-prefix, .mat-input-element,
             .mat-input-suffix {
-                height: $input-height-tab;
+                height: $input-height-desk;
                 padding-bottom: initial;
-                font-size: $input-font-size-tab;
+                font-size: $input-font-size-desk;
                 border-width: 1px;
                 border-style: solid;
             }
             .mat-input-prefix {
-                padding-left: $input-pad-lr-tab;
+                padding-left: $input-pad-lr-desk;
                 padding-right: 0;
             }
             .mat-input-suffix {
                 padding-left: 0;
-                padding-right: $input-pad-lr-tab;
+                padding-right: $input-pad-lr-desk;
             }
             .mat-input-element {
-                padding-left: $input-pad-lr-tab;
-                padding-right: $input-pad-lr-tab;
+                padding-left: $input-pad-lr-desk;
+                padding-right: $input-pad-lr-desk;
             }
             .mat-input-prefix {
                 border-right: 0;
@@ -176,46 +176,9 @@ label {
                 border-right: 0;
             }
             .mat-input-placeholder-wrapper {
-                height: $input-height-tab;
+                height: $input-height-desk;
                 .mat-input-placeholder {
                     height: inherit;
-                    line-height: $input-height-tab;
-                    margin-top: 2px;
-                    padding-left: $input-pad-lr-tab + 0.1rem;
-                    padding-right: $input-pad-lr-tab + 0.1rem;
-                    font-size: $input-font-size-tab;
-                }
-            }
-        }
-        &.mat-focused .mat-input-placeholder.mat-float, .mat-input-placeholder.mat-float:not(.mat-empty) {
-            transform: translate3d(-0.4rem, -1.8em, 0) scale(0.75);
-        }
-    }
-}
-
-@media only screen and (min-width: breakpoint-min(md)) {
-    .mat-input-container {
-        .mat-input-wrapper {        
-            .mat-input-prefix, .mat-input-element,
-            .mat-input-suffix {
-                height: $input-height-desk;
-                font-size: $input-font-size-desk;
-            }
-            .mat-input-prefix {
-                padding-left: $input-pad-lr-desk;
-                padding-right: 0;
-            }
-            .mat-input-suffix {
-                padding-left: 0;
-                padding-right: $input-pad-lr-desk;
-            }
-            .mat-input-element {
-                padding-left: $input-pad-lr-desk;
-                padding-right: $input-pad-lr-desk;
-            }
-            .mat-input-placeholder-wrapper {
-                height: $input-height-desk;
-                .mat-input-placeholder {
                     line-height: $input-height-desk;
                     margin-top: initial;
                     padding-left: $input-pad-lr-desk + 0.1rem;

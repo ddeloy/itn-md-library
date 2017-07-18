@@ -23,7 +23,26 @@
         </md-select>
       </label>
     </div>
-    <span><em>dividerColor used to set border-color on focus</em></span>
+    <p>Compact version - 'compact' class added to <code>md-select</code></p>
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+      <label class="ml-xs mr-xs"><span>Default</span>
+        <md-select placeholder="Drink" floatPlaceholder="never" class="compact">
+          <md-option>None</md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+            {{ drink.viewValue }}
+          </md-option>
+        </md-select>
+      </label>
+      <label class="ml-xs mr-xs"><span>Disabled</span>
+        <md-select placeholder="Drink" floatPlaceholder="never" class="compact" disabled>
+          <md-option>None</md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+            {{ drink.viewValue }}
+          </md-option>
+        </md-select>
+      </label>
+    </div>
+    <p><code>dividerColor</code> used to set border-color on focus</p>
     <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
       <label class="ml-xs mr-xs"><span>Primary</span>
         <md-select placeholder="Drink" dividerColor="primary" [(ngModel)]="currentDrink" [required]="drinksRequired"
@@ -77,6 +96,7 @@
         </md-hint>
         </label>
     </div>
+    <p>Combo Fields</p>
     <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" class="mb-2">
       <div class="input-group ml-xs mr-xs">
         <md-input-container floatPlaceholder="never" class="md-block">

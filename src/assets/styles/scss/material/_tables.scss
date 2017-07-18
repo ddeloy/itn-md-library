@@ -117,6 +117,16 @@ $action-icon-font-size: 1.125rem;
     }
 }
 
+.table-wijmo-sort {
+    & > thead {
+        & > tr {
+            & > th {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
 .table-menu.mat-menu-panel:not(.custom-menu) {
     color: #424864;
     background-color: #ffffff;
@@ -177,10 +187,11 @@ $action-icon-font-size: 1.125rem;
                 &:first-of-type {
                     border-top: 1px solid $row-border-color-mob;                    
                 }
-                & > td {
+                & > td:not(.active) {
                     border: 0;
                     display: none;
                     padding: 9px 11px;
+                    margin-bottom: -1px;
                     &.primary-info, &.secondary-info, &.extra-info,
                     &.td-action, &.td-nav-arrow {
                         display: block;
@@ -267,5 +278,25 @@ $action-icon-font-size: 1.125rem;
     }
 }
 
+.table-wijmo > tbody > tr.success > td, .table-wijmo > tbody > tr.success > th,
+.table-wijmo > tbody > tr > td.success, .table-wijmo > tbody > tr > th.success,
+.table-wijmo > tfoot > tr.success > td, .table-wijmo > tfoot > tr.success > th,
+.table-wijmo > tfoot > tr > td.success, .table-wijmo > tfoot > tr > th.success,
+.table-wijmo > thead > tr.success > td, .table-wijmo > thead > tr.success > th,
+.table-wijmo > thead > tr > td.success, .table-wijmo > thead > tr > th.success {
+    background-color: map-get($primary, 500);
+    color: mat-contrast($primary, 500);
+}
 
-
+.table-wijmo-hover {
+    & > tbody {
+        & > tr {
+            &:hover {
+                background-color: map-get($primary, 50);
+                & > td {
+                    color: $table-text-color;
+                }
+            }
+        }
+    }
+}
