@@ -64,7 +64,7 @@ top-menu {
   .mat-menu-content {
     [md-menu-item].mat-menu-item {
       height: initial;
-      padding: 5px 16px;
+      padding: 6px 44px;
       clear: both;
       font-weight: 400;
       font-size: 1rem;
@@ -100,14 +100,17 @@ top-menu {
     }
     .menu-category {
       display: block;
-      padding: 20px 16px 15px;
+      padding: 8px 16px 8px 44px;
       clear: both;
       font-weight: 400;
-      font-size: 1rem;
-      color: map-get($accent, 400);
+      font-size: 0.75rem;
+      color: map-get($accent, 200);
       white-space: nowrap;
       text-decoration: none;
       user-select: none;
+    }
+    .menu-category-wrap + .menu-category-wrap {
+      margin-top: 10px;
     }
   }
 }
@@ -119,6 +122,9 @@ top-menu {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      .menu-category-wrap + .menu-category-wrap {
+        margin-top: 0px;
+      }
     }
   }
 }

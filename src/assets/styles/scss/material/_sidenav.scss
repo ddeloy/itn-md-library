@@ -1,4 +1,9 @@
 
+md-sidenav.mat-sidenav.mat-sidenav-opened:not(.mat-sidenav-side),
+md-sidenav.mat-sidenav.mat-sidenav-opening:not(.mat-sidenav-side) {
+  border: 1px solid #e8e8e8;
+  box-shadow: -2px 0px 1.5px 0 rgba(133, 133, 133, .48);
+}
 /* This CSS for demo purposes only - plan to refactor... ddeloy */
 
 .sidenav-container {

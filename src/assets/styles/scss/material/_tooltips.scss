@@ -1,0 +1,13 @@
+// [class] is required in this selector to over-write
+// default styling for mat-tooltip
+
+md-tooltip-component {
+    div.mat-tooltip[class] {
+        background-color: mat-color($accent, 500, 0.9);
+        border-radius: 2px;
+        padding: 16px;
+        font-size: 0.875rem;
+        color: mat-contrast($primary, 500);
+        max-width: 320px;
+    }
+}

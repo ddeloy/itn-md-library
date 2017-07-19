@@ -39,7 +39,7 @@ label {
             border-bottom-style: solid;
             border-color: $default-border-color;
             vertical-align: middle;
-            line-height: 1;
+            line-height: 1;            
         }
         .mat-input-placeholder-wrapper {
             height: $input-height-mob;
@@ -111,6 +111,31 @@ label {
             }
         }
     }
+    // for suffix and prefix
+    // for no dividerColor or with dividerColor other than accent and warn
+    &:not([dividercolor]), &[dividercolor] {
+        .mat-input-wrapper {
+            .mat-input-prefix, .mat-input-suffix {
+                color: mat-color($primary);
+            }
+        }
+    }
+    // for accent
+    &[dividercolor="accent"] {
+        .mat-input-wrapper {
+            .mat-input-prefix, .mat-input-suffix {
+                color: mat-color($accent);
+            }
+        }
+    }
+    // for warn
+    &[dividercolor="warn"] {
+        .mat-input-wrapper {
+            .mat-input-prefix, .mat-input-suffix {
+                color: mat-color($warn);
+            }
+        }
+    }
     // normal and focus border color for input with error
     &.ng-invalid {
         //first hide the hint messages
@@ -127,7 +152,10 @@ label {
         }
     } 
     .mat-input-underline {
-        display: none;
+        visibility: hidden;
+        .mat-input-ripple {
+            display: none;
+        }
     }
 }
 
