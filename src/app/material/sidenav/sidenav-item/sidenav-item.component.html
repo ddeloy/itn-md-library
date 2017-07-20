@@ -1,0 +1,19 @@
+<li *ngIf="!menuItem.hasChildren">
+    <span class="sec-title" *ngIf="menuItem.secTitle != ''">{{ menuItem.secTitle }}</span>
+    <a href="javascript:void(0);">
+        <span class="menu-title">{{ menuItem.title }}</span>
+    </a>
+</li>
+<li *ngIf="menuItem.hasChildren" class="show-drop {{_showChildren?'active':''}}"
+    (click)="clicked($event)">
+    <span class="sec-title" *ngIf="menuItem.secTitle != ''">{{ menuItem.secTitle }}</span>
+    <a href="javascript:void(0);">
+        <span class="menu-title">{{ menuItem.title }}</span>
+    </a>
+    <div class="collapse-side">
+        <ul>
+            <sidenav-item *ngFor="let childMenuItem of menuItem.children" [menuItem]="childMenuItem">                
+            </sidenav-item>
+        </ul>
+    </div>
+</li>

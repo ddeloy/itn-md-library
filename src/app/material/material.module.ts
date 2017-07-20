@@ -39,6 +39,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { JazzDialogComponent } from './dialog/dialog.component';
 import {TopMenuComponent} from './menu/top-menu/top-menu.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { SidenavItemComponent } from './sidenav/sidenav-item/sidenav-item.component';
 
 @NgModule({
   imports: [
@@ -79,7 +80,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     DatepickerComponent,
     JazzDialogComponent,
     TopMenuComponent,
-    SidenavComponent
+    SidenavComponent,
+    SidenavItemComponent
   ],
   entryComponents: [ JazzDialogComponent ],
 })

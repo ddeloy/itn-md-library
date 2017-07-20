@@ -75,17 +75,14 @@
       <button md-raised-button md-icon-button color="accent" class="mr-1"><md-icon>search</md-icon></button>
       <button md-raised-button color="primary" class="mr-1">Primary</button>
       <button md-raised-button color="accent" class="mr-1">Secondary</button>
-      <button md-raised-button color="warn" class="mr-1">Warn</button>
       <button md-raised-button disabled color="primary" class="mr-1">disabled</button>
       <button md-raised-button disabled color="accent" class="mr-1">disabled</button>
-      <button md-raised-button disabled color="warn" class="mr-1">disabled</button>
     </div>
 
     <div class="pb-1">
       <p>Round buttons</p>
       <button md-raised-button md-round-button color="primary" class="mr-1">Primary</button>
       <button md-raised-button md-round-button color="accent" class="mr-1">Secondary</button>
-      <button md-raised-button md-round-button color="warn" class="mr-1">Warn</button>
       <button md-raised-button md-round-button disabled color="primary" class="mr-1">disabled</button>
       <button md-raised-button md-round-button disabled color="accent" class="mr-1">disabled</button>
     </div>
@@ -96,7 +93,6 @@
       <button md-icon-button color="accent"><md-icon>error</md-icon></button>
       <button md-button color="primary" class="mr-1">Primary</button>
       <button md-button color="accent" class="mr-1">Secondary</button>
-      <button md-button color="warn" class="mr-1">Warn</button>
       <button md-button disabled color="primary" class="mr-1">off</button>
       <button md-button disabled color="accent" class="mr-1">off</button>
     </div>
@@ -111,7 +107,6 @@
       </button>
       <button md-raised-button md-button-sm color="primary" class="mr-1">Primary</button>
       <button md-raised-button md-button-sm color="accent" class="mr-1">Accent</button>
-      <button md-raised-button md-button-sm color="warn" class="mr-1">Warn</button>
       <button md-raised-button md-button-sm color="primary" disabled class="mr-1">off</button>
       <button md-raised-button md-button-sm color="accent" disabled class="mr-1">off</button>
     </div>
@@ -120,7 +115,6 @@
       <p>Round Small buttons</p>
       <button md-raised-button md-round-button md-button-sm color="primary" class="mr-1">Primary</button>
       <button md-raised-button md-round-button md-button-sm color="accent" class="mr-1">Accent</button>
-      <button md-raised-button md-round-button md-button-sm color="warn" class="mr-1">Warn</button>
       <button md-raised-button md-round-button md-button-sm color="primary" disabled class="mr-1">off</button>
       <button md-raised-button md-round-button md-button-sm color="accent" disabled class="mr-1">off</button>
     </div>
@@ -135,30 +129,25 @@
       </button>
       <button md-button md-button-sm color="primary" class="mr-1">Primary</button>
       <button md-button md-button-sm color="accent" class="mr-1">Accent</button>
-      <button md-button md-button-sm color="warn" class="mr-1">Warn</button>
       <button md-button md-button-sm color="primary" disabled class="mr-1">off</button>
       <button md-button md-button-sm color="accent" disabled class="mr-1">off</button>
     </div>
 
-    <div class="pb-1">
+    <!--<div class="pb-1">
       <p>Fab buttons</p>
       <button md-fab color="primary" class="mr-1"><md-icon>add</md-icon></button>
       <button md-fab color="accent" class="mr-1"><md-icon>add</md-icon></button>
-      <button md-fab color="warn" class="mr-1"><md-icon>add</md-icon></button>
       <button md-fab color="primary" disabled="" class="mr-1"><md-icon>add</md-icon></button>
       <button md-fab color="accent" disabled="" class="mr-1"><md-icon>add</md-icon></button>
-      <button md-fab color="warn" disabled="" class="mr-1"><md-icon>add</md-icon></button>
     </div>
 
     <div class="pb-1">
       <p>Mini Fab buttons</p>
       <button md-mini-fab color="primary" class="mr-1"><md-icon>add</md-icon></button>
       <button md-mini-fab color="accent" class="mr-1"><md-icon>add</md-icon></button>
-      <button md-mini-fab color="warn" class="mr-1"><md-icon>add</md-icon></button>
       <button md-mini-fab color="primary" disabled class="mr-1"><md-icon>add</md-icon></button>
       <button md-mini-fab color="accent" disabled class="mr-1"><md-icon>add</md-icon></button>
-      <button md-mini-fab color="warn" disabled class="mr-1"><md-icon>add</md-icon></button>
-    </div>
+    </div>-->
 
     <div class="pb-0">
       <p>Button toggles</p>
@@ -175,6 +164,277 @@
         <md-button-toggle disabled>Sugar</md-button-toggle>
         <md-button-toggle>Milk</md-button-toggle>
       </md-button-toggle-group>
+    </div>
+  </md-card-content>
+</md-card>
+
+<!-- doc for buttons -->
+<md-card class="page-card">
+  <md-card-title>Documentation for <code>MdButtonModule</code>    
+  </md-card-title>
+  <md-card-content>
+    <div class="docs-guide-content">
+      <p>
+        <a class="badge" href="https://material.angular.io/components/component/button" target="_blank">Official Documentation</a>
+      </p>
+      <p>Angular Material buttons are native <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> elements
+        enhanced with Material Design
+        styling and ink ripples.</p>
+      <div material-docs-example="button-overview"></div>
+      <p>Native <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements are always used in order to
+        provide the most straightforward
+        and accessible experience for users. A <code>&lt;button&gt;</code> element should be used whenever some
+        <em>action</em>
+        is performed. An <code>&lt;a&gt;</code> element should be used whenever the user will <em>navigate</em> to
+        another view.</p>
+      <p>There are five basic button variants, each applied as an attribute:</p>
+      <table class="table-wijmo">
+        <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Description</th>
+          <th>Example</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="primary-info"><code>md-button</code></td>
+          <td class="secondary-info">
+            Rectangular button w/ no elevation.
+            <i class="block-text">Also known as Flat Buttons</i>
+          </td>
+          <td class="extra-info">
+            <button md-button color="primary">Primary</button>
+          </td>
+        </tr>
+        <tr>
+          <td class="primary-info"><code>md-raised-button</code></td>
+          <td class="secondary-info">
+            Rectangular button w/ elevation
+            <i class="block-text">Also known as Default Buttons</i>
+          </td>
+          <td class="extra-info">
+            <button md-raised-button color="primary">Primary</button>
+          </td>
+        </tr>
+        <tr>
+          <td class="primary-info"><code>md-icon-button</code></td>
+          <td class="secondary-info">
+            Circular button with a transparent background, meant to contain an icon
+            <i class="block-text">Also known as Icon Buttons</i>
+          </td>
+          <td class="extra-info">
+            <button md-raised-button md-icon-button color="primary"><md-icon>star</md-icon></button>
+          </td>
+        </tr>
+        <tr>
+          <td class="primary-info"><code>md-fab</code></td>
+          <td class="secondary-info">Circular button w/ elevation, defaults to theme&#39;s accent color</td>
+          <td class="extra-info">
+            <button md-fab color="primary"><md-icon>add</md-icon></button>
+          </td>
+        </tr>
+        <tr>
+          <td class="primary-info"><code>md-mini-fab</code></td>
+          <td class="secondary-info">Same as <code>md-fab</code> but smaller</td>
+          <td class="extra-info">
+            <button md-mini-fab color="primary"><md-icon>add</md-icon></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <p>Additional variants available:</p>
+      <table class="table-wijmo">
+        <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Description</th>
+          <th>Example</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="primary-info"><code>md-round-button</code></td>
+          <td class="secondary-info">
+            Rectangular button with rounded corners.
+            <i class="block-text">Also known as Round Buttons</i>
+          </td>
+          <td class="extra-info">
+            <button md-raised-button md-round-button color="primary" class="mr-1">Primary</button>
+          </td>
+        </tr>
+        <tr>
+          <td class="primary-info"><code>md-button-sm</code></td>
+          <td class="secondary-info">
+            For smaller version of the buttons
+            <i class="block-text">Also known as Small Buttons</i>
+          </td>
+          <td class="extra-info">
+            <button md-raised-button md-button-sm color="primary" class="mr-1">Primary</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3 id="dropdown-buttons">Dropdown and Split Buttons</h3>
+      <p>Dropdown buttons toggle a contextual, dropdown menu displaying a list of actions/links.
+        Button is created using one of the above variants, and corresponding dropdown menu is created 
+        using <code>md-menu</code> element. Button and menu are tied up using <code>[mdMenuTriggerFor]</code>
+        property binding which provided the value equal to id of the <code>md-menu</code> element.
+        Button and menu are wrapped inside <code>div</code> with class <code>btn-group</code>.</p>
+      <p>A variant of dropdown buttons, known as Split buttons, allows for a single or more button(s)
+        performing the most primary/common action(s) along with a small icon button which acts as
+        trigger for toggling the dropdown menu to show secondary actions.
+      </p>
+
+      <h3 id="usage">Usage</h3>
+      <p>Required button is created using <code>button</code> tag along with above mentioned
+      attributes. These attributes can be used in combination to create desired variant. 
+      For example, <code>md-raised-button md-round-button</code> are used together to create
+       a round raised/default button.</p>
+
+      <h3 id="theming">Theming</h3>
+      <p>Buttons can be colored in terms of the current theme using the <code>color</code> property to set the
+        background color to <code>primary</code>, <code>accent</code>, or <code>warn</code>. By default, only FABs
+        are colored; the default
+        background color for <code>md-button</code> and <code>md-raised-button</code> matches the theme&#39;s
+        background color. </p>
+      
+      <h3 id="button-examples">Examples</h3>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default/Raised Button (with Primary color)
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Click me!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button color="primary">Click me!</button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default/Raised Round Button (with Accent/Secondary color)
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-round-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>Click me!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-round-button color="accent">Click me!</button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default/Raised Button - Disabled
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button disabled color="primary">Disabled</button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Small Flat Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"warn"</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-button md-button-sm color="warn">Small</button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Icon Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-icon-button color="primary"><md-icon>search</md-icon></button>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Dropdown Button - Single Button
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"appMenuEx1"</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+    Actions
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>keyboard_arrow_down<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">appMenuEx1</span> [<span class="hljs-attr">overlapTrigger</span>]=<span class="hljs-string">"false"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- [overlapTrigger]="false" makes dropdown menu to not cover the button --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>First menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Second menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Third menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"divider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Fourth menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div class="btn-group">        
+            <button [mdMenuTriggerFor]="appMenuEx1" md-raised-button color="primary">
+              Actions
+              <md-icon>keyboard_arrow_down</md-icon>
+            </button>
+            <md-menu #appMenuEx1 [overlapTrigger]="false">
+              <li md-menu-item>First menu item</li>
+              <li md-menu-item>Second menu item</li>
+              <li md-menu-item>Third menu item</li>
+              <li class="divider"></li>
+              <li md-menu-item>Fourth menu item</li>
+            </md-menu>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Dropdown Button - Split Button
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>Send<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"appMenuEx2"</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>keyboard_arrow_down<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">appMenuEx2</span> [<span class="hljs-attr">overlapTrigger</span>]=<span class="hljs-string">"false"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- [overlapTrigger]="false" makes dropdown menu to not cover the button --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>First menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Second menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Third menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"divider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Fourth menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div class="btn-group">
+            <button md-raised-button color="accent">Send</button>        
+            <button [mdMenuTriggerFor]="appMenuEx2" md-raised-button color="accent">
+              <md-icon>keyboard_arrow_down</md-icon>
+            </button>
+            <md-menu #appMenuEx2 [overlapTrigger]="false">
+              <li md-menu-item>First menu item</li>
+              <li md-menu-item>Second menu item</li>
+              <li md-menu-item>Third menu item</li>
+              <li class="divider"></li>
+              <li md-menu-item>Fourth menu item</li>
+            </md-menu>
+          </div>
+        </div>
+      </div>
     </div>
   </md-card-content>
 </md-card>

@@ -2,8 +2,108 @@
 md-sidenav.mat-sidenav.mat-sidenav-opened:not(.mat-sidenav-side),
 md-sidenav.mat-sidenav.mat-sidenav-opening:not(.mat-sidenav-side) {
   border: 1px solid #e8e8e8;
-  box-shadow: -2px 0px 1.5px 0 rgba(133, 133, 133, .48);
+  box-shadow: 2px 0px 1.5px 0 rgba(133, 133, 133, 0.48), -2px 0px 1.5px 0 rgba(133, 133, 133, 0.48);
 }
+
+md-sidenav.mat-sidenav {
+  ul {
+    padding: 0px 0 30px 0;
+    margin: 0;
+    list-style: none;
+    float: left;
+    width: 100%;
+    sidenav-item {
+      li {
+        padding: 14px 32px;
+        display: block;
+        position: relative;
+        & > .sec-title {
+          color: map-get($accent, 300);
+          font-size: 0.875rem;
+          & + a {
+            margin-top: -4px;
+          }
+        }
+        & > a {
+          display: block;
+          color: #56757d;
+          font-size: 1rem;
+          text-decoration: none;
+          position: relative;
+          .menu-title {
+          }
+        }
+        &:hover {
+          & > a {
+            color: #47b555;
+          }
+        }
+        &.show-drop {
+          & > a{
+            font-size: 1.25rem;
+            color: #03363d;
+            &:after {
+              font-family: "Material Icons";
+              content: "\E5C5";
+              position: absolute;
+              right: -4px;
+              top: -4px;
+              color: #47b555;
+              font-size: 24px;
+              transition: all 0.5s ease;
+            }            
+          }
+          .collapse-side {
+            padding-top: 0;
+            overflow: hidden;
+            max-height: 0;
+            transition: 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+            transition-property: max-height;
+            & > ul {
+              padding: 0;
+              margin: 0;
+              sidenav-item {
+                li {
+                  padding: 12px 0;
+                }
+                &:first-of-type {
+                  li {
+                    padding-top: 24px;
+                  }
+                }
+              }
+            }
+          }
+          
+          &.active {
+            background-color: map-get($accent,50);
+            padding-bottom: 24px;
+            margin-bottom: 14px;
+            & > a {
+              &:after {
+                transform: rotate(-180deg);
+              }
+            }
+            .collapse-side {
+              max-height: 1000px;
+            }            
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 /* This CSS for demo purposes only - plan to refactor... ddeloy */
 
 .sidenav-container {

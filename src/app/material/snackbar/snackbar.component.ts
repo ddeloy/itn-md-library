@@ -13,8 +13,8 @@ export class SnackbarComponent {
   setAutoHide = false;
   autoHide = 100000;
   addExtraClass = false;
-  snackbarRef: any;
-  
+  sbType = 'success';
+  dismissible = false;
 
   constructor(
     public snackBar: MdSnackBar
@@ -30,22 +30,22 @@ export class SnackbarComponent {
   openSnackBar(
       message: string,
       action: string,
-      duration: number = 2000,
-      classes: string[] = ['success', 'system']
+      duration: number = 3000,
+      classes: string[] = [this.sbType]
     ){
-      this.snackbarRef = this.snackBar.open(message, action, {
-                      duration: duration,
-                      extraClasses: ['snackbar'].concat(classes),
-                    });
-                    (<any>window).sbref = this.snackbarRef;
-      if(this.snackbarRef.containerInstance.snackBarConfig.extraClasses.includes('feedback')) {
-        let elem = document.getElementsByTagName('snack-bar-container')[0];
-        let sbElem = elem.getElementsByTagName('simple-snack-bar')[0];
-        let spanNode = document.createElement("SPAN");
-        spanNode.className = "close";
+      let snackbarRef = this.snackBar.open(message, action, {
+                          duration: duration,
+                          extraClasses: this.dismissible ? classes.concat('snackbar', 'close') : classes.concat('snackbar')
+                        });
+      if(snackbarRef.containerInstance.snackBarConfig.extraClasses.includes('close')) {
+        let elem = document.getElementsByTagName('snack-bar-container');
+        let sbElem = elem[elem.length - 1].getElementsByTagName('simple-snack-bar')[0];
+        let buttonNode = document.createElement("button");
+        buttonNode.className = "mat-simple-snackbar-action close";
+        buttonNode.onclick = function() {snackbarRef.dismiss();}
         let textnode = document.createTextNode("close");
-        spanNode.appendChild(textnode);
-        sbElem.appendChild(spanNode);
+        buttonNode.appendChild(textnode);
+        sbElem.appendChild(buttonNode);
       }
   }
 }

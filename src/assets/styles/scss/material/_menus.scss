@@ -62,36 +62,39 @@ top-menu {
     max-height: 50vh;
   }
   .mat-menu-content {
+    padding-top: 16px;
+    padding-bottom: 18px;
     [md-menu-item].mat-menu-item {
       height: initial;
-      padding: 6px 44px;
+      padding: 6px 24px;
       clear: both;
       font-weight: 400;
       font-size: 1rem;
       line-height: initial;
       background-color: transparent;
-      color: map-get($primary, 500);
+      color: map-get($accent, 500);
       white-space: nowrap;
       text-decoration: none;
       user-select: none;
       min-width: 180px;
       & > .mat-icon {
-        color: map-get($primary, 500);
+        color: map-get($accent, 500);
+        margin-right: -8px;
       }
       & > .menu-extra-text {
-        color: map-get($primary, 200);
+        color: map-get($accent, 200);
       }
       &:hover, &:focus {          
-          color: map-get($primary, 900);
+          color: map-get($accent, 900);
           & > .mat-icon {
-            color: map-get($primary, 900);
+            color: map-get($accent, 900);
           }
           & > .menu-extra-text {
-            color: map-get($primary, 200);
+            color: map-get($accent, 200);
           }
       }
       &[disabled] {
-        color: map-get($primary, 200);
+        color: map-get($accent, 200);
       }      
     }
     .mat-divider {
@@ -100,7 +103,7 @@ top-menu {
     }
     .menu-category {
       display: block;
-      padding: 8px 16px 8px 44px;
+      padding: 8px 16px 8px 24px;
       clear: both;
       font-weight: 400;
       font-size: 0.75rem;

@@ -39,6 +39,24 @@
     </md-card>
     <md-card class="backdrop-hidden">
       <md-card-content>
+        <md-card-title>Sidenav - with Menu</md-card-title>
+        <md-sidenav-container class="sidenav-container backdrop-hidden" style="height: 500px; padding: 0;">
+          <md-toolbar color="primary">
+            <button md-raised-button color="accent"
+              (click)="start12.toggle()" style="position: absolute; right: 10px;">
+              Toggle SideNav
+            </button>
+          </md-toolbar>
+          <md-sidenav class="sm" #start12 mode="over" align="start">
+            <ul>
+              <sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem"></sidenav-item>
+            </ul>
+          </md-sidenav>
+        </md-sidenav-container>
+      </md-card-content>
+    </md-card>
+    <md-card class="backdrop-hidden">
+      <md-card-content>
         <md-card-title>Sidenav Over - Resize</md-card-title>
         <md-sidenav-container class="sidenav-container backdrop-hidden" style="height:225px;padding:0;">
           <md-toolbar color="primary"> <button md-raised-button color="accent" (click)="start2.toggle()">Toggle SideNav</button></md-toolbar>
