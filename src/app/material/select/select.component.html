@@ -103,28 +103,6 @@
         </md-input-container>
       </div>
     </div>
-    <p> Value: {{ currentDrink }} </p>
-    <p> Touched: {{ drinkControl.touched }} </p>
-    <p> Dirty: {{ drinkControl.dirty }} </p>
-    <p> Status: {{ drinkControl.control?.status }} </p>
-    <p>
-      <label for="floating-placeholder">Floating placeholder:</label>
-      <select [(ngModel)]="floatPlaceholder" id="floating-placeholder">
-        <option value="auto">Auto</option>
-        <option value="always">Always</option>
-        <option value="never">Never</option>
-      </select>
-    </p>
-    <p>
-      <label for="drinks-theme">Theme:</label>
-      <select [(ngModel)]="drinksTheme" id="drinks-theme">
-        <option *ngFor="let theme of availableThemes" [value]="theme.value">{{ theme.name }}</option>
-      </select>
-    </p>
-    <button md-button (click)="currentDrink='water-2'">SET VALUE</button>
-    <button md-button (click)="drinksRequired=!drinksRequired">TOGGLE REQUIRED</button>
-    <button md-button (click)="drinksDisabled=!drinksDisabled">TOGGLE DISABLED</button>
-    <button md-button (click)="drinkControl.reset()">RESET</button>
   </md-card-content>
 </md-card>
 <md-card>
@@ -136,9 +114,6 @@
       <md-option *ngFor="let creature of pokemon" [value]="creature.value"> {{ creature.viewValue }} </md-option>
     </md-select>
     <p> Value: {{ currentPokemon }} </p>
-    <p> Touched: {{ pokemonControl.touched }} </p>
-    <p> Dirty: {{ pokemonControl.dirty }} </p>
-    <p> Status: {{ pokemonControl.control?.status }} </p>
     <p>
       <label for="pokemon-theme">Theme:</label>
       <select [(ngModel)]="pokemonTheme" id="pokemon-theme">

@@ -1,187 +1,17 @@
-<md-card>
-  <md-card-title>Buttons</md-card-title>
-  <md-card-subtitle>md-button is an HTML button or a tag enhanced with styling and animation to match the Material Design button spec</md-card-subtitle>
-  <md-card-content>
-    <div class="pb-1">
-      <p>Dropdown buttons</p>
-      <!-- Single button -->
-      <div class="btn-group mr-1">
-        <button [mdMenuTriggerFor]="appMenu" md-raised-button color="primary">
-          Action - Hard Coded
-          <md-icon>keyboard_arrow_down</md-icon>
-        </button>
-        <md-menu #appMenu [overlapTrigger]="false">
-          <li md-menu-item>First menu item</li>
-          <li md-menu-item>Second menu item</li>
-          <li md-menu-item>Third menu item</li>
-          <li class="divider"></li>
-          <li md-menu-item>Fourth menu item</li>
-        </md-menu>
-      </div>
-      <!-- Split button -->
-      <div class="btn-group">
-        <button md-raised-button color="primary">Send</button>
-        <button [mdMenuTriggerFor]="appMenu1" md-raised-button color="primary"
-        #trigger="mdMenuTrigger" (onMenuOpen)="onMenuOpen(trigger)">
-          <md-icon>keyboard_arrow_down</md-icon>
-        </button>
-        <md-menu #appMenu1="mdMenu" [overlapTrigger]="false">
-          <li md-menu-item>First menu item</li>
-          <li md-menu-item>Second menu item</li>
-          <li md-menu-item>Third menu item</li>
-          <li class="divider"></li>
-          <li md-menu-item>Fourth menu item</li>
-        </md-menu>
-      </div>
-    </div>
-
-
-
-    <div class="pb-1">
-      <p>Dropdown buttons - Flat Buttons</p>
-      <!-- Single button -->
-      <div class="btn-group mr-1">
-        <button [mdMenuTriggerFor]="appMenu2" md-button color="primary">
-          Action
-          <md-icon>keyboard_arrow_down</md-icon>
-        </button>
-        <md-menu #appMenu2 [overlapTrigger]="false">
-          <li md-menu-item>Action One</li>
-          <li md-menu-item>Action Two</li>
-          <li md-menu-item>Action Three</li>
-          <li class="divider"></li>
-          <li md-menu-item>Separated link</li>
-        </md-menu>
-      </div>
-      <!-- Split button -->
-      <div class="btn-group mr-1">
-        <button md-button color="accent">Send</button>
-        <button [mdMenuTriggerFor]="appMenu3" md-button color="accent">
-          <md-icon>keyboard_arrow_down</md-icon>
-        </button>
-        <md-menu #appMenu3 [overlapTrigger]="false">
-          <li md-menu-item>Action One</li>
-          <li md-menu-item>Action Two</li>
-          <li md-menu-item>Action Three</li>
-          <li class="divider"></li>
-          <li md-menu-item>Separated link</li>
-        </md-menu>
-      </div>
-    </div>
-
-    <div class="pb-1">
-      <p>Default buttons</p>
-      <button md-raised-button md-icon-button color="primary" class="mr-1"><md-icon>star</md-icon></button>
-      <button md-raised-button md-icon-button color="accent" class="mr-1"><md-icon>search</md-icon></button>
-      <button md-raised-button color="primary" class="mr-1">Primary</button>
-      <button md-raised-button color="accent" class="mr-1">Secondary</button>
-      <button md-raised-button disabled color="primary" class="mr-1">disabled</button>
-      <button md-raised-button disabled color="accent" class="mr-1">disabled</button>
-    </div>
-
-    <div class="pb-1">
-      <p>Round buttons</p>
-      <button md-raised-button md-round-button color="primary" class="mr-1">Primary</button>
-      <button md-raised-button md-round-button color="accent" class="mr-1">Secondary</button>
-      <button md-raised-button md-round-button disabled color="primary" class="mr-1">disabled</button>
-      <button md-raised-button md-round-button disabled color="accent" class="mr-1">disabled</button>
-    </div>
-
-    <div class="pb-1">
-      <p>Flat buttons</p>
-      <button md-icon-button color="primary"><md-icon>info_outline</md-icon></button>
-      <button md-icon-button color="accent"><md-icon>error</md-icon></button>
-      <button md-button color="primary" class="mr-1">Primary</button>
-      <button md-button color="accent" class="mr-1">Secondary</button>
-      <button md-button disabled color="primary" class="mr-1">off</button>
-      <button md-button disabled color="accent" class="mr-1">off</button>
-    </div>
-
-    <div class="pb-1">
-      <p>Small buttons</p>
-      <button md-raised-button md-icon-button md-button-sm color="primary" class="mr-1">
-        <md-icon>play_arrow</md-icon>
-      </button>
-      <button md-raised-button md-icon-button md-button-sm color="accent" class="mr-1">
-        <md-icon>replay</md-icon>
-      </button>
-      <button md-raised-button md-button-sm color="primary" class="mr-1">Primary</button>
-      <button md-raised-button md-button-sm color="accent" class="mr-1">Accent</button>
-      <button md-raised-button md-button-sm color="primary" disabled class="mr-1">off</button>
-      <button md-raised-button md-button-sm color="accent" disabled class="mr-1">off</button>
-    </div>
-
-    <div class="pb-1">
-      <p>Round Small buttons</p>
-      <button md-raised-button md-round-button md-button-sm color="primary" class="mr-1">Primary</button>
-      <button md-raised-button md-round-button md-button-sm color="accent" class="mr-1">Accent</button>
-      <button md-raised-button md-round-button md-button-sm color="primary" disabled class="mr-1">off</button>
-      <button md-raised-button md-round-button md-button-sm color="accent" disabled class="mr-1">off</button>
-    </div>
-
-    <div class="pb-1">
-      <p>Flat Small buttons</p>
-      <button md-icon-button md-button-sm color="primary" class="mr-1">
-        <md-icon>add</md-icon>
-      </button>
-      <button md-icon-button md-button-sm color="accent" class="mr-1">
-        <md-icon>block</md-icon>
-      </button>
-      <button md-button md-button-sm color="primary" class="mr-1">Primary</button>
-      <button md-button md-button-sm color="accent" class="mr-1">Accent</button>
-      <button md-button md-button-sm color="primary" disabled class="mr-1">off</button>
-      <button md-button md-button-sm color="accent" disabled class="mr-1">off</button>
-    </div>
-
-    <!--<div class="pb-1">
-      <p>Fab buttons</p>
-      <button md-fab color="primary" class="mr-1"><md-icon>add</md-icon></button>
-      <button md-fab color="accent" class="mr-1"><md-icon>add</md-icon></button>
-      <button md-fab color="primary" disabled="" class="mr-1"><md-icon>add</md-icon></button>
-      <button md-fab color="accent" disabled="" class="mr-1"><md-icon>add</md-icon></button>
-    </div>
-
-    <div class="pb-1">
-      <p>Mini Fab buttons</p>
-      <button md-mini-fab color="primary" class="mr-1"><md-icon>add</md-icon></button>
-      <button md-mini-fab color="accent" class="mr-1"><md-icon>add</md-icon></button>
-      <button md-mini-fab color="primary" disabled class="mr-1"><md-icon>add</md-icon></button>
-      <button md-mini-fab color="accent" disabled class="mr-1"><md-icon>add</md-icon></button>
-    </div>-->
-
-    <div class="pb-0">
-      <p>Button toggles</p>
-      <md-button-toggle class="mr-1">Single toggle</md-button-toggle>
-      <md-button-toggle-group name="alignment" class="mr-1">
-        <md-button-toggle value="left"><md-icon>format_align_left</md-icon></md-button-toggle>
-        <md-button-toggle value="center"><md-icon>format_align_center</md-icon></md-button-toggle>
-        <md-button-toggle value="right"><md-icon>format_align_right</md-icon></md-button-toggle>
-        <md-button-toggle value="justify"><md-icon>format_align_justify</md-icon></md-button-toggle>
-      </md-button-toggle-group>
-      <md-button-toggle-group multiple class="mr-1">
-        <md-button-toggle>Flour</md-button-toggle>
-        <md-button-toggle>Eggs</md-button-toggle>
-        <md-button-toggle disabled>Sugar</md-button-toggle>
-        <md-button-toggle>Milk</md-button-toggle>
-      </md-button-toggle-group>
-    </div>
-  </md-card-content>
-</md-card>
-
 <!-- doc for buttons -->
 <md-card class="page-card">
-  <md-card-title>Documentation for <code>MdButtonModule</code>    
-  </md-card-title>
+  <md-card-title>Buttons</md-card-title>
+  <md-card-subtitle>
+    md-button is an HTML button or a tag enhanced with styling and animation to match the Material Design button 
+    spec
+  </md-card-subtitle>
   <md-card-content>
     <div class="docs-guide-content">
       <p>
         <a class="badge" href="https://material.angular.io/components/component/button" target="_blank">Official Documentation</a>
       </p>
-      <p>Angular Material buttons are native <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> elements
-        enhanced with Material Design
-        styling and ink ripples.</p>
       <div material-docs-example="button-overview"></div>
-      <p>Native <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements are always used in order to
+      <p><code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements are always used in order to
         provide the most straightforward
         and accessible experience for users. A <code>&lt;button&gt;</code> element should be used whenever some
         <em>action</em>
@@ -277,6 +107,184 @@
         </tbody>
       </table>
 
+      <h3 id="button-usage">Usage</h3>
+      <p>Required button is created using <code>button</code> tag along with above mentioned
+      attributes. These attributes can be used in combination to create desired variant. 
+      For example, <code>md-raised-button md-round-button</code> are used together to create
+       a round raised/default button.</p>
+      
+      <h3 id="default-button">Default Buttons</h3>
+      <p>These are the buttons which shall be used by  default for all the user actions, unless it is mentioned to use
+        some other variant of the button element.</p>
+      <p>Default buttons, also known as Raised Buttons, are created using <code>md-raised-button</code> attribute
+      on <code>button</code> element.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Click me!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button color="primary">Click me!</button>
+        </div>
+      </div>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default Button - Disabled
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button disabled color="primary">Disabled</button>
+        </div>
+      </div>
+
+      <h3 id="flat-button">Flat Buttons</h3>
+      <p>These buttons do not have any background and elevation, and shall be used for non-primary actions.</p>
+      <p>Flat buttons are created using <code>md-button</code> attribute on <code>button</code> element.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Flat Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Flat Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-button color="primary">Flat Button</button>
+        </div>
+      </div>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Flat Button - Disabled
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Flat Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-button disabled color="primary">Disabled</button>
+        </div>
+      </div>
+
+      <h3 id="round-button">Round Buttons</h3>
+      <p>This variant adds rounded-corners to the default buttons.</p>
+      <p>Round buttons are created using <code>md-round-button</code> attribute along with <code>md-raised-button</code>
+      on <code>button</code> element.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Round Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-round-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Click me!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-round-button color="primary">Click me!</button>
+        </div>
+      </div>
+
+      <h3 id="icon-button">Icon Buttons</h3>
+      <p>This is a circular button with an icon denoting the action and no text.</p>
+      <p>Icon buttons are created adding <code>md-icon-button</code> attribute along with <code>md-raised-button</code>
+      or <code>md-button</code> attribute on <code>button</code> element. Icon to be shown is mentioned by using
+      <code>md-icon</code> element inside the <code>md-button</code> element. Md-icons use 'Material Icons' font-family
+      to create the icon, and therefore, inner text of these elements should be one of the keywords from the list of Material Icons.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Icon Button (Default Version)
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-icon-button color="primary"><md-icon>search</md-icon></button>
+        </div>
+      </div>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Icon Button (Flat Version)
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>info_outline<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-button md-icon-button color="primary"><md-icon>info_outline</md-icon></button>
+        </div>
+      </div>
+
+      <h3 id="small-button">Small Buttons</h3>
+      <p>This variant creates a small or more compact version of the above mentioned buttons.</p>
+      <p>Small buttons are created adding <code>md-button-sm</code> attribute along with above mentioned attributes
+      on <code>button</code> element.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Small Default Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Small Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-button-sm color="primary">Small Button</button>
+        </div>
+      </div>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Small Flat Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Small Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-button md-button-sm color="primary">Small Button</button>
+        </div>
+      </div>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Small Icon Button
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-icon-button md-button-sm color="primary"><md-icon>search</md-icon></button>
+        </div>
+      </div>
+
+      <h3 id="theming">Theming</h3>
+      <p>Buttons can be colored in terms of the current theme using the <code>color</code> property to set the
+        background color to <code>primary</code>, <code>accent</code>, or <code>warn</code>. By default, only FABs
+        are colored; the default (when no color is mentioned)
+        background color for <code>md-button</code> and <code>md-raised-button</code> matches the theme&#39;s
+        background color. </p>
+      
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default Button - Primary
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button color="primary">Primary</button>
+        </div>
+      </div>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default Button - Accent/Secondary
+        </div>
+        <div class="example-viewer-source">
+          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>Accent/Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button color="accent">Accent/Secondary</button>
+        </div>
+      </div>           
+
       <h3 id="dropdown-buttons">Dropdown and Split Buttons</h3>
       <p>Dropdown buttons toggle a contextual, dropdown menu displaying a list of actions/links.
         Button is created using one of the above variants, and corresponding dropdown menu is created 
@@ -287,80 +295,7 @@
         performing the most primary/common action(s) along with a small icon button which acts as
         trigger for toggling the dropdown menu to show secondary actions.
       </p>
-
-      <h3 id="usage">Usage</h3>
-      <p>Required button is created using <code>button</code> tag along with above mentioned
-      attributes. These attributes can be used in combination to create desired variant. 
-      For example, <code>md-raised-button md-round-button</code> are used together to create
-       a round raised/default button.</p>
-
-      <h3 id="theming">Theming</h3>
-      <p>Buttons can be colored in terms of the current theme using the <code>color</code> property to set the
-        background color to <code>primary</code>, <code>accent</code>, or <code>warn</code>. By default, only FABs
-        are colored; the default
-        background color for <code>md-button</code> and <code>md-raised-button</code> matches the theme&#39;s
-        background color. </p>
-      
-      <h3 id="button-examples">Examples</h3>
-      <div class="example-viewer">
-        <div class="example-viewer-title">
-          Default/Raised Button (with Primary color)
-        </div>
-        <div class="example-viewer-source">
-          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Click me!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
-        </div>
-        <div class="example-viewer-body">
-          <button md-raised-button color="primary">Click me!</button>
-        </div>
-      </div>
-
-      <div class="example-viewer">
-        <div class="example-viewer-title">
-          Default/Raised Round Button (with Accent/Secondary color)
-        </div>
-        <div class="example-viewer-source">
-          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-round-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>Click me!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
-        </div>
-        <div class="example-viewer-body">
-          <button md-raised-button md-round-button color="accent">Click me!</button>
-        </div>
-      </div>
-
-      <div class="example-viewer">
-        <div class="example-viewer-title">
-          Default/Raised Button - Disabled
-        </div>
-        <div class="example-viewer-source">
-          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
-        </div>
-        <div class="example-viewer-body">
-          <button md-raised-button disabled color="primary">Disabled</button>
-        </div>
-      </div>
-
-      <div class="example-viewer">
-        <div class="example-viewer-title">
-          Small Flat Button
-        </div>
-        <div class="example-viewer-source">
-          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"warn"</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
-        </div>
-        <div class="example-viewer-body">
-          <button md-button md-button-sm color="warn">Small</button>
-        </div>
-      </div>
-
-      <div class="example-viewer">
-        <div class="example-viewer-title">
-          Icon Button
-        </div>
-        <div class="example-viewer-source">
-          <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
-        </div>
-        <div class="example-viewer-body">
-          <button md-raised-button md-icon-button color="primary"><md-icon>search</md-icon></button>
-        </div>
-      </div>
+      <p>Default Buttons are available in both - Default/Raised and Flat - variants.</p>     
 
       <div class="example-viewer">
         <div class="example-viewer-title">
@@ -409,8 +344,9 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"appMenuEx2"</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>keyboard_arrow_down<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">appMenuEx2</span> [<span class="hljs-attr">overlapTrigger</span>]=<span class="hljs-string">"false"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">appMenuEx2</span> [<span class="hljs-attr">overlapTrigger</span>]=<span class="hljs-string">"false"</span> <span class="hljs-attr">yPosition</span>=<span class="hljs-string">"above"</span>&gt;</span>
   <span class="hljs-comment">&lt;!-- [overlapTrigger]="false" makes dropdown menu to not cover the button --&gt;</span>
+  <span class="hljs-comment">&lt;!-- yPosition="above" makes dropdown menu to open above the button --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>First menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Second menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Third menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
@@ -425,7 +361,7 @@
             <button [mdMenuTriggerFor]="appMenuEx2" md-raised-button color="accent">
               <md-icon>keyboard_arrow_down</md-icon>
             </button>
-            <md-menu #appMenuEx2 [overlapTrigger]="false">
+            <md-menu #appMenuEx2 [overlapTrigger]="false" yPosition="above">
               <li md-menu-item>First menu item</li>
               <li md-menu-item>Second menu item</li>
               <li md-menu-item>Third menu item</li>

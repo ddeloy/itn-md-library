@@ -3,7 +3,7 @@ label {
         width: inherit;
     }
 }
-.mat-select {
+md-select.mat-select {
     box-sizing: border-box;
     height: $input-height-mob;
     line-height: $input-height-mob - 0.1rem;
@@ -14,6 +14,7 @@ label {
     border-bottom-style: solid;
     border-color: $default-border-color;
     vertical-align: baseline;
+    display: block;
     &[readonly], &[disabled]:not([disabled="false"]) {
         border-style: dashed;
         border-color: $readonly-border-color;
@@ -33,6 +34,10 @@ label {
             font-size: $input-font-size-mob;
             color: $placeholder-color;
             padding: 0;
+            transform-origin: left -10px;
+            &.mat-floating-placeholder {
+                position: absolute;
+            }
         }
         .mat-select-value {
             left: initial;
@@ -112,7 +117,7 @@ label {
 }
 
 @media only screen and (min-width: breakpoint-min(sm)) {
-    .mat-select {
+    md-select.mat-select {
         height: $input-height-desk;
         line-height: $input-height-desk - 0.1rem;       
         padding-bottom: initial;
