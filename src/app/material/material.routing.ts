@@ -38,7 +38,7 @@ export const MaterialRoutes: Routes = [
       path: 'checkbox',
       component: CheckboxComponent
     }, {
-      path: 'datepicker',
+      path: 'inputoptions',
       component: DatepickerComponent
     }, {
       path: 'radio',
@@ -71,7 +71,7 @@ export const MaterialRoutes: Routes = [
       path: 'slider',
       component: SliderComponent
     }, {
-      path: 'sidenav',
+      path: 'sliderpanel',
       component: SidenavComponent
     }, {
       path: 'snackbar',

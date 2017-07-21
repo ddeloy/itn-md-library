@@ -1,4 +1,3 @@
-
 <md-card>
   <md-card-title>Select</md-card-title>
   <md-card-subtitle>Single Selection</md-card-subtitle>
@@ -8,18 +7,14 @@
         <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
                 [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
       </label>
       <label class="ml-xs mr-xs"><span>Disabled</span>
         <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
                 disabled="true" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
       </label>
     </div>
@@ -28,17 +23,13 @@
       <label class="ml-xs mr-xs"><span>Default</span>
         <md-select placeholder="Drink" floatPlaceholder="never" class="compact">
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
       </label>
       <label class="ml-xs mr-xs"><span>Disabled</span>
         <md-select placeholder="Drink" floatPlaceholder="never" class="compact" disabled>
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
       </label>
     </div>
@@ -48,27 +39,21 @@
         <md-select placeholder="Drink" dividerColor="primary" [(ngModel)]="currentDrink" [required]="drinksRequired"
                 [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
       </label>
       <label class="ml-xs mr-xs"><span>Accent</span>
         <md-select placeholder="Drink" dividerColor="accent" [(ngModel)]="currentDrink" [required]="drinksRequired"
                 [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
       </label>
       <label class="ml-xs mr-xs"><span>Warn</span>
         <md-select placeholder="Drink" dividerColor="warn" [(ngModel)]="currentDrink" [required]="drinksRequired"
                 [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
       </label>
     </div>
@@ -77,24 +62,17 @@
         <md-select placeholder="Drink" [(ngModel)]="currentDrink"
           floatPlaceholder="never" #drinkControl="ngModel">
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
         <md-hint align="start">Select something</md-hint>
       </label>
-      <label class="ml-xs mr-xs" style="width: 100%;">
-        <span>With Error Message</span>
+      <label class="ml-xs mr-xs" style="width: 100%;"> <span>With Error Message</span>
         <md-select placeholder="Color" [(ngModel)]="favoriteColor"
           floatPlaceholder="never" #colorControl="ngModel" required>
-          <md-option *ngFor="let color of colors" [value]="color.value" [disabled]="color.disabled">
-            {{ color.viewValue }}
-          </md-option>
-        </md-select>     
-        <md-hint align="start" [hidden]="colorControl.valid || colorControl.pristine" class="error">
-          This is required
-        </md-hint>
-        </label>
+          <md-option *ngFor="let color of colors" [value]="color.value" [disabled]="color.disabled"> {{ color.viewValue }} </md-option>
+        </md-select>
+        <md-hint align="start" [hidden]="colorControl.valid || colorControl.pristine" class="error"> This is required </md-hint>
+      </label>
     </div>
     <p>Combo Fields</p>
     <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" class="mb-2">
@@ -105,9 +83,7 @@
         <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
                 [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
         <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
           <input mdInput placeholder="PIN" type="text">
@@ -120,18 +96,13 @@
         <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
                 [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
           <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
         </md-select>
         <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
           <input mdInput placeholder="PIN" type="text">
         </md-input-container>
       </div>
     </div>
-
-    
-    
     <p> Value: {{ currentDrink }} </p>
     <p> Touched: {{ drinkControl.touched }} </p>
     <p> Dirty: {{ drinkControl.dirty }} </p>
@@ -150,7 +121,6 @@
         <option *ngFor="let theme of availableThemes" [value]="theme.value">{{ theme.name }}</option>
       </select>
     </p>
-
     <button md-button (click)="currentDrink='water-2'">SET VALUE</button>
     <button md-button (click)="drinksRequired=!drinksRequired">TOGGLE REQUIRED</button>
     <button md-button (click)="drinksDisabled=!drinksDisabled">TOGGLE DISABLED</button>
@@ -160,13 +130,10 @@
 <md-card>
   <md-card-title>Select</md-card-title>
   <md-card-subtitle>Multiple Selection</md-card-subtitle>
-
   <md-card-content>
     <md-select multiple [color]="pokemonTheme" placeholder="Pokemon" [(ngModel)]="currentPokemon"
                [required]="pokemonRequired" [disabled]="pokemonDisabled" #pokemonControl="ngModel">
-      <md-option *ngFor="let creature of pokemon" [value]="creature.value">
-        {{ creature.viewValue }}
-      </md-option>
+      <md-option *ngFor="let creature of pokemon" [value]="creature.value"> {{ creature.viewValue }} </md-option>
     </md-select>
     <p> Value: {{ currentPokemon }} </p>
     <p> Touched: {{ pokemonControl.touched }} </p>
@@ -184,11 +151,9 @@
     <button md-button (click)="pokemonControl.reset()">RESET</button>
   </md-card-content>
 </md-card>
-
 <div *ngIf="showSelect">
   <md-card>
     <md-card-subtitle>formControl</md-card-subtitle>
-
     <md-card-content>
       <md-select placeholder="Food i would like to eat" [formControl]="foodControl">
         <md-option *ngFor="let food of foods" [value]="food.value"> {{ food.viewValue }}</md-option>
@@ -203,19 +168,14 @@
     </md-card-content>
   </md-card>
 </div>
-
 <div *ngIf="showSelect">
   <md-card>
     <md-card-subtitle>Change event</md-card-subtitle>
-
     <md-card-content>
       <md-select placeholder="Starter Pokemon" (change)="latestChangeEvent = $event">
         <md-option *ngFor="let creature of pokemon" [value]="creature.value">{{ creature.viewValue }}</md-option>
       </md-select>
-
       <p> Change event value: {{ latestChangeEvent?.value }} </p>
     </md-card-content>
   </md-card>
 </div>
-
-

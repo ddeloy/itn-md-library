@@ -2,9 +2,9 @@
   <md-card-content>
     <div class="mdl-cell mdl-cell--12-col">
       <h3>Wijmo Angular Component Collection - Tables</h3>
-      <p><b>Note: Only Basic Example is styled to meet Zeplin specifications.</b></p>
-      <a href="http://wijmo.com/angular2/" target="_blank">Wijmo Component Collection</a> <br/>
-      <a href="http://ddeloy.net/flexgrid-ex-2/" target="_blank">See my POC with Bootstrap stying</a>
+      <a href="http://ddeloy.net/flexgrid-ex-2/" target="_blank">TypeScript Documentation</a><br/>
+      <a href="http://wijmo.com/angular2/" target="_blank">Wijmo Component Collection</a>
+
 
       <!-- basic example -->
       <h4>Basic Example: Behaves according to specification when mobile breakpoint is hit.</h4>
@@ -126,7 +126,7 @@
         <tbody>
         <tr *ngFor="let item of cvCRM.items"
             [ngClass]="{success: item == cvCRM.currentItem}"
-            (click)="cvCRM.moveCurrentTo(item)">          
+            (click)="cvCRM.moveCurrentTo(item)">
           <td *ngFor="let name of fieldNames" [ngClass]="{
               'primary-info': name === dataPrimary,
               'secondary-info': name === dataSecondary,

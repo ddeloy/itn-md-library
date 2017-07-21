@@ -1,12 +1,14 @@
 <md-card>
-  <md-card-title>Sidenav</md-card-title>
-  <md-card-subtitle>&lt;tmd-sidenav> is a panel that can be placed next to or above some primary content. A sidenav is typically used for navigation, but can contain any content.</md-card-subtitle>
+  <md-card-title>Slider Panel</md-card-title>
+  <md-card-subtitle>&lt;md-sidenav> is a panel that can be placed next to or above some primary content. A sidenav is typically used for navigation, but can contain any content.</md-card-subtitle>
   <md-card-content>
     <md-card>
       <md-card-content>
-        <md-card-title>Sidenav Basic Use Cases</md-card-title>
+        <md-card-title>Slider Panel Basic Use Cases</md-card-title>
+        <md-toolbar color="primary"></md-toolbar>
         <md-sidenav-container class="sidenav-container">
-          <md-sidenav class="sidenav-content" #start (open)="myinput.focus()" mode="side"> Start Side Drawer <br>
+
+          <md-sidenav class="sidenav-content" #start opened (open)="myinput.focus()" mode="side"> Start Side Drawer <br>
             <button md-button color="primary" md-button (click)="start.close()">
             Close
             </button>
@@ -39,7 +41,7 @@
     </md-card>
     <md-card class="backdrop-hidden">
       <md-card-content>
-        <md-card-title>Sidenav - with Menu</md-card-title>
+        <md-card-title>Slider Panel - with Menu</md-card-title>
         <md-sidenav-container class="sidenav-container backdrop-hidden" style="height: 500px; padding: 0;">
           <md-toolbar color="primary">
             <button md-raised-button color="accent"
@@ -57,7 +59,7 @@
     </md-card>
     <md-card class="backdrop-hidden">
       <md-card-content>
-        <md-card-title>Sidenav Over - Resize</md-card-title>
+        <md-card-title>Slider Panel - Resize</md-card-title>
         <md-sidenav-container class="sidenav-container backdrop-hidden" style="height:225px;padding:0;">
           <md-toolbar color="primary"> <button md-raised-button color="accent" (click)="start2.toggle()">Toggle SideNav</button></md-toolbar>
           <md-sidenav ngClass="{{sideWidth}}" #start2 opened mode="over" align="end">
@@ -84,7 +86,7 @@
         </md-sidenav-container>
       </md-card-content>
     </md-card>
-    <md-card>
+<!--    <md-card>
       <md-card-content>
         <md-card-title>Dynamic Alignment Sidenav</md-card-title>
         <md-sidenav-container style="height:100px;padding:0;" class="sidenav-container">
@@ -100,10 +102,10 @@
           </div>
         </md-sidenav-container>
       </md-card-content>
-    </md-card>
+    </md-card> -->
     <md-card>
       <md-card-content>
-        <md-card-title>Sidenav with Focus Attributes</md-card-title>
+        <md-card-title>Slider Panel with Focus Attributes</md-card-title>
         <md-sidenav-container  class="sidenav-container">
           <md-sidenav class="sm" #focusSidenav>
             <md-nav-list> <a md-list-item routerLink>Link item-2</a> <a md-list-item routerLink cdk-focus-region-start>Focus region start</a> <a md-list-item routerLink>Link</a> <a md-list-item routerLink cdk-focus-initial>Initially focused</a> <a md-list-item routerLink cdk-focus-region-end>Focus region end</a> <a md-list-item routerLink>Link</a>&nbsp; </md-nav-list>
