@@ -9,7 +9,7 @@ import { SidenavMenuItem } from './sidenav-menu-item';
 
 export class SidenavComponent implements OnInit {
   invert = false;
-  @Input() sideWidth = "sm";
+  @Input() sideWidth = "sm"; // not being used for now - fixed with is defined in _seidenav.scss
 
   constructor() { }
 

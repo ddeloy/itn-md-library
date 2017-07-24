@@ -1,10 +1,19 @@
 md-dialog-container.mat-dialog-container {
   background: mat-color($background, card);
-  border-radius: $border-radius-base;
+  // border-radius: $border-radius-base;
+  border-radius: 0px !important; // remove rounded corners
   box-shadow: 0 0 3px 0 mat-color(map-get($primary, contrast), 50, 0.37);
+  // max-width:1024px; causes modal to be aligned more to left of center when greater than 1024
 }
 
 .cdk-overlay-dark-backdrop {
   @include angular-material-theme($dark-theme);
   background: mat-color(map-get($primary, contrast), 50, 0.9);
+}
+
+/* Just to test an altyernate backdrop class */
+
+.cdk-overlay-light-backdrop {
+  @include angular-material-theme($dark-theme);
+  background: mat-color(map-get($primary, contrast), 50, 0.4);
 }

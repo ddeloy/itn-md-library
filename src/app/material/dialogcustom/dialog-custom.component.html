@@ -1,0 +1,14 @@
+<md-card class="demo-dialog-card">
+  <md-card-title>Dialog - Custom</md-card-title>
+  <md-card-subtitle>This is a custom flavor of MdDialog.</md-card-subtitle>
+  <md-card-content>
+    <p><strong>I am in the process of publishing this as a custom component</strong> - where developer will be able to modify basic attributes and content at the project level.
+      <br/><strong>Until then</strong> - if you need to start using Custom Dialog - please rely on the code from sample site (Raman can help with this).</p>
+    <p><strong>To Do:</strong> Adding max-width: 1024px causing some odd side effects (so have left out for now). Likely because in the config the width is set to 75%.
+      Material dialog api suggests not using width as % in dialog config - so this could be the issue. Also, haven't figured out how to have modal go full screen
+    when in mobile. This seems to be a known issue out amongst Material 2 blogs. So, if I come up with a solution - it will make a lot of people happy :).
+      (Adam: You may recall we discussed this issue - and, I believe, you said it was ok if doesn't go full screen in mobile).
+      Animation: As of yet, unable to figure out how to control default 'from bottom' behavior.</p>
+    <button md-raised-button color="primary" (click)="openCustom()" [disabled]="dialogRef">Open custom dialog</button>
+  </md-card-content>
+</md-card>

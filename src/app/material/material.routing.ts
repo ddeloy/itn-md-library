@@ -16,6 +16,7 @@ import { MenuComponent } from './menu/menu.component';
 import { SliderComponent } from './slider/slider.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { DialogCustomComponent } from './dialogcustom/dialog-custom.component';
 import { SelectComponent } from './select/select.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ChipsComponent } from './chips/chips.component';
@@ -79,6 +80,9 @@ export const MaterialRoutes: Routes = [
     }, {
       path: 'dialog',
       component: DialogComponent
+    }, {
+      path: 'dialogcustom',
+      component: DialogCustomComponent
     }, {
       path: 'select',
       component: SelectComponent

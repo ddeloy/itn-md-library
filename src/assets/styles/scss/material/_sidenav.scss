@@ -51,7 +51,7 @@ md-sidenav.mat-sidenav {
               color: #47b555;
               font-size: 24px;
               transition: all 0.5s ease;
-            }            
+            }
           }
           .collapse-side {
             padding-top: 0;
@@ -74,7 +74,7 @@ md-sidenav.mat-sidenav {
               }
             }
           }
-          
+
           &.active {
             background-color: map-get($accent,50);
             padding-bottom: 24px;
@@ -86,22 +86,13 @@ md-sidenav.mat-sidenav {
             }
             .collapse-side {
               max-height: 1000px;
-            }            
+            }
           }
         }
       }
     }
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 /* This CSS for demo purposes only - plan to refactor... ddeloy */
@@ -116,6 +107,15 @@ md-sidenav.mat-sidenav {
 
 .sidenav-content {
   padding: 15px;
+}
+
+.sidenav-menu {
+  width:300px;
+  border-right:1px solid #CCCCCC;
+}
+
+.sidebar-menu-panel {
+  width:300px !important;
 }
 
 md-sidenav.sm {
@@ -145,6 +145,7 @@ md-sidenav.xl {
 .sidenav-container > .mat-sidenav-content {
   padding: 0rem !important;
 }
+
 md-sidenav-container.backdrop-hidden > .mat-sidenav-backdrop.mat-sidenav-shown {
   visibility: hidden !important;
 }

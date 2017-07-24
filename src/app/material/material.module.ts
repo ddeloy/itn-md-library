@@ -30,16 +30,17 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { MenuComponent } from './menu/menu.component';
 import { SliderComponent } from './slider/slider.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent} from './dialog/dialog.component';
 import { SelectComponent } from './select/select.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ChipsComponent } from './chips/chips.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 
-import { JazzDialogComponent } from './dialog/dialog.component';
+import { JazzDialogComponent, ContentElementDialog, IFrameDialog } from './dialog/dialog.component';
 import {TopMenuComponent} from './menu/top-menu/top-menu.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SidenavItemComponent } from './sidenav/sidenav-item/sidenav-item.component';
+import {CustomDialogComponent, DialogCustomComponent} from "./dialogcustom/dialog-custom.component";
 
 @NgModule({
   imports: [
@@ -73,17 +74,21 @@ import { SidenavItemComponent } from './sidenav/sidenav-item/sidenav-item.compon
     MenuComponent,
     SliderComponent,
     SnackbarComponent,
-    DialogComponent,
     SelectComponent,
     AutocompleteComponent,
     ChipsComponent,
     DatepickerComponent,
+    DialogComponent,
     JazzDialogComponent,
+    ContentElementDialog,
+    IFrameDialog,
+    DialogCustomComponent,
+    CustomDialogComponent,
     TopMenuComponent,
     SidenavComponent,
     SidenavItemComponent
   ],
-  entryComponents: [ JazzDialogComponent ],
+  entryComponents: [ JazzDialogComponent, ContentElementDialog, IFrameDialog, CustomDialogComponent ],
 })
 
 export class MaterialComponentsModule {}

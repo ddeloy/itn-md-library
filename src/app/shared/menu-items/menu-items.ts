@@ -53,7 +53,8 @@ const MENUITEMS = [
    //   {state: 'slider', name: 'SLIDER'},
       {state: 'sliderpanel', name: 'Slider Panel'},
       {state: 'snackbar', name: 'SNACKBAR'},
-      {state: 'dialog', name: 'DIALOG'}
+      {state: 'dialog', name: 'DIALOG'},
+      {state: 'dialogcustom', name: 'Dialog Custom'}
     ]
   },
 /*

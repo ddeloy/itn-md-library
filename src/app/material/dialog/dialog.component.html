@@ -1,36 +1,116 @@
-<md-card class="demo-dialog-card">
-  <md-card-title>Dialog</md-card-title>
+<md-card>
+  <md-card-title>Dialog - Default</md-card-title>
   <md-card-subtitle>MdDialog is a service, which opens dialogs components in the view.</md-card-subtitle>
   <md-card-content>
-    <button md-raised-button color="primary" (click)="open()" [disabled]="dialogRef">Open dialog</button>
+    <p><strong>This example demonstrates a true dialog service</strong> (similar to what was available in Material 1 - but not yet available
+      out of the 'box' in Material 2). In a single component, we can define different types of dialogs.
+      Also provides the ability to use an inline dialog using &lt;ng-template>.
+    </p>
+    <span><strong>Features:</strong></span>
+    <ul>
+      <li>Sharing data with the Dialog component</li>
+      <li>Receive notifications from the dialog after it has been closed</li>
+      <li>Pass in external content</li>
+      <li>Inline using &lt;ng-template></li>
+      <li>Different flavors: Alert, Confirm, Save etc...</li>
+    </ul>
+    <p><strong>To Do:</strong> Animation: As of yet, unable to figure out how to control default 'from bottom' behavior.</p>
+    <p>The inputs allow you to experiment with different config options beyond the default behavior.</p>
 
-    <p>Dialog dimensions</p>
-    <md-input-container style="width: 100%">
-      <input mdInput [(ngModel)]="config.width" placeholder="Width">
-    </md-input-container>
-    <md-input-container style="width: 100%">
-      <input mdInput [(ngModel)]="config.height" placeholder="Height">
-    </md-input-container>
-    
-    <p>Dialog position</p>
+<button md-raised-button color="primary" (click)="openJazz()">
+  Open basic dialog
+</button>
+<button md-raised-button color="accent" (click)="openContentElement()">
+  Open dialog with content elements
+</button>
+<button md-raised-button color="accent" (click)="openTemplate()">
+  Open dialog with template content
+</button>
+    <md-card class="demo-dialog-card">
+      <md-card-content>
+        <h4>Dialog dimensions</h4>
+        <p>Default config is auto width and height based on content.</p>
 
-    <md-input-container style="width: 100%">
-      <input mdInput [(ngModel)]="config.position.top" (change)="config.position.bottom = ''" placeholder="Top">
-    </md-input-container>
-    <md-input-container style="width: 100%">
-      <input mdInput [(ngModel)]="config.position.bottom" (change)="config.position.top = ''" placeholder="Bottom">
-    </md-input-container>
+        <p>
+          <md-input-container>
+            <input mdInput [(ngModel)]="config.width" placeholder="Width">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput [(ngModel)]="config.height" placeholder="Height">
+          </md-input-container>
+        </p>
 
-    <md-input-container style="width: 100%">
-      <input mdInput [(ngModel)]="config.position.left" (change)="config.position.right = ''" placeholder="Left">
-    </md-input-container>
-    <md-input-container style="width: 100%">
-      <input mdInput [(ngModel)]="config.position.right" (change)="config.position.left = ''" placeholder="Right">
-    </md-input-container>
+        <h4>Dialog position</h4>
+        <p>Default config is centered on screen.</p>
+        <p>
+          <md-input-container>
+            <input mdInput [(ngModel)]="config.position.top" (change)="config.position.bottom = ''" placeholder="Top">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput [(ngModel)]="config.position.bottom" (change)="config.position.top = ''" placeholder="Bottom">
+          </md-input-container>
+        </p>
 
-    <p>Other options</p>
-    <md-checkbox [(ngModel)]="config.disableClose">Disable close</md-checkbox>
+        <p>
+          <md-input-container>
+            <input mdInput [(ngModel)]="config.position.left" (change)="config.position.right = ''" placeholder="Left">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput [(ngModel)]="config.position.right" (change)="config.position.left = ''" placeholder="Right">
+          </md-input-container>
+        </p>
+
+        <h4>Dialog backdrop</h4>
+        <p>We can have custom backdrop classes in the config. Here the default is being applied.
+          <strong>Try adding:</strong> cdk-overlay-light-backdrop for a different variation (this class is contained in the _dialog.scss partial).
+          For no backdrop - add: none.</p>
+
+        <p>
+          <md-input-container>
+            <input mdInput [(ngModel)]="config.backdropClass" placeholder="Backdrop class">
+          </md-input-container>
+        </p>
+        <p>Sets hasBackdrop as a boolean. If has backdrop is set to false - content behind modal is accessible.
+        To achieve a display of 'no backdrop' apply the custom backDrop class="none". This will maintain a
+        higher z-index for dialog - while not displaying any backdrop whatsoever.</p>
+
+        <md-checkbox [(ngModel)]="config.hasBackdrop">Has backdrop</md-checkbox>
+
+        <h4>Other options</h4>
+        <p>This option sets the alignment of the action buttons in the modal.. your basic clos, ok etc.</p>
+
+        <p>
+          <md-select placeholder="Button alignment" [(ngModel)]="actionsAlignment">
+            <md-option>Start</md-option>
+            <md-option value="end">End</md-option>
+            <md-option value="center">Center</md-option>
+          </md-select>
+        </p>
+        <p>Pass in a custom message.</p>
+        <p>
+          <md-input-container>
+            <input mdInput [(ngModel)]="config.data.message" placeholder="Dialog message">
+          </md-input-container>
+        </p>
+        <p>Toggles disableClose boolean to true or false. Default is false - meaning 'onBlur' user can close the modal.</p>
+
+        <p>
+          <md-checkbox [(ngModel)]="config.disableClose">Disable close</md-checkbox>
+        </p>
+      </md-card-content>
+    </md-card>
 
     <p>Last close result: {{lastCloseResult}}</p>
+
+    <ng-template style="width:80%;height:100%;">
+      I'm a template dialog. I am placed inline in HTML using &lt;ng-template> tag. I've been opened {{numTemplateOpens}} times!
+      <md-dialog-actions [attr.align]="actionsAlignment">
+      <button md-button color="primary" (click)="closeTemplate()">Close</button>
+      </md-dialog-actions>
+
+    </ng-template>
+
   </md-card-content>
 </md-card>
+
+

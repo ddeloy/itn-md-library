@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SidenavMenuItem } from '../sidenav-menu-item';
 
+
 @Component({
   selector : 'sidenav-item',
   templateUrl: './sidenav-item.component.html'

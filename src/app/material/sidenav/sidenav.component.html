@@ -7,7 +7,6 @@
         <md-card-title>Slider Panel Basic Use Cases</md-card-title>
         <md-toolbar color="primary"></md-toolbar>
         <md-sidenav-container class="sidenav-container">
-
           <md-sidenav class="sidenav-content" #start opened (open)="myinput.focus()" mode="side"> Start Side Drawer <br>
             <button md-button color="primary" md-button (click)="start.close()">
             Close
@@ -16,7 +15,7 @@
             <button md-button color="primary" (click)="end.open()">Open End Side</button>
             <br>
             <button md-button color="primary"
-            (click)="start.mode = (start.mode == 'push' ? 'over' : (start.mode == 'over' ? 'side' : 'push'))">Toggle Mode</button>
+                    (click)="start.mode = (start.mode == 'push' ? 'over' : (start.mode == 'over' ? 'side' : 'push'))">Toggle Mode</button>
             <div>Mode: {{start.mode}}</div>
             <br>
             <input #myinput>
@@ -34,26 +33,101 @@
             </div>
             <button md-raised-button color="accent">HELLO</button>
             <button md-raised-button class="mat-primary">HELLO</button>
-            <button md-fab class="mat-accent">HI</button>
           </div>
         </md-sidenav-container>
       </md-card-content>
     </md-card>
-    <md-card class="backdrop-hidden">
+    <md-card>
+      <md-card-content>
+        <md-card-title>Slider Panel - with Menu Documentation</md-card-title>
+        <pre>
+        Raman has created a custom sidenav-item component SidenavItemComponent that creates the structure for the left slider panel content
+        I will need to import this into the LibraryModule and make it available for use. And I probably will not be able to complete this right away.
+        For now, please create this custom component at the local project level.
+        You can rely on Raman for help. Once we have it fine tuned - Raman and I can add it as a custom component.
+        <strong>Basic Instructions: </strong>
+        SidenavMenuItem model
+        Import this into the component if you want to use the custom component (note: you can always just use the layout below and replace sidenav-item)
+        Define sidenav-items based on the imported model
+         menuItems = [
+          new SidenavMenuItem('Settings', 'User Management', '', '', [
+          new SidenavMenuItem('', 'Company Settings', '', '', null),
+          new SidenavMenuItem('', 'User Management', '', '', null),
+          new SidenavMenuItem('', 'Shared Settings', '', '', null)
+          ]),
+          new SidenavMenuItem('', 'Users', '', '', null),
+          new SidenavMenuItem('', 'Non-employee access', '', '', null),
+          new SidenavMenuItem('', 'Roles', '', '', null),
+          new SidenavMenuItem('', 'Data Access Groups', '', '', null)
+        ];
+        &lt;md-toolbar color="primary">&lt;/md-toolbar>
+        &lt;md-sidenav-container class="sidenav-container">
+          <strong>Standard md attributes:</strong> mode side, over or push; opened to show as default; align: start=left, end=right
+          &lt;md-sidenav class="sidenav-menu" mode="side" opened align="start">
+          <strong>sidenav-item is a custom element</strong> You could just use the layout and put whatever you want for the content
+            &lt;ul>
+              &lt;sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem">&lt;/sidenav-item>
+            &lt;/ul>
+          &lt;/md-sidenav>
+          &lt;div class="sidenav-content">
+            Content goes here
+          &lt;/div>
+        &lt;/md-sidenav-container>
+        </pre>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-card-content>
+        <md-card-title>Slider Panel - Layout that mimics the sample site</md-card-title>
+        <pre>
+       <strong>Just drop this markup in - styling and elements are all part of the Library Module</strong>
+       &lt;md-toolbar class="main-header" color="primary"> &lt;/md-toolbar>
+       &lt;md-sidenav-container class="app-inner">
+          &lt;md-sidenav #sidemenu class="sidebar-panel sidebar-menu-panel"  mode="side" opened>
+          <strong>You can do your own thing with the nav </strong>
+            &lt;md-nav-list class="navigation">
+              &lt;md-list-item>&lt;a href="javascript:void(0);">Home&lt;/a>&lt;/md-list-item>
+              &lt;md-list-item>&lt;a href="javascript:void(0);">Basic&lt;/a>&lt;/md-list-item>
+            &lt;/md-nav-list>
+          &lt;/md-sidenav>
+          &lt;router-outlet>&lt;/router-outlet>
+        &lt;/md-sidenav-container>
+        </pre>
+      <md-toolbar class="main-header" color="primary"> </md-toolbar>
+        <md-sidenav-container class="app-inner">
+          <md-sidenav #sidemenu class="sidebar-panel sidebar-menu-panel"  mode="side" opened>
+            <md-nav-list class="navigation">
+              <md-list-item><a href="javascript:void(0);">Home</a></md-list-item>
+              <md-list-item><a href="javascript:void(0);">Basic</a></md-list-item>
+            </md-nav-list>
+          </md-sidenav>
+          <router-outlet></router-outlet>
+        </md-sidenav-container>
+      </md-card-content>
+    </md-card>
+    <md-card>
       <md-card-content>
         <md-card-title>Slider Panel - with Menu</md-card-title>
-        <md-sidenav-container class="sidenav-container backdrop-hidden" style="height: 500px; padding: 0;">
-          <md-toolbar color="primary">
-            <button md-raised-button color="accent"
-              (click)="start12.toggle()" style="position: absolute; right: 10px;">
-              Toggle SideNav
-            </button>
-          </md-toolbar>
-          <md-sidenav class="sm" #start12 mode="over" align="start">
+        <md-toolbar color="primary"></md-toolbar>
+        <md-sidenav-container class="sidenav-container">
+          <md-sidenav class="sidenav-menu" mode="side" opened align="start">
             <ul>
               <sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem"></sidenav-item>
             </ul>
           </md-sidenav>
+          <div class="sidenav-content"> <strong>Slider Panel Content</strong>
+            <p>The left side panel has a side item component that ...</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero magna, fermentum ut arcu ac, tempor auctor diam. Morbi facilisis ultrices sem posuere varius. Aliquam erat volutpat.</p>
+            <p>Duis convallis orci vitae iaculis mollis. Ut aliquet sagittis mi id blandit. Nullam quis odio vitae ante vulputate cursus. Morbi venenatis scelerisque tortor. Donec lacinia porta lorem ac lobortis. Vivamus egestas porta sem ac accumsan. Integer libero turpis, elementum et feugiat sit amet, scelerisque eget elit. Nulla porttitor vehicula orci, eu molestie quam consectetur nec. Maecenas nec quam porta, mattis nibh non, pellentesque massa. Donec elit arcu, maximus et sodales ut, eleifend ut tortor. Cras posuere est ac mauris faucibus dictum.
+              Phasellus a suscipit nulla. In at malesuada justo. Fusce ut sapien porta, auctor tellus eleifend, ultrices mi.</p>
+            <p>Donec aliquet mollis risus tincidunt vestibulum. Nunc semper mattis nisi, non bibendum lectus. Cras accumsan augue dui, ut tincidunt orci pharetra auctor. In suscipit, mi vel faucibus consectetur, dui nibh pulvinar dui, vitae bibendum metus quam vitae ante. Nunc aliquam felis at mauris elementum, eleifend congue purus malesuada. Cras laoreet ipsum vitae orci condimentum, eu mattis mauris tincidunt. Nulla ultrices, libero maximus iaculis egestas, lacus dolor lobortis est, nec eleifend mi diam scelerisque mauris. Quisque rutrum malesuada dui, eu laoreet tortor hendrerit a.
+              Quisque interdum ipsum a mauris molestie tempus.</p>
+            <p>Duis convallis orci vitae iaculis mollis. Ut aliquet sagittis mi id blandit. Nullam quis odio vitae ante vulputate cursus. Morbi venenatis scelerisque tortor. Donec lacinia porta lorem ac lobortis. Vivamus egestas porta sem ac accumsan. Integer libero turpis, elementum et feugiat sit amet, scelerisque eget elit. Nulla porttitor vehicula orci, eu molestie quam consectetur nec. Maecenas nec quam porta, mattis nibh non, pellentesque massa. Donec elit arcu, maximus et sodales ut, eleifend ut tortor. Cras posuere est ac mauris faucibus dictum.
+              Phasellus a suscipit nulla. In at malesuada justo. Fusce ut sapien porta, auctor tellus eleifend, ultrices mi.</p>
+            <p>
+              <button md-raised-button color="primary">Some Button</button>
+            </p>
+          </div>
         </md-sidenav-container>
       </md-card-content>
     </md-card>
@@ -61,21 +135,23 @@
       <md-card-content>
         <md-card-title>Slider Panel - Resize</md-card-title>
         <md-sidenav-container class="sidenav-container backdrop-hidden" style="height:225px;padding:0;">
-          <md-toolbar color="primary"> <button md-raised-button color="accent" (click)="start2.toggle()">Toggle SideNav</button></md-toolbar>
+          <md-toolbar color="primary">
+            <button md-raised-button color="accent" (click)="start2.toggle()">Toggle SideNav</button>
+          </md-toolbar>
           <md-sidenav ngClass="{{sideWidth}}" #start2 opened mode="over" align="end">
-            <md-toolbar><button md-button color="primary" (click)="start2.toggle()">Close Sidenav</button></md-toolbar>
-
+            <md-toolbar>
+              <button md-button color="primary" (click)="start2.toggle()">Close Sidenav</button>
+            </md-toolbar>
             <div class="sidenav-select">
-            <md-select placeholder="Select side width" [(ngModel)]="sideWidth">
-              <md-option value="sm">Small</md-option>
-              <md-option value="med">Medium</md-option>
-              <md-option value="lg">Large</md-option>
-              <md-option value="xl">Full</md-option>
-            </md-select>
+              <md-select placeholder="Select side width" [(ngModel)]="sideWidth">
+                <md-option value="sm">Small</md-option>
+                <md-option value="med">Medium</md-option>
+                <md-option value="lg">Large</md-option>
+                <md-option value="xl">Full</md-option>
+              </md-select>
             </div>
           </md-sidenav>
           <div class="sidenav-content">
-
             <md-nav-list>
               <p>Set overlay to hidden: add class="backdrop-hidden" to &lt;md-sidenav-container> </p>
               <button md-button color="primary">Some new link</button>
@@ -86,7 +162,7 @@
         </md-sidenav-container>
       </md-card-content>
     </md-card>
-<!--    <md-card>
+    <!--    <md-card>
       <md-card-content>
         <md-card-title>Dynamic Alignment Sidenav</md-card-title>
         <md-sidenav-container style="height:100px;padding:0;" class="sidenav-container">
