@@ -1,4 +1,42 @@
 <md-card>
+  <md-card-title>Combo-fields</md-card-title>
+  <md-card-subtitle>Combination of input and select elements</md-card-subtitle>
+  <md-card-content>
+    <p>Combo Fields</p>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" class="mb-2">
+      <div class="input-group ml-xs mr-xs">
+        <md-input-container floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="John Smith" type="text">
+        </md-input-container>
+        <md-select placeholder="Drink" [(ngModel)]="currentDrink1"
+                  floatPlaceholder="never" #drinkControl="ngModel">
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+            {{ drink.viewValue }}
+          </md-option>
+        </md-select>
+        <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
+          <input mdInput placeholder="PIN" type="text">
+        </md-input-container>
+      </div>
+      <div class="input-group ml-xs mr-xs ">
+        <md-input-container floatPlaceholder="never" class="md-block">
+          <input mdInput placeholder="John Smith" type="text">
+        </md-input-container>
+        <md-select placeholder="Drink" [(ngModel)]="currentDrink2"
+                  floatPlaceholde="never" #drinkControl="ngModel">
+          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+            {{ drink.viewValue }}
+          </md-option>
+        </md-select>
+        <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
+          <input mdInput placeholder="PIN" type="text">
+        </md-input-container>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card>
   <md-card-title>Datepicker</md-card-title>
   <md-card-subtitle>A material 2 component for datepicker</md-card-subtitle>
   <md-card-content>

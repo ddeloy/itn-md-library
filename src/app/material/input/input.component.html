@@ -1,73 +1,285 @@
-<md-card>
+<md-card class="page-card">
   <md-card-title>Input</md-card-title>
   <md-card-subtitle>Basic input component of Material 2 - customized view desktop vs mobile</md-card-subtitle>
   <md-card-content>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>Name</span>
-        <md-input-container floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="John Smith" type="text">
-        </md-input-container>
-      </label>
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>Disabled</span>
-        <md-input-container floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="abc@xyz.com" type="email" value="johnsmith@gmail.com" disabled>
-        </md-input-container>
-      </label>
-    </div>
-    <p>Compact Version - 'compact' class added to <code>md-input-container</code></p>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>Default Color</span>
-        <md-input-container floatPlaceholder="never" class="compact md-block">
-          <input mdInput placeholder="enter a value" type="text">
-        </md-input-container>
-      </label>
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>Read-only</span>
-        <md-input-container floatPlaceholder="never" class="compact md-block">
-          <input mdInput placeholder="enter a value" type="text" value="This is readonly" readonly>
-        </md-input-container>
-      </label>
-    </div>
-    <p>With Floating Label/Placeholder</p>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <md-input-container class="ml-xs mr-xs" style="width: 100%;">
-        <input mdInput placeholder="Default With Floating Label" type="text">
-      </md-input-container>
-      <md-input-container class="compact ml-xs mr-xs" style="width: 100%;">
-        <input mdInput placeholder="Compact With Floating Label" type="text">
-      </md-input-container>
-    </div>
-    <p><code>dividerColor</code> used to set border-color on focus</p>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>Primary Color</span>
-        <md-input-container dividerColor="primary" floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="enter a value" type="text">
-        </md-input-container>
-      </label>
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>Accent/Secondary Color</span>
-        <md-input-container dividerColor="accent" floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="enter a value" type="text">
-        </md-input-container>
-      </label>
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>Warn Color</span>
-        <md-input-container dividerColor="warn" floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="enter a value" type="text">
-        </md-input-container>
-      </label>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>With Hint Label</span>
-        <md-input-container hintLabel="Should be easy to remember but difficult to guess" floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="Password" type="password">
-        </md-input-container>
-      </label>
-      <label class="ml-xs mr-xs" style="width: 100%;">
-      <span>With Error Message</span>
-      <md-input-container hintLabel="Should be easy to remember"  dividerColor="primary" floatPlaceholder="never" class="md-block">
-        <input mdInput placeholder="John Smith" type="text" [(ngModel)]="model.name"
-            #name="ngModel" md-no-asterisk required>
-        <div [hidden]="name.valid || name.pristine" class="error"> Name is required </div>
-      </md-input-container>
-      </label>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdInputModule</code> - 
+        <a class="badge" href="https://material.angular.io/components/input/overview" target="_blank">Official Documentation</a>
+      </p>
+      <p>
+        Inputs and Textareas are created by marking native <code>input</code> and <code>textarea</code> element with
+        <code>mdInput</code> directive and wrapping them inside <code>md-input-container</code>.
+      </p>
+      <p><code>&lt;md-input-container&gt;</code> applies Material Design styles and behavior while still allowing direct access
+      to the underlying native <code>input</code> or <code>textarea</code> element.</p>   
+
+      <h3 id="input-label-and-placeholder">Static Label and Placeholder</h3>
+      <p>By default, in Material design, <code>input</code> and <code>textarea</code> elements
+      have floating placeholder, which when text is present in those elements, floats above the
+      input zone.</p>
+      <p>However, these elements have been modified to have a static label, and a non-floating placeholder
+        which disappears as soon as the user starts typing in the input zone. To achieve this,
+        <code>&lt;md-input-container&gt;</code> is wrapped inside <code>&lt;label&gt;</code>.
+        Floating placeholder has been disabled by setting <code>floatPlaceholder</code> attribute of
+        <code>md-input-container</code> to <code>never</code>.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default and Read-only Inputs
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"John Smith"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Read-only input --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Read-only<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter a value"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"This is readonly"</span> <span class="hljs-attr">readonly</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+            <label class="ml-xs mr-xs">
+              <span>Name</span>
+              <md-input-container floatPlaceholder="never">
+                <input mdInput placeholder="John Smith" type="text">
+              </md-input-container>
+            </label>
+            <label class="ml-xs mr-xs">
+              <span>Read-only</span>
+              <md-input-container floatPlaceholder="never">
+                <input mdInput placeholder="enter a value" type="text" value="This is readonly" readonly>
+              </md-input-container>
+            </label>
+          </div>
+        </div>
+      </div>      
+
+      <h3 id="input-floating-placeholder">Floating Placeholder</h3>
+      <p>One can, however, still use floating placeholder with these inputs by either skipping the
+        <code>floatPlaceholder</code> attribute completely on <code>md-input-container</code> or by setting
+        it to <code>auto</code>.
+      </p>
+      <p>A floating placeholder is an indicative text displayed in the input zone when the input does not contain
+        text. This indicative text will float above this input zone whenever the input will have focus or when it
+        has some text in it.
+      </p>
+      <p>Note: Do NOT wrap <code>md-input-container</code> inside a <code>label</code> element when using floating placeholder.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Inputs with Floating Placeholder
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-comment">&lt;!-- By not setting floatPlaceholder at all --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Name"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- By setting floatPlaceholder to auto --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"auto"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Email"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+</pre>
+       </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+            <md-input-container class="ml-xs mr-xs">
+              <input mdInput placeholder="Name" type="text">
+            </md-input-container>
+            <md-input-container floatplaceholder="auto" class="ml-xs mr-xs">
+              <input mdInput placeholder="Email" type="email">
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="input-underline-color">Underline Color and Border</h3>
+      <p>By default, in Material design, <code>input</code> and <code>textarea</code> elements
+      have a line under them that changes color whenever these elements gain focus.</p>
+      <p>However, these elements have been modified to have border bottom on mobile screens and border on
+        all four sides on tabs and bigger screens. These borders change color on input focus, and this color
+        can be set using <code>dividerColor</code> attribute on <code>md-input-container</code>.
+        Supported values for this attribute are <code>primary</code>, <code>accent</code> and <code>warn</code>.
+        If none of these value are present or if this attribute is missing, then a default color will be used.</p>
+      
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Inputs with <i>dividerColor</i> set
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Primary Color<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">dividerColor</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- set dividerColor to primary or accent or warn --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter a value"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row"  fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="start center" class="mb-2">
+            <label class="ml-xs mr-xs" style="width: 100%;">
+              <span>Primary Color</span>
+              <md-input-container dividerColor="primary" floatPlaceholder="never">
+                <input mdInput placeholder="enter a value" type="text">
+              </md-input-container>
+            </label>
+            <label class="ml-xs mr-xs" style="width: 100%;">
+              <span>Accent/Secondary Color</span>
+              <md-input-container dividerColor="accent" floatPlaceholder="never">
+                <input mdInput placeholder="enter a value" type="text">
+              </md-input-container>
+            </label>
+            <label class="ml-xs mr-xs" style="width: 100%;">
+              <span>Warn Color</span>
+              <md-input-container dividerColor="warn" floatPlaceholder="never">
+                <input mdInput placeholder="enter a value" type="text">
+              </md-input-container>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="input-compact">Compact Inputs</h3>
+      <p>Inputs can be "compactified" - having lesser height and padding - by adding <code>compact</code>
+      to <code>md-input-container</code>.</p>
+      <p>NOTE: <code>compact</code> class does NOT have any effect on elements in mobile view.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Compact Inputs
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Static Label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"compact"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"John Smith"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- With Floating Placeholder --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"compact"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Floating Placeholder"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row"  fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="start center" class="mb-2">
+            <label class="ml-xs mr-xs" style="width: 100%;">
+              <span>With Static Label</span>
+              <md-input-container floatPlaceholder="never" class="compact">
+                <input mdInput placeholder="John Smith" type="text">
+              </md-input-container>
+            </label>
+            <md-input-container class="compact" style="width: 100%">
+              <input mdInput placeholder="Floating Placeholder" type="text">
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="prefix-and-suffix">Prefix and Suffix</h3>
+      <p>HTML can be included before, and after the <code>input</code> or <code>textarea</code> element tag,
+        as prefix or suffix. It will be included inside the border of these elements, and clicking it will focus the input.</p>
+        <p>Adding the <code>mdPrefix</code> attribute to an element inside the <code>md-input-container</code> will 
+        designate it as the prefix. Similarly, adding <code>mdSuffix</code> will designate it as the suffix.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Input with Prefix and Suffix
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Prefix and Suffix<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">mdPrefix</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Telephone"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"tel"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">mdSuffix</span>&gt;</span>mode_edit<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Prefix and Suffix</span>
+            <md-input-container floatPlaceholder="never">
+              <span mdPrefix>+1</span>
+              <input mdInput placeholder="Telephone" type="tel">
+              <md-icon mdSuffix>mode_edit</md-icon>
+            </md-input-container>
+          </label>
+        </div>
+      </div>
+
+      <h3 id="hint-and-error">Hint Label and Error Message</h3>
+      <p>Hint label is an indicative text that appears below the <code>input</code> and <code>textarea</code> elements.
+      These provide additional information about the input to the user, as to what is expected or what the user should
+      keep in mind while entering the value. Hint labels can be set using <code>hintLabel</code> attribute on 
+      <code>md-input-container</code>.</p>
+      <p>Error messages appear beneath the <code>input</code> and <code>textarea</code> elements.
+      These are hidden by default and will appear on invalid inputs after the user has interacted with the element.
+      For example, if the <code>input</code> element is marked required but the user deletes the entered value.
+      Error messages can be set by using <code>div</code> elements having <code>error</code> class inside the 
+      <code>md-input-container</code>, with <code>hidden</code> property bound to desired property of the element.
+      For example, <code>[hidden]="name.valid || name.pristine"</code>.
+      Hint labels and error messages can both be set on an element. However, hint labels will be hidden
+      whenever an error message is displayed.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Input with Hint Label
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Hint Label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">hintLabel</span>=<span class="hljs-string">"Should be easy to remember but difficult to guess"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Password"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Hint Label</span>
+            <md-input-container hintLabel="Should be easy to remember but difficult to guess" floatPlaceholder="never">
+              <input mdInput placeholder="Password" type="password">
+            </md-input-container>
+          </label>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Input with Error Message
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Error Message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">hintLabel</span>=<span class="hljs-string">"Should be easy to remember"</span> <span class="hljs-attr">dividerColor</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"John Smith"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"model.name"</span>
+      #<span class="hljs-attr">name</span>=<span class="hljs-string">"ngModel"</span> <span class="hljs-attr">required</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- do NOT forget to set ngModel on this element --&gt;</span>
+    <span class="hljs-comment">&lt;!-- corresponding model object is set in TS file --&gt;</span>
+    <span class="hljs-comment">&lt;!-- model = {{ '{' }}'id': 18, 'name': 'Dr IQ'{{ '}' }}; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">hidden</span>]=<span class="hljs-string">"name.valid || name.pristine"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"error"</span>&gt;</span>Name is required<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Error Message</span>
+            <md-input-container hintLabel="Should be easy to remember" dividerColor="primary" floatPlaceholder="never">
+              <input mdInput placeholder="John Smith" type="text" [(ngModel)]="model.name"
+                  #name="ngModel" required>
+              <div [hidden]="name.valid || name.pristine" class="error"> Name is required </div>
+            </md-input-container>
+          </label>
+        </div>
+      </div>
     </div>
   </md-card-content>
 </md-card>

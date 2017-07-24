@@ -9,36 +9,9 @@ let max = 5;
 })
 export class InputComponent {
 
-  dividerColor: boolean;
-  requiredField: boolean;
-  floatingLabel: boolean;
-  name: string;
-
   model = {'id': 18,
             'name': 'Dr IQ'
           };
-          
-  items: any[] = [{
-    value: 10
-  }, {
-    value: 20
-  }, {
-    value: 30
-  }, {
-    value: 40
-  }, {
-    value: 50
-  }];
-
-  rows = 8;
-
-  addABunch(n: number) {
-    for (let x = 0; x < n; x++) {
-      this.items.push({
-        value: ++max
-      });
-    }
-  }
 
   constructor() {}
 }

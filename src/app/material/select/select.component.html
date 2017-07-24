@@ -2,155 +2,312 @@
   <md-card-title>Select</md-card-title>
   <md-card-subtitle>Single Selection</md-card-subtitle>
   <md-card-content>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <label class="ml-xs mr-xs"><span>Default</span>
-        <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
-                [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-      </label>
-      <label class="ml-xs mr-xs"><span>Disabled</span>
-        <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
-                disabled="true" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-      </label>
-    </div>
-    <p>Compact version - 'compact' class added to <code>md-select</code></p>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <label class="ml-xs mr-xs"><span>Default</span>
-        <md-select placeholder="Drink" floatPlaceholder="never" class="compact">
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-      </label>
-      <label class="ml-xs mr-xs"><span>Disabled</span>
-        <md-select placeholder="Drink" floatPlaceholder="never" class="compact" disabled>
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-      </label>
-    </div>
-    <p><code>dividerColor</code> used to set border-color on focus</p>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <label class="ml-xs mr-xs"><span>Primary</span>
-        <md-select placeholder="Drink" dividerColor="primary" [(ngModel)]="currentDrink" [required]="drinksRequired"
-                [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-      </label>
-      <label class="ml-xs mr-xs"><span>Accent</span>
-        <md-select placeholder="Drink" dividerColor="accent" [(ngModel)]="currentDrink" [required]="drinksRequired"
-                [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-      </label>
-      <label class="ml-xs mr-xs"><span>Warn</span>
-        <md-select placeholder="Drink" dividerColor="warn" [(ngModel)]="currentDrink" [required]="drinksRequired"
-                [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-      </label>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <label class="ml-xs mr-xs"> <span>With Hint Label</span>
-        <md-select placeholder="Drink" [(ngModel)]="currentDrink"
-          floatPlaceholder="never" #drinkControl="ngModel">
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-        <md-hint align="start">Select something</md-hint>
-      </label>
-      <label class="ml-xs mr-xs" style="width: 100%;"> <span>With Error Message</span>
-        <md-select placeholder="Color" [(ngModel)]="favoriteColor"
-          floatPlaceholder="never" #colorControl="ngModel" required>
-          <md-option *ngFor="let color of colors" [value]="color.value" [disabled]="color.disabled"> {{ color.viewValue }} </md-option>
-        </md-select>
-        <md-hint align="start" [hidden]="colorControl.valid || colorControl.pristine" class="error"> This is required </md-hint>
-      </label>
-    </div>
-    <p>Combo Fields</p>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" class="mb-2">
-      <div class="input-group ml-xs mr-xs">
-        <md-input-container floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="John Smith" type="text">
-        </md-input-container>
-        <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
-                [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-        <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
-          <input mdInput placeholder="PIN" type="text">
-        </md-input-container>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdSelectModule</code> - 
+        <a class="badge" href="https://material.angular.io/components/select/overview" target="_blank">
+          Official Documentation
+        </a>
+      </p>
+      <p><code>&lt;md-select&gt;</code> is a form control for selecting a value from a set of options, similar to
+      the native <code>&lt;select&gt;</code> element.</p>
+      <p>UI design and behaviour wise, it is exactly similar to <code>input</code> and <code>textarea</code>
+      elements.</p>
+
+      <h3 id="select-usage">Usage</h3>
+      <p>Select box is created by using <code>md-select</code> element. For each option you'd like in your select,
+      add an <code>md-option</code> tag. Note that you can disable items by adding the <code>disabled</code> boolean
+      attribute or binding to it.</p>
+
+      <h3 id="select-label-and-placeholder">Static Label and Placeholder</h3>
+      <p>Similar to <code>input</code> and <code>textarea</code> elements, <code>md-select</code> elements have
+      been modified to have a static label, and a non-floating placeholder which disappears as soon as the user
+      selects a value. To achieve this, <code>&lt;md-select&gt;</code> is wrapped inside
+      <code>&lt;label&gt;</code> element. Floating placeholder has been disabled by setting <code>floatPlaceholder</code>
+      attribute of <code>md-select</code> to <code>never</code>.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Default and Disabled Select Boxes
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"currentDrink"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">drinkControl</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- corresponding drinks object is set in TS file --&gt;</span>
+    <span class="hljs-comment">&lt;!-- drinks = [ --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: null, viewValue: 'None'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'coke-0', viewValue: 'Coke'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'water-1', viewValue: 'Water'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'pepper-2', viewValue: 'Dr. Pepper', disabled: true{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'coffee-3', viewValue: 'Coffee'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!--  {{ '{' }}value: 'tea-4', viewValue: 'Tea'{{ '}' }}, --&gt;</span>
+    <span class="hljs-comment">&lt;!-- ]; --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Disabled Select --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> <span class="hljs-attr">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+            <label class="ml-xs mr-xs">
+              <span>Default</span>
+              <md-select placeholder="Drink" [(ngModel)]="currentDrink"
+                floatPlaceholder="never" #drinkControl="ngModel">
+                <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                  {{ drink.viewValue }}
+                </md-option>
+              </md-select>
+            </label>
+            <label class="ml-xs mr-xs">
+              <span>Disabled</span>
+              <md-select placeholder="Drink" floatPlaceholder="never" disabled>
+                <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                  {{ drink.viewValue }}
+                </md-option>
+              </md-select>
+            </label>
+          </div>
+        </div>
       </div>
-      <div class="input-group ml-xs mr-xs ">
-        <md-input-container floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="John Smith" type="text">
-        </md-input-container>
-        <md-select placeholder="Drink" [(ngModel)]="currentDrink" [required]="drinksRequired"
-                [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
-          <md-option>None</md-option>
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled"> {{ drink.viewValue }} </md-option>
-        </md-select>
-        <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
-          <input mdInput placeholder="PIN" type="text">
-        </md-input-container>
+
+      <h3 id="select-floating-placeholder">Floating Placeholder</h3>
+      <p>One can, however, still use floating placeholder with select boxes by either skipping the
+        <code>floatPlaceholder</code> attribute completely on <code>md-select</code> or by setting
+        it to <code>auto</code>.
+      </p>
+      <p>Note: Do NOT wrap <code>md-select</code> inside a <code>label</code> element when using floating placeholder.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Select Box with Floating Placeholder
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Favorite Drink"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"favDrink"</span>
+  <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"auto"</span> #<span class="hljs-attr">favDrinkControl</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+    {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+            <md-select placeholder="Favorite Drink" [(ngModel)]="favDrink"
+              floatPlaceholder="auto" #favDrinkControl="ngModel">
+              <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                {{ drink.viewValue }}
+              </md-option>
+            </md-select>
+        </div>
       </div>
-    </div>
+
+      <h3 id="select-underline-color">Underline Color and Border</h3>
+      <p>Similar to <code>input</code> and <code>textarea</code> elements, <code>md-select</code> elements have
+      been modified to have border bottom on mobile screens and border on all four sides on tabs and bigger screens.
+      These borders change color on focus, and this color can be set using <code>dividerColor</code> attribute
+      on <code>md-select</code>. Supported values for this attribute are <code>primary</code>,
+      <code>accent</code> and <code>warn</code>. If none of these value are present or if this attribute is missing,
+      then a default color will be used.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Select with <code>dividerColor</code> set
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> <span class="hljs-attr">dividerColor</span>=<span class="hljs-string">"primary"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"currentDrink1"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">drinkControl1</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- set dividerColor to primary or accent or warn --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>Primary</span>
+            <md-select placeholder="Drink" dividerColor="primary" [(ngModel)]="currentDrink1"
+                    floatPlaceholder="never" #drinkControl1="ngModel">
+              <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                {{ drink.viewValue }}
+              </md-option>
+            </md-select>
+          </label>
+        </div>
+      </div>
+
+      <h3 id="select-compact">Compact Select Boxes</h3>
+      <p>Select Boxes can be "compactified" - having lesser height and padding - by adding <code>compact</code>
+      to <code>md-select</code>.</p>
+      <p>NOTE: <code>compact</code> class does NOT have any effect on elements in mobile view.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Compact Select Boxes
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Compact Select<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Favorite Food"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"favFood"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">favFoodControl</span>=<span class="hljs-string">"ngModel"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"compact"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let food of foods"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"food.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"food.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} food.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Disabled Compact Select --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Compact Select - Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Favorite Food"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"compact"</span> <span class="hljs-attr">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let food of foods"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"food.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"food.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} food.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+            <label class="ml-xs mr-xs">
+              <span>Compact Select</span>
+              <md-select placeholder="Favorite Food" [(ngModel)]="favFood"
+                floatPlaceholder="never" #favFoodControl="ngModel" class="compact">
+                <md-option *ngFor="let food of foods" [value]="food.value" [disabled]="food.disabled">
+                  {{ food.viewValue }}
+                </md-option>
+              </md-select>
+            </label>
+            <label class="ml-xs mr-xs">
+              <span>Compact Select - Disabled</span>
+              <md-select placeholder="Favorite Food" floatPlaceholder="never" class="compact" disabled>
+                <md-option *ngFor="let food of foods" [value]="food.value" [disabled]="food.disabled">
+                  {{ food.viewValue }}
+                </md-option>
+              </md-select>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="select-multiple">Multiple Selection</h3>
+      <p><code>multiple</code> attribute on <code>md-select</code> element brings up checkboxes on the left of
+      options - to allow for multiple-selections.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Select Box with Multiple Selection
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Pokemon<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Favorite Pokemon"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"currentPokemon"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">pokemonControl</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let creature of pokemon"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"creature.value"</span>&gt;</span>
+      {{'{'}}{{'{'}} creature.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>Pokemon</span>
+            <md-select multiple placeholder="Favorite Pokemon" [(ngModel)]="currentPokemon"
+                      floatPlaceholder="never" #pokemonControl="ngModel">
+              <md-option *ngFor="let creature of pokemon" [value]="creature.value">
+                {{ creature.viewValue }}
+              </md-option>
+            </md-select>
+          </label>
+        </div>
+      </div>
+
+      <h3 id="select-hint-and-error">Hint Label and Error Message</h3>
+      <p>Hint label is an indicative text that appears below the select box.
+      These provide additional information about the selected value to the user, as to what is expected or what the
+      user should keep in mind while selecting a value.</p>
+      <p>Hint labels for <code>md-select</code> elements are set by using an <code>md-hint</code> element inside
+      the <code>md-select</code>, which takes an <code>align</code> attribute containing the side as <code>start</code>
+      or <code>end</code>.</p>
+      <p>Error messages appear below the select box. These are hidden by default and will appear on an invalid input
+        after the user has interacted with the element. For example, if the <code>md-select</code> element is marked
+        required but the user doesn't select a value or selects a None value.</p>
+      <p>Error messages can be set by using <code>md-hint</code> elements having <code>error</code> class inside the 
+      <code>md-select</code>, with <code>hidden</code> property bound to desired property of the element.
+      For example, <code>[hidden]="name.valid || name.pristine"</code>.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Select with Hint Label
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Hint Label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-hint</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"start"</span>&gt;</span>Select something<span class="hljs-tag">&lt;/<span class="hljs-name">md-hint</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Hint Label</span>
+            <md-select placeholder="Drink" floatPlaceholder="never">
+              <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                {{ drink.viewValue }}
+              </md-option>
+            </md-select>
+            <md-hint align="start">Select something</md-hint>
+          </label>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Select with Error Message
+        </div>
+        <div class="example-viewer-source">
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Error Message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Color"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"favoriteColor"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">colorControl</span>=<span class="hljs-string">"ngModel"</span> <span class="hljs-attr">required</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let color of colors"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"color.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"color.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} color.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-hint</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"start"</span> [<span class="hljs-attr">hidden</span>]=<span class="hljs-string">"colorControl.valid || colorControl.pristine"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"error"</span>&gt;</span>
+    This is required
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-hint</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>With Error Message</span>
+            <md-select placeholder="Color" [(ngModel)]="favoriteColor"
+              floatPlaceholder="never" #colorControl="ngModel" required>
+              <md-option *ngFor="let color of colors" [value]="color.value" [disabled]="color.disabled">
+                {{ color.viewValue }}
+              </md-option>
+            </md-select>     
+            <md-hint align="start" [hidden]="colorControl.valid || colorControl.pristine" class="error">
+              This is required
+            </md-hint>
+          </label>
+        </div>
+      </div>
+    </div>    
   </md-card-content>
 </md-card>
-<md-card>
-  <md-card-title>Select</md-card-title>
-  <md-card-subtitle>Multiple Selection</md-card-subtitle>
-  <md-card-content>
-    <md-select multiple [color]="pokemonTheme" placeholder="Pokemon" [(ngModel)]="currentPokemon"
-               [required]="pokemonRequired" [disabled]="pokemonDisabled" #pokemonControl="ngModel">
-      <md-option *ngFor="let creature of pokemon" [value]="creature.value"> {{ creature.viewValue }} </md-option>
-    </md-select>
-    <p> Value: {{ currentPokemon }} </p>
-    <p>
-      <label for="pokemon-theme">Theme:</label>
-      <select [(ngModel)]="pokemonTheme" id="pokemon-theme">
-        <option *ngFor="let theme of availableThemes" [value]="theme.value">{{ theme.name }}</option>
-      </select>
-    </p>
-    <button md-button (click)="setPokemonValue()">SET VALUE</button>
-    <button md-button (click)="pokemonRequired=!pokemonRequired">TOGGLE REQUIRED</button>
-    <button md-button (click)="pokemonDisabled=!pokemonDisabled">TOGGLE DISABLED</button>
-    <button md-button (click)="pokemonControl.reset()">RESET</button>
-  </md-card-content>
-</md-card>
-<div *ngIf="showSelect">
-  <md-card>
-    <md-card-subtitle>formControl</md-card-subtitle>
-    <md-card-content>
-      <md-select placeholder="Food i would like to eat" [formControl]="foodControl">
-        <md-option *ngFor="let food of foods" [value]="food.value"> {{ food.viewValue }}</md-option>
-      </md-select>
-      <p> Value: {{ foodControl.value }} </p>
-      <p> Touched: {{ foodControl.touched }} </p>
-      <p> Dirty: {{ foodControl.dirty }} </p>
-      <p> Status: {{ foodControl.status }} </p>
-      <button md-button (click)="foodControl.setValue('pizza-1')">SET VALUE</button>
-      <button md-button (click)="toggleDisabled()">TOGGLE DISABLED</button>
-      <button md-button (click)="foodControl.reset()">RESET</button>
-    </md-card-content>
-  </md-card>
-</div>
-<div *ngIf="showSelect">
-  <md-card>
-    <md-card-subtitle>Change event</md-card-subtitle>
-    <md-card-content>
-      <md-select placeholder="Starter Pokemon" (change)="latestChangeEvent = $event">
-        <md-option *ngFor="let creature of pokemon" [value]="creature.value">{{ creature.viewValue }}</md-option>
-      </md-select>
-      <p> Change event value: {{ latestChangeEvent?.value }} </p>
-    </md-card-content>
-  </md-card>
-</div>
