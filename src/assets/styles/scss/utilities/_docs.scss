@@ -31,7 +31,70 @@
                 color: #2aa198;
             }
             .hljs-comment {
-                color: #a9e84d;
+                color: #b0bec5;
+            }
+
+            .hljs-meta,.hljs-regexp,.hljs-selector-tag,.hljs-tag {
+                color: #39adb5
+            }
+
+            .hljs-string,.hljs-subst {
+                color: #91b859
+            }
+
+            .hljs-number,.hljs-template-variable,.hljs-variable {
+                color: #80cbc4
+            }
+
+            .hljs-attribute,.hljs-keyword,.hljs-name,.hljs-type {
+                color: #7c4dff
+            }
+
+            .hljs-built_in,.hljs-builtin-name,.hljs-bullet,.hljs-function>.hljs-title,.hljs-link,.hljs-symbol,.hljs-title {
+                color: #6182b8
+            }
+
+            .hljs-params {
+                color: #f76d47
+            }
+
+            .hljs-addition {
+                color: #7c4dff
+            }
+
+            .hljs-addition,.hljs-deletion {
+                display: inline-block;
+                width: 100%
+            }
+
+            .hljs-deletion {
+                color: #e53935
+            }
+
+            .hljs-selector-class,.hljs-selector-id {
+                color: #8796b0
+            }
+
+            .hljs-emphasis {
+                font-style: italic
+            }
+
+            .hljs-strong {
+                font-weight: 700
+            }
+
+            .hljs-link {
+                text-decoration: underline
+            }
+        }
+        & > .mat-tab-group {
+            & > .mat-tab-header {
+                margin-left: -30px;
+            }
+            & > .mat-tab-body-wrapper {
+                & > .mat-tab-body {
+                    padding-top: 15px;
+                }
             }
         }        
     }

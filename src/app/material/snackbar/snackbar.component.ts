@@ -7,35 +7,23 @@ import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
   styleUrls: ['./snackbar.component.scss']
 })
 export class SnackbarComponent {
-  message = 'Snack Bar opened.';
-  actionButtonLabel = 'Retry';
-  action = false;
-  setAutoHide = false;
-  autoHide = 100000;
-  addExtraClass = false;
-  sbType = 'success';
-  dismissible = false;
+  dismissible:boolean = false;
+  sbType:string = 'success';
 
   constructor(
     public snackBar: MdSnackBar
   ) {}
 
-  open() {
-    const config = new MdSnackBarConfig();
-    config.duration = this.autoHide;
-    config.extraClasses = this.addExtraClass ? ['party'] : null;
-    this.snackBar.open(this.message, this.action && this.actionButtonLabel, config);
-  }
-
   openSnackBar(
       message: string,
-      action: string,
+      action: string = "",
       duration: number = 3000,
-      classes: string[] = [this.sbType]
+      dismissible: boolean = false,
+      classes: string[] = []
     ){
       let snackbarRef = this.snackBar.open(message, action, {
                           duration: duration,
-                          extraClasses: this.dismissible ? classes.concat('snackbar', 'close') : classes.concat('snackbar')
+                          extraClasses: dismissible ? classes.concat('snackbar', 'close') : classes.concat('snackbar')
                         });
       if(snackbarRef.containerInstance.snackBarConfig.extraClasses.includes('close')) {
         let elem = document.getElementsByTagName('snack-bar-container');

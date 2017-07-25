@@ -1,30 +1,199 @@
-<md-card>
-  <md-card-title>Snack Bar</md-card-title>
-  <md-card-subtitle>MdSnackBar is a service, which opens snack bar notifications in the view.</md-card-subtitle>
+<md-card class="page-card">
+  <md-card-title>Snackbar</md-card-title>
+  <md-card-subtitle>
+    Snackbars provide brief feedback about an operation through a message at the bottom of the screen.
+  </md-card-subtitle>
   <md-card-content>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <label class="ml-xs mr-xs" style="width: 100%;">
-        <span>Message</span>
-        <md-input-container floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="Snack Bar Message" type="text" value="Success Message" #sbmessage>
-        </md-input-container>
-      </label>
-      <label class="ml-xs mr-xs" style="width: 100%;">
-        <span>Action</span>
-        <md-input-container floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="Snack Bar Action Label" type="text" #sbaction>
-        </md-input-container>
-      </label>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdSnackBarModule</code> - 
+        <a class="badge" href="https://material.angular.io/components/snack-bar/overview" target="_blank">
+          Official Documentation
+        </a>
+      </p>
+      <p>
+        Snackbars contain feedback text directly related to the operation performed.
+        They may also contain a text action, and a Close (X) button.
+      </p>
+
+      <h3 id="snackbar-usage">Usage</h3>
+      <p>Snackbar messages are created by creating an instance of <code>MdSnackBar</code> service, and then
+      calling <code>open()</code> function on this instance.</p>
+
+      <h3 id="snackbar-types">Types</h3>
+      <p>We have four variants of Snackbars:</p>
+      <ul>
+        <li>Success - represented by class <code>success</code></li>
+        <li>Error - represented by class <code>error</code></li>
+        <li>Warning - represented by class <code>warning</code></li>
+        <li>Info - represented by class <code>info</code></li>
+      </ul> 
+
+      <h3 id="snackbar-dismissible">Dismissible Snackbar</h3>
+      <p>Snackbars, by default, do not have a close (X) button.
+        This can, however, be added by adding <code>close</code> class to <code>extraClasses</code> property of
+        the <code>config</code> objet being to <code>open()</code>. Clicking this button will make the Snackbar go away.  
+      </p> 
+
+      <h3 id="snackbar-openSnackBar">Custom <code>openSnackBar()</code> Function</h3>
+      <p>Include this custom <code>openSnackBar()</code> function in your TS file, and call it
+      to bring up a Snackbar, with the passed in message and and optional action.</p>  
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          <code>openSnackBar()</code> Function
+        </div>
+        <div class="example-viewer-source">
+          <md-tab-group>
+            <md-tab label="HTML">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"openSnackBar(sbmessage.value, sbaction.value, 3000, dismissible, [sbType])"</span>&gt;</span>
+  Show Snackbar
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</pre>
+            </md-tab>
+            <md-tab label="TS">
+<pre>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> SnackbarComponent {{'{'}}
+
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> snackBar: MdSnackBar</span>) {{'{'}}}
+
+  openSnackBar(
+    message: <span class="hljs-built_in">string</span>,
+    action: <span class="hljs-built_in">string</span> = <span class="hljs-string">''</span>,
+    duration: <span class="hljs-built_in">number</span> = <span class="hljs-number">3000</span>,
+    dismissible: <span class="hljs-built_in">boolean</span> = <span class="hljs-boolean">false</span>,
+    classes: <span class="hljs-built_in">string</span>[] = [],
+  ) {{'{'}}
+    <span class="hljs-keyword">let</span> snackbarRef = <span class="hljs-keyword">this</span>.snackBar.open(message, action, {{'{'}}
+      duration: duration,
+      extraClasses: dismissible ? classes.concat(<span class="hljs-string">'snackbar'</span>, <span class="hljs-string">'close'</span>) : classes.concat(<span class="hljs-string">'snackbar'</span>),
+    });
+    <span class="hljs-keyword">if</span>(snackbarRef.containerInstance.snackBarConfig.extraClasses.includes(<span class="hljs-string">'close'</span>)) {{'{'}}
+      <span class="hljs-keyword">let</span> elem = document.getElementsByTagName(<span class="hljs-string">'snack-bar-container'</span>);
+      <span class="hljs-keyword">let</span> sbElem = elem[elem.length - 1].getElementsByTagName(<span class="hljs-string">'simple-snack-bar'</span>)[<span class="hljs-number">0</span>];
+      <span class="hljs-keyword">let</span> buttonNode = document.createElement("button");
+      buttonNode.className = <span class="hljs-string">"mat-simple-snackbar-action close"</span>;
+      buttonNode.onclick = function() {{'{'}} snackbarRef.dismiss(); }
+      <span class="hljs-keyword">let</span> textnode = document.createTextNode(<span class="hljs-string">"close"</span>);
+      buttonNode.appendChild(textnode);
+      sbElem.appendChild(buttonNode);
+    }
+  }
+}
+</pre>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <h3 id="snackbar-openSnackBar">Example</h3>
+      <br/>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Snackbar Sample
+        </div>
+        <div class="example-viewer-source">
+          <md-tab-group>
+            <md-tab label="HTML">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">fxLayout</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">fxLayoutAlign</span>=<span class="hljs-string">"start center"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-1"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mr-xs"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Snack Bar Message"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Success Message"</span> #<span class="hljs-attr">sbmessage</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ml-xs"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Action<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Snack Bar Action Label"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> #<span class="hljs-attr">sbaction</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-group</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"my_options"</span> <span class="hljs-attr">fxLayout</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">fxLayout.xs</span>=<span class="hljs-string">"column"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-1"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"sbType"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mr-1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"success"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mr-1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"error"</span>&gt;</span>Error<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mr-1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"warning"</span>&gt;</span>Warning<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mr-1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"info"</span>&gt;</span>Info<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-group</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"dismissible"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block mb-1"</span>&gt;</span>Dismissible (with close button)<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"openSnackBar(sbmessage.value, sbaction.value, 3000, dismissible, [sbType])"</span>&gt;</span>
+  Show Snackbar
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</pre>
+            </md-tab>
+            <md-tab label="TS">
+<pre>
+<span class="hljs-keyword">import</span> {{'{'}} Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {{'{'}} MdSnackBar, MdSnackBarConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/material'</span>;
+
+
+<span class="hljs-meta">@Component</span>({{'{'}}
+  selector: <span class="hljs-string">'app-snackbar'</span>,
+  templateUrl: <span class="hljs-string">'./snackbar.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./snackbar.component.scss'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> SnackbarComponent {{'{'}}
+  dismissible: <span class="hljs-built_in">boolean</span> = <span class="hljs-boolean">false</span>;
+  sbType: <span class="hljs-built_in">string</span> = <span class="hljs-string">'success'</span>;
+
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> snackBar: MdSnackBar</span>) {{'{'}}}
+
+  openSnackBar(
+    message: <span class="hljs-built_in">string</span>,
+    action: <span class="hljs-built_in">string</span> = <span class="hljs-string">''</span>,
+    duration: <span class="hljs-built_in">number</span> = <span class="hljs-number">3000</span>,
+    dismissible: <span class="hljs-built_in">boolean</span> = <span class="hljs-boolean">false</span>,
+    classes: <span class="hljs-built_in">string</span>[] = [],
+  ) {{'{'}}
+    <span class="hljs-keyword">let</span> snackbarRef = <span class="hljs-keyword">this</span>.snackBar.open(message, action, {{'{'}}
+      duration: duration,
+      extraClasses: dismissible ? classes.concat(<span class="hljs-string">'snackbar'</span>, <span class="hljs-string">'close'</span>) : classes.concat(<span class="hljs-string">'snackbar'</span>),
+    });
+    <span class="hljs-keyword">if</span>(snackbarRef.containerInstance.snackBarConfig.extraClasses.includes(<span class="hljs-string">'close'</span>)) {{'{'}}
+      <span class="hljs-keyword">let</span> elem = document.getElementsByTagName(<span class="hljs-string">'snack-bar-container'</span>);
+      <span class="hljs-keyword">let</span> sbElem = elem[elem.length - 1].getElementsByTagName(<span class="hljs-string">'simple-snack-bar'</span>)[<span class="hljs-number">0</span>];
+      <span class="hljs-keyword">let</span> buttonNode = document.createElement("button");
+      buttonNode.className = <span class="hljs-string">"mat-simple-snackbar-action close"</span>;
+      buttonNode.onclick = function() {{'{'}} snackbarRef.dismiss(); }
+      <span class="hljs-keyword">let</span> textnode = document.createTextNode(<span class="hljs-string">"close"</span>);
+      buttonNode.appendChild(textnode);
+      sbElem.appendChild(buttonNode);
+    }
+  }
+}
+</pre>
+            </md-tab>
+          </md-tab-group>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+            <label class="mr-xs">
+              <span>Message</span>
+              <md-input-container floatPlaceholder="never">
+                <input mdInput placeholder="Snack Bar Message" type="text" value="Success Message" #sbmessage>
+              </md-input-container>
+            </label>
+            <label class="ml-xs">
+              <span>Action</span>
+              <md-input-container floatPlaceholder="never">
+                <input mdInput placeholder="Snack Bar Action Label" type="text" #sbaction>
+              </md-input-container>
+            </label>
+          </div>
+          <md-radio-group name="my_options" fxLayout="row" fxLayout.xs="column" class="mb-1" [(ngModel)]="sbType">
+            <md-radio-button class="mr-1" value="success">Success</md-radio-button>
+            <md-radio-button class="mr-1" value="error">Error</md-radio-button>
+            <md-radio-button class="mr-1" value="warning">Warning</md-radio-button>
+            <md-radio-button class="mr-1" value="info">Info</md-radio-button>
+          </md-radio-group>
+          <md-checkbox [(ngModel)]="dismissible" class="block mb-1">Dismissible (with close button)</md-checkbox>
+          <button md-raised-button color="primary" (click)="openSnackBar(sbmessage.value, sbaction.value, 3000, dismissible, [sbType])">
+            Show Snackbar
+          </button>
+        </div>
+      </div>
     </div>
-    <md-radio-group name="my_options" fxLayout="row" class="mb-1" [(ngModel)]="sbType">
-      <md-radio-button class="mr-1" value="success">Success</md-radio-button>
-      <md-radio-button class="mr-1" value="error">Error</md-radio-button>
-      <md-radio-button class="mr-1" value="warning">Warning</md-radio-button>
-      <md-radio-button class="mr-1" value="info">Info</md-radio-button>
-    </md-radio-group>
-    <md-checkbox [(ngModel)]="dismissible" class="block mb-1">Dismissible (with close button)</md-checkbox>
-    <button md-raised-button color="primary" class="mr-1" (click)="openSnackBar(sbmessage.value, sbaction.value)">
-      Show snack-bar
-    </button>
   </md-card-content>
 </md-card>

@@ -1,37 +1,111 @@
+<md-card class="page-card">
+  <md-card-title>Chips</md-card-title>
+  <md-card-subtitle>
+    An input component for building lists of strings or objects. The list items are displayed as 'chips'.
+  </md-card-subtitle>
+  <md-card-content>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdChipsModule</code> - 
+        <a class="badge" href="https://material.angular.io/components/chips/overview" target="_blank">Official Documentation</a>
+      </p>
+      <p>
+        Chips are created by using <code>md-chip</code> elements, and a list of such chips is created by wrapping
+        these <code>md-chip</code> elements inside a <code>md-chip-list</code> element.
+      </p>
 
-  <md-card>
-    <md-card-title>Chips</md-card-title>
-    <md-card-subtitle>an input component for building lists of strings or objects. The list items are displayed as 'chips'.</md-card-subtitle>
-    
-    <md-card-content>
-      <div class="pb-1">
-        <p class="mt-0">Simple</p>
-        <md-chip-list>
-          <md-chip>
-            <span class="close">
-              <md-icon>close</md-icon>
-            </span>
-            Chip 1
-          </md-chip>
-          <md-chip>
-            <span class="close">
-              <md-icon>close</md-icon>
-            </span>
-            Chip 2
-          </md-chip>
-          <md-chip>
-            <span class="close">
-              <md-icon>close</md-icon>
-            </span>
-            Chip 3
-          </md-chip>
-        </md-chip-list>
+      <h3 id="chips-modification">Modification</h3>
+      <p>Chips have been modified to include one close (X) button on the right hand side. Clicking on this button
+        should delete that chip.
+      </p>
+      <p>NOTE: onClick function for this close button needs to be implemented as per requirement.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Simple Chips
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-chip-list</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-chip</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span></span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>close<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    Chip 1
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-chip</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-chip</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span></span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>close<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    Chip 2
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-chip</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-chip</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span></span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>close<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    Chip 3
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-chip</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-chip-list</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <md-chip-list>
+            <md-chip>
+              <span class="close">
+                <md-icon>close</md-icon>
+              </span>
+              Chip 1
+            </md-chip>
+            <md-chip>
+              <span class="close">
+                <md-icon>close</md-icon>
+              </span>
+              Chip 2
+            </md-chip>
+            <md-chip>
+              <span class="close">
+                <md-icon>close</md-icon>
+              </span>
+              Chip 3
+            </md-chip>
+          </md-chip-list>
+        </div>
       </div>
 
-      <p>Advanced</p>
-      <md-chip-list selectable="false">
-        <md-chip color="primary" selected="true">Selected - Primary</md-chip>
-        <md-chip color="accent" selected="true">Selected - Accent</md-chip>
-      </md-chip-list>
-    </md-card-content>
-  </md-card>
+      <h3 id="chips-selectable">Selectable Chips</h3>
+      <p>Chips can be selected by setting <code>selected</code> attribute on <code>md-chip</code> element to
+        <code>true</code>. Selection can be disabled by setting <code>selectable</code> to <code>false</code>
+        on the <code>md-chip-list</code>.
+      </p>
+      <p>Color for selected chips can be set by setting <code>color</code> attribute on <code>md-chip</code>
+        to <code>primary</code>, <code>accent</code> or <code>warn</code>. If <code>color</code> attribute is not set
+        then <code>primary</code> color is used.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Selectable Chips
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-chip-list</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-chip</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">selected</span>=<span class="hljs-string">"true"</span>&gt;</span>
+    Selected - Primary
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-chip</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-chip</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span> <span class="hljs-attr">selected</span>=<span class="hljs-string">"true"</span>&gt;</span>
+    Selected - Accent
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-chip</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-chip-list</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <md-chip-list>
+            <md-chip color="primary" selected="true">Selected - Primary</md-chip>
+            <md-chip color="accent" selected="true">Selected - Accent</md-chip>
+          </md-chip-list>
+        </div>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
