@@ -24,99 +24,109 @@
       <li>The dialog will have a few config options – and will pick up styling from our library.</li>
     </ul>
 
-    <strong>app.component.ts</strong><br/>
-    import &#123; Component } from '@angular/core';<br/>
-    import &#123;MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';<br/>
-    // need to import these separate from the Library module because they are dynamic components – but they will still inherit our custom theming<br/>
-    <br/>
-    @Component(&#123;<br/>
-    selector: 'app-root',<br/>
-    templateUrl: './app.component.html',<br/>
-    styleUrls: ['./app.component.scss']<br/>
-    })<br/>
-    export class AppComponent &#123;<br/>
-    states = [&#123;code: 'AL', name: 'Alabama'},&#123;code: 'CA', name: 'California'}]; // populate select<br/>
-    selectedOption: string; //display user selected dialog option – pass to SnackBar instance<br/>
-    constructor&#123;public dialog: MdDialog, public snackBar:MdSnackBar) &#123;} // constructor for dialog and snackbar<br/><br/>
-    // Inside parent component – simply use the mdDialog by creating a dialogRef<br/>
-    openSaveDialog() &#123;<br/>
-    let dialogRef = this.dialog.open(SaveDialog, &#123;<br/>
-    disableClose: true,<br/>
-    width: '75%',<br/>
-    height: '100%',<br/>
-    backdropClass:'cdk-overlay-custom-backdrop',//supply a custom backdrop class. No initial value - picks up default class for basic modal<br/>
-    });<br/>
+    <strong>app.component.ts</strong>
+    <pre>
+    import &#123; Component } from '@angular/core';
+    import &#123;MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
+    /* need to import these separate from the Library module because they are
+      dynamic components – but they will still inherit our custom theming */
 
-    dialogRef.afterClosed().subscribe(result => &#123;<br/>
-    this.selectedOption = result;<br/>
-    this.snackBar.open(result,'Save',&#123;duration:2000}); // call the SnackBar to open after dialog closes<br/>
-    });<br/>
-    }<br/>
+    @Component(&#123;
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
+    })
+
+    export class AppComponent &#123;
+    states = [&#123;code: 'AL', name: 'Alabama'},&#123;code: 'CA', name: 'California'}]; // populate select
+    selectedOption: string; //display user selected dialog option – pass to SnackBar instance
+
+    // constructor for dialog and snackbar
+    constructor(public dialog: MdDialog, public snackBar:MdSnackBar) &#123;}
+
+    // Inside parent component – simply use the mdDialog by creating a dialogRef
+    openSaveDialog() &#123;
+    let dialogRef = this.dialog.open(SaveDialog, &#123;
+    disableClose: true,
+    width: '75%',
+    height: '100%',
+    backdropClass:'cdk-overlay-custom-backdrop',
+    /* supply a custom backdrop class. No initial value - picks up default class for basic modal */
+    });
+
+    dialogRef.afterClosed().subscribe(result => &#123;
+    this.selectedOption = result;
+    // call the SnackBar to open after dialog closes
+    this.snackBar.open(result,'Save',&#123;duration:2000});
+    });
     }
-    <br/>
-    <br/>
-    // Child component for Dialog template<br/>
-    @Component(&#123;<br/>
-    template:`<br/>
-    &lt;h1 md-dialog-title>Save Dialog&lt;/h1><br/>
-    &lt;div md-dialog-content>Would you like to save?&lt;/div><br/>
-    &lt;div md-dialog-actions><br/>
-      &lt;button md-button (click)="dialogRef.close('Yes')">Yes&lt;/button><br/>
-      &lt;button md-button (click)="dialogRef.close('No')">No&lt;/button><br/>
-      &lt;button md-button (click)="dialogRef.close()">Close&lt;/button><br/>
-    &lt;/div><br/>
+    }
+
+    // Child component for Dialog template
+    @Component(&#123;
+    template:
     `
+    &lt;h1 md-dialog-title>Save Dialog&lt;/h1>
+    &lt;div md-dialog-content>Would you like to save?&lt;/div>
+    &lt;div md-dialog-actions>
+      &lt;button md-button (click)="dialogRef.close('Yes')">Yes&lt;/button>
+      &lt;button md-button (click)="dialogRef.close('No')">No&lt;/button>
+      &lt;button md-button (click)="dialogRef.close()">Close&lt;/button>
+    &lt;/div>
+    `
+    })
+
+    export class SaveDialog&#123;
+    constructor(public dialogRef: MdDialogRef&lt;SaveDialog>) &#123;
+    }}
+    </pre>
     <br/>
-    })<br/>
-    export class SaveDialog&#123;<br/>
-    constructor(public dialogRef: MdDialogRef&lt;SaveDialog>) &#123;<br/>
-    }}<br/>
-    <br/>
-    <strong>app.component.html</strong><br/>
-    &lt;form class="full-width"><br/>
-      &lt;md-card><br/>
-        &lt;table><br/>
-         &lt;tr><br/>
-            &lt;md-input-container><br/>
-              &lt;input mdInput placeholder="First Name"><br/>
-           &lt;/md-input-container><br/>
-          &lt;/tr><br/>
-          &lt;tr><br/>
-            &lt;md-input-container><br/>
-              &lt;input mdInput placeholder="Last Name"><br/>
-            &lt;/md-input-container><br/>
-         &lt;/tr><br/>
-        &lt;/table><br/>
-      &lt;/md-card><br/>
-      &lt;md-card><br/>
-        &lt;md-radio-button value="f">Female&lt;/md-radio-button><br/>
-        &lt;md-radio-button value="m">Male&lt;/md-radio-button><br/>
-      &lt;/md-card><br/>
-      &lt;md-card><br/>
-        &lt;md-checkbox>Weather Update&lt;/md-checkbox><br/>
-        &lt;md-checkbox>Marketing Mails&lt;/md-checkbox><br/>
-        &lt;md-checkbox>SMS&lt;/md-checkbox><br/>
-      &lt;/md-card><br/>
-      &lt;md-card><br/>
-        &lt;md-select placeholder="State"><br/>
-         &lt;md-option *ngFor="let state of states" [value]="state.code"><br/>
-            &#123;&#8203;&#123;state.name}&#8203;}<br/>
-        &lt;/md-option><br/>
-        &lt;/md-select><br/>
-      &lt;/md-card><br/>
-      &lt;md-card><br/>
-    <strong style="color:red;"> &lt;button md-raised-button (click)="openSaveDialog()" color="primary">Save Dialog&lt;/button>Selected Option: &#123;&#8203;&#123;selectedOption}&#8203;}</strong><br/>
-      &lt;/md-card><br/>
-    &lt;/form><br/>
-    <br/>
-    <strong>app.module.ts</strong><br/>
-    entryComponents: [ // declare dialogRef as entryComponent because created dynamically<br/>
+    <strong>app.component.html</strong>
+    <pre>
+    &lt;form class="full-width">
+      &lt;md-card>
+        &lt;table>
+         &lt;tr>
+          &lt;md-input-container>
+              &lt;input mdInput placeholder="First Name">
+           &lt;/md-input-container>
+          &lt;/tr>
+          &lt;tr>
+            &lt;md-input-container>
+              &lt;input mdInput placeholder="Last Name">
+            &lt;/md-input-container>
+         &lt;/tr>
+        &lt;/table>
+      &lt;/md-card>
+      &lt;md-card>
+        &lt;md-radio-button value="f">Female&lt;/md-radio-button>
+        &lt;md-radio-button value="m">Male&lt;/md-radio-button>
+      &lt;/md-card>
+      &lt;md-card>
+        &lt;md-checkbox>Weather Update&lt;/md-checkbox>
+        &lt;md-checkbox>Marketing Mails&lt;/md-checkbox>
+        &lt;md-checkbox>SMS&lt;/md-checkbox>
+      &lt;/md-card>
+      &lt;md-card>
+        &lt;md-select placeholder="State">
+         &lt;md-option *ngFor="let state of states" [value]="state.code">
+            &#123;&#8203;&#123;state.name}&#8203;}
+        &lt;/md-option>
+        &lt;/md-select>
+      &lt;/md-card>
+      &lt;md-card>
+      <strong style="color:red;">&lt;button md-raised-button (click)="openSaveDialog()" color="primary">
+        Save Dialog
+      &lt;/button> Selected Option: &#123;&#8203;&#123;selectedOption}&#8203;}</strong>
+      &lt;/md-card>
+    &lt;/form>
+    </pre>
+    <strong>app.module.ts</strong>
+    <pre>
+    // declare dialogRef as entryComponent because created dynamically
+    entryComponents: [
     SaveDialog<br/>
     ],
-
-
-
-
-
+    </pre>
   </md-card-content>
 </md-card>
