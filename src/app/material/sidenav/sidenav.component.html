@@ -40,6 +40,26 @@
     <md-card>
       <md-card-content>
         <md-card-title>Slider Panel - with Menu Documentation</md-card-title>
+        <strong>Create a class model: sidenav-menu-item.ts</strong><br/>
+        /* I usually create my models in something like shared/models/ */<br/>
+        export class SidenavMenuItem &#123;<br/>
+        public secTitle: string;<br/>
+        public title: string;<br/>
+        public link: string;<br/>
+        public children: SidenavMenuItem[];<br/>
+        public hasChildren: boolean = false;<br/>
+        public pageTitle: string;<br/><br/>
+
+        constructor&#123;secTitle: string, title: string, pageTitle: string, link: string, children: SidenavMenuItem[])&#123;<br/>
+        this.title = title;<br/>
+        this.secTitle = secTitle;<br/>
+        this.link = link;<br/>
+        this.children = children;<br/>
+        this.hasChildren = (children!=null && children.length!=0);<br/>
+        this.pageTitle = pageTitle;<br/>
+        }}<br/>
+        <br/>
+        <br/>
         <strong>Create a new component named sidenav-item</strong><br/>
         With @angular/cli: ng g c sidenav-item<br/>
         This will create a new directory with ts, html, css and test file<br/>
@@ -47,8 +67,8 @@
         <strong>sidenav-item-component.ts</strong><br/>
         import &#123; Component, Input } from '@angular/core';<br/>
         import &#123; SidenavMenuItem } from '../sidenav-menu-item';<br/>
-        /* this is an import of the model you will be<br/>
-        creating below - so the path may vary based on where you decide to create the model.<br/>
+        /* Import the model you created in the above step<br/>
+        The path will vary based on where you decide to create the model<br/>
         I ususually create my models in something like shared/models/ */<br/>
 
 
@@ -85,24 +105,7 @@
         &lt;/div><br/>
         &lt;/li><br/>
         <br/>
-        <strong>Create a class model: sidenav-menu-item.ts</strong><br/>
-        export class SidenavMenuItem &#123;
-        public secTitle: string;<br/>
-        public title: string;<br/>
-        public link: string;<br/>
-        public children: SidenavMenuItem[];<br/>
-        public hasChildren: boolean = false;<br/>
-        public pageTitle: string;<br/><br/>
 
-        constructor&#123;secTitle: string, title: string, pageTitle: string, link: string, children: SidenavMenuItem[])&#123;<br/>
-        this.title = title;<br/>
-        this.secTitle = secTitle;<br/>
-        this.link = link;<br/>
-        this.children = children;<br/>
-        this.hasChildren = (children!=null && children.length!=0);<br/>
-        this.pageTitle = pageTitle;<br/>
-        }}<br/>
-        <br/>
         <strong>sidenav.component.ts - or whatever the name of the component that you are using the slider panel in:</strong><br/>
         import &#123;Component, Input, OnInit} from '@angular/core';<br/>
         import &#123; SidenavMenuItem } from './sidenav-menu-item';<br/>
