@@ -2,7 +2,7 @@
   <md-card-title>Slider Panel</md-card-title>
   <md-card-subtitle>&lt;md-sidenav> is a panel that can be placed next to or above some primary content. A sidenav is typically used for navigation, but can contain any content.</md-card-subtitle>
   <md-card-content>
-    <md-card>
+  <!--  <md-card>
       <md-card-content>
         <md-card-title>Slider Panel Basic Use Cases</md-card-title>
         <md-toolbar color="primary"></md-toolbar>
@@ -36,44 +36,141 @@
           </div>
         </md-sidenav-container>
       </md-card-content>
-    </md-card>
+    </md-card> -->
     <md-card>
       <md-card-content>
         <md-card-title>Slider Panel - with Menu Documentation</md-card-title>
-        <pre>
-        Raman has created a custom sidenav-item component SidenavItemComponent that creates the structure for the left slider panel content
-        I will need to import this into the LibraryModule and make it available for use. And I probably will not be able to complete this right away.
-        For now, please create this custom component at the local project level.
-        You can rely on Raman for help. Once we have it fine tuned - Raman and I can add it as a custom component.
-        <strong>Basic Instructions: </strong>
-        SidenavMenuItem model
-        Import this into the component if you want to use the custom component (note: you can always just use the layout below and replace sidenav-item)
-        Define sidenav-items based on the imported model
-         menuItems = [
-          new SidenavMenuItem('Settings', 'User Management', '', '', [
-          new SidenavMenuItem('', 'Company Settings', '', '', null),
-          new SidenavMenuItem('', 'User Management', '', '', null),
-          new SidenavMenuItem('', 'Shared Settings', '', '', null)
-          ]),
-          new SidenavMenuItem('', 'Users', '', '', null),
-          new SidenavMenuItem('', 'Non-employee access', '', '', null),
-          new SidenavMenuItem('', 'Roles', '', '', null),
-          new SidenavMenuItem('', 'Data Access Groups', '', '', null)
-        ];
-        &lt;md-toolbar color="primary">&lt;/md-toolbar>
-        &lt;md-sidenav-container class="sidenav-container">
-          <strong>Standard md attributes:</strong> mode side, over or push; opened to show as default; align: start=left, end=right
-          &lt;md-sidenav class="sidenav-menu" mode="side" opened align="start">
-          <strong>sidenav-item is a custom element</strong> You could just use the layout and put whatever you want for the content
-            &lt;ul>
-              &lt;sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem">&lt;/sidenav-item>
-            &lt;/ul>
-          &lt;/md-sidenav>
-          &lt;div class="sidenav-content">
-            Content goes here
-          &lt;/div>
-        &lt;/md-sidenav-container>
-        </pre>
+        <strong>Create a new component named sidenav-item</strong><br/>
+        With @angular/cli: ng g c sidenav-item<br/>
+        This will create a new directory with ts, html, css and test file<br/>
+        It will automatically be imported into app.module.ts for you<br/>
+        <strong>sidenav-item-component.ts</strong><br/>
+        import &#123; Component, Input } from '@angular/core';<br/>
+        import &#123; SidenavMenuItem } from '../sidenav-menu-item';<br/>
+        /* this is an import of the model you will be<br/>
+        creating below - so the path may vary based on where you decide to create the model.<br/>
+        I ususually create my models in something like shared/models/ */<br/>
+
+
+        @Component(&#123;<br/>
+        selector : 'sidenav-item',<br/>
+        templateUrl: './sidenav-item.component.html'<br/>
+        })<br/>
+
+        export class SidenavItemComponent &#123;
+        @Input() menuItem: SidenavMenuItem;<br/>
+        private _showChildren: boolean = false;<br/><br/>
+
+        clicked(event: MouseEvent) &#123;<br/>
+        this._showChildren = !this._showChildren;<br/>
+        }}<br/><br/>
+        <strong>sidenav-item-component.html</strong><br/>
+        &lt;li *ngIf="!menuItem.hasChildren"><br/>
+       &lt;span class="sec-title" *ngIf="menuItem.secTitle != ''">&#123;&#8203;&#123;menuItem.secTitle}&#8203;}&lt;/span><br/>
+        &lt;a href="javascript:void(0);"><br/>
+        &lt;span class="menu-title">&#123;&#8203;&#123;menuItem.title}&#8203;}&lt;/span><br/>
+        &lt;/a><br/>
+        &lt;/li><br/>
+        &lt;li *ngIf="menuItem.hasChildren" class="show-drop &#123;&#8203;&#123;_showChildren?'active':''}&#8203;}"<br/>
+        (click)="clicked($event)"><br/>
+        &lt;span class="sec-title" *ngIf="menuItem.secTitle != ''">&#123;&#8203;&#123;menuItem.secTitle}&#8203;}&lt;/span><br/>
+        &lt;a href="javascript:void(0);"><br/>
+        &lt;span class="menu-title">&#123;&#8203;&#123;menuItem.title}&#8203;}&lt;/span><br/>
+        &lt;/a><br/>
+        &lt;div class="collapse-side"><br/>
+        &lt;ul><br/>
+        &lt;sidenav-item *ngFor="let childMenuItem of menuItem.children" [menuItem]="childMenuItem"><br/>
+        &lt;/sidenav-item><br/>
+        &lt;/ul><br/>
+        &lt;/div><br/>
+        &lt;/li><br/>
+        <br/>
+        <strong>Create a class model: sidenav-menu-item.ts</strong><br/>
+        export class SidenavMenuItem &#123;
+        public secTitle: string;<br/>
+        public title: string;<br/>
+        public link: string;<br/>
+        public children: SidenavMenuItem[];<br/>
+        public hasChildren: boolean = false;<br/>
+        public pageTitle: string;<br/><br/>
+
+        constructor&#123;secTitle: string, title: string, pageTitle: string, link: string, children: SidenavMenuItem[])&#123;<br/>
+        this.title = title;<br/>
+        this.secTitle = secTitle;<br/>
+        this.link = link;<br/>
+        this.children = children;<br/>
+        this.hasChildren = (children!=null && children.length!=0);<br/>
+        this.pageTitle = pageTitle;<br/>
+        }}<br/>
+        <br/>
+        <strong>sidenav.component.ts - or whatever the name of the component that you are using the slider panel in:</strong><br/>
+        import &#123;Component, Input, OnInit} from '@angular/core';<br/>
+        import &#123; SidenavMenuItem } from './sidenav-menu-item';<br/>
+        // import the model you created - from whatever the path is <br/>
+        <strong>Based on the model - define the menuItems array for use in the markup</strong><br/>
+        menuItems = [
+        new SidenavMenuItem('Settings', 'User Management', '', '', [<br/>
+        new SidenavMenuItem('', 'Company Settings', '', '', null),<br/>
+        new SidenavMenuItem('', 'User Management', '', '', null),<br/>
+        new SidenavMenuItem('', 'Shared Settings', '', '', null)<br/>
+        ]),<br/>
+        new SidenavMenuItem('', 'Users', '', '', null),<br/>
+        new SidenavMenuItem('', 'Non-employee access', '', '', null),<br/>
+        new SidenavMenuItem('', 'Roles', '', '', null),<br/>
+        new SidenavMenuItem('', 'Data Access Groups', '', '', null)<br/>
+        ];<br/>
+        <br/>
+        <strong>Then the markup to create the example below would look like this:</strong><br/>
+
+        &lt;md-toolbar color="primary">&lt;/md-toolbar><br/>
+        &lt;md-sidenav-container class="sidenav-container"><br/>
+
+          &lt;md-sidenav class="sidenav-menu" mode="side" opened align="start"><br/>
+
+            &lt;ul><br/>
+              &lt;sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem">&lt;/sidenav-item><br/>
+            &lt;/ul><br/>
+          &lt;/md-sidenav><br/>
+          &lt;div class="sidenav-content"><br/>
+            Content goes here<br/>
+          &lt;/div><br/>
+        &lt;/md-sidenav-container><br/>
+       <br/>
+        <br/>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-card-content>
+        <md-card-title>Slider Panel - with Menu</md-card-title>
+        <md-toolbar color="primary"></md-toolbar>
+        <md-sidenav-container class="sidenav-container">
+          <md-sidenav class="sidenav-menu" mode="side" opened align="start">
+            <ul>
+              <sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem"></sidenav-item>
+            </ul>
+          </md-sidenav>
+          <div class="sidenav-content"> <strong>Slider Panel Content</strong>
+            <p>The left side panel has a side item component that ...</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero magna, fermentum ut arcu ac, tempor auctor diam. Morbi facilisis ultrices sem posuere varius. Aliquam erat volutpat.</p>
+            <p>Duis convallis orci vitae iaculis mollis. Ut aliquet sagittis mi id blandit. Nullam quis odio vitae ante vulputate cursus. Morbi venenatis scelerisque tortor. Donec lacinia porta lorem ac lobortis. Vivamus egestas porta sem ac accumsan. Integer libero turpis, elementum et feugiat sit amet, scelerisque eget elit. Nulla porttitor vehicula orci, eu molestie quam consectetur nec. Maecenas nec quam porta, mattis nibh non, pellentesque massa. Donec elit arcu, maximus et sodales ut, eleifend ut tortor. Cras posuere est ac mauris faucibus dictum.
+              Phasellus a suscipit nulla. In at malesuada justo. Fusce ut sapien porta, auctor tellus eleifend, ultrices mi.</p>
+            <p>Donec aliquet mollis risus tincidunt vestibulum. Nunc semper mattis nisi, non bibendum lectus. Cras accumsan augue dui, ut tincidunt orci pharetra auctor. In suscipit, mi vel faucibus consectetur, dui nibh pulvinar dui, vitae bibendum metus quam vitae ante. Nunc aliquam felis at mauris elementum, eleifend congue purus malesuada. Cras laoreet ipsum vitae orci condimentum, eu mattis mauris tincidunt. Nulla ultrices, libero maximus iaculis egestas, lacus dolor lobortis est, nec eleifend mi diam scelerisque mauris. Quisque rutrum malesuada dui, eu laoreet tortor hendrerit a.
+              Quisque interdum ipsum a mauris molestie tempus.</p>
+            <p>Duis convallis orci vitae iaculis mollis. Ut aliquet sagittis mi id blandit. Nullam quis odio vitae ante vulputate cursus. Morbi venenatis scelerisque tortor. Donec lacinia porta lorem ac lobortis. Vivamus egestas porta sem ac accumsan. Integer libero turpis, elementum et feugiat sit amet, scelerisque eget elit. Nulla porttitor vehicula orci, eu molestie quam consectetur nec. Maecenas nec quam porta, mattis nibh non, pellentesque massa. Donec elit arcu, maximus et sodales ut, eleifend ut tortor. Cras posuere est ac mauris faucibus dictum.
+              Phasellus a suscipit nulla. In at malesuada justo. Fusce ut sapien porta, auctor tellus eleifend, ultrices mi.</p>
+            <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+              <md-input-container class="ml-xs mr-xs">
+                <input mdInput placeholder="Name" type="text">
+              </md-input-container>
+              <md-input-container floatplaceholder="auto" class="ml-xs mr-xs">
+                <input mdInput placeholder="Email" type="email">
+              </md-input-container>
+            </div>
+            <p>
+              <button md-raised-button color="primary">Some Button</button>
+            </p>
+          </div>
+        </md-sidenav-container>
       </md-card-content>
     </md-card>
     <md-card>
@@ -105,32 +202,7 @@
         </md-sidenav-container>
       </md-card-content>
     </md-card>
-    <md-card>
-      <md-card-content>
-        <md-card-title>Slider Panel - with Menu</md-card-title>
-        <md-toolbar color="primary"></md-toolbar>
-        <md-sidenav-container class="sidenav-container">
-          <md-sidenav class="sidenav-menu" mode="side" opened align="start">
-            <ul>
-              <sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem"></sidenav-item>
-            </ul>
-          </md-sidenav>
-          <div class="sidenav-content"> <strong>Slider Panel Content</strong>
-            <p>The left side panel has a side item component that ...</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero magna, fermentum ut arcu ac, tempor auctor diam. Morbi facilisis ultrices sem posuere varius. Aliquam erat volutpat.</p>
-            <p>Duis convallis orci vitae iaculis mollis. Ut aliquet sagittis mi id blandit. Nullam quis odio vitae ante vulputate cursus. Morbi venenatis scelerisque tortor. Donec lacinia porta lorem ac lobortis. Vivamus egestas porta sem ac accumsan. Integer libero turpis, elementum et feugiat sit amet, scelerisque eget elit. Nulla porttitor vehicula orci, eu molestie quam consectetur nec. Maecenas nec quam porta, mattis nibh non, pellentesque massa. Donec elit arcu, maximus et sodales ut, eleifend ut tortor. Cras posuere est ac mauris faucibus dictum.
-              Phasellus a suscipit nulla. In at malesuada justo. Fusce ut sapien porta, auctor tellus eleifend, ultrices mi.</p>
-            <p>Donec aliquet mollis risus tincidunt vestibulum. Nunc semper mattis nisi, non bibendum lectus. Cras accumsan augue dui, ut tincidunt orci pharetra auctor. In suscipit, mi vel faucibus consectetur, dui nibh pulvinar dui, vitae bibendum metus quam vitae ante. Nunc aliquam felis at mauris elementum, eleifend congue purus malesuada. Cras laoreet ipsum vitae orci condimentum, eu mattis mauris tincidunt. Nulla ultrices, libero maximus iaculis egestas, lacus dolor lobortis est, nec eleifend mi diam scelerisque mauris. Quisque rutrum malesuada dui, eu laoreet tortor hendrerit a.
-              Quisque interdum ipsum a mauris molestie tempus.</p>
-            <p>Duis convallis orci vitae iaculis mollis. Ut aliquet sagittis mi id blandit. Nullam quis odio vitae ante vulputate cursus. Morbi venenatis scelerisque tortor. Donec lacinia porta lorem ac lobortis. Vivamus egestas porta sem ac accumsan. Integer libero turpis, elementum et feugiat sit amet, scelerisque eget elit. Nulla porttitor vehicula orci, eu molestie quam consectetur nec. Maecenas nec quam porta, mattis nibh non, pellentesque massa. Donec elit arcu, maximus et sodales ut, eleifend ut tortor. Cras posuere est ac mauris faucibus dictum.
-              Phasellus a suscipit nulla. In at malesuada justo. Fusce ut sapien porta, auctor tellus eleifend, ultrices mi.</p>
-            <p>
-              <button md-raised-button color="primary">Some Button</button>
-            </p>
-          </div>
-        </md-sidenav-container>
-      </md-card-content>
-    </md-card>
+
     <md-card class="backdrop-hidden">
       <md-card-content>
         <md-card-title>Slider Panel - Resize</md-card-title>

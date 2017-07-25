@@ -13,7 +13,7 @@ export class DialogCustomComponent {
     disableClose: true,
     width: '75%',
     height: '100%',
-    backdropClass:'',// no initial value - picks up default class for basic modal
+    backdropClass:'cdk-overlay-custom-backdrop',// no initial value - picks up default class for basic modal
     position: {
       top: '',
       bottom: '',
@@ -41,7 +41,7 @@ export class DialogCustomComponent {
         <li>Width:75%</li>
         <li>Height: 100%</li>
         <li>disableClose: true (must click on close from dialog</li>
-        <li>backdropClass= default... same as basic dialog.</li>
+        <li>backdropClass= "cdk-overlay-custom-backdrop". We will be making this the default override for all overlays.</li>
       </ul>
       <p> <strong>{{ customMessage }} </strong></p>
       <p>I haven't figured out a way to have modal go full width in mobile as of yet.</p>

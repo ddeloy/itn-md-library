@@ -2,13 +2,121 @@
   <md-card-title>Dialog - Custom</md-card-title>
   <md-card-subtitle>This is a custom flavor of MdDialog.</md-card-subtitle>
   <md-card-content>
-    <p><strong>I am in the process of publishing this as a custom component</strong> - where developer will be able to modify basic attributes and content at the project level.
-      <br/><strong>Until then</strong> - if you need to start using Custom Dialog - please rely on the code from sample site (Raman can help with this).</p>
-    <p><strong>To Do:</strong> Adding max-width: 1024px causing some odd side effects (so have left out for now). Likely because in the config the width is set to 75%.
-      Material dialog api suggests not using width as % in dialog config - so this could be the issue. Also, haven't figured out how to have modal go full screen
-    when in mobile. This seems to be a known issue out amongst Material 2 blogs. So, if I come up with a solution - it will make a lot of people happy :).
-      (Adam: You may recall we discussed this issue - and, I believe, you said it was ok if doesn't go full screen in mobile).
-      Animation: As of yet, unable to figure out how to control default 'from bottom' behavior.</p>
-    <button md-raised-button color="primary" (click)="openCustom()" [disabled]="dialogRef">Open custom dialog</button>
+    <button md-raised-button color="primary" (click)="openCustom()" [disabled]="dialogRef">Open custom dialog</button><br/><br/>
+    <a href="https://plnkr.co/edit/5p2PLQRmM49i1qaOfrsJ?p=preview" target="_blank">View Dialog Plunker Here</a>
+    <p><strong>Sample Use Case – You need to create a view with the following elements:</strong></p>
+
+    <ul>
+      <li>Form
+        <ul>
+          <li>Select</li>
+          <li>Checkbox</li>
+          <li>Radio</li>
+          <li>Dialog - Save</li>
+        </ul>
+      </li>
+      <li>SnackBar: Called after form is saved</li>
+    </ul>
+    <p><strong>Our Library Module is imported at root level</strong></p>
+    <ul>
+      <li>Styles are imported globally with 1 @import – and will be applied to any md-components/elements.</li>
+      <li>We can simply declare a dialogRef and use material  mdDialog.</li>
+      <li>The dialog will have a few config options – and will pick up styling from our library.</li>
+    </ul>
+
+    <strong>app.component.ts</strong><br/>
+    import &#123; Component } from '@angular/core';<br/>
+    import &#123;MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';<br/>
+    // need to import these separate from the Library module because they are dynamic components – but they will still inherit our custom theming<br/>
+    <br/>
+    @Component(&#123;<br/>
+    selector: 'app-root',<br/>
+    templateUrl: './app.component.html',<br/>
+    styleUrls: ['./app.component.scss']<br/>
+    })<br/>
+    export class AppComponent &#123;<br/>
+    states = [&#123;code: 'AL', name: 'Alabama'},&#123;code: 'CA', name: 'California'}]; // populate select<br/>
+    selectedOption: string; //display user selected dialog option – pass to SnackBar instance<br/>
+    constructor&#123;public dialog: MdDialog, public snackBar:MdSnackBar) &#123;} // constructor for dialog and snackbar<br/><br/>
+    // Inside parent component – simply use the mdDialog by creating a dialogRef<br/>
+    openSaveDialog() &#123;<br/>
+    let dialogRef = this.dialog.open(SaveDialog, &#123;<br/>
+    disableClose: true,<br/>
+    width: '75%',<br/>
+    height: '100%',<br/>
+    backdropClass:'cdk-overlay-custom-backdrop',//supply a custom backdrop class. No initial value - picks up default class for basic modal<br/>
+    });<br/>
+
+    dialogRef.afterClosed().subscribe(result => &#123;<br/>
+    this.selectedOption = result;<br/>
+    this.snackBar.open(result,'Save',&#123;duration:2000}); // call the SnackBar to open after dialog closes<br/>
+    });<br/>
+    }<br/>
+    }
+    <br/>
+    <br/>
+    // Child component for Dialog template<br/>
+    @Component(&#123;<br/>
+    template:`<br/>
+    &lt;h1 md-dialog-title>Save Dialog&lt;/h1><br/>
+    &lt;div md-dialog-content>Would you like to save?&lt;/div><br/>
+    &lt;div md-dialog-actions><br/>
+      &lt;button md-button (click)="dialogRef.close('Yes')">Yes&lt;/button><br/>
+      &lt;button md-button (click)="dialogRef.close('No')">No&lt;/button><br/>
+      &lt;button md-button (click)="dialogRef.close()">Close&lt;/button><br/>
+    &lt;/div><br/>
+    `
+    <br/>
+    })<br/>
+    export class SaveDialog&#123;<br/>
+    constructor(public dialogRef: MdDialogRef&lt;SaveDialog>) &#123;<br/>
+    }}<br/>
+    <br/>
+    <strong>app.component.html</strong><br/>
+    &lt;form class="full-width"><br/>
+      &lt;md-card><br/>
+        &lt;table><br/>
+         &lt;tr><br/>
+            &lt;md-input-container><br/>
+              &lt;input mdInput placeholder="First Name"><br/>
+           &lt;/md-input-container><br/>
+          &lt;/tr><br/>
+          &lt;tr><br/>
+            &lt;md-input-container><br/>
+              &lt;input mdInput placeholder="Last Name"><br/>
+            &lt;/md-input-container><br/>
+         &lt;/tr><br/>
+        &lt;/table><br/>
+      &lt;/md-card><br/>
+      &lt;md-card><br/>
+        &lt;md-radio-button value="f">Female&lt;/md-radio-button><br/>
+        &lt;md-radio-button value="m">Male&lt;/md-radio-button><br/>
+      &lt;/md-card><br/>
+      &lt;md-card><br/>
+        &lt;md-checkbox>Weather Update&lt;/md-checkbox><br/>
+        &lt;md-checkbox>Marketing Mails&lt;/md-checkbox><br/>
+        &lt;md-checkbox>SMS&lt;/md-checkbox><br/>
+      &lt;/md-card><br/>
+      &lt;md-card><br/>
+        &lt;md-select placeholder="State"><br/>
+         &lt;md-option *ngFor="let state of states" [value]="state.code"><br/>
+            &#123;&#8203;&#123;state.name}&#8203;}<br/>
+        &lt;/md-option><br/>
+        &lt;/md-select><br/>
+      &lt;/md-card><br/>
+      &lt;md-card><br/>
+    <strong style="color:red;"> &lt;button md-raised-button (click)="openSaveDialog()" color="primary">Save Dialog&lt;/button>Selected Option: &#123;&#8203;&#123;selectedOption}&#8203;}</strong><br/>
+      &lt;/md-card><br/>
+    &lt;/form><br/>
+    <br/>
+    <strong>app.module.ts</strong><br/>
+    entryComponents: [ // declare dialogRef as entryComponent because created dynamically<br/>
+    SaveDialog<br/>
+    ],
+
+
+
+
+
   </md-card-content>
 </md-card>

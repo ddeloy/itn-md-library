@@ -17,3 +17,11 @@ md-dialog-container.mat-dialog-container {
   @include angular-material-theme($dark-theme);
   background: mat-color(map-get($primary, contrast), 50, 0.4);
 }
+
+/* Custom Dialog */
+.cdk-overlay-custom-backdrop {
+//  @include angular-material-theme($theme);
+  background:#e8ebed !important;
+  opacity:0.9 !important;
+}
+
