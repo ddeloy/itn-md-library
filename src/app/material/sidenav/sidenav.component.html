@@ -1,110 +1,181 @@
 <md-card>
   <md-card-title>Slider Panel</md-card-title>
   <md-card-subtitle>&lt;md-sidenav> is a panel that can be placed next to or above some primary content. A sidenav is typically used for navigation, but can contain any content.</md-card-subtitle>
-  <md-card-content>
+  <md-card-content>    
     <md-card>
-      <md-card-content>
-        <md-card-title>Slider Panel - with Menu Documentation</md-card-title>
-        <p><strong>Added as a custom component to Library</strong></p>
-        <strong>In whatever component you want to use slider panel with menu - do the following:</strong>
-        <pre>
-       <strong>import &#123; SidenavMenuItem } from '@ddeloy/dd-library';</strong>
-       <strong>Define the menuItems array (based on the following structure) for use in the markup</strong>
-        menuItems = [
-        new SidenavMenuItem('Settings', 'User Management', ' ', ' ', [
-        new SidenavMenuItem(' ', 'Company Settings', ' ', ' ', null),
-        new SidenavMenuItem(' ', 'User Management', ' ', ' ', null),
-        new SidenavMenuItem(' ', 'Shared Settings', ' ', ' ', null)
-        ]),
-        new SidenavMenuItem(' ', 'Users', ' ', ' ', null),
-        new SidenavMenuItem(' ', 'Non-employee access', ' ', ' ', null),
-        new SidenavMenuItem(' ', 'Roles', ' ', ' ', null),
-        new SidenavMenuItem(' ', 'Data Access Groups', ' ', ' ', null)
-        ];
-        </pre>
-        <strong>Then the markup to create the example below would look like this:</strong>
-        <pre>
-        &lt;md-toolbar color="primary">&lt;/md-toolbar>
-        &lt;md-sidenav-container class="sidenav-container">
-          &lt;md-sidenav class="sidenav-menu" mode="side" opened align="start">
-            &lt;ul>
-              &lt;sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem">&lt;/sidenav-item>
-            &lt;/ul>
-          &lt;/md-sidenav>
-          &lt;div class="sidenav-content">
-            Content goes here
-          &lt;/div>
-        &lt;/md-sidenav-container>
-      </pre>
+      <md-card-title>Slider Panel - with Menu Documentation</md-card-title>
+      <md-card-content>        
+        <p><strong>Added as a custom component <code>SideMenuItem</code> to the Library</strong></p>
+        <strong>In whatever component you want to use slider panel with menu - do the following:</strong><br/>
+        <strong>import &#123; SidenavMenuItem } from '@ddeloy/dd-library';</strong>
+        <p>Please see below example for code details.</p>
       </md-card-content>
     </md-card>
     <md-card>
       <md-card-content>
-        <md-card-title>Slider Panel - with Menu</md-card-title>
-        <md-toolbar color="primary"></md-toolbar>
-        <md-sidenav-container class="sidenav-container">
-          <md-sidenav class="sidenav-menu" mode="side" opened align="start">
-            <ul>
-              <sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem"></sidenav-item>
-            </ul>
-          </md-sidenav>
-          <div class="sidenav-content"> <strong>Slider Panel Content</strong>
-            <p>The left side panel has a side item component that ...</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero magna, fermentum ut arcu ac, tempor auctor diam. Morbi facilisis ultrices sem posuere varius. Aliquam erat volutpat.</p>
-            <p>Duis convallis orci vitae iaculis mollis. Ut aliquet sagittis mi id blandit. Nullam quis odio vitae ante vulputate cursus. Morbi venenatis scelerisque tortor. Donec lacinia porta lorem ac lobortis. Vivamus egestas porta sem ac accumsan. Integer libero turpis, elementum et feugiat sit amet, scelerisque eget elit. Nulla porttitor vehicula orci, eu molestie quam consectetur nec. Maecenas nec quam porta, mattis nibh non, pellentesque massa. Donec elit arcu, maximus et sodales ut, eleifend ut tortor. Cras posuere est ac mauris faucibus dictum.
-              Phasellus a suscipit nulla. In at malesuada justo. Fusce ut sapien porta, auctor tellus eleifend, ultrices mi.</p>
-            <p>Donec aliquet mollis risus tincidunt vestibulum. Nunc semper mattis nisi, non bibendum lectus. Cras accumsan augue dui, ut tincidunt orci pharetra auctor. In suscipit, mi vel faucibus consectetur, dui nibh pulvinar dui, vitae bibendum metus quam vitae ante. Nunc aliquam felis at mauris elementum, eleifend congue purus malesuada. Cras laoreet ipsum vitae orci condimentum, eu mattis mauris tincidunt. Nulla ultrices, libero maximus iaculis egestas, lacus dolor lobortis est, nec eleifend mi diam scelerisque mauris. Quisque rutrum malesuada dui, eu laoreet tortor hendrerit a.
-              Quisque interdum ipsum a mauris molestie tempus.</p>
-            <p>Duis convallis orci vitae iaculis mollis. Ut aliquet sagittis mi id blandit. Nullam quis odio vitae ante vulputate cursus. Morbi venenatis scelerisque tortor. Donec lacinia porta lorem ac lobortis. Vivamus egestas porta sem ac accumsan. Integer libero turpis, elementum et feugiat sit amet, scelerisque eget elit. Nulla porttitor vehicula orci, eu molestie quam consectetur nec. Maecenas nec quam porta, mattis nibh non, pellentesque massa. Donec elit arcu, maximus et sodales ut, eleifend ut tortor. Cras posuere est ac mauris faucibus dictum.
-              Phasellus a suscipit nulla. In at malesuada justo. Fusce ut sapien porta, auctor tellus eleifend, ultrices mi.</p>
-            <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-              <md-input-container class="ml-xs mr-xs">
-                <input mdInput placeholder="Name" type="text">
-              </md-input-container>
-              <md-input-container floatplaceholder="auto" class="ml-xs mr-xs">
-                <input mdInput placeholder="Email" type="email">
-              </md-input-container>
-            </div>
-            <p>
-              <button md-raised-button color="primary">Some Button</button>
-            </p>
+        <div class="example-viewer">
+          <div class="example-viewer-title">
+            Slider Panel - with Menu
           </div>
-        </md-sidenav-container>
+          <div class="example-viewer-source">
+            <md-tab-group>
+              <md-tab label="sidenav.component.html">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-sidenav-container</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sidenav-container"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"height: 500px;"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-sidenav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sidenav-menu"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"side"</span> <span class="hljs-attr">opened</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"start"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">sidenav-item</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let menuItem of menuItems"</span> [<span class="hljs-attr">menuItem</span>]=<span class="hljs-string">"menuItem"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">sidenav-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-sidenav</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sidenav-content"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Slider Panel Content<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Rest of the content goes here...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-sidenav-container</span>&gt;</span>
+</pre>
+              </md-tab>
+              <md-tab label="sidenav.component.ts">
+<pre>
+<span class="hljs-keyword">import</span> {{'{'}} Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {{'{'}} SidenavMenuItem } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ddeloy/dd-library'</span>;
+
+
+<span class="hljs-meta">@Component</span>({{'{'}}
+  selector: <span class="hljs-string">'app-sidenav'</span>,
+  templateUrl: <span class="hljs-string">'./sidenav.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./sidenav.component.scss'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> SidenavComponent {{'{'}}
+
+  <span class="hljs-keyword">constructor</span>() {{'{'}}}
+
+  menuItems = [
+    <span class="hljs-keyword">new</span> SidenavMenuItem(<span class="hljs-string">'Settings'</span>, <span class="hljs-string">'User Management'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, [
+      <span class="hljs-keyword">new</span> SidenavMenuItem(<span class="hljs-string">''</span>, <span class="hljs-string">'Company Settings'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-keyword">null</span>),
+      <span class="hljs-keyword">new</span> SidenavMenuItem(<span class="hljs-string">''</span>, <span class="hljs-string">'User Management'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-keyword">null</span>),
+      <span class="hljs-keyword">new</span> SidenavMenuItem(<span class="hljs-string">''</span>, <span class="hljs-string">'Shared Settings'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-keyword">null</span>)
+    ]),
+    <span class="hljs-keyword">new</span> SidenavMenuItem(<span class="hljs-string">''</span>, <span class="hljs-string">'Users'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-keyword">null</span>),
+    <span class="hljs-keyword">new</span> SidenavMenuItem(<span class="hljs-string">''</span>, <span class="hljs-string">'Non-employee access'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-keyword">null</span>),
+    <span class="hljs-keyword">new</span> SidenavMenuItem(<span class="hljs-string">''</span>, <span class="hljs-string">'Roles'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-keyword">null</span>),
+    <span class="hljs-keyword">new</span> SidenavMenuItem(<span class="hljs-string">''</span>, <span class="hljs-string">'Data Access Groups'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-keyword">null</span>)
+  ];
+}
+</pre>
+              </md-tab>
+              <md-tab label="sidenav-item/sidenav-item.component.html">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">li</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"!menuItem.hasChildren"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sec-title"</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"menuItem.secTitle != ''"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.secTitle }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0);"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-title"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">li</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"menuItem.hasChildren"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"show-drop {{'{'}}{{'{'}}_showChildren?'active':''}}"</span>
+  (<span class="hljs-attr">click</span>)=<span class="hljs-string">"clicked($event)"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sec-title"</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"menuItem.secTitle != ''"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.secTitle }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0);"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-title"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>  
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapse-side"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">sidenav-item</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let childMenuItem of menuItem.children"</span> [<span class="hljs-attr">menuItem</span>]=<span class="hljs-string">"childMenuItem"</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">sidenav-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+</pre>
+              </md-tab>
+              <md-tab label="sidenav-item/sidenav-item.component.ts">
+<pre>
+<span class="hljs-keyword">import</span> {{'{'}} Component, Input } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {{'{'}} SidenavMenuItem } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ddeloy/dd-library'</span>;
+
+
+<span class="hljs-meta">@Component</span>({{'{'}}
+  selector: <span class="hljs-string">'sidenav-item'</span>,
+  templateUrl: <span class="hljs-string">'./sidenav-item.component.html'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> SidenavItemComponent {{'{'}}
+
+  @<span class="hljs-keyword">Input</span> menuItem: SidenavMenuItem;
+  <span class="hljs-keyword">private</span> _showChildren: <span class="hljs-built_in">boolean</span> = <span class="hljs-boolean">false</span>;
+
+  clicked(event: MouseEvent) {{'{'}}
+    <span class="hljs-keyword">this</span>._showChildren = !<span class="hljs-keyword">this</span>._showChildren;
+  }
+}
+</pre>
+              </md-tab>
+            </md-tab-group>
+          </div>
+          <div class="example-viewer-body">
+            <md-toolbar color="primary"></md-toolbar>
+            <md-sidenav-container class="sidenav-container" style="height: 500px;">
+              <md-sidenav class="sidenav-menu" mode="side" opened align="start">
+                <ul>
+                  <sidenav-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem"></sidenav-item>
+                </ul>
+              </md-sidenav>
+              <div class="sidenav-content">
+                <strong>Slider Panel Content</strong>
+                <p>Rest of the content goes here...</p>
+              </div>
+            </md-sidenav-container>
+          </div>
+        </div>        
       </md-card-content>
     </md-card>
     <md-card>
       <md-card-content>
-        <md-card-title>Slider Panel - Layout that mimics the sample site</md-card-title>
-        <pre>
-       <strong>Just drop this markup in - styling and elements are all part of the Library Module</strong>
-       &lt;md-toolbar class="main-header" color="primary"> &lt;/md-toolbar>
-       &lt;md-sidenav-container class="app-inner">
-          &lt;md-sidenav #sidemenu class="sidebar-panel sidebar-menu-panel"  mode="side" opened>
-          <strong>You can do your own thing with the nav </strong>
-            &lt;md-nav-list class="navigation">
-              &lt;md-list-item>&lt;a href="javascript:void(0);">Home&lt;/a>&lt;/md-list-item>
-              &lt;md-list-item>&lt;a href="javascript:void(0);">Basic&lt;/a>&lt;/md-list-item>
-            &lt;/md-nav-list>
-          &lt;/md-sidenav>
-          &lt;router-outlet>&lt;/router-outlet>
-        &lt;/md-sidenav-container>
-        </pre>
-      <md-toolbar class="main-header" color="primary"> </md-toolbar>
-        <md-sidenav-container class="app-inner">
-          <md-sidenav #sidemenu class="sidebar-panel sidebar-menu-panel"  mode="side" opened>
-            <md-nav-list class="navigation">
-              <md-list-item><a href="javascript:void(0);">Home</a></md-list-item>
-              <md-list-item><a href="javascript:void(0);">Basic</a></md-list-item>
-            </md-nav-list>
-          </md-sidenav>
-          <router-outlet></router-outlet>
-        </md-sidenav-container>
+        <div class="example-viewer">
+          <div class="example-viewer-title">
+            Slider Panel - Layout that mimics the sample site
+          </div>
+          <div class="example-viewer-source">
+<pre>
+<span class="hljs-comment">&lt;!-- Just drop this markup in - styling and elements are all part of the Library Module --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main-header"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-sidenav-container</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"app-inner sidenav-container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-sidenav</span> #<span class="hljs-attr">sidemenu</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sidebar-panel sidebar-menu-panel"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"side"</span> <span class="hljs-attr">opened</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- You can do your own thing with the nav --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-nav-list</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navigation"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">md-list-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0);"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">md-list-item</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">md-list-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0);"</span>&gt;</span>Basic<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">md-list-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-nav-list</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-sidenav</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">router-outlet</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-outlet</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-sidenav-container</span>&gt;</span>
+</pre>
+          </div>
+          <div class="example-viewer-body">
+            <md-toolbar class="main-header" color="primary"></md-toolbar>
+            <md-sidenav-container class="app-inner sidenav-container">
+              <md-sidenav #sidemenu class="sidebar-panel sidebar-menu-panel"  mode="side" opened>
+                <md-nav-list class="navigation">
+                  <md-list-item>
+                    <a href="javascript:void(0);">Home</a>
+                  </md-list-item>
+                  <md-list-item>
+                    <a href="javascript:void(0);">Basic</a>
+                  </md-list-item>
+                </md-nav-list>
+              </md-sidenav>
+              <router-outlet></router-outlet>
+            </md-sidenav-container>
+          </div>
+        </div>      
       </md-card-content>
     </md-card>
 
     <md-card class="backdrop-hidden">
+      <md-card-title>Slider Panel - Resize</md-card-title>
       <md-card-content>
-        <md-card-title>Slider Panel - Resize</md-card-title>
         <md-sidenav-container class="sidenav-container backdrop-hidden" style="height:225px;padding:0;">
           <md-toolbar color="primary">
             <button md-raised-button color="accent" (click)="start2.toggle()">Toggle SideNav</button>
@@ -151,8 +222,8 @@
       </md-card-content>
     </md-card> -->
     <md-card>
+      <md-card-title>Slider Panel with Focus Attributes</md-card-title>
       <md-card-content>
-        <md-card-title>Slider Panel with Focus Attributes</md-card-title>
         <md-sidenav-container  class="sidenav-container">
           <md-sidenav class="sm" #focusSidenav>
             <md-nav-list> <a md-list-item routerLink>Link item-2</a> <a md-list-item routerLink cdk-focus-region-start>Focus region start</a> <a md-list-item routerLink>Link</a> <a md-list-item routerLink cdk-focus-initial>Initially focused</a> <a md-list-item routerLink cdk-focus-region-end>Focus region end</a> <a md-list-item routerLink>Link</a>&nbsp; </md-nav-list>
@@ -165,6 +236,60 @@
               <button md-button color="primary" (click)="focusSidenav.toggle()">Toggle Drawer</button>
             </div>
           </div>
+        </md-sidenav-container>
+      </md-card-content>
+    </md-card>
+
+    <md-card>
+      <md-card-title>Callouts</md-card-title>
+      <md-card-content>
+        <md-sidenav-container class="backdrop-hidden" style="height:400px;padding:0;">
+          <md-sidenav #sidenav mode="side" align="top" (close)="onCalloutClose(sidenav)">
+          </md-sidenav>
+
+          <div>
+            <md-toolbar color="primary" class="mb-1">
+              <span>Accent Toolbar</span>
+              <span fxFlex></span>
+              <button md-button href="#" md-icon-button>
+                <md-icon>more_vert</md-icon>
+              </button>
+            </md-toolbar>
+            <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+              <label class="mr-xs">
+                <span>Message</span>
+                <md-input-container floatPlaceholder="never">
+                  <input mdInput placeholder="Snack Bar Message" type="text" value="Success Message" #calloutMessage>
+                </md-input-container>
+              </label>
+              <label class="ml-xs">
+                <span>Action</span>
+                <md-input-container floatPlaceholder="never">
+                  <input mdInput placeholder="Snack Bar Action Label" type="text" #calloutAction>
+                </md-input-container>
+              </label>
+            </div>
+            <md-radio-group name="my_options" fxLayout="row" fxLayout.xs="column" class="mb-1" [(ngModel)]="calloutType">
+              <md-radio-button class="mr-1" value="success">Success</md-radio-button>
+              <md-radio-button class="mr-1" value="error">Error</md-radio-button>
+              <md-radio-button class="mr-1" value="warning">Warning</md-radio-button>
+              <md-radio-button class="mr-1" value="info">Info</md-radio-button>
+            </md-radio-group>
+            
+            <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+              <md-checkbox [(ngModel)]="autoClose" class="mr-xs" style="width: 100%;">Auto Close</md-checkbox>
+              <label class="ml-xs">
+                <span>Duration</span>
+                <md-input-container floatPlaceholder="never">
+                  <input mdInput placeholder="Duration in milisecs" type="number" min="0" #calloutDuration [disabled]="!autoClose">
+                </md-input-container>
+              </label>
+            </div>
+            <button md-raised-button color="primary" (click)="openCallout(sidenav, calloutType, calloutMessage.value, calloutAction.value, autoClose, calloutDuration.value)">
+              Show Callout
+            </button>
+          </div>
+
         </md-sidenav-container>
       </md-card-content>
     </md-card>

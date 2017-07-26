@@ -189,7 +189,7 @@
             <md-radio-button class="mr-1" value="info">Info</md-radio-button>
           </md-radio-group>
           <md-checkbox [(ngModel)]="dismissible" class="block mb-1">Dismissible (with close button)</md-checkbox>
-          <button md-raised-button color="primary" (click)="openSnackBar(sbmessage.value, sbaction.value, 3000, dismissible, [sbType])">
+          <button md-raised-button color="primary" (click)="openSnackBar(sbmessage.value, sbaction.value, 30000000, dismissible, [sbType])">
             Show Snackbar
           </button>
         </div>

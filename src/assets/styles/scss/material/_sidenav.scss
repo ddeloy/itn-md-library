@@ -94,6 +94,85 @@ md-sidenav.mat-sidenav {
   }
 }
 
+.mat-sidenav.mat-sidenav-side[ng-reflect-align="top"] {
+  width: 100% !important;
+  transform: translate3d(0, -100%, 0);
+  height: 48px !important;
+  text-align: center;
+  padding: 15px 0 0;
+  &:before {
+    font-family: 'Material Icons';
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga" 1;
+    font-style: normal;
+    text-transform: none;
+    line-height: 20px;
+    vertical-align: middle;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .btn-callout-action {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    background: 0 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    margin-left: 0;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+  &.success {
+    background-color: #64be1e;
+    color: #ffffff;
+    &:before {
+      content: 'check_circle';
+      color: #ffffff;
+    }
+  }
+  &.error {
+    background-color: #ff6868;
+    color: #ffffff;
+    &:before {
+      content: 'warning';
+      color: #ffffff;
+    }
+  }
+  &.warning {
+    background-color: #ffc841;
+    color: #021a25;
+    &:before {
+      content: 'warning';
+      color: #ffffff;
+    }
+  }
+  &.info {
+    background-color: #fff5dc;
+    color: #021a25;
+    &:before {
+      content: 'info';
+      color: #0e0e0e;
+    }
+  }  
+  &.mat-sidenav-opening, &.mat-sidenav-opened {
+    transform: translate3d(0, 0, 0);    
+    & + div + div  {
+      transform: translate3d(0px, 48px, 0px) !important;
+      margin-left: 0 !important;
+    }
+  }
+}
+
 
 /* This CSS for demo purposes only - plan to refactor... ddeloy */
 
