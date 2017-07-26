@@ -28,6 +28,18 @@ $font-size-h4: 1.5rem !default;
 $font-size-h5: 1.25rem !default;
 $font-size-h6: 1rem !default;
 
+/* Added by Adam 07/26 */
+$font-size-text: 1rem;
+$font-size-small: 0.875rem;
+$font-size-tiny: 0.75rem;
+/* ************************************** */
+/*  custom colors - added by ddeloy 07/26 */
+$default-text-color: map-get($accent,600); // all text
+$default-link-color: map-get($primary,600); // all links
+
+
+/* ************************************  */
+
 $headings-margin-bottom: (1rem / 2) !default;
 $headings-font-family:   inherit !default;
 $headings-font-weight:   400 !default;
@@ -106,7 +118,7 @@ $container-max-widths: (
 
 //
 // Text Input and Select related
-//
+
 $placeholder-color:map-get($accent,300);
 
 $default-border-color: map-get($accent,200);

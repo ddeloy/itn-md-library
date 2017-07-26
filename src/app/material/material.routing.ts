@@ -22,6 +22,7 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ChipsComponent } from './chips/chips.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { SidenavComponent } from "./sidenav/sidenav.component";
+import {TypographyComponent} from "./typography/typography.component";
 
 export const MaterialRoutes: Routes = [
   {
@@ -29,6 +30,9 @@ export const MaterialRoutes: Routes = [
     children: [{
       path: 'button',
       component: ButtonsComponent
+    }, {
+      path: 'typography',
+      component: TypographyComponent
     }, {
       path: 'cards',
       component: CardsComponent

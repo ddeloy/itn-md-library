@@ -35,6 +35,7 @@ const MENUITEMS = [
     children: [
       {state: 'button', name: 'BUTTON'},
    //   {state: 'cards', name: 'CARDS'},
+      {state: 'typography', name: 'Typography'},
       {state: 'select', name: 'SELECT'},
       {state: 'autocomplete', name: 'AUTOCOMPLETE'},
       {state: 'inputoptions', name: 'Input Options'},

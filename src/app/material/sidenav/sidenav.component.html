@@ -1,12 +1,12 @@
 <md-card>
   <md-card-title>Slider Panel</md-card-title>
   <md-card-subtitle>&lt;md-sidenav> is a panel that can be placed next to or above some primary content. A sidenav is typically used for navigation, but can contain any content.</md-card-subtitle>
-  <md-card-content>    
+  <md-card-content>
     <md-card>
       <md-card-title>Slider Panel - with Menu Documentation</md-card-title>
-      <md-card-content>        
+      <md-card-content>
         <p><strong>Added as a custom component <code>SideMenuItem</code> to the Library</strong></p>
-        <strong>In whatever component you want to use slider panel with menu - do the following:</strong><br/>
+        <p>So in whatever component you want to use slider panel with menu - do the following:</p><br/>
         <strong>import &#123; SidenavMenuItem } from '@ddeloy/dd-library';</strong>
         <p>Please see below example for code details.</p>
       </md-card-content>
@@ -63,31 +63,32 @@
   ];
 }
 </pre>
+
               </md-tab>
-              <md-tab label="sidenav-item/sidenav-item.component.html">
-<pre>
-<span class="hljs-tag">&lt;<span class="hljs-name">li</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"!menuItem.hasChildren"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sec-title"</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"menuItem.secTitle != ''"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.secTitle }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0);"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-title"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">li</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"menuItem.hasChildren"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"show-drop {{'{'}}{{'{'}}_showChildren?'active':''}}"</span>
-  (<span class="hljs-attr">click</span>)=<span class="hljs-string">"clicked($event)"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sec-title"</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"menuItem.secTitle != ''"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.secTitle }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0);"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-title"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>  
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapse-side"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">sidenav-item</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let childMenuItem of menuItem.children"</span> [<span class="hljs-attr">menuItem</span>]=<span class="hljs-string">"childMenuItem"</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">sidenav-item</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-</pre>
-              </md-tab>
-              <md-tab label="sidenav-item/sidenav-item.component.ts">
+              <!--     <md-tab label="sidenav-item/sidenav-item.component.html">
+     <pre>
+     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"!menuItem.hasChildren"</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sec-title"</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"menuItem.secTitle != ''"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.secTitle }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0);"</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-title"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"menuItem.hasChildren"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"show-drop {{'{'}}{{'{'}}_showChildren?'active':''}}"</span>
+       (<span class="hljs-attr">click</span>)=<span class="hljs-string">"clicked($event)"</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sec-title"</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"menuItem.secTitle != ''"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.secTitle }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0);"</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-title"</span>&gt;</span>{{'{'}}{{'{'}} menuItem.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapse-side"</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">sidenav-item</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let childMenuItem of menuItem.children"</span> [<span class="hljs-attr">menuItem</span>]=<span class="hljs-string">"childMenuItem"</span>&gt;</span>
+           <span class="hljs-tag">&lt;/<span class="hljs-name">sidenav-item</span>&gt;</span>
+         <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+     </pre>
+                   </md-tab> -->
+   <!--           <md-tab label="sidenav-item/sidenav-item.component.ts">
 <pre>
 <span class="hljs-keyword">import</span> {{'{'}} Component, Input } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
 <span class="hljs-keyword">import</span> {{'{'}} SidenavMenuItem } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ddeloy/dd-library'</span>;
@@ -107,7 +108,7 @@
   }
 }
 </pre>
-              </md-tab>
+              </md-tab> -->
             </md-tab-group>
           </div>
           <div class="example-viewer-body">
@@ -124,7 +125,7 @@
               </div>
             </md-sidenav-container>
           </div>
-        </div>        
+        </div>
       </md-card-content>
     </md-card>
     <md-card>
@@ -169,7 +170,7 @@
               <router-outlet></router-outlet>
             </md-sidenav-container>
           </div>
-        </div>      
+        </div>
       </md-card-content>
     </md-card>
 
@@ -243,6 +244,8 @@
     <md-card>
       <md-card-title>Callouts</md-card-title>
       <md-card-content>
+        <p><strong>Note: Callouts are under development and are not ready for use yet.
+        Additionally, the callouts will be moved to a separate page shortly.</strong></p>
         <md-sidenav-container class="backdrop-hidden" style="height:400px;padding:0;">
           <md-sidenav #sidenav mode="side" align="top" (close)="onCalloutClose(sidenav)">
           </md-sidenav>
@@ -275,7 +278,7 @@
               <md-radio-button class="mr-1" value="warning">Warning</md-radio-button>
               <md-radio-button class="mr-1" value="info">Info</md-radio-button>
             </md-radio-group>
-            
+
             <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
               <md-checkbox [(ngModel)]="autoClose" class="mr-xs" style="width: 100%;">Auto Close</md-checkbox>
               <label class="ml-xs">
