@@ -35,7 +35,7 @@
             <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
           </ng-container>
           <ng-template #simpleTmpl>
-            <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" (click)="closeMenu()">
+            <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" [routerLink]="item.link" (click)="closeMenu()">
               <span>{{item.text}}</span>
               <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
             </button>
@@ -64,7 +64,7 @@
         <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
       </ng-container>
       <ng-template #simpleTmpl>
-        <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" (click)="closeMenu()">
+        <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" [routerLink]="item.link"  (click)="closeMenu()">
           <span>{{item.text}}</span>
           <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
         </button>

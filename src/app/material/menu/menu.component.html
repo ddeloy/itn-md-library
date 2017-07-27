@@ -1,55 +1,353 @@
 <md-card>
-  <md-card-title>Menus (dropdowns)</md-card-title>
-  <md-card-subtitle>md-menu is a list of options that displays when triggered.</md-card-subtitle>
+  <md-card-title>Menu</md-card-title>
+  <md-card-subtitle><code>md-menu</code> is a list of options that appears when triggered.</md-card-subtitle>
   <md-card-content>
-    <p>Custom nested menu </p>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdMenuModule</code> - 
+        <a class="badge" href="https://material.angular.io/components/menu/overview" target="_blank">
+          Official Documentation
+        </a>
+      </p>
+      <p>
+        A basic menu is created by using <code>md-menu</code> element. Menu items, ie, child elements of <code>md-menu</code>
+        are marked by <code>md-menu-item</code> attribute.
+      </p>
+      <p>
+        A menu is attached to and triggered by another element via application of <code>mdMenuTriggerFor</code>
+        directive, which is set to the <code>id</code> of the menu, ie., <code>id</code> of the <code>md-menu</code>
+        element.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Basic Menu
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"basicMenu"</span>&gt;</span>Menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">basicMenu</span>=<span class="hljs-string">"mdMenu"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Item 1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-button [mdMenuTriggerFor]="basicMenu">Menu</button>
+          <md-menu #basicMenu="mdMenu">
+            <button md-menu-item>Item 1</button>
+            <button md-menu-item>Item 2</button>
+          </md-menu>
+        </div>
+      </div> 
+
+      <h3 id="menu-custom-nested">Custom Nested Menu</h3>
+      <p>
+        A custom <code>top-menu</code> component has been developed over <code>md-menu</code> to allow ngFor
+        nesting of menus and categorization of menu-items.
+      </p>
+      <p>
+        Custom <code>top-menu</code> component - and its model and template - have been included in the package
+        globally and, therefore, can be used straightaway without needing any import.
+      </p>
+      <p>
+        <code>top-menu</code> properties/attributes:
+      </p>
+      <ul>
+        <li>
+          <code>color</code> - to set the on-focus border color for menu-items. Allowed values: <code>primary</code>,
+          <code>accent</code> and <code>warn</code>. If not set or if no value provided then <code>primary</code>
+          would be used.
+        </li>
+        <li>
+          <code>items</code> - menu items in form of an array. Please see below example for code details.
+        </li>
+      </ul>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Custom Nested Menu
+        </div>
+        <div class="example-viewer-source">
+          <md-tab-group>
+              <md-tab label="HTML">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">top-menu</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> [<span class="hljs-attr">items</span>]=<span class="hljs-string">"menuItems"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">top-menu</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span>
+</pre>
+              </md-tab>
+              <md-tab label="TS">
+<pre>
+<span class="hljs-keyword">import</span> {{'{'}} Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+
+<span class="hljs-meta">@Component</span>({{'{'}}
+  selector: <span class="hljs-string">'app-menu'</span>,
+  templateUrl: <span class="hljs-string">'./menu.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./menu.component.scss'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MenuComponent {{'{'}}
+
+  <span class="hljs-keyword">constructor</span>() {{'{'}}}
+
+  menuItems = [
+    {{'{'}}
+      <span class="hljs-comment">// text is the label shown on the menu item</span>
+      text: <span class="hljs-string">'Orders'</span>,
+      items: [
+        {{'{'}}
+          text: <span class="hljs-string">'Button'</span>,
+          <span class="hljs-comment">// extraText is secondary detail like keyboard shortcut, shown on the right of menu item with lesser opacity</span>
+          extraText: <span class="hljs-string">'Ctrl+O'</span>,
+          <span class="hljs-comment">// link is the link to navigate to when this menu item gets clicked</span>
+          link: <span class="hljs-string">'/material/button'</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Inputs'</span>,
+          <span class="hljs-comment">// icon uses material icons to show an icon on the right of the menu item</span>
+          icon: <span class="hljs-string">'arrow_right'</span>,
+          items: [
+            {{'{'}}
+              text: <span class="hljs-string">'Input'</span>,
+              link: <span class="hljs-string">'/material/input'</span>,
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Other Inputs'</span>,
+              icon: <span class="hljs-string">'arrow_right'</span>,
+              items: [
+                {{'{'}}
+                  text: <span class="hljs-string">'New'</span>,
+                  icon: <span class="hljs-string">'arrow_right'</span>,
+                  items: [
+                    {{'{'}}
+                      text: <span class="hljs-string">'Input Options'</span>,
+                      link: <span class="hljs-string">'/material/inputoptions'</span>,
+                    },
+                    {{'{'}}
+                      text: <span class="hljs-string">'Autocomplete'</span>,
+                      link: <span class="hljs-string">'/material/autocomplete'</span>,
+                    }
+                  ]
+                },
+                {{'{'}}
+                  text: <span class="hljs-string">'Document'</span>,
+                  icon: <span class="hljs-string">'arrow_right'</span>,
+                  items: [
+                    {{'{'}}
+                      text: <span class="hljs-string">'Document 1'</span>
+                    },
+                    {{'{'}}
+                      text: <span class="hljs-string">'Document 2'</span>
+                    }
+                  ]
+                }
+              ]
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Spreadsheet'</span>
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Presentation'</span>,
+              icon: <span class="hljs-string">'arrow_right'</span>,
+              items: [
+                {{'{'}}
+                  text: <span class="hljs-string">'New'</span>,
+                  icon: <span class="hljs-string">'arrow_right'</span>,
+                  items: [
+                    {{'{'}}
+                      text: <span class="hljs-string">'Document'</span>
+                    },
+                    {{'{'}}
+                      text: <span class="hljs-string">'Spreadsheet'</span>
+                    }
+                  ]
+                }
+              ]
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Form'</span>
+            }
+          ]
+        },
+        {{'{'}}
+          <span class="hljs-comment">// divider: true will bring up a horizontal divider between menu items</span>
+          divider: <span class="hljs-boolean">true</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Open'</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Rename'</span>
+          <span class="hljs-comment">// disabled: true will disable (no pointer event) the menu item</span>
+          disabled: <span class="hljs-boolean">true</span>,
+        },
+        {{'{'}}
+          divider: <span class="hljs-boolean">true</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Print'</span>
+        }
+      ]
+    },
+    {{'{'}}
+      text: <span class="hljs-string">'File'</span>
+      items: [
+        {{'{'}}
+          <span class="hljs-comment">// isCategory: true - to make this item as categorization label for the contained menu items</span>
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'File'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Select'</span>,
+            link: <span class="hljs-string">'/material/select'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Save'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Save As'</span>,
+            icon: <span class="hljs-string">'arrow_right'</span>,
+            items: [
+              {{'{'}}
+                text: <span class="hljs-string">'Print layout'</span>
+              },
+              {{'{'}}
+                text: <span class="hljs-string">'Mode'</span>
+              },
+              {{'{'}}
+                divider: <span class="hljs-boolean">true</span>
+              },
+              {{'{'}}
+                text: <span class="hljs-string">'Full screen'</span>
+              },
+            ]
+          }]
+        },
+        {{'{'}}
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'Other Action'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Delete'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Exit'</span>
+          }]
+        }
+      ]
+    },
+    {{'{'}}
+      text: <span class="hljs-string">'Edit'</span>,
+      items: [
+        {{'{'}}
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'Action'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Undo'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Redo'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Chips'</span>,
+            link: <span class="hljs-string">'/material/chips'</span>
+          }]
+        },
+        {{'{'}}
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'Content'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Copy'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Paste'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Revert to Original'</span>
+          }]
+        },
+        {{'{'}}
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'Other Actions'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Delete'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Delete All'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Highlight All'</span>
+          }]
+        },
+      ]
+    },
+    {{'{'}}
+      text: <span class="hljs-string">'View'</span>,
+      items: [
+        {{'{'}}
+          text: <span class="hljs-string">'Print layout'</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Mode'</span>,
+          icon: <span class="hljs-string">'arrow_right'</span>,
+          items: [
+            {{'{'}}
+              text: <span class="hljs-string">'Presentation'</span>
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Edit'</span>
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Modifiable'</span>
+            }
+          ]
+        },
+        {{'{'}}
+          divider: <span class="hljs-boolean">true</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Full screen'</span>
+        }
+      ]
+    }
+  ];
+}
+</pre>                
+              </md-tab>
+          </md-tab-group>
+        </div>
+        <div class="example-viewer-body">
+            <md-toolbar>
+              <top-menu color="primary" [items]="menuItems"></top-menu>
+            </md-toolbar>
+        </div>
+      </div>
+
+      <h3 id="menu-custom-nested">Basic Menu with Navigation</h3>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Basic Menu
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-icon-button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"anchorMenu"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>more_vert<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- yPosition="above" makes the menu to appear above its triggering element --&gt;</span>
+<span class="hljs-comment">&lt;!-- [overlapTrigger]="false" makes the menu NOT to overlap its triggering element --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">anchorMenu</span>=<span class="hljs-string">"mdMenu"</span> <span class="hljs-attr">yPosition</span>=<span class="hljs-string">"above"</span> [<span class="hljs-attr">overlapTrigger</span>]=<span class="hljs-string">"false"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">md-menu-item</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let item of mitems"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://www.google.com"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"item.disabled"</span>&gt;</span>{{'{'}}{{'{'}} item.text }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <md-toolbar>
+            <button md-icon-button [mdMenuTriggerFor]="anchorMenu">
+              <md-icon>more_vert</md-icon>
+            </button>
+          </md-toolbar>
+          <md-menu #anchorMenu="mdMenu" yPosition="above" [overlapTrigger]="false">
+            <a md-menu-item *ngFor="let item of mitems" href="http://www.google.com" [disabled]="item.disabled">{{ item.text }}</a>
+          </md-menu>
+        </div>
+      </div>
+
+    </div>
   </md-card-content>
-  <md-toolbar>
+  <!--<md-toolbar>
     <top-menu [color]="color" [items]="menuItems"></top-menu>
     <span class="fill-remaining-space"></span>
-  </md-toolbar>
-  <md-card-content>
-    <p>You clicked on: {{ selected }}</p>
-  </md-card-content>
-  <md-toolbar>
-    <button md-icon-button [md-menu-trigger-for]="menu" aria-label="Open basic menu">
-      <md-icon>more_vert</md-icon>
-    </button>
-  </md-toolbar>
-  <md-menu #menu="mdMenu">
-    <button md-menu-item *ngFor="let item of mitems" (click)="select(item.text)" [disabled]="item.disabled"> {{ item.text }} </button>
-  </md-menu>
-  <md-card-content>
-    <p> Clicking these will navigate:</p>
-  </md-card-content>
-  <md-toolbar>
-    <button md-icon-button [md-menu-trigger-for]="anchorMenu" aria-label="Open anchor menu">
-      <md-icon>more_vert</md-icon>
-    </button>
-  </md-toolbar>
-  <md-menu #anchorMenu="mdMenu"> <a md-menu-item *ngFor="let item of mitems" href="http://www.google.com" [disabled]="item.disabled"> {{ item.text }} </a> </md-menu>
-  <md-card-content>
-    <p>Position x: before</p>
-  </md-card-content>
-  <md-toolbar class="end-icon">
-    <button md-icon-button [md-menu-trigger-for]="posXMenu" aria-label="Open x-positioned menu">
-      <md-icon>more_vert</md-icon>
-    </button>
-  </md-toolbar>
-  <md-menu x-position="before" #posXMenu="mdMenu" class="before">
-    <button md-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
-      <md-icon>{{ item.icon }}</md-icon>
-      {{ item.text }} </button>
-  </md-menu>
-  <md-card-content>
-    <p>Position y: above</p>
-  </md-card-content>
-  <md-toolbar>
-    <button md-icon-button [md-menu-trigger-for]="posYMenu" aria-label="Open y-positioned menu">
-      <md-icon>more_vert</md-icon>
-    </button>
-  </md-toolbar>
-  <md-menu y-position="above" #posYMenu="mdMenu">
-    <button md-menu-item *ngFor="let item of mitems" [disabled]="item.disabled"> {{ item.text }} </button>
-  </md-menu>
+  </md-toolbar>-->
 </md-card>

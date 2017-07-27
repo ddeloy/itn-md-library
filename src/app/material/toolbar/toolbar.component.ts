@@ -1,31 +1,33 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent {
   showMenu = false;
-  color = '';
+
   // Custom menu structure - pass in routerLinks here - or external links
   menuItems = [
     {
       text: 'Orders',
       items: [
         {
-          text: 'Share',
-          extraText: 'Ctrl+O'
+          text: 'Button',
+          extraText: 'Ctrl+O',
+          link: '/material/button'
         },
         {
-          text: 'New',
+          text: 'Inputs',
           icon: 'arrow_right',
           items: [
             {
-              text: 'Document'
+              text: 'Input',
+              link: '/material/input'
             },
             {
-              text: 'New',
+              text: 'Other Inputs',
               icon: 'arrow_right',
               items: [
                 {
@@ -33,10 +35,12 @@ export class ToolbarComponent implements OnInit {
                   icon: 'arrow_right',
                   items: [
                     {
-                      text: 'Document'
+                      text: 'Input Options',
+                      link: '/material/inputoptions'
                     },
                     {
-                      text: 'Spreadsheet'
+                      text: 'Autocomplete',
+                      link: '/material/autocomplete'
                     }
                   ]
                 },
@@ -107,7 +111,8 @@ export class ToolbarComponent implements OnInit {
           isCategory: true,
           text: 'File',
           items: [{
-            text: 'New'
+            text: 'Select',
+            link: '/material/select'
           }, {
             text: 'Save'
           }, {
@@ -137,7 +142,7 @@ export class ToolbarComponent implements OnInit {
           }, {
             text: 'Exit'
           }]
-        }        
+        }
       ]
     },
     {
@@ -151,7 +156,8 @@ export class ToolbarComponent implements OnInit {
           }, {
             text: 'Redo'
           }, {
-            text: 'Revert to Original'
+            text: 'Chips',
+            link: '/material/chips'
           }]
         },
         {
@@ -162,7 +168,7 @@ export class ToolbarComponent implements OnInit {
           }, {
             text: 'Paste'
           }, {
-            text: 'Select All'
+            text: 'Revert to Original'
           }]
         },
         {
@@ -175,7 +181,7 @@ export class ToolbarComponent implements OnInit {
           }, {
             text: 'Highlight All'
           }]
-        }        
+        }
       ]
     },
     {
@@ -212,13 +218,11 @@ export class ToolbarComponent implements OnInit {
 
   ];
 
+  // this code is to be used to enable switching of menu to 3-lines on mobile screens
   onMenuClick() {
     this.showMenu = !this.showMenu;
   }
   
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

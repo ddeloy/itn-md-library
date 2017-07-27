@@ -32,9 +32,7 @@ export class TopMenuComponent {
       el.className += ' menu-horz';
     }
     trigger.onMenuOpen.observers = [];
-  } 
-
-  
+  }   
 
   openMenu(trigger: MdMenuTrigger, level: number, event) {
     this.triggers

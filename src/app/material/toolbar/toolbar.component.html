@@ -1,33 +1,336 @@
 <md-card>
   <md-card-title>Toolbar</md-card-title>
-  <md-card-subtitle>MdToolbar is a vertical aligned bar, which can hold the application title or actions.</md-card-subtitle>
+  <md-card-subtitle><code>md-toolbar</code> is a horizontally aligned bar, which can hold the application title and/or actions.</md-card-subtitle>
   <md-card-content>
-    <p>The default color toolbar:</p>
-    <md-toolbar>
-      <button md-button class="button-collapse" md-icon-button (click)="onMenuClick()">
-        <md-icon>menu</md-icon>
-      </button>
-      <a href="#" class="brand-logo">Logo</a>
-      <top-menu [color]="color" [items]="menuItems" [ngClass]="{'shown': showMenu}"></top-menu>
-      <span fxFlex></span>
-      <button md-button href="#" md-icon-button color="primary">
-        <md-icon>apps</md-icon>
-      </button>
-      <button md-button href="#" class="btn-user" md-icon-button>
-        <span>KJ</span>
-      </button>
-      <button md-button href="#" class="btn-notification" md-icon-button color="primary">
-        <md-icon>notifications_none</md-icon>
-        <span class="badge">2</span>
-      </button>
-    </md-toolbar>
-    <p>Theming - <code>color</code> set to <code>primary</code></p>
-    <md-toolbar color="primary">
-      <span>Accent Toolbar</span>
-      <span fxFlex></span>
-      <button md-button href="#" md-icon-button>
-        <md-icon>more_vert</md-icon>
-      </button>
-    </md-toolbar>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdToolbarModule</code> - 
+        <a class="badge" href="https://material.angular.io/components/toolbar/overview" target="_blank">
+          Official Documentation
+        </a>
+      </p>
+      <p>
+        A toolbar is created by using <code>md-toolbar</code> element.
+      </p>
+      <p>
+        Below example creates a toolbar with a custom nested menu in it. Please see Menu page for details on
+        Custom Nested Menu.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">  
+          Default Toolbar
+        </div>
+        <div class="example-viewer-source">
+          <md-tab-group>
+              <md-tab label="HTML">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span>&gt;</span>
+  <span class="hljs-comment">// this button code is for collapsing the menu to 3-lines btn on mobile screen</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-collapse"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"onMenuClick()"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>menu<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>]=<span class="hljs-string">"brand-logo"</span>&gt;</span>Logo<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">top-menu</span> [<span class="hljs-attr">items</span>]=<span class="hljs-string">"menuItems"</span> [<span class="hljs-attr">ngClass</span>]=<span class="hljs-string">"{{'{'}}'shown': showMenu}"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">top-menu</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">fxFlex</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>apps<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-user"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>KJ<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-notification"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>notifications_none<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"badge"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span>
+</pre>
+              </md-tab>
+              <md-tab label="TS">
+<pre>
+<span class="hljs-keyword">import</span> {{'{'}} Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+
+<span class="hljs-meta">@Component</span>({{'{'}}
+  selector: <span class="hljs-string">'app-toolbar'</span>,
+  templateUrl: <span class="hljs-string">'./toolbar.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./toolbar.component.scss'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ToolbarComponent {{'{'}}
+
+  <span class="hljs-keyword">constructor</span>() {{'{'}}}
+
+  menuItems = [
+    {{'{'}}
+      <span class="hljs-comment">// text is the label shown on the menu item</span>
+      text: <span class="hljs-string">'Orders'</span>,
+      items: [
+        {{'{'}}
+          text: <span class="hljs-string">'Button'</span>,
+          <span class="hljs-comment">// extraText is secondary detail like keyboard shortcut, shown on the right of menu item with lesser opacity</span>
+          extraText: <span class="hljs-string">'Ctrl+O'</span>,
+          <span class="hljs-comment">// link is the link to navigate to when this menu item gets clicked</span>
+          link: <span class="hljs-string">'/material/button'</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Inputs'</span>,
+          <span class="hljs-comment">// icon uses material icons to show an icon on the right of the menu item</span>
+          icon: <span class="hljs-string">'arrow_right'</span>,
+          items: [
+            {{'{'}}
+              text: <span class="hljs-string">'Input'</span>,
+              link: <span class="hljs-string">'/material/input'</span>,
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Other Inputs'</span>,
+              icon: <span class="hljs-string">'arrow_right'</span>,
+              items: [
+                {{'{'}}
+                  text: <span class="hljs-string">'New'</span>,
+                  icon: <span class="hljs-string">'arrow_right'</span>,
+                  items: [
+                    {{'{'}}
+                      text: <span class="hljs-string">'Input Options'</span>,
+                      link: <span class="hljs-string">'/material/inputoptions'</span>,
+                    },
+                    {{'{'}}
+                      text: <span class="hljs-string">'Autocomplete'</span>,
+                      link: <span class="hljs-string">'/material/autocomplete'</span>,
+                    }
+                  ]
+                },
+                {{'{'}}
+                  text: <span class="hljs-string">'Document'</span>,
+                  icon: <span class="hljs-string">'arrow_right'</span>,
+                  items: [
+                    {{'{'}}
+                      text: <span class="hljs-string">'Document 1'</span>
+                    },
+                    {{'{'}}
+                      text: <span class="hljs-string">'Document 2'</span>
+                    }
+                  ]
+                }
+              ]
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Spreadsheet'</span>
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Presentation'</span>,
+              icon: <span class="hljs-string">'arrow_right'</span>,
+              items: [
+                {{'{'}}
+                  text: <span class="hljs-string">'New'</span>,
+                  icon: <span class="hljs-string">'arrow_right'</span>,
+                  items: [
+                    {{'{'}}
+                      text: <span class="hljs-string">'Document'</span>
+                    },
+                    {{'{'}}
+                      text: <span class="hljs-string">'Spreadsheet'</span>
+                    }
+                  ]
+                }
+              ]
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Form'</span>
+            }
+          ]
+        },
+        {{'{'}}
+          <span class="hljs-comment">// divider: true will bring up a horizontal divider between menu items</span>
+          divider: <span class="hljs-boolean">true</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Open'</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Rename'</span>
+          <span class="hljs-comment">// disabled: true will disable (no pointer event) the menu item</span>
+          disabled: <span class="hljs-boolean">true</span>,
+        },
+        {{'{'}}
+          divider: <span class="hljs-boolean">true</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Print'</span>
+        }
+      ]
+    },
+    {{'{'}}
+      text: <span class="hljs-string">'File'</span>
+      items: [
+        {{'{'}}
+          <span class="hljs-comment">// isCategory: true - to make this item as categorization label for the contained menu items</span>
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'File'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Select'</span>,
+            link: <span class="hljs-string">'/material/select'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Save'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Save As'</span>,
+            icon: <span class="hljs-string">'arrow_right'</span>,
+            items: [
+              {{'{'}}
+                text: <span class="hljs-string">'Print layout'</span>
+              },
+              {{'{'}}
+                text: <span class="hljs-string">'Mode'</span>
+              },
+              {{'{'}}
+                divider: <span class="hljs-boolean">true</span>
+              },
+              {{'{'}}
+                text: <span class="hljs-string">'Full screen'</span>
+              },
+            ]
+          }]
+        },
+        {{'{'}}
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'Other Action'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Delete'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Exit'</span>
+          }]
+        }
+      ]
+    },
+    {{'{'}}
+      text: <span class="hljs-string">'Edit'</span>,
+      items: [
+        {{'{'}}
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'Action'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Undo'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Redo'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Chips'</span>,
+            link: <span class="hljs-string">'/material/chips'</span>
+          }]
+        },
+        {{'{'}}
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'Content'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Copy'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Paste'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Revert to Original'</span>
+          }]
+        },
+        {{'{'}}
+          isCategory: <span class="hljs-boolean">true</span>,
+          text: <span class="hljs-string">'Other Actions'</span>,
+          items: [{{'{'}}
+            text: <span class="hljs-string">'Delete'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Delete All'</span>
+          }, {{'{'}}
+            text: <span class="hljs-string">'Highlight All'</span>
+          }]
+        },
+      ]
+    },
+    {{'{'}}
+      text: <span class="hljs-string">'View'</span>,
+      items: [
+        {{'{'}}
+          text: <span class="hljs-string">'Print layout'</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Mode'</span>,
+          icon: <span class="hljs-string">'arrow_right'</span>,
+          items: [
+            {{'{'}}
+              text: <span class="hljs-string">'Presentation'</span>
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Edit'</span>
+            },
+            {{'{'}}
+              text: <span class="hljs-string">'Modifiable'</span>
+            }
+          ]
+        },
+        {{'{'}}
+          divider: <span class="hljs-boolean">true</span>
+        },
+        {{'{'}}
+          text: <span class="hljs-string">'Full screen'</span>
+        }
+      ]
+    }
+  ];
+}
+</pre>                
+              </md-tab>
+          </md-tab-group>
+        </div>
+        <div class="example-viewer-body">
+            <md-toolbar>
+              <!-- this button code is for collapsing the menu to 3-lines on mobile screens -->
+              <button md-button class="button-collapse" md-icon-button (click)="onMenuClick()">
+                <md-icon>menu</md-icon>
+              </button>
+              <a href="#" class="brand-logo">Logo</a>
+              <top-menu [items]="menuItems" [ngClass]="{'shown': showMenu}"></top-menu>
+              <span fxFlex></span>
+              <button md-button md-icon-button color="primary">
+                <md-icon>apps</md-icon>
+              </button>
+              <button md-button md-icon-button class="btn-user">
+                <span>KJ</span>
+              </button>
+              <button md-button md-icon-button color="primary" class="btn-notification">
+                <md-icon>notifications_none</md-icon>
+                <span class="badge">2</span>
+              </button>
+            </md-toolbar>
+        </div>
+      </div>
+    </div>
+
+    <h3 id="toolbar-theming">Toolbar Theming</h3>
+    <p>By default, toolbars will use light greyish shade (<code>rgba(243, 243, 243, 0.41)</code>) as their background color.
+      They can, however, be themed by setting <code>color</code> attribute to <code>primary</code>, <code>accent</code>
+      or <code>warn</code>.
+    </p>
+
+    <div class="example-viewer">
+        <div class="example-viewer-title">
+          Basic Menu
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Primary Toolbar<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">fxFlex</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-icon-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>more_vert<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <md-toolbar color="primary">
+            <span>Primary Toolbar</span>
+            <span fxFlex></span>
+            <button md-button md-icon-button>
+              <md-icon>more_vert</md-icon>
+            </button>
+          </md-toolbar>
+        </div>
+      </div> 
+
+    
   </md-card-content>
 </md-card>

@@ -14,18 +14,20 @@ export class MenuComponent {
       text: 'Orders',
       items: [
         {
-          text: 'Share',
-          extraText: 'Ctrl+O'
+          text: 'Button',
+          extraText: 'Ctrl+O',
+          link: '/material/button'
         },
         {
-          text: 'New',
+          text: 'Inputs',
           icon: 'arrow_right',
           items: [
             {
-              text: 'Document'
+              text: 'Input',
+              link: '/material/input'
             },
             {
-              text: 'New',
+              text: 'Other Inputs',
               icon: 'arrow_right',
               items: [
                 {
@@ -33,10 +35,12 @@ export class MenuComponent {
                   icon: 'arrow_right',
                   items: [
                     {
-                      text: 'Document'
+                      text: 'Input Options',
+                      link: '/material/inputoptions'
                     },
                     {
-                      text: 'Spreadsheet'
+                      text: 'Autocomplete',
+                      link: '/material/autocomplete'
                     }
                   ]
                 },
@@ -107,7 +111,8 @@ export class MenuComponent {
           isCategory: true,
           text: 'File',
           items: [{
-            text: 'New'
+            text: 'Select',
+            link: '/material/select'
           }, {
             text: 'Save'
           }, {
@@ -151,7 +156,8 @@ export class MenuComponent {
           }, {
             text: 'Redo'
           }, {
-            text: 'Revert to Original'
+            text: 'Chips',
+            link: '/material/chips'
           }]
         },
         {
@@ -162,7 +168,7 @@ export class MenuComponent {
           }, {
             text: 'Paste'
           }, {
-            text: 'Select All'
+            text: 'Revert to Original'
           }]
         },
         {
