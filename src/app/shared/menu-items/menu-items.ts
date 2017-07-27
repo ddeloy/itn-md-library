@@ -51,6 +51,7 @@ const MENUITEMS = [
       {state: 'switch', name: 'SWITCH'},
       {state: 'tooltip', name: 'TOOLTIP'},
       {state: 'menu', name: 'MENU'},
+    //  {state: 'menucustom', name: 'Nested Menu'},
    //   {state: 'slider', name: 'SLIDER'},
       {state: 'sliderpanel', name: 'Slider Panel'},
       {state: 'snackbar', name: 'SNACKBAR'},

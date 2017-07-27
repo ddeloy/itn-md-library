@@ -137,7 +137,7 @@ export class MenuComponent {
           }, {
             text: 'Exit'
           }]
-        }        
+        }
       ]
     },
     {
@@ -175,7 +175,7 @@ export class MenuComponent {
           }, {
             text: 'Highlight All'
           }]
-        }        
+        }
       ]
     },
     {

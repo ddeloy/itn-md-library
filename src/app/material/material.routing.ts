@@ -23,6 +23,7 @@ import { ChipsComponent } from './chips/chips.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { SidenavComponent } from "./sidenav/sidenav.component";
 import {TypographyComponent} from "./typography/typography.component";
+import {MenuCustomComponent} from "./menu-custom/menu-custom.component";
 
 export const MaterialRoutes: Routes = [
   {
@@ -72,6 +73,9 @@ export const MaterialRoutes: Routes = [
     }, {
       path: 'menu',
       component: MenuComponent
+    }, {
+      path: 'menucustom',
+      component: MenuCustomComponent
     }, {
       path: 'slider',
       component: SliderComponent

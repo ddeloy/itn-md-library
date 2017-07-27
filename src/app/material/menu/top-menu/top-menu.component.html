@@ -12,13 +12,13 @@
 
 <ng-template #subMenu let-items let-level="level">
   <ng-container *ngFor="let item of items">
-    
+
     <ng-container *ngIf="item.isCategory else subMenuItems">
       <div class="menu-category-wrap">
         <span class="menu-category">{{item.text}}</span>
         <ng-container *ngFor="let item of item.items">
           <!-- Use new *ngIf which includes 'else' clause -->
-          <ng-container *ngIf="item.items && item.items.length else simpleTmpl"> 
+          <ng-container *ngIf="item.items && item.items.length else simpleTmpl">
             <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled"
                     [mdMenuTriggerFor]="menu"
                     #trigger="mdMenuTrigger"
@@ -41,13 +41,13 @@
             </button>
             <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
           </ng-template>
-        </ng-container>        
+        </ng-container>
       </div>
     </ng-container>
 
     <ng-template #subMenuItems>
       <!-- Use new *ngIf which includes 'else' clause -->
-      <ng-container *ngIf="item.items && item.items.length else simpleTmpl"> 
+      <ng-container *ngIf="item.items && item.items.length else simpleTmpl">
         <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled"
                 [mdMenuTriggerFor]="menu"
                 #trigger="mdMenuTrigger"
