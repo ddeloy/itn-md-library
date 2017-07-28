@@ -1,62 +1,160 @@
-<md-card>
-  <md-card-title>Radios</md-card-title>
-  <md-card-subtitle>Radio buttons allow the user to select one option from a set</md-card-subtitle>
-  <md-card-content fxLayout="row" fxLayoutWrap="wrap">
-    <div fxFlex="100">
-      <p>Basic Example
-      <br>Using <em>default</em> theming</p>
-      <div fxLayout="column">
-        <md-radio-button name="group1">Option 1</md-radio-button>
-        <md-radio-button name="group1">Option 2</md-radio-button>
-        <md-radio-button name="group1">Option 3</md-radio-button>
-        <md-radio-button name="group1" disabled="true">Option 4 (disabled)</md-radio-button>
+<md-card class="page-card">
+  <md-card-title>Radio Button</md-card-title>
+  <md-card-subtitle>
+    A material design radio button that supports all of the functionality of native radio button element
+  </md-card-subtitle>
+  <md-card-content>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdRadioModule</code> -
+        <a class="badge" href="https://material.angular.io/components/radio/overview" target="_blank">
+          Official Documentation
+        </a>
+      </p>
+      <p>Radio-button element is created using <code>md-radio-button</code> element.
+        Radio-button label is provided as the content to this <code>md-radio-button</code> element.         
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Radio-button - Basic Example
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group1"</span>&gt;</span>Option 1<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group1"</span>&gt;</span>Option 2<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group1"</span>&gt;</span>Option 3<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group1"</span> <span class="hljs-attr">disabled</span>&gt;</span>Option 4 (disabled)<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+            <md-radio-button name="group1">Option 1</md-radio-button>
+            <md-radio-button name="group1">Option 2</md-radio-button>
+            <md-radio-button name="group1">Option 3</md-radio-button>
+            <md-radio-button name="group1" disabled>Option 4 (disabled)</md-radio-button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div fxFlex="100">
-      <p>Theming Example
-      <br><code>color</code> attribute on <code>md-radio-button</code> set to <code>primary</code>,
-      <code>accent</code> and <code>warn</code>
-      <br><em>Note:</em> Default and Accent are same. If no color set, accent would be used</p>
-      <div fxLayout="column">
-        <md-radio-button color="primary" name="group2">Primary</md-radio-button>
-        <md-radio-button color="accent" name="group2">Accent/Secondary</md-radio-button>
-        <md-radio-button color="warn" name="group2">Warn</md-radio-button>
-        <md-radio-button name="group2">Default</md-radio-button>
+
+      <h3 id="radio-theming">Theming</h3>
+      <p>
+        By default, radio-buttons use theme's accent color. This can be changed by setting <code>color</code> property on
+        <code>md-radio-button</code> element. Allowed values are <code>primary</code>, <code>accent</code> and <code>warn</code>.
+      </p>
+      <p>
+        <em>NOTE:</em> According to website design, radio-buttons should use primary (green) color. Therefore, make sure to
+        set <code>color</code> property to <code>primary</code> on the <code>md-radio-button</code> element.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Radio-button Theming
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group2"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group2"</span>&gt;</span>Accent/Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"warn"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group2"</span>&gt;</span>Warn<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+            <md-radio-button color="primary" name="group2">Primary</md-radio-button>
+            <md-radio-button color="accent" name="group2">Accent/Secondary</md-radio-button>
+            <md-radio-button color="warn" name="group2">Warn</md-radio-button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div fxFlex="100">
-      <p>Dynamic Example
-      <br>Alignment - radio buttons can be positioned before or after their labels by setting
-      <code>align</code> attribute to <code>start</code> or <code>end</code>, respectively.
-      <br><em>Note:</em> In this example, <code>align</code> has been set on <code>md-radio-group</code>.
-      However, it can be set on individual <code>md-radio-button</code> elements as well.</p>
-      <div>
-        <md-radio-group name="my_options" [disabled]="isDisabled" [align]="isAlignEnd ? 'end' : 'start'" fxLayout="column">
-          <md-radio-button value="option_1">Option 1</md-radio-button>
-          <md-radio-button value="option_2">Option 2</md-radio-button>
-          <md-radio-button value="option_3">Option 3</md-radio-button>
-        </md-radio-group>
-        <p>
-          <span>isDisabled: {{isDisabled}}</span>
-          <button md-raised-button md-button-sm color="primary" class="ml-1" (click)="isDisabled=!isDisabled">
-            {{isDisabled ? 'Enable' : 'Disable'}}
-          </button>
-        </p>
-        <p>
-          <span><md-checkbox [(ngModel)]="isAlignEnd">Align end</md-checkbox></span>
-        </p>
+
+      <h3 id="radio-group">Radio Groups</h3>
+      <p>
+        Related radio-buttons should typically be placed inside of an <code>md-radio-group</code> element. All the 
+        <code>md-radio-button</code> elements inside a <code>md-radio-group</code> element will inherit the
+        <code>name</code> property of the group. And disabling the group will disable all the radio-buttons contained in it.
+        Also, <code>md-radio-group</code> has a <code>value</code> property that reflects the currently selected
+        radio-button inside of the group.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Radio Group
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-group</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"my_options"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"isDisabled"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option_1"</span>&gt;</span>Option 1<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option_2"</span>&gt;</span>Option 2<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option_3"</span>&gt;</span>Option 3<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-group</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"isDisabled=!isDisabled"</span>&gt;</span>
+  {{'{'}}{{'{'}}isDisabled ? 'Enable' : 'Disable'}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+            <md-radio-group name="my_options" [disabled]="isDisabled">
+              <md-radio-button color="primary" value="option_1">Option 1</md-radio-button>
+              <md-radio-button color="primary" value="option_2">Option 2</md-radio-button>
+              <md-radio-button color="primary" value="option_3">Option 3</md-radio-button>
+            </md-radio-group>
+            <button md-raised-button md-button-sm color="primary" (click)="isDisabled=!isDisabled">
+              {{isDisabled ? 'Enable' : 'Disable'}}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div fxFlex="100">
-      <p>Dynamic Example with two-way data-binding</p>
-      <div>
-        <md-radio-group name="more_options" [(ngModel)]="favoriteSeason"  fxLayout="column">
-          <md-radio-button *ngFor="let season of seasonOptions" name="more_options" [value]="season">
-            {{season}}
-          </md-radio-button>
-        </md-radio-group>
-        <p>Your favorite season is: {{favoriteSeason}}</p>
+
+      <h3 id="checkbox-alignment">Alignment</h3>
+      <p>
+        Radio-button can be positioned before or after its label by setting <code>align</code> attribute to <code>start</code>
+        or <code>end</code>, respectively. If <code>align</code> is not set, then radio-button would be aligned before its label.
+      </p>
+      <p>
+        Radio-buttons inherit align property of their parent <code>md-radio-group</code> element.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Radio-button Alignment
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-radio-group</span> <span class="hljs-attr">fxLayout</span>=<span class="hljs-string">"column"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"my_options1"</span> [<span class="hljs-attr">align</span>]=<span class="hljs-string">"isAlignEnd ? 'end' : 'start'"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option_1"</span>&gt;</span>Option 1<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option_2"</span>&gt;</span>Option 2<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option_3"</span>&gt;</span>Option 3<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-group</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"isAlignEnd"</span>&gt;</span>Align end<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="column" fxLayoutGap="10px">
+            <md-radio-group fxLayout="column" name="my_options1" [align]="isAlignEnd ? 'end' : 'start'">
+              <md-radio-button color="primary" value="option_1">Option 1</md-radio-button>
+              <md-radio-button color="primary" value="option_2">Option 2</md-radio-button>
+              <md-radio-button color="primary" value="option_3">Option 3</md-radio-button>
+            </md-radio-group>
+            <md-checkbox color="primary" [(ngModel)]="isAlignEnd">Align end</md-checkbox>
+          </div>
+        </div>
       </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Dynamic Example with two-way data-binding
+        </div>
+        <div class="example-viewer-body">
+          <md-radio-group name="more_options" [(ngModel)]="favoriteSeason"  fxLayout="column">
+            <md-radio-button *ngFor="let season of seasonOptions" name="more_options" [value]="season">
+              {{season}}
+            </md-radio-button>
+          </md-radio-group>
+          <p>Your favorite season is: {{favoriteSeason}}</p>
+        </div>
+      </div>
+
     </div>
   </md-card-content>
 </md-card>

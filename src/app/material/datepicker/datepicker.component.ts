@@ -15,8 +15,7 @@ export class DatepickerComponent {
   date: Date;
   dateFilter = (date: Date) => date.getMonth() % 2 === 1 && date.getDate() % 2 === 0;
 
-  currentDrink1: string;
-  currentDrink2: string;
+  currentDrink: string;
 
   drinks = [
     {value: null, viewValue: 'None'},

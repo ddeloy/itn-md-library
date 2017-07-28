@@ -51,6 +51,35 @@ top-menu {
             border-bottom-color: map-get($warn, 500);
           }
       }
+      &.btn-icon {
+        span.mat-button-wrapper {
+          font-family: 'Material Icons';
+          font-weight: normal;
+          font-style: normal;
+          letter-spacing: normal;
+          text-transform: none;
+          white-space: nowrap;
+          word-wrap: normal;
+          direction: ltr;
+          -webkit-font-feature-settings: 'liga';
+          -webkit-font-smoothing: antialiased;
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
+          vertical-align: middle;
+        }
+      }
+      &.btn-user {
+        padding: 0 8px;
+        span.mat-button-wrapper {
+          color: #ffffff;
+          font-size: $default-item-font-size;
+          vertical-align: baseline;
+          padding: 8.5px 8px;
+          border-radius: 50%;
+          background-color: mat-color($accent, 400);
+        }
+      }
   }
 }
 
@@ -80,6 +109,10 @@ top-menu {
       & > .mat-icon {
         color: map-get($accent, 500);
         margin-right: -8px;
+        &:first-of-type + span {
+          flex-basis: 100%;
+          margin-left: 15px;
+        }
       }
       & > .menu-extra-text {
         color: map-get($accent, 200);
@@ -114,6 +147,18 @@ top-menu {
     }
     .menu-category-wrap + .menu-category-wrap {
       margin-top: 10px;
+    }
+  }
+  &.menu-user {
+    .mat-menu-content {
+      padding-top: 0;
+      padding-bottom: 0;
+      [md-menu-item].mat-menu-item {
+        padding: 9.5px 24px;
+        &:not(:last-of-type) {
+          border-bottom: 1px solid map-get($accent, 50);
+        }       
+      }
     }
   }
 }

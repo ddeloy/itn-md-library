@@ -19,10 +19,17 @@
         }
     }
 }
-@media only screen and (max-width: breakpoint-max(sm)) {
+@media only screen and (max-width: breakpoint-max(xs)) {
     .input-group {
         & > * {
             line-height: 1 !important;
+        }
+        .mat-select .mat-select-value {
+            height: inherit;
+            .mat-select-value-text {
+                height: inherit;
+                line-height: inherit;
+            }
         }
     }
 }

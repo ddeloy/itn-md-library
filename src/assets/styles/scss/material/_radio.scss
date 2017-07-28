@@ -48,4 +48,30 @@
             }
         }
     }
+    &.mat-radio-disabled {
+        &[color="primary"]{
+            .mat-radio-label {
+                .mat-radio-container {
+                    .mat-radio-outer-circle {
+                        border-color: map-get($primary,200);
+                    }
+                    .mat-radio-inner-circle {
+                        background-color: map-get($primary,200);
+                    }
+                }
+            }
+        }
+        &[color="warn"]{
+            .mat-radio-label {
+                .mat-radio-container {
+                    .mat-radio-outer-circle {
+                        border-color: map-get($warn,200);
+                    }
+                    .mat-radio-inner-circle {
+                        background-color: map-get($warn,200);
+                    }
+                }
+            }
+        }
+    }
 }

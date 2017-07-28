@@ -1,45 +1,135 @@
-<md-card>
+<md-card class="page-card">
   <md-card-title>Checkbox</md-card-title>
-  <md-card-subtitle>md-checkbox is a Material Design selection control that allows users to make a binary choice for a predetermined conditioned</md-card-subtitle>
+  <md-card-subtitle>
+    A material design checkbox component that supports all of the functionality of an HTML5 checkbox
+  </md-card-subtitle>
   <md-card-content>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <md-checkbox class="ml-xs mr-xs">
-        Default Checkbox
-      </md-checkbox>
-      <md-checkbox class="ml-xs mr-xs" indeterminate="true">
-        Indeterminate Checkbox
-      </md-checkbox>
-      <md-checkbox class="ml-xs mr-xs" disabled>
-        Disabled Checkbox
-      </md-checkbox>
-    </div>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdCheckboxModule</code> -
+        <a class="badge" href="https://material.angular.io/components/checkbox/overview" target="_blank">
+          Official Documentation
+        </a>
+      </p>
+      <p>Checkbox element is created using <code>md-checkbox</code> element.
+        Checkbox label is provided as the content to this <code>md-checkbox</code> element.         
+      </p>
 
-    <p><code>color</code> attribute on <code>md-checkbox</code> set to <code>primary</code>, <code>accent</code> and <code>warn</code>
-    <br><em>Note:</em> Default and Accent are same. If no color set, accent would be used</p>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <md-checkbox class="ml-xs mr-xs" color="primary">
-        Primary Checkbox
-      </md-checkbox>
-      <md-checkbox class="ml-xs mr-xs"  color="accent">
-        Accent Checkbox
-      </md-checkbox>
-      <md-checkbox class="ml-xs mr-xs"  color="warn">
-        Warn Checkbox
-      </md-checkbox>
-    </div>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Checkbox - Basic Example
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span>&gt;</span>
+  Enabled Checkbox
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> <span class="hljs-attr">indeterminate</span>=<span class="hljs-string">"true"</span>&gt;</span>
+  Indeterminate Checkbox
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> <span class="hljs-attr">disabled</span>&gt;</span>
+  Disabled Checkbox
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+            <md-checkbox>
+              Enabled Checkbox
+            </md-checkbox>
+            <md-checkbox indeterminate="true">
+              Indeterminate Checkbox
+            </md-checkbox>
+            <md-checkbox disabled>
+              Disabled Checkbox
+            </md-checkbox>
+          </div>
+        </div>
+      </div>
 
-    <p>Alignment - checkbox can be positioned before or after its label by setting
-      <code>align</code> attribute to <code>start</code> or <code>end</code>, respectively.</p>
-    <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
-      <md-checkbox class="ml-xs mr-xs" color="primary" align="start">
-        Before Label
-      </md-checkbox>
-      <md-checkbox class="ml-xs mr-xs"  color="primary" align="end">
-        After Label
-      </md-checkbox>
-    </div>
+      <h3 id="checkbox-theming">Theming</h3>
+      <p>
+        By default, checkboxes use theme's accent color. This can be changed by setting <code>color</code> property on
+        <code>md-checkbox</code> element. Allowed values are <code>primary</code>, <code>accent</code> and <code>warn</code>.
+      </p>
+      <p>
+        <em>NOTE:</em> According to website design, checkboxes should use primary (green) color. Therefore, make sure to
+        set <code>color</code> property to <code>primary</code> on the <code>md-checkbox</code> element.
+      </p>
 
-    <p>Nested Checklist</p>
-    <app-md-checkbox-demo-nested-checklist></app-md-checkbox-demo-nested-checklist>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Checkbox Theming
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+  Primary Checkbox
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>
+  Accent Checkbox
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"warn"</span>&gt;</span>
+  Warn Checkbox
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+            <md-checkbox color="primary">
+              Primary Checkbox
+            </md-checkbox>
+            <md-checkbox color="accent">
+              Accent Checkbox
+            </md-checkbox>
+            <md-checkbox color="warn">
+              Warn Checkbox
+            </md-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="checkbox-alignment">Alignment</h3>
+      <p>
+        Checkbox can be positioned before or after its label by setting <code>align</code> attribute to <code>start</code>
+        or <code>end</code>, respectively. If <code>align</code> is not set, then checkbox would be aligned before its label.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Checkbox Alignment
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"start"</span>&gt;</span>
+  Before Label
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
+  After Label
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+            <md-checkbox color="primary" align="start">
+              Before Label
+            </md-checkbox>
+            <md-checkbox color="primary" align="end">
+              After Label
+            </md-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Nested Checklist
+        </div>
+        <div class="example-viewer-body">
+          <app-md-checkbox-demo-nested-checklist></app-md-checkbox-demo-nested-checklist>
+        </div>
+      </div>
+
+    </div>
   </md-card-content>
 </md-card>

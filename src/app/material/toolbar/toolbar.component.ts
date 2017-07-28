@@ -8,6 +8,41 @@ import { Component } from '@angular/core';
 export class ToolbarComponent {
   showMenu = false;
 
+  rightMenuItems = [
+    {
+      text: 'apps',
+      class: "btn-icon",
+      items: [{
+        text: 'Manage Users'
+      }, {
+        text: 'Manage Products'
+      }, {
+        text: 'Personnel & Equipment'
+      }, {
+        text: 'Location & Facilities'
+      }, {
+        text: 'Manage Devices'
+      }, {
+        text: 'Company Settings'
+      },]
+    },
+    {
+      text: 'KJ',
+      class: "btn-user",
+      menuClass: "menu-user",
+      items: [{
+        text: 'Profile',
+        leftIcon: 'perm_identity'
+      }, {
+        text: 'Help',
+        leftIcon: 'help_outline'
+      }, {
+        text: 'Logout',
+        leftIcon: 'power_settings_new'
+      }]
+    }
+  ]
+
   // Custom menu structure - pass in routerLinks here - or external links
   menuItems = [
     {

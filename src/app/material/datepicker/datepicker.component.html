@@ -1,123 +1,146 @@
-<md-card>
+<md-card class="page-card">
   <md-card-title>Combo-fields</md-card-title>
-  <md-card-subtitle>Combination of input and select elements</md-card-subtitle>
+  <md-card-subtitle>A combination of user input fields like input and select elements used together</md-card-subtitle>
   <md-card-content>
-    <p>Combo Fields</p>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" class="mb-2">
-      <div class="input-group ml-xs mr-xs">
-        <md-input-container floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="John Smith" type="text">
-        </md-input-container>
-        <md-select placeholder="Drink" [(ngModel)]="currentDrink1"
-                  floatPlaceholder="never" #drinkControl="ngModel">
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
-        </md-select>
-        <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
-          <input mdInput placeholder="PIN" type="text">
-        </md-input-container>
-      </div>
-      <div class="input-group ml-xs mr-xs ">
-        <md-input-container floatPlaceholder="never" class="md-block">
-          <input mdInput placeholder="John Smith" type="text">
-        </md-input-container>
-        <md-select placeholder="Drink" [(ngModel)]="currentDrink2"
-                  floatPlaceholde="never" #drinkControl="ngModel">
-          <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
-            {{ drink.viewValue }}
-          </md-option>
-        </md-select>
-        <md-input-container floatPlaceholder="never" class="md-block" style="flex: 1 1;">
-          <input mdInput placeholder="PIN" type="text">
-        </md-input-container>
+    <div class="docs-guide-content">
+      <p>
+        Please see corresponding pages for details on individual elements being used here.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Combo-fields
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"John Smith"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"currentDrink"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">drinkControl</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
+      {{'{'}}{{'{'}} drink.viewValue }}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"PIN"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div class="input-group">
+            <md-input-container floatPlaceholder="never">
+              <input mdInput placeholder="John Smith" type="text">
+            </md-input-container>
+            <md-select placeholder="Drink" [(ngModel)]="currentDrink"
+                      floatPlaceholder="never" #drinkControl="ngModel">
+              <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+                {{ drink.viewValue }}
+              </md-option>
+            </md-select>
+            <md-input-container floatPlaceholder="never">
+              <input mdInput placeholder="PIN" type="text">
+            </md-input-container>
+          </div>
+        </div>
       </div>
     </div>
   </md-card-content>
 </md-card>
 
-<md-card>
+<md-card class="page-card">
   <md-card-title>Datepicker</md-card-title>
   <md-card-subtitle>A material 2 component for datepicker</md-card-subtitle>
   <md-card-content>
-    <p>Options</p>
-    <p>
-      <md-checkbox [(ngModel)]="touch">Use touch UI</md-checkbox>
-      <md-checkbox [(ngModel)]="filterOdd">Filter odd months and dates</md-checkbox>
-      <md-checkbox [(ngModel)]="yearView">Start in year view</md-checkbox>
-    </p>
-    <p>
-      <md-input-container floatPlaceholder="never">
-        <span mdPrefix>+1 &nbsp;</span>
-        <input type="tel" mdInput placeholder="Telephone">
-        <md-icon mdSuffix>mode_edit</md-icon>
-      </md-input-container>
-    </p>
-    <p>
-      <md-input-container dividerColor="primary" floatPlaceholder="never">
-        <input type="text" mdInput placeholder="Search">
-        <span mdSuffix>Advance</span>
-      </md-input-container>
-    </p>
-    <p>
-      <md-input-container floatPlaceholder="never">
-        <input mdInput [mdDatepicker]="minDatePicker" [(ngModel)]="minDate"
-          placeholder="Min date">
-        <button mdSuffix [mdDatepickerToggle]="minDatePicker"></button>
-      </md-input-container>
-      <md-datepicker #minDatePicker [touchUi]="touch"></md-datepicker>
-      <md-input-container floatPlaceholder="never">
-        <input mdInput [mdDatepicker]="maxDatePicker" [(ngModel)]="maxDate"
-          placeholder="Max date">
-        <button mdSuffix [mdDatepickerToggle]="maxDatePicker"></button>
-      </md-input-container>
-      <md-datepicker #maxDatePicker [touchUi]="touch"></md-datepicker>
-    </p>
-    <p>
-      <md-input-container>
-        <input mdInput [mdDatepicker]="startAtPicker" [(ngModel)]="startAt" placeholder="Start at date">
-        <button mdSuffix [mdDatepickerToggle]="startAtPicker"></button>
-      </md-input-container>
-      <md-datepicker #startAtPicker [touchUi]="touch"></md-datepicker>
-    </p>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdDatepickerModule</code> -
+        <a class="badge" href="https://material.angular.io/components/datepicker/overview" target="_blank">
+          Official Documentation
+        </a>
+      </p>
+      <p>Datepicker allows users to enter a date either through text input, or by choosing a date from the calendar.        
+      </p>
+      <p>A datepicker is composed of a text input [<code>input</code> element] and a calendar pop-up [<code>md-datepicker</code> element],
+        connected via the <code>mdDatepicker</code> property on the text input. Datepicker is toggled via an icon button, with its
+        <code>[mdDatepickerToggle]</code> property/attribute bound to the id of the <code>md-datepicker</code> element.
+      </p>
+      <p>
+        <strong>Touch UI mode</strong> - The datepicker normally opens as a popup under the input. However, this is not ideal for
+        touch devices. Therefore, setting <code>touchUi</code> property to <code>true</code> on <code>md-datepicker</code>
+        will enable a more touch friendly UI where the calendar opens in a large dialog.
+      </p>
 
-    <p>Result</p>
-    <p>
-      <button [mdDatepickerToggle]="resultPicker"></button>
-      <md-input-container>
-        <input mdInput
-               #resultPickerModel="ngModel"
-               [mdDatepicker]="resultPicker"
-               [(ngModel)]="date"
-               [min]="minDate"
-               [max]="maxDate"
-               [mdDatepickerFilter]="filterOdd ? dateFilter : null"
-               placeholder="Pick a date">
-        <md-error *ngIf="resultPickerModel.hasError('mdDatepickerMin')">Too early!</md-error>
-        <md-error *ngIf="resultPickerModel.hasError('mdDatepickerMax')">Too late!</md-error>
-        <md-error *ngIf="resultPickerModel.hasError('mdDatepickerFilter')">Date unavailable!</md-error>
-      </md-input-container>
-      <md-datepicker
-          #resultPicker
-          [touchUi]="touch"
-          [startAt]="startAt"
-          [startView]="yearView ? 'year' : 'month'">
-      </md-datepicker>
-    </p>
-    <p>
-      <input [mdDatepicker]="resultPicker2"
-             [(ngModel)]="date"
-             [min]="minDate"
-             [max]="maxDate"
-             [mdDatepickerFilter]="filterOdd ? dateFilter : null"
-             placeholder="Pick a date">
-      <button [mdDatepickerToggle]="resultPicker2"></button>
-      <md-datepicker
-          #resultPicker2
-          [touchUi]="touch"
-          [startAt]="startAt"
-          [startView]="yearView ? 'year' : 'month'">
-      </md-datepicker>
-    </p>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Datepicker
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"touch"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block mb-1"</span>&gt;</span>Enable Touch UI<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> [<span class="hljs-attr">mdDatepicker</span>]=<span class="hljs-string">"minDatePicker"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Min Date"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mdSuffix</span> [<span class="hljs-attr">mdDatepickerToggle</span>]=<span class="hljs-string">"minDatePicker"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-datepicker</span> #<span class="hljs-attr">minDatePicker</span> [<span class="hljs-attr">touchUi</span>]=<span class="hljs-string">"touch"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-datepicker</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <md-checkbox [(ngModel)]="touch" class="block mb-1">Enable Touch UI</md-checkbox>
+          <md-input-container floatPlaceholder="never">
+            <input mdInput [mdDatepicker]="minDatePicker" placeholder="Min date">
+            <button mdSuffix [mdDatepickerToggle]="minDatePicker"></button>
+          </md-input-container>
+          <md-datepicker #minDatePicker [touchUi]="touch"></md-datepicker>
+        </div>
+      </div>
+
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class="page-card">
+  <md-card-title>Field with Action</md-card-title>
+  <md-card-subtitle>Input fields with actions like Advance or Option</md-card-subtitle>
+  <md-card-content>
+    <div class="docs-guide-content">
+      <p>Please see Input page for further details.        
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Field with Action
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">mdPrefix</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Telephone"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"tel"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span> <span class="hljs-attr">mdSuffix</span>&gt;</span>mode_edit<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Search"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">mdSuffix</span>&gt;</span>Advance<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+            <md-input-container floatPlaceholder="never">
+              <span mdPrefix>+1</span>
+              <input type="tel" mdInput placeholder="Telephone">
+              <md-icon mdSuffix>mode_edit</md-icon>
+            </md-input-container>
+            <md-input-container floatPlaceholder="never">
+              <input type="text" mdInput placeholder="Search">
+              <span mdSuffix>Advance</span>
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </md-card-content>
 </md-card>
