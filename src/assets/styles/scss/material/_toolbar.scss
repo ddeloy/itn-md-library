@@ -169,22 +169,32 @@ md-toolbar.mat-toolbar {
                 }
             }
             & > [md-button].mat-button {
+                height: inherit;
+                padding: 0.75rem;
                 &:not(:last-child) {
-                    margin-right: 12px;
+                    //margin-right: 12px;
                 }
                 &.btn-user {
-                    background-color: mat-color($accent, 400, 0.67);
-                    & span {
+                    span {
                         color: #ffffff;
                         font-size: $default-item-font-size;
                         vertical-align: baseline;
+                        padding: 8.5px 4px;
+                        border-radius: 50%;
+                        background-color: mat-color($accent, 400);
                     } 
                 }
                 &.btn-notification {
-                    background-color: #eff1f2;
-                    border-radius: 28px 0 0 28px;
-                    width: 50px;
                     position: relative;
+                    padding-right: 0;
+                    span.mat-button-wrapper {
+                        background-color: #eff1f2;
+                        border-radius: 28px 0 0 28px;
+                        padding: 10.5px 13px;
+                        .mat-icon {
+                            line-height: 18px;
+                        }
+                    }
                     span.badge {
                         min-width: 15px;
                         padding: 2px;
@@ -199,9 +209,8 @@ md-toolbar.mat-toolbar {
                         border-radius: 50%;
                         min-height: 15px;
                         position: absolute;
-                        top: 0;
-                        left: 0;
-                        transform: translateX(-20%);
+                        top: 5px;
+                        left: 5px;
                         z-index: 2; //to avoid ripple effect overlapping
                     }
                     .mat-button-ripple-round {
