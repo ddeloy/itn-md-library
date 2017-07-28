@@ -4,7 +4,7 @@
   <md-card-content>
     <div class="docs-guide-content">
       <p>
-        <code>MdToolbarModule</code> - 
+        <code>MdToolbarModule</code> -
         <a class="badge" href="https://material.angular.io/components/toolbar/overview" target="_blank">
           Official Documentation
         </a>
@@ -18,7 +18,7 @@
       </p>
 
       <div class="example-viewer">
-        <div class="example-viewer-title">  
+        <div class="example-viewer-title">
           Default Toolbar
         </div>
         <div class="example-viewer-source">
@@ -69,8 +69,8 @@
           text: <span class="hljs-string">'Button'</span>,
           <span class="hljs-comment">// extraText is secondary detail like keyboard shortcut, shown on the right of menu item with lesser opacity</span>
           extraText: <span class="hljs-string">'Ctrl+O'</span>,
-          <span class="hljs-comment">// link is the link to navigate to when this menu item gets clicked</span>
-          link: <span class="hljs-string">'/material/button'</span>
+          <span class="hljs-comment">// navigate on menu item click. Use with, or without, leading / </span>
+          link: <span class="hljs-string">'material/button'</span>
         },
         {{'{'}}
           text: <span class="hljs-string">'Inputs'</span>,
@@ -79,6 +79,7 @@
           items: [
             {{'{'}}
               text: <span class="hljs-string">'Input'</span>,
+              <span class="hljs-comment">// navigate on menu item click. Here we have used  leading / - same result</span>
               link: <span class="hljs-string">'/material/input'</span>,
             },
             {{'{'}}
@@ -91,11 +92,11 @@
                   items: [
                     {{'{'}}
                       text: <span class="hljs-string">'Input Options'</span>,
-                      link: <span class="hljs-string">'/material/inputoptions'</span>,
+                      link: <span class="hljs-string">'material/inputoptions'</span>,
                     },
                     {{'{'}}
                       text: <span class="hljs-string">'Autocomplete'</span>,
-                      link: <span class="hljs-string">'/material/autocomplete'</span>,
+                      link: <span class="hljs-string">'material/autocomplete'</span>,
                     }
                   ]
                 },
@@ -168,7 +169,7 @@
           text: <span class="hljs-string">'File'</span>,
           items: [{{'{'}}
             text: <span class="hljs-string">'Select'</span>,
-            link: <span class="hljs-string">'/material/select'</span>
+            link: <span class="hljs-string">'material/select'</span>
           }, {{'{'}}
             text: <span class="hljs-string">'Save'</span>
           }, {{'{'}}
@@ -213,7 +214,7 @@
             text: <span class="hljs-string">'Redo'</span>
           }, {{'{'}}
             text: <span class="hljs-string">'Chips'</span>,
-            link: <span class="hljs-string">'/material/chips'</span>
+            link: <span class="hljs-string">'material/chips'</span>
           }]
         },
         {{'{'}}
@@ -271,7 +272,7 @@
     }
   ];
 }
-</pre>                
+</pre>
               </md-tab>
           </md-tab-group>
         </div>
@@ -329,8 +330,8 @@
             </button>
           </md-toolbar>
         </div>
-      </div> 
+      </div>
 
-    
+
   </md-card-content>
 </md-card>

@@ -35,10 +35,16 @@
             <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
           </ng-container>
           <ng-template #simpleTmpl>
-            <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" [routerLink]="item.link" (click)="closeMenu()">
+          <!--  <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" [routerLink]="item.link" (click)="closeMenu()">
               <span>{{item.text}}</span>
               <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
-            </button>
+            </button> -->
+            <!-- There are a few quirks using [routerLink] in our component (which is essentially a child component)
+            when it’s being delivered in current library format. Need to use href for it to work as a library depency -->
+            <a href="#/{{item.link}}" *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" (click)="closeMenu()">
+              <span>{{item.text}}</span>
+              <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
+            </a>
             <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
           </ng-template>
         </ng-container>
@@ -64,10 +70,16 @@
         <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
       </ng-container>
       <ng-template #simpleTmpl>
-        <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" [routerLink]="item.link"  (click)="closeMenu()">
+        <!-- <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" [routerLink]="item.link"  (click)="closeMenu()">
           <span>{{item.text}}</span>
           <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
-        </button>
+        </button> -->
+        <!-- There are a few quirks using [routerLink] in our component (which is essentially a child component)
+            when it’s being delivered in current library format. Need to use href for it to work as Library dependency -->
+        <a href="#/{{item.link}}" *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled"  (click)="closeMenu()">
+          <span>{{item.text}}</span>
+          <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
+        </a>
         <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
       </ng-template>
     </ng-template>

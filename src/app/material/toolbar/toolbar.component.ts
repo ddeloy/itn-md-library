@@ -16,7 +16,7 @@ export class ToolbarComponent {
         {
           text: 'Button',
           extraText: 'Ctrl+O',
-          link: '/material/button'
+          link: 'material/button'
         },
         {
           text: 'Inputs',
@@ -24,7 +24,7 @@ export class ToolbarComponent {
           items: [
             {
               text: 'Input',
-              link: '/material/input'
+              link: 'material/input'
             },
             {
               text: 'Other Inputs',
@@ -36,11 +36,11 @@ export class ToolbarComponent {
                   items: [
                     {
                       text: 'Input Options',
-                      link: '/material/inputoptions'
+                      link: 'material/inputoptions'
                     },
                     {
                       text: 'Autocomplete',
-                      link: '/material/autocomplete'
+                      link: 'material/autocomplete'
                     }
                   ]
                 },
@@ -112,7 +112,7 @@ export class ToolbarComponent {
           text: 'File',
           items: [{
             text: 'Select',
-            link: '/material/select'
+            link: 'material/select'
           }, {
             text: 'Save'
           }, {
@@ -157,7 +157,7 @@ export class ToolbarComponent {
             text: 'Redo'
           }, {
             text: 'Chips',
-            link: '/material/chips'
+            link: 'material/chips'
           }]
         },
         {
@@ -222,7 +222,7 @@ export class ToolbarComponent {
   onMenuClick() {
     this.showMenu = !this.showMenu;
   }
-  
+
   constructor() { }
 
 }

@@ -34,7 +34,7 @@
     "rxjs": "5.4.0",
     "screenfull": "3.2.0",
     "zone.js": "0.8.10",
-    "wijmo": "http://prerelease.componentone.com/wijmo5/npm-images/C1Wijmo-Enterprise-Eval-AMD-5.20171.300.tgz"
+    "wijmo": "http://prerelease.componentone.com/wijmo5/npm-images/C1Wijmo-Enterprise-Eval-AMD-5.20172.328.tgz"
   },
   "devDependencies": {
     "@angular/cli": "1.0.3",
