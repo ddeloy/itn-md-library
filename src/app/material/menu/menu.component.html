@@ -18,22 +18,78 @@
         directive, which is set to the <code>id</code> of the menu, ie., <code>id</code> of the <code>md-menu</code>
         element.
       </p>
+      <p>
+        <em>NOTE:</em> Menu may some times go out of screen. To avoid that, <code>onMenuOpen</code> is bound to a function
+        which handles positioning of menu before it apeears, so that the opening is contained within the screen. Please see
+        below example for code sample.
+      </p>
 
       <div class="example-viewer">
         <div class="example-viewer-title">
           Basic Menu
         </div>
         <div class="example-viewer-source">
+          <md-tab-group>
+            <md-tab label="HTML">
 <pre>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"basicMenu"</span>&gt;</span>Menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"basicMenu"</span>
+  #<span class="hljs-attr">trigger</span>=<span class="hljs-string">"mdMenuTrigger"</span> (<span class="hljs-attr">onMenuOpen</span>)=<span class="hljs-string">"onMenuOpen(trigger);"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- <em>#trigger="mdMenuTrigger" (onMenuOpen)="onMenuOpen(trigger);"</em> are required to have proper alignment of menu --&gt;</span>
+  Menu
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">basicMenu</span>=<span class="hljs-string">"mdMenu"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Item 1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
 </pre>
+            </md-tab>
+            <md-tab label="TS">
+<pre>
+<span class="hljs-keyword">import</span> {{'{'}} Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+
+<span class="hljs-meta">@Component</span>({{'{'}}
+  selector: <span class="hljs-string">'app-menu'</span>,
+  templateUrl: <span class="hljs-string">'./menu.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./menu.component.scss'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MenuComponent {{'{'}}
+
+  <span class="hljs-keyword">constructor</span>() {{'{'}}}
+
+  <span class="hljs-comment">// required for assuring menu doesn't go out of screen</span>
+  onMenuOpen(trigger: <span class="hljs-keyword">any</span>) {{'{'}}
+    <span class="hljs-keyword">let</span> paneEl = <span class="hljs-keyword">undefined</span>;
+    <span class="hljs-keyword">let</span> winWidth = window.innerWidth;
+
+    <span class="hljs-comment">// overlayRef is included in trigger only if x/yPosition mentioned</span>
+    <span class="hljs-comment">// else containerElement needs to be used</span>
+    <span class="hljs-keyword">if</span>(trigger._overlayRef) {{'{'}}
+      paneEl = trigger._overlayRef.overlayElement;
+    } <span class="hljs-keyword">else</span> {{'{'}}
+      <span class="hljs-keyword">let</span> contEl = trigger._overlay._overlayContainer._containerElement;
+      paneEl = contEl.getElementsByClassName(<span class="hljs-string">'cdk-overlay-pane'</span>)[0];
+    }
+
+    <span class="hljs-keyword">let</span> curLeft = <span class="hljs-built_in">Number</span>.parseFloat(paneEl.style.left);
+    <span class="hljs-keyword">let</span> curMenuWidth = paneEl.clientWidth;
+    <span class="hljs-keyword">let</span> curDiff = (curLeft + curMenuWidth) - winWidth;
+    <span class="hljs-keyword">if</span> (curDiff > 0) {{'{'}}
+      <span class="hljs-keyword">let</span> newLeft = curLeft - curDiff;
+      paneEl.style.left = newLeft + <span class="hljs-string">'px'</span>;
+    }
+  }
+}
+</pre>
+            </md-tab>
+          </md-tab-group>
+
         </div>
         <div class="example-viewer-body">
-          <button md-button [mdMenuTriggerFor]="basicMenu">Menu</button>
+          <button md-button [mdMenuTriggerFor]="basicMenu"
+            #trigger="mdMenuTrigger" (onMenuOpen)="onMenuOpen(trigger);">
+            Menu
+          </button>
           <md-menu #basicMenu="mdMenu">
             <button md-menu-item>Item 1</button>
             <button md-menu-item>Item 2</button>

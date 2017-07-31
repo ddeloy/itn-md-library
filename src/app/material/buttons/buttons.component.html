@@ -303,8 +303,13 @@
           Dropdown Button - Single Button
         </div>
         <div class="example-viewer-source">
-<pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"appMenuEx1"</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+          <md-tab-group>
+            <md-tab label="HTML">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"appMenuEx1"</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+    #<span class="hljs-attr">trigger</span>=<span class="hljs-string">"mdMenuTrigger"</span> (<span class="hljs-attr">onMenuOpen</span>)=<span class="hljs-string">"onMenuOpen(trigger);"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- <em>#trigger="mdMenuTrigger" (onMenuOpen)="onMenuOpen(trigger);"</em> are required to have proper alignment of menu --&gt;</span>
     Actions
     <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>keyboard_arrow_down<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -316,16 +321,59 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"divider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Fourth menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</pre>
+            </md-tab>
+            <md-tab label="TS">
+<pre>
+<span class="hljs-keyword">import</span> {{'{'}} Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+
+<span class="hljs-meta">@Component</span>({{'{'}}
+  selector: <span class="hljs-string">'app-buttons'</span>,
+  templateUrl: <span class="hljs-string">'./buttons.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./buttons.component.scss'</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ButtonsComponent {{'{'}}
+
+  <span class="hljs-keyword">constructor</span>() {{'{'}}}
+
+  <span class="hljs-comment">// required for assuring menu doesn't go out of screen</span>
+  onMenuOpen(trigger: <span class="hljs-keyword">any</span>) {{'{'}}
+    <span class="hljs-keyword">let</span> paneEl = <span class="hljs-keyword">undefined</span>;
+    <span class="hljs-keyword">let</span> winWidth = window.innerWidth;
+
+    <span class="hljs-comment">// overlayRef is included in trigger only if x/yPosition mentioned</span>
+    <span class="hljs-comment">// else containerElement needs to be used</span>
+    <span class="hljs-keyword">if</span>(trigger._overlayRef) {{'{'}}
+      paneEl = trigger._overlayRef.overlayElement;
+    } <span class="hljs-keyword">else</span> {{'{'}}
+      <span class="hljs-keyword">let</span> contEl = trigger._overlay._overlayContainer._containerElement;
+      paneEl = contEl.getElementsByClassName(<span class="hljs-string">'cdk-overlay-pane'</span>)[0];
+    }
+
+    <span class="hljs-keyword">let</span> curLeft = <span class="hljs-built_in">Number</span>.parseFloat(paneEl.style.left);
+    <span class="hljs-keyword">let</span> curMenuWidth = paneEl.clientWidth;
+    <span class="hljs-keyword">let</span> curDiff = (curLeft + curMenuWidth) - winWidth;
+    <span class="hljs-keyword">if</span> (curDiff > 0) {{'{'}}
+      <span class="hljs-keyword">let</span> newLeft = curLeft - curDiff;
+      paneEl.style.left = newLeft + <span class="hljs-string">'px'</span>;
+    }
+  }
+}
+</pre>
+            </md-tab>
+          </md-tab-group>
         </div>
         <div class="example-viewer-body">
           <div class="btn-group">        
-            <button [mdMenuTriggerFor]="appMenuEx1" md-raised-button color="primary">
+            <button [mdMenuTriggerFor]="appMenuEx1" md-raised-button color="primary"
+              #trigger="mdMenuTrigger" (onMenuOpen)="onMenuOpen(trigger);">
               Actions
               <md-icon>keyboard_arrow_down</md-icon>
             </button>
             <md-menu #appMenuEx1 [overlapTrigger]="false">
-              <li md-menu-item>First menu item</li>
+              <li md-menu-item>First mene fewf wef ewfew fwef ewfwe fwef weu item</li>
               <li md-menu-item>Second menu item</li>
               <li md-menu-item>Third menu item</li>
               <li class="divider"></li>
@@ -340,9 +388,12 @@
           Dropdown Button - Split Button
         </div>
         <div class="example-viewer-source">
-<pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>Send<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"appMenuEx2"</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"appMenuEx2"</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>
+    #<span class="hljs-attr">trigger</span>=<span class="hljs-string">"mdMenuTrigger"</span> (<span class="hljs-attr">onMenuOpen</span>)=<span class="hljs-string">"onMenuOpen(trigger);"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- <em>#trigger="mdMenuTrigger" (onMenuOpen)="onMenuOpen(trigger);"</em> are required to have proper alignment of menu --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>keyboard_arrow_down<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">appMenuEx2</span> [<span class="hljs-attr">overlapTrigger</span>]=<span class="hljs-string">"false"</span> <span class="hljs-attr">yPosition</span>=<span class="hljs-string">"above"</span>&gt;</span>
@@ -354,12 +405,14 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"divider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">md-menu-item</span>&gt;</span>Fourth menu item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</pre>
         </div>
-        <div class="example-viewer-body">
-          <div class="btn-group">
+        <div class="example-viewer-body clearfix">
+          <div class="btn-group pull-right">
             <button md-raised-button color="accent">Send</button>        
-            <button [mdMenuTriggerFor]="appMenuEx2" md-raised-button color="accent">
+            <button [mdMenuTriggerFor]="appMenuEx2" md-raised-button color="accent"
+              #trigger="mdMenuTrigger" (onMenuOpen)="onMenuOpen(trigger);">
               <md-icon>keyboard_arrow_down</md-icon>
             </button>
             <md-menu #appMenuEx2 [overlapTrigger]="false" yPosition="above">

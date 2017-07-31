@@ -194,6 +194,7 @@ top-menu {
       min-width: 160px;
       line-height: initial;
       height: initial;
+      white-space: initial;
       &:hover, &:focus {          
         background-color: map-get($accent, 30);
       }

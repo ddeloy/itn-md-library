@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MdMenuTrigger } from '@angular/material';
 
 @Component({
   selector: 'app-buttons',
@@ -7,20 +6,29 @@ import { MdMenuTrigger } from '@angular/material';
   styleUrls: ['./buttons.component.scss']
 })
 export class ButtonsComponent{
-  open1 = false;
-  open2 = false;
-  openf1 = false;
-  openf2 = false;
+
   constructor() { }
 
+  // required for assuring menu doesn't go out of screen
   onMenuOpen(trigger: any) {
-    let curLeft = Number.parseFloat(trigger._overlayRef.overlayElement.style.left);
-    let winWidth = window.innerWidth;
-    let curMenuWidth = trigger._overlayRef.overlayElement.clientWidth;
+    let paneEl = undefined;
+    let winWidth = window.innerWidth; 
+
+    // overlayRef is included in trigger only if x/yPosition mentioned
+    // else containerElement needs to be used
+    if(trigger._overlayRef) {
+      paneEl = trigger._overlayRef.overlayElement;
+    } else {
+      let contEl = trigger._overlay._overlayContainer._containerElement;
+      paneEl = contEl.getElementsByClassName('cdk-overlay-pane')[0];
+    }
+
+    let curLeft = Number.parseFloat(paneEl.style.left);
+    let curMenuWidth = paneEl.clientWidth;
     let curDiff = (curLeft + curMenuWidth) - winWidth;
     if (curDiff > 0) {
       let newLeft = curLeft - curDiff;
-      trigger._overlayRef.overlayElement.style.left = newLeft + 'px';
+      paneEl.style.left = newLeft + 'px';
     }
   }
 

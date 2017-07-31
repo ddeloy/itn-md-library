@@ -22,16 +22,19 @@ export class TopMenuComponent {
 
   @ViewChildren(MdMenuTrigger) triggers: QueryList<MdMenuTrigger>;
 
+  // for categorization
+  // do only if the menu doesn't already have more-horz class
   onMenuOpen(trigger: any, items: any[]) {
-    let catCount = 0;
-    items.forEach(item => {
-      if(item.isCategory){ catCount++; }
-    });
     let el = document.getElementById(trigger._overlayRef._pane.id);
-    if(catCount >= 3) {
-      el.className += ' menu-horz';
+    if(!el.classList.contains('menu-horz')) {
+      let catCount = 0;
+      items.forEach(item => {
+        if(item.isCategory){ catCount++; }
+      });
+      if(catCount >= 3) {
+        el.classList.add('menu-horz')
+      }
     }
-    trigger.onMenuOpen.observers = [];
   }   
 
   openMenu(trigger: MdMenuTrigger, level: number, event) {
@@ -43,6 +46,29 @@ export class TopMenuComponent {
       if(!event.currentTarget.className.includes(' open')) {
         event.currentTarget.className += ' open';
       }      
+    }
+    this.alignMenu(trigger);
+  }
+
+  alignMenu(trigger: any) {
+    let paneEl = undefined;
+    let winWidth = window.innerWidth; 
+
+    // overlayRef is included in trigger only if x/yPosition mentioned
+    // else containerElement needs to be used
+    if(trigger._overlayRef) {
+      paneEl = trigger._overlayRef.overlayElement;
+    } else {
+      let contEl = trigger._overlay._overlayContainer._containerElement;
+      paneEl = contEl.getElementsByClassName('cdk-overlay-pane')[0];
+    }
+
+    let curLeft = Number.parseFloat(paneEl.style.left);
+    let curMenuWidth = paneEl.clientWidth;
+    let curDiff = (curLeft + curMenuWidth) - winWidth;
+    if (curDiff > 0) {
+      let newLeft = curLeft - curDiff;
+      paneEl.style.left = newLeft + 'px';
     }
   }
 
