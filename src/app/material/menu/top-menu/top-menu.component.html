@@ -1,8 +1,8 @@
 <ng-container *ngFor="let item of items">
   <!-- (mousedown)="openMenu(trigger, 1) this can be (mouseover) if hover effect is desired -->
   <button md-raised-button [color]="color" [mdMenuTriggerFor]="menu" #trigger="mdMenuTrigger"
-    [attr.data-level]="1" (mousedown)="openMenu(trigger, 1, $event)"
-    (onMenuOpen)="onMenuOpen(trigger, item.items)" [ngClass]="item.class">
+          [attr.data-level]="1" (mousedown)="openMenu(trigger, 1, $event)"
+          (onMenuOpen)="onMenuOpen(trigger, item.items)" [ngClass]="item.class">
     <md-icon *ngIf="item.leftIcon">{{item.leftIcon}}</md-icon>
     {{item.text}}
     <md-icon *ngIf="item.rightIcon">{{item.rightIcon}}</md-icon>
@@ -38,10 +38,10 @@
             <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
           </ng-container>
           <ng-template #simpleTmpl>
-          <!--  <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" [routerLink]="item.link" (click)="closeMenu()">
-              <span>{{item.text}}</span>
-              <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
-            </button> -->
+            <!--  <button *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" [routerLink]="item.link" (click)="closeMenu()">
+                <span>{{item.text}}</span>
+                <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
+              </button> -->
             <!-- There are a few quirks using [routerLink] in our component (which is essentially a child component)
             when it’s being delivered in current library format. Need to use href for it to work as a library depency -->
             <a href="#/{{item.link}}" *ngIf="!item.divider && !item.isCategory" md-menu-item [disabled]="item.disabled" (click)="closeMenu()">

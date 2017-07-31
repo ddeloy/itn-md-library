@@ -35,7 +35,7 @@ export class TopMenuComponent {
         el.classList.add('menu-horz')
       }
     }
-  }   
+  }
 
   openMenu(trigger: MdMenuTrigger, level: number, event) {
     this.triggers
@@ -45,14 +45,14 @@ export class TopMenuComponent {
     if(event) {
       if(!event.currentTarget.className.includes(' open')) {
         event.currentTarget.className += ' open';
-      }      
+      }
     }
     this.alignMenu(trigger);
   }
 
   alignMenu(trigger: any) {
     let paneEl = undefined;
-    let winWidth = window.innerWidth; 
+    let winWidth = window.innerWidth;
 
     // overlayRef is included in trigger only if x/yPosition mentioned
     // else containerElement needs to be used
@@ -74,7 +74,7 @@ export class TopMenuComponent {
 
   closeMenu() {
     this.triggers.forEach((x: any) => {
-      x._element.nativeElement.className = 
+      x._element.nativeElement.className =
         x._element.nativeElement.className.replace('open', '');
       x.closeMenu();
     });
