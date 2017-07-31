@@ -3,7 +3,9 @@
   <button md-raised-button [color]="color" [mdMenuTriggerFor]="menu" #trigger="mdMenuTrigger"
     [attr.data-level]="1" (mousedown)="openMenu(trigger, 1, $event)"
     (onMenuOpen)="onMenuOpen(trigger, item.items)" [ngClass]="item.class">
+    <md-icon *ngIf="item.leftIcon">{{item.leftIcon}}</md-icon>
     {{item.text}}
+    <md-icon *ngIf="item.rightIcon">{{item.rightIcon}}</md-icon>
   </button>
   <md-menu class="custom-menu {{item.menuClass}}" #menu="mdMenu" [overlapTrigger]="false" (close)="closeMenu()" xPosition="after">
     <ng-container *ngTemplateOutlet="subMenu; context: { $implicit: item.items, level: 2 }"></ng-container>
@@ -28,7 +30,7 @@
               <span>{{item.text}}</span>
               <!-- item.extraText is in the menu.component.ts and allows for us to add extra text positioned to the right of each menu item -->
               <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
-              <md-icon *ngIf="item.icon">{{item.icon}}</md-icon>
+              <md-icon *ngIf="item.rightIcon">{{item.rightIcon}}</md-icon>
             </button>
             <md-menu class="sub-menu-custom" #menu="mdMenu" [overlapTrigger]="false" xPosition="before" >
               <ng-container *ngTemplateOutlet="subMenu; context: { $implicit: item.items || [], level: level + 1 }"></ng-container>
@@ -46,6 +48,7 @@
               <md-icon *ngIf="item.leftIcon">{{item.leftIcon}}</md-icon>
               <span>{{item.text}}</span>
               <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
+              <md-icon *ngIf="item.rightIcon">{{item.rightIcon}}</md-icon>
             </a>
             <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
           </ng-template>
@@ -65,7 +68,7 @@
           <span>{{item.text}}</span>
           <!-- item.extraText is in the menu.component.ts and allows for us to add extra text positioned to the right of each menu item -->
           <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
-          <md-icon *ngIf="item.icon">{{item.icon}}</md-icon>
+          <md-icon *ngIf="item.rightIcon">{{item.rightIcon}}</md-icon>
         </button>
         <md-menu class="sub-menu-custom" #menu="mdMenu" [overlapTrigger]="false" xPosition="before" >
           <ng-container *ngTemplateOutlet="subMenu; context: { $implicit: item.items || [], level: level + 1 }"></ng-container>
@@ -83,6 +86,7 @@
           <md-icon *ngIf="item.leftIcon">{{item.leftIcon}}</md-icon>
           <span>{{item.text}}</span>
           <span *ngIf="item.extraText" class="menu-extra-text">{{item.extraText}}</span>
+          <md-icon *ngIf="item.rightIcon">{{item.rightIcon}}</md-icon>
         </a>
         <md-divider *ngIf="item.divider" class="mat-divider"></md-divider>
       </ng-template>

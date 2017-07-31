@@ -10,8 +10,8 @@ export class ToolbarComponent {
 
   rightMenuItems = [
     {
-      text: 'apps',
-      class: "btn-icon",
+      text: '',
+      leftIcon: 'apps',
       items: [{
         text: 'Manage Users'
       }, {
@@ -55,7 +55,7 @@ export class ToolbarComponent {
         },
         {
           text: 'Inputs',
-          icon: 'arrow_right',
+          rightIcon: 'arrow_right',
           items: [
             {
               text: 'Input',
@@ -63,11 +63,11 @@ export class ToolbarComponent {
             },
             {
               text: 'Other Inputs',
-              icon: 'arrow_right',
+              rightIcon: 'arrow_right',
               items: [
                 {
                   text: 'New',
-                  icon: 'arrow_right',
+                  rightIcon: 'arrow_right',
                   items: [
                     {
                       text: 'Input Options',
@@ -81,7 +81,7 @@ export class ToolbarComponent {
                 },
                 {
                   text: 'Document',
-                  icon: 'arrow_right',
+                  rightIcon: 'arrow_right',
                   items: [
                     {
                       text: 'Document 1'
@@ -98,11 +98,11 @@ export class ToolbarComponent {
             },
             {
               text: 'Presentation',
-              icon: 'arrow_right',
+              rightIcon: 'arrow_right',
               items: [
                 {
                   text: 'New',
-                  icon: 'arrow_right',
+                  rightIcon: 'arrow_right',
                   items: [
                     {
                       text: 'Document'
@@ -152,7 +152,7 @@ export class ToolbarComponent {
             text: 'Save'
           }, {
             text: 'Save As',
-            icon: 'arrow_right',
+            rightIcon: 'arrow_right',
             items: [
               {
                 text: 'Print layout'
@@ -227,7 +227,7 @@ export class ToolbarComponent {
         },
         {
           text: 'Mode',
-          icon: 'arrow_right',
+          rightIcon: 'arrow_right',
           items: [
             {
               text: 'Presentation'

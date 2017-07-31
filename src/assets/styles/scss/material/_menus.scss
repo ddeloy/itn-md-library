@@ -51,24 +51,24 @@ top-menu {
             border-bottom-color: map-get($warn, 500);
           }
       }
-      &.btn-icon {
-        span.mat-button-wrapper {
-          font-family: 'Material Icons';
-          font-weight: normal;
-          font-style: normal;
-          letter-spacing: normal;
-          text-transform: none;
-          white-space: nowrap;
-          word-wrap: normal;
-          direction: ltr;
-          -webkit-font-feature-settings: 'liga';
-          -webkit-font-smoothing: antialiased;
-          font-size: 20px;
-          width: 20px;
-          height: 20px;
-          vertical-align: middle;
-        }
-      }
+      // &.btn-icon {
+      //   span.mat-button-wrapper {
+      //     font-family: 'Material Icons';
+      //     font-weight: normal;
+      //     font-style: normal;
+      //     letter-spacing: normal;
+      //     text-transform: none;
+      //     white-space: nowrap;
+      //     word-wrap: normal;
+      //     direction: ltr;
+      //     -webkit-font-feature-settings: 'liga';
+      //     -webkit-font-smoothing: antialiased;
+      //     font-size: 20px;
+      //     width: 20px;
+      //     height: 20px;
+      //     vertical-align: middle;
+      //   }
+      // }
       &.btn-user {
         padding: 0 8px;
         span.mat-button-wrapper {
