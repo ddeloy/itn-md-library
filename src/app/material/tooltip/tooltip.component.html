@@ -1,54 +1,154 @@
-<md-card>
-  <md-card-title>Tooltips</md-card-title>
-  <md-card-subtitle>Tooltip allows the user to specify text to be displayed when the mouse hovers over an element.</md-card-subtitle>
+<md-card class="page-card">
+  <md-card-title>Tooltip</md-card-title>
+  <md-card-subtitle>
+    Tooltips are text labels that appear when the user hovers over, focuses on, or touches an element.
+  </md-card-subtitle>
   <md-card-content>
-    <button #tooltip="mdTooltip"
-        md-raised-button
-        color="primary"
-        [md-tooltip]="message"
-        [tooltip-position]="position">
-      Mouse over to see the tooltip
-    </button>
+    <div class="docs-guide-content">
+      <p>
+        <code>MdTooltipModule</code> - 
+        <a class="badge" href="https://material.angular.io/components/tooltip/overview" target="_blank">
+          Official Documentation
+        </a>
+      </p>
+      <p>
+        Tooltip is attached to a host element by using <code>mdTooltip</code> directive.
+      </p>
 
-    <md-radio-group [(ngModel)]="position">
-      <md-radio-button value="below">Below</md-radio-button>
-      <md-radio-button value="above">Above</md-radio-button>
-      <md-radio-button value="left">Left</md-radio-button>
-      <md-radio-button value="right">Right</md-radio-button>
-      <md-radio-button value="before">Before</md-radio-button>
-      <md-radio-button value="after">After</md-radio-button>
-    </md-radio-group>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Tooltip - Basic Example
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+  <span class="hljs-attr">mdTooltip</span>=<span class="hljs-string">"Print"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-icon-button color="primary"
+            mdTooltip="Print">
+            <md-icon>print</md-icon>
+          </button>
+        </div>
+      </div>
 
-    <p>
-      <strong>Message: </strong>
-      <md-input-container style="width: 100%">
-        <input mdInput type="text" [(ngModel)]="message">
-      </md-input-container>
-    </p>
+      <h3 id="snackbar-advanced">Advanced Controls</h3>
+      <p>Positioning - by default, tooltips appear below the host element. This, however, can be configured using <code>mdTooltipPosition</code>.</p>
+      <p>Show and Hide Delay - by default, tooltips appear and hide instantly. This, however, can be configured using <code>mdTooltipShowDelay</code>
+      and <code>mdTooltipHideDelay</code>, respectively. Values provided to these attributes should be in milliseconds.</p>
 
-    <p>
-      <strong>Show Delay (ms): </strong>
-      <md-input-container style="width: 100%">
-        <input mdInput type="number" [(ngModel)]="showDelay">
-      </md-input-container>
-    </p>
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Tooltip Positioning and Delays
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+  [<span class="hljs-attr">mdTooltip</span>]=<span class="hljs-string">"message"</span>
+  [<span class="hljs-attr">mdTooltipPosition</span>]=<span class="hljs-string">"position"</span>
+  [<span class="hljs-attr">mdTooltipShowDelay</span>]=<span class="hljs-string">"showDelay"</span>
+  [<span class="hljs-attr">mdTooltipHideDelay</span>]=<span class="hljs-string">"hideDelay"</span>&gt;</span>
+  Mouse over to see the tooltip
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button color="primary"
+              [mdTooltip]="message"
+              [mdTooltipPosition]="position"
+              [mdTooltipShowDelay]="showDelay"
+              [mdTooltipHideDelay]="hideDelay">
+            Mouse over to see the tooltip
+          </button>
 
-    <p>
-      <strong>Hide Delay (ms): </strong>
-      <md-input-container style="width: 100%">
-        <input mdInput type="number" [(ngModel)]="hideDelay">
-      </md-input-container>
-    </p>
+          <md-radio-group [(ngModel)]="position" class="block mt-1">
+            <md-radio-button value="below">Below</md-radio-button>
+            <md-radio-button value="above">Above</md-radio-button>
+            <md-radio-button value="left">Left</md-radio-button>
+            <md-radio-button value="right">Right</md-radio-button>
+            <md-radio-button value="before">Before</md-radio-button>
+            <md-radio-button value="after">After</md-radio-button>
+          </md-radio-group>
 
-    <strong>Mouse over to</strong>
-    <button md-raised-button color="primary" (mouseenter)="tooltip.show()">
-      Show tooltip
-    </button>
-    <button md-raised-button color="primary" (mouseenter)="tooltip.hide(0)">
-      Hide tooltip
-    </button>
-    <button md-raised-button color="primary" (mouseenter)="tooltip.toggle()">
-      Toggle tooltip
-    </button>
+          <p>
+            <strong>Message: </strong>
+            <md-input-container style="width: 100%">
+              <input mdInput type="text" [(ngModel)]="message">
+            </md-input-container>
+          </p>
+
+          <p>
+            <strong>Show Delay (ms): </strong>
+            <md-input-container style="width: 100%">
+              <input mdInput type="number" [(ngModel)]="showDelay">
+            </md-input-container>
+          </p>
+
+          <p>
+            <strong>Hide Delay (ms): </strong>
+            <md-input-container style="width: 100%">
+              <input mdInput type="number" [(ngModel)]="hideDelay">
+            </md-input-container>
+          </p>
+        </div>
+      </div>
+
+      <h3 id="snackbar-show-hide">Show and Hide</h3>
+      <p>Tooltips can be programmatically shown or hidden using <code>show</code> and <code>hide</code> methods. They
+      both accept a number in milliseconds to delay before applying the display change.</p>
+      <p><code>toggle</code> method can be used as well to switch between the tooltip being shown or hidden.</p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Tooltip Methods
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+  #<span class="hljs-attr">tooltip</span>=<span class="hljs-string">"mdTooltip"</span>
+  <span class="hljs-attr">mdTooltip</span>=<span class="hljs-string">"Add to Cart"</span>
+  <span class="hljs-attr">mdTooltipPosition</span>=<span class="hljs-string">"above"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>shopping_cart<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> (<span class="hljs-attr">mouseenter</span>)=<span class="hljs-string">"tooltip.show()"</span>&gt;</span>
+    Show tooltip
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> (<span class="hljs-attr">mouseenter</span>)=<span class="hljs-string">"tooltip.hide(0)"</span>&gt;</span>
+    Hide tooltip
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-raised-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> (<span class="hljs-attr">mouseenter</span>)=<span class="hljs-string">"tooltip.toggle()"</span>&gt;</span>
+    Toggle tooltip
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <button md-raised-button md-icon-button color="primary"
+            #tooltip="mdTooltip"
+            mdTooltip="Add to Cart"
+            mdTooltipPosition="above">
+            <md-icon>shopping_cart</md-icon>
+          </button>
+
+          <p>
+          <button md-raised-button color="primary" (mouseenter)="tooltip.show()">
+            Show tooltip
+          </button>
+          <button md-raised-button color="primary" (mouseenter)="tooltip.hide(0)">
+            Hide tooltip
+          </button>
+          <button md-raised-button color="primary" (mouseenter)="tooltip.toggle()">
+            Toggle tooltip
+          </button>
+          </p>
+        </div>
+      </div>
+
+    </div>
   </md-card-content>
 </md-card>

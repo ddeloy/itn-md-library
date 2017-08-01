@@ -8,104 +8,227 @@
 
       <!-- basic example -->
       <h4>Basic Example: Behaves according to specification when mobile breakpoint is hit.</h4>
-      <div class="sGrid">
-        <table class="table-wijmo">
-          <caption>
-            15 Leafy Green Orders
-            <button md-button>Edit</button>
-            <div class="btn-group pull-right">
-              <button [mdMenuTriggerFor]="tableMenu1" md-icon-button color="primary">
-                <md-icon>settings</md-icon>
-              </button>
-              <md-menu #tableMenu1 [overlapTrigger]="false" class="table-menu">
-                <h4 class="table-menu-title" (click)="$event.stopPropagation()">Freeze Columns and Rows</h4>
-                <div (click)="$event.stopPropagation()"
-                    fxLayout
-                    fxLayout.xs="column"
-                    fxLayoutAlign="flex-start"
-                    fxLayoutGap="5px"
-                    fxLayoutGap.xs="0">
-                  <div fxFlex="60%">Freeze at Column</div>
-                  <div fxFlex="10%">
-                    <button md-button md-button-sm color="accent">
-                      <md-icon>add</md-icon>
-                    </button>
-                  </div>
-                  <div fxFlex="15%">
-                    <md-input-container floatPlaceholder="never">
-                      <input type="text" mdInput value="0">
-                    </md-input-container>
-                  </div>
-                  <div fxFlex="10%">
-                    <button md-button md-button-sm color="accent">
-                      <md-icon>remove</md-icon>
-                    </button>
-                  </div>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Table - HTML Code Sample
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sGrid"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-wijmo"</span>&gt;</span>
+    
+    <span class="hljs-comment">&lt;!-- CAPTION code - contains Table title and other elements like setting menu --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">caption</span>&gt;</span>
+      15 Leafy Green Orders
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span>&gt;</span>Edit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group pull-right"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> [<span class="hljs-attr">mdMenuTriggerFor</span>]=<span class="hljs-string">"tableMenu1"</span> <span class="hljs-attr">md-icon-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>settings<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">md-menu</span> #<span class="hljs-attr">tableMenu1</span> [<span class="hljs-attr">overlapTrigger</span>]=<span class="hljs-string">"false"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-menu"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"$event.stopPropagation()"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-menu-title"</span>&gt;</span>
+            Freeze Columns and Rows
+          <span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"$event.stopPropagation()"</span>
+            <span class="hljs-attr">fxLayout</span>
+            <span class="hljs-attr">fxLayout.xs</span>=<span class="hljs-string">"column"</span>
+            <span class="hljs-attr">fxLayoutAlign</span>=<span class="hljs-string">"flex-start"</span>
+            <span class="hljs-attr">fxLayoutGap</span>=<span class="hljs-string">"5px"</span>
+            <span class="hljs-attr">fxLayoutGap.xs</span>=<span class="hljs-string">"0"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">fxFlex</span>=<span class="hljs-string">"60%"</span>&gt;</span>Freeze at Column<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">fxFlex</span>=<span class="hljs-string">"10%"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>add<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">fxFlex</span>=<span class="hljs-string">"15%"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">fxFlex</span>=<span class="hljs-string">"10%"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>remove<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"$event.stopPropagation()"</span>
+            <span class="hljs-attr">fxLayout</span>
+            <span class="hljs-attr">fxLayout.xs</span>=<span class="hljs-string">"column"</span>
+            <span class="hljs-attr">fxLayoutAlign</span>=<span class="hljs-string">"flex-start"</span>
+            <span class="hljs-attr">fxLayoutGap</span>=<span class="hljs-string">"5px"</span>
+            <span class="hljs-attr">fxLayoutGap.xs</span>=<span class="hljs-string">"0"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">fxFlex</span>=<span class="hljs-string">"60%"</span>&gt;</span>Freeze at Row<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">fxFlex</span>=<span class="hljs-string">"10%"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>add<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">fxFlex</span>=<span class="hljs-string">"15%"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">fxFlex</span>=<span class="hljs-string">"10%"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">md-button-sm</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>remove<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"$event.stopPropagation()"</span>
+            <span class="hljs-attr">fxLayout</span>
+            <span class="hljs-attr">fxLayout.xs</span>=<span class="hljs-string">"column"</span>
+            <span class="hljs-attr">fxLayoutAlign</span>=<span class="hljs-string">"flex-end"</span>
+            <span class="hljs-attr">fxLayoutGap</span>=<span class="hljs-string">"10px"</span>
+            <span class="hljs-attr">fxLayoutGap.xs</span>=<span class="hljs-string">"0"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"accent"</span>&gt;</span>Done<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">md-menu</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- THEAD code - containing the header --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">th</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let fieldName of fieldNames"</span>&gt;</span>{{ '{' }}{{ '{' }}fieldName}}<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"th-nav-arrow"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"th-action"</span>&gt;</span>Action<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- TBODY code - containing the actual data --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let item of cvGettingStarted.items"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let name of fieldNames"</span>
+          [<span class="hljs-attr">ngClass</span>]=<span class="hljs-string">"&#123;</span>
+            <span class="hljs-string">'primary-info': name === dataPrimary,</span>
+            <span class="hljs-string">'secondary-info': name === dataSecondary,</span>
+            <span class="hljs-string">'extra-info': name === dataExtra}"</span>&gt;</span>
+          {{ '{' }}{{ '{' }} item[name] | globalize }}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"td-nav-arrow"</span>>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>keyboard_arrow_right<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"td-action"</span>>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span>&gt;</span>more_horiz<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <div class="sGrid">
+            <table class="table-wijmo">
+              <caption>
+                15 Leafy Green Orders
+                <button md-button>Edit</button>
+                <div class="btn-group pull-right">
+                  <button [mdMenuTriggerFor]="tableMenu1" md-icon-button color="primary">
+                    <md-icon>settings</md-icon>
+                  </button>
+                  <md-menu #tableMenu1 [overlapTrigger]="false" class="table-menu">
+                    <h4 class="table-menu-title" (click)="$event.stopPropagation()">Freeze Columns and Rows</h4>
+                    <div (click)="$event.stopPropagation()"
+                        fxLayout
+                        fxLayout.xs="column"
+                        fxLayoutAlign="flex-start"
+                        fxLayoutGap="5px"
+                        fxLayoutGap.xs="0">
+                      <div fxFlex="60%">Freeze at Column</div>
+                      <div fxFlex="10%">
+                        <button md-button md-button-sm color="accent">
+                          <md-icon>add</md-icon>
+                        </button>
+                      </div>
+                      <div fxFlex="15%">
+                        <md-input-container floatPlaceholder="never">
+                          <input type="text" mdInput value="0">
+                        </md-input-container>
+                      </div>
+                      <div fxFlex="10%">
+                        <button md-button md-button-sm color="accent">
+                          <md-icon>remove</md-icon>
+                        </button>
+                      </div>
+                    </div>
+                    <div (click)="$event.stopPropagation()"
+                        fxLayout
+                        fxLayout.xs="column"
+                        fxLayoutAlign="flex-start"
+                        fxLayoutGap="5px"
+                        fxLayoutGap.xs="0">
+                      <div fxFlex="60%">Freeze at Row</div>
+                      <div fxFlex="10%">
+                        <button md-button md-button-sm color="accent">
+                          <md-icon>add</md-icon>
+                        </button>
+                      </div>
+                      <div fxFlex="15%">
+                        <md-input-container floatPlaceholder="never">
+                          <input type="text" mdInput value="0">
+                        </md-input-container>
+                      </div>
+                      <div fxFlex="10%">
+                        <button md-button md-button-sm color="accent">
+                          <md-icon>remove</md-icon>
+                        </button>
+                      </div>
+                    </div>
+                    <div (click)="$event.stopPropagation()"
+                        fxLayout
+                        fxLayout.xs="column"
+                        fxLayoutAlign="flex-end"
+                        fxLayoutGap="10px"
+                        fxLayoutGap.xs="0">
+                      <div>
+                        <button md-button color="accent">Cancel</button>
+                      </div>
+                      <div>
+                        <button md-raised-button color="primary">Done</button>
+                      </div>
+                    </div>
+                  </md-menu>
                 </div>
-                <div (click)="$event.stopPropagation()"
-                    fxLayout
-                    fxLayout.xs="column"
-                    fxLayoutAlign="flex-start"
-                    fxLayoutGap="5px"
-                    fxLayoutGap.xs="0">
-                  <div fxFlex="60%">Freeze at Row</div>
-                  <div fxFlex="10%">
-                    <button md-button md-button-sm color="accent">
-                      <md-icon>add</md-icon>
-                    </button>
-                  </div>
-                  <div fxFlex="15%">
-                    <md-input-container floatPlaceholder="never">
-                      <input type="text" mdInput value="0">
-                    </md-input-container>
-                  </div>
-                  <div fxFlex="10%">
-                    <button md-button md-button-sm color="accent">
-                      <md-icon>remove</md-icon>
-                    </button>
-                  </div>
-                </div>
-                <div (click)="$event.stopPropagation()"
-                    fxLayout
-                    fxLayout.xs="column"
-                    fxLayoutAlign="flex-end"
-                    fxLayoutGap="10px"
-                    fxLayoutGap.xs="0">
-                  <div>
-                    <button md-button color="accent">Cancel</button>
-                  </div>
-                  <div>
-                    <button md-raised-button color="primary">Done</button>
-                  </div>
-                </div>
-              </md-menu>
-            </div>
-          </caption>
-          <thead>
-            <tr class="active">
-              <th *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
-              <th class="th-nav-arrow"></th>
-              <th class="th-action">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of cvGettingStarted.items">
-              <td *ngFor="let name of fieldNames"[ngClass]="{
-                'primary-info': name === dataPrimary,
-                'secondary-info': name === dataSecondary,
-                'extra-info': name === dataExtra}">
-                {{item[name] | globalize}}
-              </td>
-              <td class="td-nav-arrow">
-                <md-icon>keyboard_arrow_right</md-icon>
-              </td>
-              <td class="td-action">
-                <md-icon>more_horiz</md-icon>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </caption>
+              <thead>
+                <tr class="active">
+                  <th *ngFor="let fieldName of fieldNames">{{fieldName}}</th>
+                  <th class="th-nav-arrow"></th>
+                  <th class="th-action">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cvGettingStarted.items">
+                  <td *ngFor="let name of fieldNames"[ngClass]="{
+                    'primary-info': name === dataPrimary,
+                    'secondary-info': name === dataSecondary,
+                    'extra-info': name === dataExtra}">
+                    {{item[name] | globalize}}
+                  </td>
+                  <td class="td-nav-arrow">
+                    <md-icon>keyboard_arrow_right</md-icon>
+                  </td>
+                  <td class="td-action">
+                    <md-icon>more_horiz</md-icon>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
+
+
+      
     </div>
     <br/>
      <!-- current record management needs proper styling applied -->
