@@ -1,0 +1,50 @@
+/* Styles for callouts */
+.box-default {
+  background-color: #fff;
+}
+.box {
+  position: relative;
+  margin-bottom: 1.5rem;
+  border: 0;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+}
+.callout {
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid #eee;
+}
+.callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.callout-success {
+  background-color: #f3faf3;
+  border-color: #66BB6A;
+}
+.callout-success h4 {
+  color: #66BB6A;
+}
+.callout-info {
+  background-color: #f2fcfd;
+  border-color: #00BCD4;
+}
+.callout-info h4 {
+  color: #00BCD4;
+}
+.callout-warning {
+  background-color: #fffbee;
+  border-color: #FFCA28;
+}
+.callout-warning h4 {
+  color: #FFCA28;
+}
+.callout-danger {
+  background-color: #fef6f6;
+  border-color: #EF5350;
+}
+.callout-danger h4 {
+  color: #EF5350;
+}

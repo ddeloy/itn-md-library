@@ -43,6 +43,7 @@ import { SidenavItemComponent } from './sidenav/sidenav-item/sidenav-item.compon
 import {CustomDialogComponent, DialogCustomComponent} from "./dialogcustom/dialog-custom.component";
 import { TypographyComponent } from './typography/typography.component';
 import { MenuCustomComponent } from './menu-custom/menu-custom.component';
+import { AlertsComponent } from './alerts/alerts.component';
 
 @NgModule({
   imports: [
@@ -90,7 +91,8 @@ import { MenuCustomComponent } from './menu-custom/menu-custom.component';
     SidenavComponent,
     SidenavItemComponent,
     TypographyComponent,
-    MenuCustomComponent
+    MenuCustomComponent,
+    AlertsComponent
   ],
   entryComponents: [ JazzDialogComponent, ContentElementDialog, IFrameDialog, CustomDialogComponent ],
 })

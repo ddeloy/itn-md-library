@@ -54,6 +54,7 @@ const MENUITEMS = [
     //  {state: 'menucustom', name: 'Nested Menu'},
    //   {state: 'slider', name: 'SLIDER'},
       {state: 'sliderpanel', name: 'Slider Panel'},
+      {state: 'alerts', name: 'Alerts'},
       {state: 'snackbar', name: 'SNACKBAR'},
       {state: 'dialog', name: 'DIALOG'},
       {state: 'dialogcustom', name: 'Dialog Custom'}

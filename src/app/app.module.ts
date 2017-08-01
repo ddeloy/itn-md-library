@@ -32,8 +32,8 @@ export function createTranslateLoader(http: Http) {
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
-    RouterModule.forRoot(AppRoutes, {useHash: true}),
- //   RouterModule.forRoot(AppRoutes),
+  //  RouterModule.forRoot(AppRoutes, {useHash: true}),
+    RouterModule.forRoot(AppRoutes),
     FormsModule,
     HttpModule,
     TranslateModule.forRoot({

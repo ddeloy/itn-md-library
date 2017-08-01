@@ -24,6 +24,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { SidenavComponent } from "./sidenav/sidenav.component";
 import {TypographyComponent} from "./typography/typography.component";
 import {MenuCustomComponent} from "./menu-custom/menu-custom.component";
+import {AlertsComponent} from "./alerts/alerts.component";
 
 export const MaterialRoutes: Routes = [
   {
@@ -82,6 +83,9 @@ export const MaterialRoutes: Routes = [
     }, {
       path: 'sliderpanel',
       component: SidenavComponent
+    }, {
+      path: 'alerts',
+      component: AlertsComponent
     }, {
       path: 'snackbar',
       component: SnackbarComponent
