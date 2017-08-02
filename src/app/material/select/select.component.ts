@@ -25,6 +25,26 @@ export class SelectComponent {
   drinksTheme = 'primary';
   pokemonTheme = 'primary';
 
+  favSports: string[] = [];
+
+  sports = [
+    {value: 'cricket-0', viewValue: 'Cricket'},
+    {value: 'football-1', viewValue: 'Football'},
+    {value: 'badminton-2', viewValue: 'Badminton'},
+    {value: 'basketball-3', viewValue: 'Basketball'},
+    {value: 'rugby-4', viewValue: 'Rugby'},
+    {value: 'tennis-5', viewValue: 'Tennis'},
+    {value: 'hockey-6', viewValue: 'Hockey'},
+  ];
+
+  // onSelectChange(event) {
+  //   let labelEl = event.source.trigger.nativeElement.parentElement.parentElement;
+  //   let overSelTextEl = labelEl.getElementsByClassName('multi-overbox-text')[0];
+  //   let multiSelValEl = labelEl.getElementsByClassName('multi-value')[0];
+  //   overSelTextEl.innerHTML = (event.value.length > 0) ? ( event.value.length + ' selected' ) : '';
+  //   multiSelValEl.innerHTML = event.source.triggerValue;
+  // }
+
   foods = [
     {value: null, viewValue: 'None'},
     {value: 'steak-0', viewValue: 'Steak'},

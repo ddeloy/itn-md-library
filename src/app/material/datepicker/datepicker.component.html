@@ -102,6 +102,40 @@
 </md-card>
 
 <md-card class="page-card">
+  <md-card-title>Searchbar</md-card-title>
+  <md-card-subtitle>Custom Searchbar</md-card-subtitle>
+  <md-card-content>
+    <div class="docs-guide-content">
+      <p>
+        Searchbar is an input element along with a seach icon as prefix element, with custom styling and behaviour. A Searchbar is created by
+        adding <code>searchbar</code> class to the <code>md-input-container</code> element.
+      </p>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Searchbar
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">md-input-container</span> <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"searchbar"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-icon</span> <span class="hljs-attr">mdPrefix</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">md-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">mdInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Find User"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>  
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-input-container</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+            <md-input-container floatPlaceholder="never" class="searchbar">
+              <md-icon mdPrefix>search</md-icon>
+              <input type="text" mdInput placeholder="Find User">           
+            </md-input-container>
+        </div>
+      </div>
+
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class="page-card">
   <md-card-title>Field with Action</md-card-title>
   <md-card-subtitle>Input fields with actions like Advance or Option</md-card-subtitle>
   <md-card-content>

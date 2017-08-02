@@ -59,6 +59,12 @@
                     max-width: calc(100% - 16px - 1rem);
                 }
             }
+            & + .multi-overbox {
+                left: 8px;
+                height: $input-height-tab - 0.125rem;
+                line-height: $input-height-tab - 0.1rem;
+                font-size: $input-font-size-tab;
+            }
         }
         &.mat-raised-button, &.mat-button {
             font-size: 0.75rem;

@@ -1,6 +1,42 @@
 label {    
     .mat-select {
         width: inherit;
+        & + .multi-overbox {
+            position: absolute;
+            left: 0;
+            right: 24px;
+            top: 14px;
+            .multi-overbox-text {
+                flex: 1 1 100%;
+                min-width: 20%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                cursor: pointer;
+                background-color: transparent;
+                &:not(:empty) {
+                    background-color: #fff;
+                }
+            }
+            .multi-overbox-link {
+                align-self: flex-end;
+                flex: 1 0 auto;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                max-width: 60%;
+                background-color: #fff;
+                color: map-get($primary, 500)
+            }
+        }
+    }
+    .multi-value {
+        color: map-get($accent, 300);
+        height: 1rem;
+        font-size: 0.875rem;
+        line-height: 1rem;
+        margin-top: 8px;
+
     }
 }
 md-select.mat-select {
@@ -134,6 +170,26 @@ md-select.mat-select {
             }
             .mat-select-value {
                 max-width: calc(100% - 16px - 1.5rem);
+            }
+        }
+    }
+    label {    
+        .mat-select {
+            & + .multi-overbox {
+                left: 10px;
+                right: 40px;
+                top: 18px;                
+                height: $input-height-desk - 0.125rem;
+                line-height: $input-height-desk - 0.1rem;
+            }
+        }
+    }
+}
+@media only screen and (min-width: breakpoint-min(md)) {
+    label {    
+        .mat-select {
+            & + .multi-overbox {
+                top: 22px;
             }
         }
     }

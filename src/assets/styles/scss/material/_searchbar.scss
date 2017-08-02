@@ -1,0 +1,79 @@
+$searchbar-border-radius: 26px;
+
+.mat-input-container.searchbar {
+    .mat-input-wrapper {
+        .mat-input-element {
+            background-color: rgba(8, 71, 78, 0.05);
+            border: 0;            
+            line-height: $input-height-mob;
+            padding-bottom: initial;
+        }
+        .mat-input-table {
+            .mat-input-infix {
+                &:last-child {
+                    .mat-input-element {
+                        border-radius: 0 26px 26px 0;
+                    }
+                }
+            }
+        }
+        .mat-input-prefix, .mat-input-suffix {            
+            background-color: rgba(8, 71, 78, 0.05);
+            border: 0;            
+            .mat-icon {
+                color: #798d94;
+                line-height: $input-height-mob;
+                padding: 0 0.5rem;
+            }
+        }
+        .mat-input-prefix {
+            border-radius: $searchbar-border-radius 0 0 $searchbar-border-radius;
+        }
+        .mat-input-suffix {
+            border-radius: 0 $searchbar-border-radius $searchbar-border-radius 0;
+        }
+        .mat-input-placeholder-wrapper {
+            .mat-input-placeholder {
+                color: rgba(2, 26, 37, 0.6);
+                line-height: $input-height-mob;
+                margin-top: 1px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: breakpoint-min(sm)) {
+    .mat-input-container.searchbar {
+        .mat-input-wrapper {
+            .mat-input-element {
+                line-height: $input-height-desk;
+                padding-left: 0.5rem;
+            }
+            .mat-input-prefix, .mat-input-suffix {            
+                .mat-icon {
+                    font-size: 1.25rem;
+                    line-height: initial;
+                    padding: initial;
+                }
+            }
+            .mat-input-placeholder-wrapper {
+                .mat-input-placeholder {
+                    line-height: $input-height-desk;
+                    padding-left: 0.5rem;
+                    margin-top: initial;
+                }
+            }
+        }
+        &.compact {
+            .mat-input-wrapper {
+                .mat-input-prefix, .mat-input-suffix {            
+                    .mat-icon {
+                        font-size: 100%;
+                        line-height: initial;
+                        padding: initial;
+                    }
+                }
+            }
+        }
+    }
+}

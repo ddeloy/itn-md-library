@@ -34,7 +34,7 @@
 <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"currentDrink"</span>
-    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">drinkControl</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">drinkControl</span>=<span class="hljs-string">"mdSelect"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
       {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
     <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
@@ -64,7 +64,7 @@
             <label class="ml-xs mr-xs">
               <span>Default</span>
               <md-select placeholder="Drink" [(ngModel)]="currentDrink"
-                floatPlaceholder="never" #drinkControl="ngModel">
+                floatPlaceholder="never" #drinkControl="mdSelect">
                 <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
                   {{ drink.viewValue }}
                 </md-option>
@@ -96,7 +96,7 @@
         </div>
         <div class="example-viewer-source">
 <pre><span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Favorite Drink"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"favDrink"</span>
-  <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"auto"</span> #<span class="hljs-attr">favDrinkControl</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+  <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"auto"</span> #<span class="hljs-attr">favDrinkControl</span>=<span class="hljs-string">"mdSelect"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
     {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
   <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
@@ -104,7 +104,7 @@
         </div>
         <div class="example-viewer-body">
             <md-select placeholder="Favorite Drink" [(ngModel)]="favDrink"
-              floatPlaceholder="auto" #favDrinkControl="ngModel">
+              floatPlaceholder="auto" #favDrinkControl="mdSelect">
               <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
                 {{ drink.viewValue }}
               </md-option>
@@ -128,7 +128,7 @@
 <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Drink"</span> <span class="hljs-attr">dividerColor</span>=<span class="hljs-string">"primary"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"currentDrink1"</span>
-    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">drinkControl1</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">drinkControl1</span>=<span class="hljs-string">"mdSelect"</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- set dividerColor to primary or accent or warn --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let drink of drinks"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"drink.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"drink.disabled"</span>&gt;</span>
       {{'{'}}{{'{'}} drink.viewValue {{'}'}}{{'}'}}
@@ -140,7 +140,7 @@
           <label>
             <span>Primary</span>
             <md-select placeholder="Drink" dividerColor="primary" [(ngModel)]="currentDrink1"
-                    floatPlaceholder="never" #drinkControl1="ngModel">
+                    floatPlaceholder="never" #drinkControl1="mdSelect">
               <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
                 {{ drink.viewValue }}
               </md-option>
@@ -162,7 +162,7 @@
 <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Compact Select<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Favorite Food"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"favFood"</span>
-    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">favFoodControl</span>=<span class="hljs-string">"ngModel"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"compact"</span>&gt;</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">favFoodControl</span>=<span class="hljs-string">"mdSelect"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"compact"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let food of foods"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"food.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"food.disabled"</span>&gt;</span>
       {{'{'}}{{'{'}} food.viewValue {{'}'}}{{'}'}}
     <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
@@ -183,7 +183,7 @@
             <label class="ml-xs mr-xs">
               <span>Compact Select</span>
               <md-select placeholder="Favorite Food" [(ngModel)]="favFood"
-                floatPlaceholder="never" #favFoodControl="ngModel" class="compact">
+                floatPlaceholder="never" #favFoodControl="mdSelect" class="compact">
                 <md-option *ngFor="let food of foods" [value]="food.value" [disabled]="food.disabled">
                   {{ food.viewValue }}
                 </md-option>
@@ -213,7 +213,7 @@
 <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Pokemon<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Favorite Pokemon"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"currentPokemon"</span>
-    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">pokemonControl</span>=<span class="hljs-string">"ngModel"</span>&gt;</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">pokemonControl</span>=<span class="hljs-string">"mdSelect"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let creature of pokemon"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"creature.value"</span>&gt;</span>
       {{'{'}}{{'{'}} creature.viewValue {{'}'}}{{'}'}}
     <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
@@ -224,11 +224,55 @@
           <label>
             <span>Pokemon</span>
             <md-select multiple placeholder="Favorite Pokemon" [(ngModel)]="currentPokemon"
-                      floatPlaceholder="never" #pokemonControl="ngModel">
+                      floatPlaceholder="never" #pokemonControl="mdSelect">
               <md-option *ngFor="let creature of pokemon" [value]="creature.value">
                 {{ creature.viewValue }}
               </md-option>
             </md-select>
+          </label>
+        </div>
+      </div>
+
+      <h3 id="select-multiple">Multiple Selection Variation</h3>
+
+      <div class="example-viewer">
+        <div class="example-viewer-title">
+          Multiple Selection Variation
+        </div>
+        <div class="example-viewer-source">
+<pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Favorite Sports<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Favorite Sports"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"favSports"</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">sportsControl</span>=<span class="hljs-string">"mdSelect"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let sport of sports"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"sport.value"</span>&gt;</span>
+      {{'{'}}{{'{'}} sport.viewValue {{'}'}}{{'}'}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"multi-overbox"</span> <span class="hljs-attr">fxLayout</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"multi-overbox-text"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"sportsControl.toggle()"</span>&gt;</span>{{'{'}}{{'{'}} sportsControl.selected.length > 0 ? sportsControl.selected.length + ' selected' : ''}}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- IMPORTANT: make sure the above span code is one single line --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"multi-overbox-link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"www.google.com"</span>&gt;</span>Go to Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- [routerLink] can also be used --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-hint</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"start"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"multi-value"</span>&gt;</span>{{'{'}}{{'{'}} sportsControl.triggerValue }}<span class="hljs-tag">&lt;/<span class="hljs-name">md-hint</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</pre>
+        </div>
+        <div class="example-viewer-body">
+          <label>
+            <span>Favorite Sports</span>
+            <md-select multiple placeholder="Favorite Sports" [(ngModel)]="favSports"
+                      floatPlaceholder="never" #sportsControl="mdSelect">
+              <md-option *ngFor="let sport of sports" [value]="sport.value">
+                {{ sport.viewValue }}
+              </md-option>
+            </md-select>
+            <div class="multi-overbox" fxLayout="row" >
+              <span class="multi-overbox-text" (click)="sportsControl.toggle()">{{ sportsControl.selected.length > 0 ? sportsControl.selected.length + ' selected' : ''}}</span>
+              <a class="multi-overbox-link" href="www.google.com">Go to Google</a>
+            </div>
+            <md-hint align="start" class="multi-value">{{ sportsControl.triggerValue }}</md-hint>
           </label>
         </div>
       </div>
@@ -283,7 +327,7 @@
 <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>With Error Message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">md-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Color"</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"favoriteColor"</span>
-    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">colorControl</span>=<span class="hljs-string">"ngModel"</span> <span class="hljs-attr">required</span>&gt;</span>
+    <span class="hljs-attr">floatPlaceholder</span>=<span class="hljs-string">"never"</span> #<span class="hljs-attr">colorControl</span>=<span class="hljs-string">"mdSelect"</span> <span class="hljs-attr">required</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">md-option</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let color of colors"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"color.value"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"color.disabled"</span>&gt;</span>
       {{'{'}}{{'{'}} color.viewValue {{'}'}}{{'}'}}
     <span class="hljs-tag">&lt;/<span class="hljs-name">md-option</span>&gt;</span>
@@ -297,7 +341,7 @@
           <label>
             <span>With Error Message</span>
             <md-select placeholder="Color" [(ngModel)]="favoriteColor"
-              floatPlaceholder="never" #colorControl="ngModel" required>
+              floatPlaceholder="never" #colorControl="mdSelect" required>
               <md-option *ngFor="let color of colors" [value]="color.value" [disabled]="color.disabled">
                 {{ color.viewValue }}
               </md-option>
