@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SidenavMenuItem } from '../sidenav-menu-item';
-
+/* SidenavMenuItem is the model - place wherever you desire */
 
 @Component({
   selector : 'sidenav-item',
