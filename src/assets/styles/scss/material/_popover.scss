@@ -1,0 +1,66 @@
+.popover-container {
+    position: relative;
+}
+.popover {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    -webkit-animation: fadeEffect 0.5s;
+    animation: fadeEffect 0.5s;
+    &.shown {
+        display: block;
+    }
+}
+.select-popover-status {
+    color: map-get($accent, 300);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+label.select-popover {
+    .select-content {
+        border: 1px solid #98afb4;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        padding: 1rem;
+        .mat-input-container {
+            display: block;
+        }
+        .select-status {
+            font-size: 0.75rem;
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+        .option-container {
+            max-height: 144px;
+            overflow: auto;
+            ul.option-list {
+                list-style-type: none;
+                padding-left: 0;
+                margin-top: 0.5rem;                
+                li {
+                    & + li {
+                        margin-top: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeEffect {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@media only screen and (min-width: breakpoint-min(sm)) {
+    .popover {
+        min-width: 248px;
+    }
+}

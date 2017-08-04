@@ -44,6 +44,7 @@ import {CustomDialogComponent, DialogCustomComponent} from "./dialogcustom/dialo
 import { TypographyComponent } from './typography/typography.component';
 import { MenuCustomComponent } from './menu-custom/menu-custom.component';
 import { AlertsComponent } from './alerts/alerts.component';
+import { SelectPopoverComponent, OptFilterPipe } from './select-popover/select-popover.component';
 
 @NgModule({
   imports: [
@@ -92,7 +93,9 @@ import { AlertsComponent } from './alerts/alerts.component';
     SidenavItemComponent,
     TypographyComponent,
     MenuCustomComponent,
-    AlertsComponent
+    AlertsComponent,
+    SelectPopoverComponent,
+    OptFilterPipe
   ],
   entryComponents: [ JazzDialogComponent, ContentElementDialog, IFrameDialog, CustomDialogComponent ],
 })

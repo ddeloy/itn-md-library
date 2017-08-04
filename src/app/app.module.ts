@@ -16,7 +16,6 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { SharedModule } from './shared/shared.module';
 import { SidenavRightLayoutComponent } from './layouts/sidenav/sidenav-right-layout.component';
 
-
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {MdSelectChange} from '@angular/material';
 
@@ -7,7 +7,7 @@ import {MdSelectChange} from '@angular/material';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent {
+export class SelectComponent implements OnInit {
   drinksRequired = false;
   pokemonRequired = false;
   drinksDisabled = false;
@@ -24,6 +24,9 @@ export class SelectComponent {
   foodControl = new FormControl('pizza-1');
   drinksTheme = 'primary';
   pokemonTheme = 'primary';
+  popoverShown: boolean = false;
+
+  selectPopoverStatus:string = "No access";
 
   favSports: string[] = [];
 
@@ -44,7 +47,56 @@ export class SelectComponent {
   //   overSelTextEl.innerHTML = (event.value.length > 0) ? ( event.value.length + ' selected' ) : '';
   //   multiSelValEl.innerHTML = event.source.triggerValue;
   // }
+  
+  options = [{
+    text: 'Spinach',
+    checked: false
+  }, {
+    text: 'Cabbage',
+    checked: true
+  }, {
+    text: 'Tomato',
+    checked: false
+  }, {
+    text: 'Orange',
+    checked: false
+  }, {
+    text: 'Apple',
+    checked: true
+  }, {
+    text: 'Mango',
+    checked: false
+  }]
 
+  updateSelected() {
+    let checked:number = 0;
+    let checkString: string = '';
+    this.options.forEach(option => {
+            if(option.checked) {
+                checked++;
+                if(checked == 1) {
+                  checkString = option.text;
+                } else {
+                  checkString += (', ' + option.text);
+                }
+            }
+        });
+    if(checked == 0) {
+      this.selectPopoverStatus = 'No access';
+    } else {
+      this.selectPopoverStatus = checkString;
+    }
+  } 
+
+  onSelectClose(options) {
+    this.options = options;
+    this.updateSelected();
+  } 
+
+  ngOnInit() {
+    this.updateSelected();
+  }
+  
   foods = [
     {value: null, viewValue: 'None'},
     {value: 'steak-0', viewValue: 'Steak'},
