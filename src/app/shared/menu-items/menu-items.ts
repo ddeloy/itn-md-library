@@ -37,6 +37,8 @@ const MENUITEMS = [
    //   {state: 'cards', name: 'CARDS'},
       {state: 'typography', name: 'Typography'},
       {state: 'select', name: 'SELECT'},
+   //   {state: 'selectpopover', name: 'Select Popover'},
+      {state: 'selectcustom', name: 'Select Custom'},
       {state: 'autocomplete', name: 'AUTOCOMPLETE'},
       {state: 'inputoptions', name: 'Input Options'},
       {state: 'chips', name: 'CHIPS'},
@@ -60,22 +62,22 @@ const MENUITEMS = [
       {state: 'dialogcustom', name: 'Dialog Custom'}
     ]
   },
-/*
+
   {
     state: 'session',
     name: 'Layouts',
     type: 'sub',
     icon: 'face',
     children: [
-      {state: '404', name: '404'},
-      {state: 'error', name: 'ERROR'},
-      {state: 'signin', name: 'SIGNIN'},
-      {state: 'signup', name: 'SIGNUP'},
-      {state: 'forgot', name: 'FORGOT'},
-      {state: 'lockscreen', name: 'LOCKSCREEN'},
+    //  {state: '404', name: '404'},
+   //   {state: 'error', name: 'ERROR'},
+      {state: 'signin', name: 'Right SideNav'},
+   //   {state: 'signup', name: 'SIGNUP'},
+   //   {state: 'forgot', name: 'FORGOT'},
+   //   {state: 'lockscreen', name: 'LOCKSCREEN'},
     ]
   },
- */
+
 
   {
     state: 'pages',

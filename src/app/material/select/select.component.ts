@@ -47,7 +47,7 @@ export class SelectComponent implements OnInit {
   //   overSelTextEl.innerHTML = (event.value.length > 0) ? ( event.value.length + ' selected' ) : '';
   //   multiSelValEl.innerHTML = event.source.triggerValue;
   // }
-  
+
   options = [{
     text: 'Spinach',
     checked: false
@@ -72,31 +72,31 @@ export class SelectComponent implements OnInit {
     let checked:number = 0;
     let checkString: string = '';
     this.options.forEach(option => {
-            if(option.checked) {
-                checked++;
-                if(checked == 1) {
-                  checkString = option.text;
-                } else {
-                  checkString += (', ' + option.text);
-                }
-            }
-        });
+      if(option.checked) {
+        checked++;
+        if(checked == 1) {
+          checkString = option.text;
+        } else {
+          checkString += (', ' + option.text);
+        }
+      }
+    });
     if(checked == 0) {
       this.selectPopoverStatus = 'No access';
     } else {
       this.selectPopoverStatus = checkString;
     }
-  } 
+  }
 
   onSelectClose(options) {
     this.options = options;
     this.updateSelected();
-  } 
+  }
 
   ngOnInit() {
     this.updateSelected();
   }
-  
+
   foods = [
     {value: null, viewValue: 'None'},
     {value: 'steak-0', viewValue: 'Steak'},

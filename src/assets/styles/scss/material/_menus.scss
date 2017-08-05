@@ -82,6 +82,63 @@ top-menu {
       }
   }
 }
+/* This is a duplication of top-menu that I use in my npm seed test */
+app-nested-menu {
+  height: inherit;
+  & > [md-button].mat-button:not(.mat-icon-button),
+  & > [md-raised-button].mat-raised-button:not(.mat-icon-button) {
+    height: inherit;
+    border-radius: 0;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color .3s;
+    font-size: $default-item-font-size;
+    font-weight: $font-weight-bold;
+    color: $default-item-color;
+    background-color: transparent;
+    padding: 0 14px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    &.active {
+      background-color: $default-hover-color;
+    }
+    &:hover, &.open {
+      box-shadow: none;
+      background-color: $default-hover-color;
+      border-bottom-color: map-get($primary, 500);
+      &.mat-primary {
+        border-bottom-color: map-get($primary, 500);
+      }
+      &.mat-accent {
+        border-bottom-color: map-get($accent, 500);
+      }
+      &.mat-warn {
+        border-bottom-color: map-get($warn, 500);
+      }
+    }
+    &.btn-user {
+      padding: 0 8px;
+      span.mat-button-wrapper {
+        color: #ffffff;
+        font-size: $default-item-font-size;
+        vertical-align: baseline;
+        padding: 8.5px 8px;
+        border-radius: 50%;
+        background-color: mat-color($accent, 400);
+      }
+    }
+  }
+}
+
+app-nested-menu [md-button] {
+  z-index: 1001;
+  line-height: 64px;
+  color: #fff;
+}
+
+/* ****** End of my npm-seed sample css */
 
 .custom-menu, .sub-menu-custom {
   &.mat-menu-panel {
@@ -117,7 +174,7 @@ top-menu {
       & > .menu-extra-text {
         color: map-get($accent, 200);
       }
-      &:hover, &:focus {          
+      &:hover, &:focus {
           color: map-get($accent, 900);
           & > .mat-icon {
             color: map-get($accent, 900);
@@ -128,7 +185,7 @@ top-menu {
       }
       &[disabled] {
         color: map-get($accent, 200);
-      }      
+      }
     }
     .mat-divider {
       border-top: 1px solid mat-color(map-get($primary, contrast), 50, 0.12);
@@ -157,7 +214,7 @@ top-menu {
         padding: 9.5px 24px;
         &:not(:last-of-type) {
           border-bottom: 1px solid map-get($accent, 50);
-        }       
+        }
       }
     }
   }
@@ -195,7 +252,7 @@ top-menu {
       line-height: initial;
       height: initial;
       white-space: initial;
-      &:hover, &:focus {          
+      &:hover, &:focus {
         background-color: map-get($accent, 30);
       }
     }

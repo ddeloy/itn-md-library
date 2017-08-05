@@ -45,6 +45,7 @@ import { TypographyComponent } from './typography/typography.component';
 import { MenuCustomComponent } from './menu-custom/menu-custom.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { SelectPopoverComponent, OptFilterPipe } from './select-popover/select-popover.component';
+import { SelectCustomComponent } from './select-custom/select-custom.component';
 
 @NgModule({
   imports: [
@@ -95,7 +96,8 @@ import { SelectPopoverComponent, OptFilterPipe } from './select-popover/select-p
     MenuCustomComponent,
     AlertsComponent,
     SelectPopoverComponent,
-    OptFilterPipe
+    OptFilterPipe,
+    SelectCustomComponent
   ],
   entryComponents: [ JazzDialogComponent, ContentElementDialog, IFrameDialog, CustomDialogComponent ],
 })

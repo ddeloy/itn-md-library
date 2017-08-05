@@ -4,7 +4,7 @@
   <md-card-content>
     <div class="docs-guide-content">
       <p>
-        <code>MdSelectModule</code> - 
+        <code>MdSelectModule</code> -
         <a class="badge" href="https://material.angular.io/components/select/overview" target="_blank">
           Official Documentation
         </a>
@@ -275,7 +275,7 @@
             <md-hint align="start" class="multi-value">{{ sportsControl.triggerValue }}</md-hint>
           </label>
         </div>
-      </div>    
+      </div>
 
       <h3 id="select-multiple-variation2">Multiple Selection Variation - Popover</h3>
       <p>This variation by default shows only the labels of the selected options. To make/change the selection, a triggering element,
@@ -298,7 +298,10 @@
         element. Element with <code>popover</code> class will be hidden by default, and will fade in only when <code>shown</code> class is
         added to it. Element with <code>popover</code> class should be placed inside an element with <code>popover-container</code> class.
       </p>
-
+      <br/>
+      <p><strong>Download select-popover.component.html and select-popover.component.ts sample code</strong></p>
+      <a md-raised-button color="primary" href="http://ddeloy.com/itn-library-downlaods/select-popover.zip" download>Download Zip</a>
+      <br/>
       <div class="example-viewer">
         <div class="example-viewer-title">
           Multiple Selection Variation - Popover
@@ -378,7 +381,7 @@
   onSelectClose(options) {{'{'}}
     <span class="hljs-keyword">this</span>.options = options;
     <span class="hljs-keyword">this</span>.updateSelected();
-  } 
+  }
 
   ngOnInit() {{'{'}}
     <span class="hljs-keyword">this</span>.updateSelected();
@@ -400,7 +403,7 @@
             </div>
           </div>
         </div>
-      </div>  
+      </div>
 
       <h3 id="select-hint-and-error">Hint Label and Error Message</h3>
       <p>Hint label is an indicative text that appears below the select box.
@@ -412,7 +415,7 @@
       <p>Error messages appear below the select box. These are hidden by default and will appear on an invalid input
         after the user has interacted with the element. For example, if the <code>md-select</code> element is marked
         required but the user doesn't select a value or selects a None value.</p>
-      <p>Error messages can be set by using <code>md-hint</code> elements having <code>error</code> class inside the 
+      <p>Error messages can be set by using <code>md-hint</code> elements having <code>error</code> class inside the
       <code>md-select</code>, with <code>hidden</code> property bound to desired property of the element.
       For example, <code>[hidden]="name.valid || name.pristine"</code>.</p>
 
@@ -470,13 +473,13 @@
               <md-option *ngFor="let color of colors" [value]="color.value" [disabled]="color.disabled">
                 {{ color.viewValue }}
               </md-option>
-            </md-select>     
+            </md-select>
             <md-hint align="start" [hidden]="colorControl.valid || colorControl.pristine" class="error">
               This is required
             </md-hint>
           </label>
         </div>
       </div>
-    </div>    
+    </div>
   </md-card-content>
 </md-card>

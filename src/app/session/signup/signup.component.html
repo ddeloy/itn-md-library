@@ -1,30 +1,27 @@
-<div class="session mat-indigo">
-  <div class="session-content">
-    <div class="session-wrapper">
+
       <md-card>
         <md-card-content>
-          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <form style="width:50%;" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="text-xs-center pb-1">
-              <img src="assets/images/logo-dark.png" alt=""/>
-              <p class="mat-text-muted">Create an app id to continue.</p>
+             <p class="mat-text-muted">Create an app id to continue.</p>
             </div>
             <div fxLayout="column"  fxLayoutAlign="space-around">
               <div class="pb-1">
                 <md-input-container style="width: 100%">
-                  <input mdInput placeholder="Email address" type="email" [formControl]="form.controls['email']">
+                  <input mdInput placeholder="" type="email" [formControl]="form.controls['email']">
                 </md-input-container>
                 <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="mat-text-warn">You must include an email address.</small>
                 <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="mat-text-warn">You must include a valid email address.</small>
               </div>
               <div class="pb-1">
                 <md-input-container style="width: 100%">
-                  <input mdInput type="password" placeholder="Password" [formControl]="form.controls['password']">
+                  <input mdInput type="password" placeholder="" [formControl]="form.controls['password']">
                 </md-input-container>
                 <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="mat-text-warn">You must include password.</small>
               </div>
               <div class="pb-1">
                 <md-input-container style="width: 100%">
-                  <input mdInput placeholder="Confirm Password" [formControl]="form.controls['confirmPassword']" type="password">
+                  <input mdInput placeholder="" [formControl]="form.controls['confirmPassword']" type="password">
                 </md-input-container>
                 <small *ngIf="form.controls['confirmPassword'].hasError('required') && form.controls['confirmPassword'].touched" class="mat-text-warn">You must include confirm password.</small>
                 <small *ngIf="form.controls['confirmPassword'].errors?.equalTo" class="mat-text-warn">Passwords do not math.</small>
@@ -41,6 +38,3 @@
           </form>
         </md-card-content>
       </md-card>
-    </div>
-  </div>
-</div>

@@ -5,15 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class OptFilterPipe implements PipeTransform {
   transform(items: any[], filter: string, showOnlyChecked: boolean = false): any {
     if (!items) {
-        return items;
+      return items;
     }
     // filter items array, items which match and return true will be kept, false will be filtered out
     return items.filter(item => {
-        if(showOnlyChecked) {
-            return item.checked && (item.text.toLowerCase().indexOf(filter) !== -1);
-        } else {
-            return (item.text.toLowerCase().indexOf(filter) !== -1);
-        }
+      if(showOnlyChecked) {
+        return item.checked && (item.text.toLowerCase().indexOf(filter) !== -1);
+      } else {
+        return (item.text.toLowerCase().indexOf(filter) !== -1);
+      }
     });
   }
 }
@@ -22,26 +22,28 @@ export class OptFilterPipe implements PipeTransform {
   selector: 'select-popover',
   templateUrl: './select-popover.component.html'
 })
-export class SelectPopoverComponent implements OnInit {
-    @Input() label: string;
-    @Input() options: any[];
-    @Output() onClose = new EventEmitter<any[]>();  
-    private _totalSelected:number = 0;
-    private _showOnlyChecked: boolean = false;
+export class SelectPopoverComponent implements OnInit, OnDestroy {
+  @Input() label: string;
+  @Input() options: any[];
+  @Output() onClose = new EventEmitter<any[]>();
+  // Cannot be private or breaks build
+  _totalSelected:number = 0;
+  // Cannot be private or breaks build
+  _showOnlyChecked: boolean = false;
 
-    onOptionChange() {
-        let checked:number = 0;
-        this.options.forEach(option => {
-                if(option.checked) {
-                    checked++;
-                }
-            });
-        this._totalSelected = checked;
-    }
+  onOptionChange() {
+    let checked:number = 0;
+    this.options.forEach(option => {
+      if(option.checked) {
+        checked++;
+      }
+    });
+    this._totalSelected = checked;
+  }
 
-    ngOnInit() { this.onOptionChange(); }
+  ngOnInit() { this.onOptionChange(); }
 
-    ngOnDestroy() {
-        this.onClose.emit(this.options);
-    }
+  ngOnDestroy() {
+    this.onClose.emit(this.options);
+  }
 }

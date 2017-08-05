@@ -25,6 +25,8 @@ import { SidenavComponent } from "./sidenav/sidenav.component";
 import {TypographyComponent} from "./typography/typography.component";
 import {MenuCustomComponent} from "./menu-custom/menu-custom.component";
 import {AlertsComponent} from "./alerts/alerts.component";
+import {SelectPopoverComponent} from "./select-popover/select-popover.component";
+import {SelectCustomComponent} from "./select-custom/select-custom.component";
 
 export const MaterialRoutes: Routes = [
   {
@@ -98,6 +100,12 @@ export const MaterialRoutes: Routes = [
     }, {
       path: 'select',
       component: SelectComponent
+    }, {
+  /*    path: 'selectpopover',
+      component: SelectPopoverComponent
+    }, {*/
+      path: 'selectcustom',
+      component: SelectCustomComponent
     }, {
       path: 'autocomplete',
       component: AutocompleteComponent

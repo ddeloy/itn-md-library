@@ -1,23 +1,23 @@
 <label class="select-popover">
-    <span>{{ label }}</span>
-    <div class="select-content">
-        <md-input-container floatPlaceholder="never" class="compact">
-            <input mdInput placeholder="Search" type="text" #txtFilter>
-        </md-input-container>
-        <p class="select-status">
-            {{_totalSelected}} option(s) selected
-            ( <a href="javascript:void(0);" (click)="_showOnlyChecked=!_showOnlyChecked">
-                show {{ _showOnlyChecked ? 'all' : 'selected'}}
-            </a> )
-        </p>
-        <div class="option-container">
-            <ul class="option-list">
-                <li *ngFor="let option of options | optfilter:txtFilter.value:_showOnlyChecked">
-                    <md-checkbox [(ngModel)]="option.checked" color="primary" (change)="onOptionChange()">
-                        {{option.text}}
-                    </md-checkbox>
-                </li>
-            </ul>
-        </div>
+  <span>{{ label }}</span>
+  <div class="select-content">
+    <md-input-container floatPlaceholder="never" class="compact">
+      <input mdInput placeholder="Search" type="text" #txtFilter>
+    </md-input-container>
+    <p class="select-status">
+      {{_totalSelected}} option(s) selected
+      ( <a href="javascript:void(0);" (click)="_showOnlyChecked=!_showOnlyChecked">
+      show {{ _showOnlyChecked ? 'all' : 'selected'}}
+    </a> )
+    </p>
+    <div class="option-container">
+      <ul class="option-list">
+        <li *ngFor="let option of options | optfilter:txtFilter.value:_showOnlyChecked">
+          <md-checkbox [(ngModel)]="option.checked" color="primary" (change)="onOptionChange()">
+            {{option.text}}
+          </md-checkbox>
+        </li>
+      </ul>
     </div>
+  </div>
 </label>
