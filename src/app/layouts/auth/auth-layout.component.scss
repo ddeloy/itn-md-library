@@ -1,6 +1,6 @@
 /* These styles are added in material/_layout.scss */
 
-/*
+
 
 app-nested-menu [md-button] {
   z-index: 1001;
@@ -8,7 +8,7 @@ app-nested-menu [md-button] {
   color: #fff;
 }
 
-md-toolbar.main-header {
+#top-header {
   padding: 0 8px;
   position: relative;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
@@ -55,4 +55,4 @@ md-toolbar.secondary-header {
   -ms-flex-direction: row;
   flex-direction: row;
 }
-*/
+

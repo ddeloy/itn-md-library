@@ -1,20 +1,20 @@
-<md-toolbar color="default" class="secondary-header fixed-position">
+<md-toolbar color="default" id="top-header">
   <button md-raised-button color="primary" (click)="sidenav.toggle()">Toggle SideNav</button>
 <!-- top-menu not implemented -->
 <!--  <app-nested-menu [color]="color" [items]="customItems"></app-nested-menu> -->
 </md-toolbar>
-<md-sidenav class="fixed-position" ngClass="{{sideWidth}}" #sidenav opened mode="over" align="end">
+<md-sidenav style="z-index:9999;" class="fixed-position" ngClass="{{sideWidth}}" #sidenav opened mode="over" align="end">
   <md-toolbar color="default" class="secondary-header">
     <button md-button color="primary" (click)="sidenav.toggle()">Close Sidenav</button>
   </md-toolbar>
-  <div class="sidenav-menu-select">
-    <md-select placeholder="Select side width" [(ngModel)]="sideWidth">
+  <div class="">
+   <!-- <md-select style="z-index:99999;" placeholder="Select side width" [(ngModel)]="sideWidth">
       <md-option value="sm">Small</md-option>
       <md-option value="med">Medium</md-option>
       <md-option value="lg">Large</md-option>
       <md-option value="xl">Full</md-option>
-    </md-select>
-    <br/>
+    </md-select> -->
+
     <md-nav-list>
       <md-list-item *ngFor="let nav of navs"
                     [routerLink]="nav.url"
@@ -25,7 +25,7 @@
   </div>
 </md-sidenav>
 <md-sidenav-container class="sidenav-right-container backdrop-hidden app-inner">
-  <div class="sidenav-right-content">
+  <div class="">
     <router-outlet></router-outlet>
   </div>
 </md-sidenav-container>
