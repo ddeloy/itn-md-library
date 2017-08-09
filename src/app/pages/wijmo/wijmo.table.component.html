@@ -17,7 +17,7 @@
 <pre>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sGrid"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-wijmo"</span>&gt;</span>
-    
+
     <span class="hljs-comment">&lt;!-- CAPTION code - contains Table title and other elements like setting menu --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">caption</span>&gt;</span>
       15 Leafy Green Orders
@@ -228,7 +228,7 @@
       </div>
 
 
-      
+
     </div>
     <br/>
      <!-- current record management needs proper styling applied -->
@@ -283,7 +283,7 @@
         </tr>
         </tbody>
       </table>
-    </div>   
+    </div>
 
     <!-- filtering -->
     <h4>Filtering</h4>
@@ -402,4 +402,25 @@
       </table>
     </div>
   </md-card-content>
+  <md-card>
+    <md-card-content>
+      <h4>Wijmo as Grid:</h4>
+      <p><strong>Feature below have been added</strong></p>
+      <ul>
+        <li>Column resizing</li>
+        <li>Column reodering - drag and drop</li>
+      </ul>
+      <pre>
+      &lt;wj-flex-grid class="sGrid"
+              [itemsSource]="cvTrackingChangesExtra"
+              [allowResizing]="'Columns'">
+      &lt;/wj-flex-grid>
+      </pre>
+      <wj-flex-grid class="sGrid"
+                    [itemsSource]="cvTrackingChangesExtra"
+                    [allowResizing]="'Columns'">
+      </wj-flex-grid>
+
+    </md-card-content>
+  </md-card>
 </md-card>

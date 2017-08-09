@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/styles/app.scss"
+        "assets/styles/app.scss",
+        "assets/styles/wijmo/wijmo.min.scss"
       ],
       "scripts": [
         "../node_modules/hammerjs/hammer.min.js"

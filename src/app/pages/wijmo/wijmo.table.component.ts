@@ -48,7 +48,7 @@ export class WijmoTableComponent {
     this.cvEditing = new wjcCore.CollectionView(dataSvc.getData(10));
     this.cvPaging = new wjcCore.CollectionView(dataSvc.getData(55));
     this.cvTrackingChanges = new wjcCore.CollectionView(dataSvc.getData(100));
-    this.cvTrackingChangesExtra = new wjcCore.CollectionView(dataSvc.getData(100));
+    this.cvTrackingChangesExtra = new wjcCore.CollectionView(dataSvc.getData(10));
 
     this.fieldNames = dataSvc.getNames();
     this._thisFilterFunction = this._filterFunction.bind(this);
