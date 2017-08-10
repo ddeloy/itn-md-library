@@ -41,7 +41,7 @@ export class WijmoTableComponent {
   selectionMode = 'RowRange';
 
   @ViewChild('filters') filters: wjcGridFilter.FlexGridFilter;
-  @ViewChild('filterscustomn') filterscustom: wjcGridFilter.FlexGridFilter;
+  @ViewChild('filterscustom') filterscustom: wjcGridFilter.FlexGridFilter;
 
   constructor( @Inject(DataSvc) dataSvc: DataSvc) {
     // initialize the collectionview

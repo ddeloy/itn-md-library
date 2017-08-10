@@ -175,3 +175,9 @@ div[wj-part='root'] {
 .grid {
   border: 0!important
 }
+.wj-state-multi-selected {
+//  background: #e3eff8;
+//  color: #3b76a4;
+  background:mat-color($primary, 600) !important;
+  color:white !important;
+}
