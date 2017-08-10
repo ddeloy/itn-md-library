@@ -1,7 +1,8 @@
 import * as wjcCore from 'wijmo/wijmo';
+import * as wjcGridFilter from 'wijmo/wijmo.grid.filter';
 
 // Angular
-import { Component, EventEmitter, Provider, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import {Component, EventEmitter, Provider, Input, Inject, enableProdMode, NgModule, ViewChild} from '@angular/core';
 import { DataSvc } from '../services/DataSvc';
 
 // The feature component.
@@ -37,6 +38,10 @@ export class WijmoTableComponent {
   private _toFilter: any;
   private _thisFilterFunction: wjcCore.IPredicate;
   private _filter: string;
+  selectionMode = 'RowRange';
+
+  @ViewChild('filters') filters: wjcGridFilter.FlexGridFilter;
+  @ViewChild('filterscustomn') filterscustom: wjcGridFilter.FlexGridFilter;
 
   constructor( @Inject(DataSvc) dataSvc: DataSvc) {
     // initialize the collectionview
@@ -47,7 +52,7 @@ export class WijmoTableComponent {
     this.cvGrouping = new wjcCore.CollectionView(dataSvc.getData(20));
     this.cvEditing = new wjcCore.CollectionView(dataSvc.getData(10));
     this.cvPaging = new wjcCore.CollectionView(dataSvc.getData(55));
-    this.cvTrackingChanges = new wjcCore.CollectionView(dataSvc.getData(100));
+    this.cvTrackingChanges = new wjcCore.CollectionView(dataSvc.getData(10));
     this.cvTrackingChangesExtra = new wjcCore.CollectionView(dataSvc.getData(10));
 
     this.fieldNames = dataSvc.getNames();

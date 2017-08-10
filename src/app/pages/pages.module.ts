@@ -22,6 +22,7 @@ import { DocumentationComponent } from './docs/docs.component';
 import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
 import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 import {WjCoreModule} from 'wijmo/wijmo.angular2.core';
+import {WjGridFilterModule} from "wijmo/wijmo.angular2.grid.filter";
 import {DataSvc} from 'app/pages/services/DataSvc';
 import {FormattedModelAccessor} from './directives/FormattedModelAccessor';
 import {NumberInputAccessor} from './directives/NumberInputAccessor';
@@ -46,6 +47,7 @@ import {GlobalizePipe} from './pipes/appPipes';
     WjInputModule,
     WjGridModule,
     WjCoreModule,
+    WjGridFilterModule
   ],
   declarations: [
     WijmoTableComponent,
