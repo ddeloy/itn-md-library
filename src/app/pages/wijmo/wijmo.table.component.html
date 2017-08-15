@@ -6,9 +6,6 @@
       <a href="http://wijmo.com/angular2/" target="_blank">Wijmo Component Collection</a>
 
 
-      <!-- basic example -->
-      <h4>Basic Example: Behaves according to specification when mobile breakpoint is hit.</h4>
-
       <div class="example-viewer">
         <div class="example-viewer-title">
           Table - HTML Code Sample
@@ -402,95 +399,4 @@
       </table>
     </div>
   </md-card-content>
-  <md-card>
-    <md-card-content>
-      <h4>Wijmo as Grid:</h4>
-      <a href="http://ddeloy.com/flexgrid-ex-1/" target="_blank">Documentation - Basic</a><br/>
-      <a href="http://ddeloy.com/flexgrid-ex-filter-1/" target="_blank">Documentation - Filter Extension</a><br/>
-      <a href="http://wijmo.com/angular2/" target="_blank">Documentation: Wijmo FlexGrid Component Collection</a>
-      <h5>This is most basic implementation - minimal confiuration required.</h5>
-      <p>No grid customization with reagrd to header, columns and cells. Wijmo does this automatically for you if these attributes are unspecified. <br/>
-      Templating can be used to customize header, colum,ns and cells.</p>
-      <p><strong>Features below have been added</strong></p>
-      <ul>
-        <li>Column resizing</li>
-        <li>Selection mode - defined in ts file</li>
-        <li>Column reodering - drag and drop</li>
-        <li>isReadOnly - boolean</li>
-        <li>wj-flex-grid-filter extension must be added to component. Also need a template reference is ts.</li>
-      </ul>
-      <pre>
-      &lt;wj-flex-grid class="sGrid"
-              [itemsSource]="cvTrackingChangesExtra"
-              [allowResizing]="'Columns'"
-              [selectionMode]="selectionMode"
-              [isReadOnly]="true">
-      &lt;!-- wj-flex-grid-filter adds advanced filtering to all columns -->
-      &lt;!-- #filters is template reference in ts file -->
-      &lt;wj-flex-grid-filter #filters>&lt;/wj-flex-grid-filter>
-      &lt;/wj-flex-grid>
-      </pre>
-      <wj-flex-grid class="sGrid"
-                    [itemsSource]="cvTrackingChanges"
-                    [allowResizing]="'Columns'"
-                    [selectionMode]="selectionMode"
-                    [isReadOnly]="true"
-      >
-        <wj-flex-grid-filter #filters></wj-flex-grid-filter>
-      </wj-flex-grid>
-     <br/>
-      <h5>Customizing Grid</h5>
-      <p><strong>See links below for customization options.</strong></p>
-      <a href="http://ddeloy.com/flexgrid-ex-1/" target="_blank">Documentation - Basic</a><br/>
-      <a href="http://ddeloy.com/flexgrid-ex-2/" target="_blank">Documentation - Filter Extension</a><br/>
-      <a href="http://wijmo.com/angular2/" target="_blank">Documentation: Wijmo Component Collection</a>
-      <pre>
-      &lt;wj-flex-grid [itemsSource]="cvTrackingChangesExtra"
-                      [allowResizing]="'Columns'"
-                      [selectionMode]="selectionMode"
-                      [isReadOnly]="true" >
-        &lt;!-- Control which columns have filter -->
-        &lt;wj-flex-grid-filter
-          [filterColumns]="['id','country','color']"
-          #filtercustom>
-        &lt;/wj-flex-grid-filter>
-        &lt;wj-flex-grid-column [header]="'ID'" [binding]="'id'">&lt;/wj-flex-grid-column>
-        &lt;!-- See documentation for column width sizing options -->
-        &lt;wj-flex-grid-column [header]="'Country'" [binding]="'country'" [width]="'*'" [isReadOnly]="true">
-          &lt;ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
-            &lt;div>
-            &lt;!-- You can add event handlers or aspply custom styling to a cell -->
-              &#123;&#8203;&#123;cell.item.country}&#8203;}
-            &lt;/div>
-          &lt;/ng-template>
-        &lt;/wj-flex-grid-column>
-        &lt;wj-flex-grid-column [header]="'Product'" [binding]="'product'">&lt;/wj-flex-grid-column>
-        &lt;wj-flex-grid-column [header]="'Color'" [binding]="'color'">&lt;/wj-flex-grid-column>
-        &lt;wj-flex-grid-column [header]="'Revenue'" [binding]="'amount'" [format]="'n0'">&lt;/wj-flex-grid-column>
-        &lt;wj-flex-grid-column [header]="'Active'" [binding]="'active'">&lt;/wj-flex-grid-column>
-       &lt;/wj-flex-grid>
-      </pre>
-      <wj-flex-grid [itemsSource]="cvTrackingChangesExtra"
-                    [allowResizing]="'Columns'"
-                    [selectionMode]="selectionMode"
-                    [isReadOnly]="true"
-                    >
-        <wj-flex-grid-filter
-          [filterColumns]="['id','country','color']"
-          #filtercustom></wj-flex-grid-filter>
-        <wj-flex-grid-column [header]="'ID'" [binding]="'id'"></wj-flex-grid-column>
-        <wj-flex-grid-column [header]="'Country'" [binding]="'country'" [width]="'*'" [isReadOnly]="true">
-          <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
-            <div>
-              {{cell.item.country}}
-            </div>
-          </ng-template>
-        </wj-flex-grid-column>
-        <wj-flex-grid-column [header]="'Product'" [binding]="'product'"></wj-flex-grid-column>
-        <wj-flex-grid-column [header]="'Color'" [binding]="'color'"></wj-flex-grid-column>
-        <wj-flex-grid-column [header]="'Revenue'" [binding]="'amount'" [format]="'n0'"></wj-flex-grid-column>
-        <wj-flex-grid-column [header]="'Active'" [binding]="'active'"></wj-flex-grid-column>
-      </wj-flex-grid>
-    </md-card-content>
-  </md-card>
 </md-card>

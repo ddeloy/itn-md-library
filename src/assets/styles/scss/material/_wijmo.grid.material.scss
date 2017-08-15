@@ -10,11 +10,6 @@
     * http://wijmo.com/products/wijmo-5/license/
     *
     */
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-
-
 .wj-content, div[wj-part='cells'] {
   color: #555;
   background: #fff
@@ -26,30 +21,10 @@
 .wj-listbox-item:not(.wj-state-selected):hover {
   background: rgba(0,0,0,.04)
 }
-
 .wj-header {
-  background: mat-color($accent, 50);
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-//  height: 80px !important;
-  font-size: 0.8125rem;
-  color: mat-color($accent, 300);
-  font-weight: normal;
- }
-
-/*
-.wj-header.wj-cell {
-  color:red !important;
+  background: #fff;
+  color: #555
 }
-*/
-/* Need to just target the row - or cell height and not effect the header */
-/*
-.wj-cell:not(.wj-header.wj.cell)  {
-  padding-top:20px !important;
-  padding-bottom:10px !important;
-}
-*/
-
 .wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
   background: #eee;
   color: #888
@@ -61,7 +36,7 @@ div[wj-part='root'] {
   background: #f2f2f2
 }
 .wj-state-selected {
-  background: mat-color($primary, 500);
+  background: #2196f3;
   color: #fff
 }
 .wj-state-multi-selected {
@@ -76,25 +51,24 @@ div[wj-part='rhcells'] .wj-header {
   background: #fff
 }
 .wj-cell {
-  border-bottom: 1px solid mat-color($accent, 50);
-  border-right: none;
+  border-right: 0 solid rgba(0,0,0,.2);
+  border-bottom: 0 solid rgba(0,0,0,.2)
 }
-
 [dir="rtl"] .wj-cell {
-  border-bottom: 0 solid rgba(234,33,44,0.2);
+  border-left: 0 solid rgba(0,0,0,.2)
 }
 .wj-cell:not(.wj-header):not(.wj-group):not(.wj-alt):not(.wj-state-selected):not(.wj-state-multi-selected) {
   background: #fff
 }
 .wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
-  background: none;
+  background: #f2f2f2
 }
 .wj-frozen.wj-cell:not(.wj-header):not(.wj-group):not(.wj-alt):not(.wj-state-selected):not(.wj-state-multi-selected) {
-  background: none;
+  background: #eee;
   color: #555
 }
 .wj-frozen.wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
-  background: none;
+  background: #e1e1e1;
   color: #555
 }
 .wj-cell.wj-frozen-row {
@@ -108,7 +82,7 @@ div[wj-part='rhcells'] .wj-header {
 .wj-flexgrid .wj-header.wj-state-multi-selected {
   background: #f2f2f2;
   color: #555;
-  font-weight: 400
+  font-weight: bold
 }
 .wj-flexgrid .wj-colheaders .wj-header.wj-state-multi-selected {
   border-bottom: 2px solid #2196f3!important
@@ -126,15 +100,15 @@ div[wj-part='rhcells'] .wj-header {
 }
 .wj-content .wj-input-group-btn>.wj-btn, .wj-content .wj-btn-group>.wj-btn {
   background: #fff;
-  color: mat-color($accent, 500);
+  color: #555
 }
 .wj-content .wj-input-group-btn>.wj-btn:hover, .wj-content .wj-btn-group>.wj-btn:hover {
   background: #eee;
-  color: mat-color($accent, 500);
+  color: #555
 }
 .wj-content .wj-input-group-btn>.wj-btn:focus, .wj-content .wj-btn-group>.wj-btn:focus {
   background: #eee;
-  color: mat-color($accent, 500);
+  color: #555
 }
 .wj-content:not(.wj-dropdown-panel):not(.wj-listbox):not(.wj-flexgrid):not(.wj-calendar-outer) {
   border: 1px solid rgba(0,0,0,.2)
@@ -157,7 +131,7 @@ div[wj-part='rhcells'] .wj-header {
   fill: #2196f3
 }
 div[wj-part='ch'] .wj-header {
-  border-bottom: 1px solid mat-color($accent, 100);
+  border-bottom: 2px solid #666!important
 }
 div[wj-part='chcells'] .wj-header {
   border-bottom: 1px solid #ececec
@@ -165,7 +139,10 @@ div[wj-part='chcells'] .wj-header {
 div[wj-part='rhcells'] .wj-header {
   border-right: 0!important
 }
-
+.wj-dropdown-panel {
+  outline: none;
+  box-shadow: none
+}
 .wj-cell.wj-frozen {
   border: 0
 }
@@ -173,121 +150,14 @@ div[wj-part='root'] {
   background: #fff
 }
 .wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
-  background: none;
+  background: #f6f6f6
 }
 .wj-content:not(.wj-dropdown-panel):not(.wj-listbox):not(.wj-flexgrid):not(.wj-calendar-outer), .wj-btn-default, .wj-input-group-btn>.wj-btn {
-  border: none !important;
+  border-color: #e0e0e0
 }
-.wj-content {
-  border: 0 solid;
-}
-
 .wj-pager .wj-form-control {
   border: 0
 }
 .grid {
   border: 0!important
 }
-.wj-state-multi-selected {
-//  background: #e3eff8;
-//  color: #3b76a4;
-  background:mat-color($primary, 500) !important;
-  color:white !important;
-}
-
-
-.v-transform {
-  position: relative;
-  top: -75%;
-  transform: translateY(75%);
- // white-space: pre-wrap;
-}
-
-.v-transform-checkbox {
-  position: relative;
-  top: -95%;
-  transform: translateY(95%);
-  // white-space: pre-wrap;
-}
-/* Remove sort options of asc and dsc */
-div[wj-part='div-sort'] {
-  display:none;
-}
-/* The above is more efficient than the below */
-/*
-.wj-control a[wj-part^="btn-asc"] {
-  background: #e6e6e6;
-  padding: 6px 20px;
-  color: #444;
-  display: inline-block;
-  margin-top: 5px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: bold;
-  display:none !important;
-}
-.wj-control a[wj-part^="btn-dsc"] {
-  background: #e6e6e6;
-  padding: 6px 20px;
-  color: #444;
-  display: inline-block;
-  margin-top: 5px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: bold;
-  display:none !important;
-}
-*/
-/* Reverse order of apply and clear buttons */
-.wj-control a[wj-part^="btn-apply"] {
-  background: #e6e6e6;
-  padding: 6px 20px;
-  color: #444;
-  display: inline-block;
-  margin-top: 5px;
-  margin-left:5px !important;
-  float:right !important;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: bold;
-//  display:none !important;
-}
-
-.wj-dropdown-panel {
-  outline: none;
-//  box-shadow: none
-}
-/* Add border tp search input box */
-.wj-content .wj-input-group .wj-form-control {
-  color: #555;
-  background: #fff;
-  border:1px solid #CCCCCC !important;
-}
-
-/* Place here for reference */
-
-.wj-content, div[wj-part='cells'] {
-  color: #555;
-  background: #fff;
- }
-
-.wj-listbox-item {
-  font-size: 0.8125rem !important;
-  font-weight:normal !important;
-
-}
-
-.wj-listbox-item label:not([class^=mat-]):not([class*=" mat-"]) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-//  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-//  flex-direction: column;
-  width: 100%;
-  position: relative;
-}
-
-
-

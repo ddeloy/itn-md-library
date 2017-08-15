@@ -85,7 +85,8 @@ const MENUITEMS = [
     type: 'sub',
     icon: 'pages',
     children: [
-       {state: 'wijmo', name: 'Wijmo Tables'},
+      {state: 'wijmotable', name: 'Wijmo Table'},
+      {state: 'wijmogrid', name: 'Wijmo Grid'},
       {state: 'docs', name: 'Documentation'},
       ]
   },

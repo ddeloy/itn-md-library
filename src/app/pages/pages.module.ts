@@ -11,12 +11,15 @@ import {
   MdListModule,
   MdSlideToggleModule,
   MdSelectModule,
-  MdMenuModule } from '@angular/material';
+  MdMenuModule,
+  MdCheckboxModule
+} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { PagesRoutes } from './pages.routing';
 import { WijmoTableComponent } from './wijmo/wijmo.table.component';
+import { WijmoGridComponent } from "./wijmo-grid/wijmo.grid.component";
 import { DocumentationComponent } from './docs/docs.component';
 
 import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
@@ -28,9 +31,11 @@ import {FormattedModelAccessor} from './directives/FormattedModelAccessor';
 import {NumberInputAccessor} from './directives/NumberInputAccessor';
 import {GlobalizePipe} from './pipes/appPipes';
 
+
 @NgModule({
   imports: [
     CommonModule,
+    MdCheckboxModule,
     RouterModule.forChild(PagesRoutes),
     MdIconModule,
     MdCardModule,
@@ -51,6 +56,7 @@ import {GlobalizePipe} from './pipes/appPipes';
   ],
   declarations: [
     WijmoTableComponent,
+    WijmoGridComponent,
     DocumentationComponent,
     GlobalizePipe,
     FormattedModelAccessor,

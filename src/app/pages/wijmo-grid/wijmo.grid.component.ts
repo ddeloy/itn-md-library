@@ -9,10 +9,10 @@ import { DataSvc } from '../services/DataSvc';
 // The feature component.
 @Component({
   selector: 'app-wijmo',
-  templateUrl: 'wijmo.table.component.html'
+  templateUrl: 'wijmo.grid.component.html'
 })
 
-export class WijmoTableComponent {
+export class WijmoGridComponent {
 
   cvGettingStarted: wjcCore.CollectionView;
   cvCRM: wjcCore.CollectionView;
@@ -44,27 +44,11 @@ export class WijmoTableComponent {
   @ViewChild('filters') filters: wjcGridFilter.FlexGridFilter;
   @ViewChild('filterscustom') filterscustom: wjcGridFilter.FlexGridFilter;
 
- // @ViewChild('flexheight') flex: any;
-
-
+  /* Se overrides for default header and row height - initialize as indicated below */
   init(s: wjGrid.FlexGrid) {
     s.rows.defaultSize = 60
     s.columnHeaders.rows.defaultSize = 40;
-  //  this.filterscustom.filterChanging.addHandler(function () {
-    //  console.log('filter changing');
- // });
-
-
-
   }
-
-
-  // set the height of rows in the scrollable area
-//  flexheight;rows;defaultSize = 34;
-//  columnHeaders.rows.defaultSize = 40;
-// set the height of rows in the column header area
-//  flex.columnHeaders.rows.defaultSize = 40;
-
 
   constructor( @Inject(DataSvc) dataSvc: DataSvc) {
     // initialize the collectionview
