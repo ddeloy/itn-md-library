@@ -44,13 +44,13 @@
       &lt;/wj-flex-grid-filter>
       &lt;/wj-flex-grid>
       </pre>
-      <wj-flex-grid #defaultheight
+      <wj-flex-grid
                     [itemsSource]="cvTrackingChanges"
                     [allowResizing]="'Columns'"
                     [selectionMode]="selectionMode"
                     [isReadOnly]="true"
                     [headersVisibility]="'Column'"
-                    (initialized)="init(defaultheight)"
+
       >
         <wj-flex-grid-filter #filters
                              [defaultFilterType]="'Value'"
@@ -210,64 +210,6 @@
         </wj-flex-grid-column>
       </wj-flex-grid>
 
-      <wj-flex-grid #flexheight [itemsSource]="cvTrackingChangesExtra"
-                    [allowResizing]="'Columns'"
-                    [selectionMode]="selectionMode"
-                    [isReadOnly]="true"
-                    (initialized)="init(flexheight)"
-                    [headersVisibility]="'Column'"
-
-      >
-        <!--  [defaultFilterType]="'Value'", "'Condition'", "'Both"', "'None"' -->
-        <wj-flex-grid-filter
-          [filterColumns]="['country','product','color']"
-          #filterscustom     [defaultFilterType]="'Value'"></wj-flex-grid-filter>
-        <wj-flex-grid-column [header]="'ID'" [binding]="'id'" [align]="'center'">
-          <ng-template  wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
-            <div class="v-transform">
-              {{cell.item.id}}
-            </div>
-          </ng-template>
-        </wj-flex-grid-column>
-        <wj-flex-grid-column [header]="'Country'" [binding]="'country'" [isReadOnly]="true">
-          <ng-template  wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
-            <div class="v-transform">
-              {{cell.item.country}}
-            </div>
-          </ng-template>
-        </wj-flex-grid-column>
-        <wj-flex-grid-column [header]="'Product'" [binding]="'product'">
-          <ng-template  wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
-            <div class="v-transform">
-              {{cell.item.product}}
-            </div>
-          </ng-template>
-        </wj-flex-grid-column>
-        <wj-flex-grid-column [header]="'Color'" [binding]="'color'">
-          <ng-template  wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
-            <div class="v-transform">
-              {{cell.item.color}}
-            </div>
-          </ng-template>
-        </wj-flex-grid-column>
-        <wj-flex-grid-column [header]="'Revenue'" [binding]="'amount'" [format]="'n0'">
-          <ng-template  wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
-            <div class="v-transform">
-              {{cell.item.amount | number}}
-            </div>
-          </ng-template>
-        </wj-flex-grid-column>
-        <!-- [width]="'*'" -->
-        <wj-flex-grid-column [header]="'Active'"   [binding]="'active'">
-          <ng-template  wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
-            <div class="v-transform">
-              <!--  <input type="checkbox" [(ngModel)]="cell.item.active"> -->
-              <md-checkbox class="example-margin" [(ngModel)]="cell.item.active"></md-checkbox>
-
-            </div>
-          </ng-template>
-        </wj-flex-grid-column>
-      </wj-flex-grid>
 
 
 
