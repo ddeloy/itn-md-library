@@ -1,6 +1,7 @@
 
       <md-card>
         <md-card-content>
+          <div align="center">
           <form style="width:50%;" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="text-xs-center pb-1">
              <p class="mat-text-muted">Create an app id to continue.</p>
@@ -36,5 +37,6 @@
               <a [routerLink]="['/session/signin']">Access your account.</a>
             </div>
           </form>
+          </div>
         </md-card-content>
       </md-card>

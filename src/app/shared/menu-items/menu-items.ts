@@ -62,22 +62,22 @@ const MENUITEMS = [
       {state: 'dialogcustom', name: 'Dialog Custom'}
     ]
   },
-/*
+
   {
     state: 'session',
-    name: 'Layouts',
+    name: 'Session Layouts',
     type: 'sub',
     icon: 'face',
     children: [
       {state: '404', name: '404'},
      {state: 'error', name: 'ERROR'},
-      {state: 'signin', name: 'Right SideNav'},
+      {state: 'signin', name: 'Sign In'},
       {state: 'signup', name: 'SIGNUP'},
       {state: 'forgot', name: 'FORGOT'},
       {state: 'lockscreen', name: 'LOCKSCREEN'},
     ]
   },
-*/
+
 
   {
     state: 'pages',

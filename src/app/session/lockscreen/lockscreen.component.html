@@ -1,13 +1,14 @@
-<div class="session mat-indigo">
-  <div class="session-content">
-    <div class="lockscreen-wrapper text-xs-center">
+
       <md-card>
         <md-card-content>
-          <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="lockscreen-avatar">
-              <img src="assets/images/avatar.jpg" class="radius-round" alt="user" title="user"/>
+          <div align="center">
+          <form style="width:50%;" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="text-xs-center pb-1">
+
+              <p class="mat-text-muted">Lockscreen</p>
             </div>
-            <p class="center-block mt-1">John Doe</p>
+            <p class="center-block mt-1"></p>
             <div fxLayout="column" fxLayoutAlign="space-around">
               <div class="pb-1">
                 <md-input-container style="width: 100%">
@@ -18,8 +19,7 @@
               <div> <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">Unlock</button></div>
             </div>
           </form>
+          </div>
         </md-card-content>
       </md-card>
-    </div>
-  </div>
-</div>
+
