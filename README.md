@@ -1,4 +1,4 @@
-# DD Angular Material
+# DD Angular Material README
 
 Material design template built with Angular.
 
