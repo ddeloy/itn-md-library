@@ -9,6 +9,6 @@
 
 06/27/2017: Added custom styles for new nested menu tp app.scss.  TO DO: Move these to a partial
 
-07/08/2017: Major code cleanup and refactoring. Bug fix that was introduced in 07/07 commit
+07/08/2017: Major code cleanup and refactoring. Bug fix that was introduced in 07/07/2017 commit
 
 
